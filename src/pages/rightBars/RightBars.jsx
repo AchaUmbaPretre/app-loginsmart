@@ -1,3 +1,4 @@
+import Statistique from '../../components/statistique/Statistique'
 import './rightBars.scss'
 
 const RightBars = () => {
@@ -5,9 +6,7 @@ const RightBars = () => {
     <>
         <div className="rightBar">
             <div className="rightBar-wrapper">
-                SSSSSSSSSSSSSSDDDDDDDDDDDDD
-                SSSSSSSSSSSSSSDDDDDDDDDDDDD
-                SSSSSSSSSSSSSSDDDDDDDDDDDDD
+                <Statistique/>
             </div>
         </div>
     </>

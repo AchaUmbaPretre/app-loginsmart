@@ -1,0 +1,39 @@
+.statistique{
+    .statistique_wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .statistique_top{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            .statistique_top_right{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                .static-h2{
+                    font-weight: 700;
+                    font-size: 18px;
+                    color: #3b3b3b;
+                }
+                .static_desc{
+                    font-size: .7rem;
+                    color: #6d6d6d;
+                }
+            }
+            .statistique_top_left{
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                .date-picker {
+                    width: 100px;
+                    border-radius: 5px;
+                  }
+            }
+        }
+    }
+}
