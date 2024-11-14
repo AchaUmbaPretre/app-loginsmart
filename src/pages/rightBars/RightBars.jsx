@@ -5,7 +5,9 @@ const RightBars = () => {
     <>
         <div className="rightBar">
             <div className="rightBar-wrapper">
-                
+                SSSSSSSSSSSSSSDDDDDDDDDDDDD
+                SSSSSSSSSSSSSSDDDDDDDDDDDDD
+                SSSSSSSSSSSSSSDDDDDDDDDDDDD
             </div>
         </div>
     </>

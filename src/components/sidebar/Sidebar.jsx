@@ -37,7 +37,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        Click Studio
+        LOGINSMART
       </div>
       <Sider style={{ backgroundColor: '#2d3a4b' }}>
         <Menu
@@ -52,16 +52,16 @@ const Sidebar = () => {
             backgroundColor: '#2d3a4b', // Fond personnalisé
           }}
         >
-          <Item key="/" icon={<HomeOutlined />} onClick={toggleMenu}>
+          <Item key="/" icon={<HomeOutlined style={{ fontSize:'16px'}} />} onClick={toggleMenu}>
             <Link to="/">Accueil</Link>
           </Item>
-          <Item key="1" icon={<ApartmentOutlined />} onClick={toggleMenu}>
+          <Item key="1" icon={<ApartmentOutlined style={{ fontSize:'16px'}} />} onClick={toggleMenu}>
             <Link to='/departement'>Département</Link>
           </Item>
-          <Item key="2" icon={<DashboardOutlined />} onClick={toggleMenu}>
+          <Item key="2" icon={<DashboardOutlined style={{ fontSize:'16px'}} />} onClick={toggleMenu}>
             <Link to='/controle'>Contrôle de base</Link>
           </Item>
-          <SubMenu key="sub1" icon={<BankOutlined />} title="Bâtiment">
+          <SubMenu key="sub1" icon={<BankOutlined style={{ fontSize:'16px'}} />} title="Bâtiment">
             <Item key="3" onClick={toggleMenu}>
               <Link to='/batiment'>Liste des Bâtiments</Link>
             </Item>
@@ -70,7 +70,7 @@ const Sidebar = () => {
             </Item>
           </SubMenu>
 
-          <Item key="logout" icon={<LogoutOutlined />} className="logout-item">
+          <Item key="logout" icon={<LogoutOutlined style={{ fontSize:'16px'}}/>} className="logout-item">
             <Link>Déconnecter</Link>
           </Item>
         </Menu>
