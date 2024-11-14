@@ -2,6 +2,7 @@ import React from 'react';
 import { DatePicker, Button } from 'antd';
 import { ExportOutlined } from '@ant-design/icons';
 import './statistique.scss';
+import StatistiqueItems from '../statistiqueItems/StatistiqueItems';
 
 const Statistique = () => {
   return (
@@ -9,8 +10,8 @@ const Statistique = () => {
       <div className="statistique_wrapper">
         <div className="statistique_top">
           <div className="statistique_top_right">
-            <h2 className="static-h2">Accueil</h2>
-            <span className="static_desc">Desccccccccccccccccc</span>
+            {/* <h2 className="static-h2">Accueil</h2>
+            <span className="static_desc">Desccccccccccccccccc</span> */}
           </div>
           <div className="statistique_top_left">
             <div className="static_right">
@@ -25,10 +26,10 @@ const Statistique = () => {
         </div>
         <div className="statistique_bottom">
             <div className="static_bottom_right">
-aa
+                <StatistiqueItems/>
             </div>
             <div className="static_bottom_left">
-
+ffffffffffffffffff
             </div>
         </div>
       </div>
