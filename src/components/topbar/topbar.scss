@@ -1,50 +1,46 @@
 .topBar {
+    height: 60px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-    margin-left: 240px; // sidebar width
-    height: 64px;
+    position: fixed;
+    top: 0;
+    left: 240px; /* Assurez-vous que cela correspond à la largeur de la sidebar */
+    width: calc(100% - 240px); /* Ajusté pour exclure la sidebar */
+    z-index: 1000;
+    box-sizing: border-box;
   
-    .search {
+    .search-bar {
       display: flex;
       align-items: center;
-      background-color: #f3f4f6;
-      padding: 0.5rem;
+      max-width: 400px;
+      padding: 8px;
+      border: 1px solid #e0e0e0;
       border-radius: 8px;
+      background-color: #f7f8fa;
+  
       input {
         border: none;
-        background: none;
         outline: none;
-        padding-left: 0.5rem;
-        font-size: 1rem;
-        color: #4b5563;
+        background: transparent;
+        width: 100%;
+        margin-left: 10px;
+        font-size: 14px;
       }
     }
   
-    .actions {
+    .user-profile {
       display: flex;
       align-items: center;
-      gap: 1rem;
   
-      .notification,
-      .profile {
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f3f4f6;
-        border-radius: 50%;
+      .icon {
+        font-size: 18px;
+        color: #555;
+        margin-left: 20px;
         cursor: pointer;
-        color: #4b5563;
-        transition: background 0.3s;
-  
-        &:hover {
-          background-color: #e5e7eb;
-        }
       }
     }
   }

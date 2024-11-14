@@ -9,11 +9,11 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   const Layout = () => (
-    <div className='app-rows'>
-      <Topbar />
-      <div className="app-container">
-        <Sidebar/>
-        <div className="app-outlet">
+    <div className="app-layout">
+      <Sidebar />
+      <div className="main-content">
+        <Topbar />
+        <div className="content">
           <Outlet />
         </div>
       </div>
