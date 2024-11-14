@@ -24,7 +24,12 @@ const Statistique = () => {
           </div>
         </div>
         <div className="statistique_bottom">
+            <div className="static_bottom_right">
+aa
+            </div>
+            <div className="static_bottom_left">
 
+            </div>
         </div>
       </div>
     </div>

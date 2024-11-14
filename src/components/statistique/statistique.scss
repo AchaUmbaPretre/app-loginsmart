@@ -35,5 +35,19 @@
                   }
             }
         }
+        .statistique_bottom{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            .static_bottom_right{
+                flex:1;
+                background: red;
+            }
+            .static_bottom_left{
+                flex: 4;
+                background: yellow;
+            }
+        }
     }
 }
