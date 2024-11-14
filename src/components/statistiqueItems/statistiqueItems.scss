@@ -23,6 +23,24 @@
                 transform: translateY(-10px);
                 box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
             }
+            .static_h2{
+                font-weight: 300;
+                font-size: 15px;
+                color: #4d4d4d;
+                letter-spacing: 1;
+            }
+            .static_h1{
+                font-weight:900;
+                font-size: 30px;
+                color: #130e0e;
+                letter-spacing: 1;
+            }
+            .static-bottom{
+                .static_desc{
+                    font-weight: 300;
+                    font-size: .7rem;
+                }
+            }
         }
     }
 }
