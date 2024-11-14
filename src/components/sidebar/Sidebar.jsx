@@ -75,10 +75,10 @@ const Sidebar = () => {
           </Item>
         </Menu>
       </Sider>
-      <div className="upgrade-section">
+{/*       <div className="upgrade-section">
         <div className="upgrade-text">Gain in-depth insights, track performance, and optimize your strategies.</div>
         <div className="upgrade-button">Upgrade to Pro</div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 240px;
     height: 100vh;
-    background-color: #2d3a4b;
+    background-color: #2d3a4b; /* Bleu foncé professionnel */
     color: #ffffff !important;
     padding: 20px 0;
   
@@ -24,16 +24,16 @@
       .menu-item {
         display: flex;
         align-items: center;
-        font-size: 16px;
-        color: #c4c9d4;
-        padding: 8px;
+        font-size: 15px;
+        color: #B0BCC6; /* Gris clair pour le texte des éléments de menu */
+        padding: 10px;
         border-radius: 8px;
         cursor: pointer;
         transition: background 0.3s, color 0.3s;
   
         &:hover,
         &.active {
-          background-color: #1a2330;
+          background-color: #293A4B; /* Fond légèrement plus foncé sur hover */
           color: #ffffff;
         }
   
@@ -51,7 +51,7 @@
   
         .submenu-item {
           font-size: 14px;
-          color: #a0a5b1;
+          color: #A4B2C2; /* Gris encore plus clair pour les sous-menus */
           padding: 5px 0;
           cursor: pointer;
           transition: color 0.3s;
@@ -66,7 +66,7 @@
     .upgrade-section {
       margin-top: auto;
       padding: 20px;
-      background-color: #1a2330;
+      background-color: #293A4B; /* Fond plus foncé pour la section de mise à niveau */
       text-align: center;
       border-radius: 8px;
       color: #ffffff;
@@ -79,7 +79,7 @@
       .upgrade-button {
         display: inline-block;
         padding: 10px 20px;
-        background-color: #4b89ff;
+        background-color: #4b89ff; /* Bleu vif pour le bouton */
         color: #ffffff;
         font-weight: bold;
         border-radius: 4px;
@@ -87,7 +87,7 @@
         transition: background 0.3s;
   
         &:hover {
-          background-color: #3a70d1;
+          background-color: #3a70d1; /* Teinte légèrement plus foncée au survol */
         }
       }
     }
@@ -96,11 +96,11 @@
   /* Style pour les éléments du menu d'Ant Design */
   .ant-menu-item,
   .ant-menu-submenu-title {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     padding: 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    color: #ffffff !important;
+    color: #B0BCC6 !important; /* Gris clair pour le texte */
   }
 
   /* Changement de couleur au focus */
@@ -113,13 +113,13 @@
   /* Changement de couleur au survol */
   .ant-menu-item:hover,
   .ant-menu-submenu-title:hover {
-    background-color: #ffffff; /* Fond blanc lors du survol */
-    color: #000000 !important; /* Texte noir lors du survol */
+    background-color: #4b89ff; /* Bleu clair lors du survol */
+    color: #ffffff !important; /* Texte blanc lors du survol */
   }
 
   /* Ciblage des éléments actifs */
   .ant-menu-item-active,
   .ant-menu-submenu-title-active {
-    background-color: #ffffff; /* Fond blanc actif */
-    color: #000000 !important; /* Texte noir actif */
+    background-color: #293A4B; /* Fond plus foncé lors de l'élément actif */
+    color: #ffffff !important; /* Texte blanc lors de l'élément actif */
   }
