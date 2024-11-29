@@ -3,6 +3,7 @@ import { DatePicker, Button } from 'antd';
 import { ExportOutlined } from '@ant-design/icons';
 import './statistique.scss';
 import StatistiqueItems from '../statistiqueItems/StatistiqueItems';
+import ChartHome from '../chartHome/ChartHome';
 
 const Statistique = () => {
   return (
@@ -10,8 +11,6 @@ const Statistique = () => {
       <div className="statistique_wrapper">
         <div className="statistique_top">
           <div className="statistique_top_right">
-            {/* <h2 className="static-h2">Accueil</h2>
-            <span className="static_desc">Desccccccccccccccccc</span> */}
           </div>
           <div className="statistique_top_left">
             <div className="static_right">
@@ -29,7 +28,7 @@ const Statistique = () => {
                 <StatistiqueItems/>
             </div>
             <div className="static_bottom_left">
-ffffffffffffffffff
+              <ChartHome/>
             </div>
         </div>
       </div>

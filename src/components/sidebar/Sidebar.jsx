@@ -3,18 +3,11 @@ import './sidebar.scss';
 import {
   HomeOutlined,
   ApartmentOutlined,
-  FileDoneOutlined,
-  SettingOutlined,
   LogoutOutlined,
   TagOutlined,
   DashboardOutlined,
-  ProjectOutlined,
-  FileTextOutlined,
-  ArrowLeftOutlined,
-  ArrowRightOutlined,
   BankOutlined,
   DropboxOutlined,
-  TagsOutlined 
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -55,6 +48,20 @@ const Sidebar = () => {
           <Item key="/" icon={<HomeOutlined style={{ fontSize:'16px'}} />} onClick={toggleMenu}>
             <Link to="/">Accueil</Link>
           </Item>
+          <Item key="1" icon={<ApartmentOutlined style={{ fontSize:'16px'}} />} onClick={toggleMenu}>
+            <Link to='/departement'>Département</Link>
+          </Item>
+          <Item key="2" icon={<DashboardOutlined style={{ fontSize:'16px'}} />} onClick={toggleMenu}>
+            <Link to='/controle'>Contrôle de base</Link>
+          </Item>
+          <SubMenu key="sub1" icon={<BankOutlined style={{ fontSize:'16px'}} />} title="Bâtiment">
+            <Item key="3" onClick={toggleMenu}>
+              <Link to='/batiment'>Liste des Bâtiments</Link>
+            </Item>
+            <Item key="4" onClick={toggleMenu}>
+              <Link to='/liste_bins'>Liste des Bins</Link>
+            </Item>
+          </SubMenu>
           <Item key="1" icon={<ApartmentOutlined style={{ fontSize:'16px'}} />} onClick={toggleMenu}>
             <Link to='/departement'>Département</Link>
           </Item>

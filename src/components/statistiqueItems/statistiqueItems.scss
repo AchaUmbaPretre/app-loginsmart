@@ -1,7 +1,7 @@
 .statistique_item{
     .static_wrapper{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         .static_row{
             position: relative;
@@ -11,7 +11,7 @@
             box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
             padding: 15px 20px;
             border: 1px solid #f1f1f1;
-            border-radius: 20px;
+            border-radius: 10px;
             gap: 10px;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -23,17 +23,45 @@
                 transform: translateY(-10px);
                 box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
             }
-            .static_h2{
-                font-weight: 300;
-                font-size: 15px;
-                color: #4d4d4d;
-                letter-spacing: 1;
+            .static_row_title{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .static_h2{
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #040130;
+                    letter-spacing: 1px;
+                }
             }
-            .static_h1{
-                font-weight:900;
-                font-size: 30px;
-                color: #130e0e;
-                letter-spacing: 1;
+            .static_hr{
+                background: #ebebeb;
+                border: none;
+                height: 1px;
+                outline: none;
+            }
+            .static_center{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .static_h1{
+                    font-weight:900;
+                    font-size: 30px;
+                    color: #251744e7;
+                    letter-spacing: 1px;
+                }
+                .static_left{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 35px;
+                    width: 35px;
+                    border-radius: 50%;
+                    background: red;
+                    .static_icon{
+                        color: #fff;
+                    }
+                }
             }
             .static-bottom{
                 .static_desc{
