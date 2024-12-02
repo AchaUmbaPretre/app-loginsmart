@@ -32,7 +32,7 @@ const StatistiqueItems = () => {
                     <hr className="static_hr" />
                     <div className="static_center">
                         <h1 className="static_h1">100</h1>
-                        <div className="static_left" style={{background:'#2196F3'}}>
+                        <div className="static_left" style={{background:'#f50'}}>
                             <CarOutlined className='static_icon'/>
                         </div>
                     </div>
