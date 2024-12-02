@@ -47,7 +47,7 @@ const ListeVehicule = () => {
             columns={columns}
             dataSource={data}
             bordered
-            title={() => 'Header'}
+            title={() => 'Liste des voitures'}
             footer={() => 'Footer'}
         />
     </>
