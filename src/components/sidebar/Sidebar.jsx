@@ -42,6 +42,7 @@ const Sidebar = () => {
             height: '100%',
             borderRight: 0,
             width: '100%',
+            
             backgroundColor: '#2d3a4b', // Fond personnalisé
           }}
         >
