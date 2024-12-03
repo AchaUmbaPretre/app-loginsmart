@@ -20,7 +20,6 @@ const Sidebar = () => {
   const [openKeys, setOpenKeys] = useState([]);
 
   const toggleMenu = () => {
-    // Fonction de gestion de l'ouverture des menus
   };
 
   const onOpenChange = (keys) => {
