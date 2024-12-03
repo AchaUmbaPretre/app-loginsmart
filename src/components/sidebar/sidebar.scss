@@ -36,6 +36,7 @@
     border-radius: 50%;
     display: inline-block;
     margin-top: 20px;
+    margin-right: 2px;
   }
 
   .sidebar-h1 {
@@ -62,6 +63,7 @@
 .sidebar {
   .ant-menu-item,
   .ant-menu-submenu-title {
+    font-size: 1rem;
     color: #a4b2c2 !important; // Couleur personnalisée
   }
 
