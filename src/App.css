@@ -41,5 +41,6 @@
   margin-top: 50px;
   flex: 1;
   padding: 20px;
+  background: #fcfbfb;
   overflow-y: auto; /* Pour permettre le défilement du contenu principal */
 }
