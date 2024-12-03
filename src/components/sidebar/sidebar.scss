@@ -13,11 +13,10 @@
     background-color: #4b89ff;
     color: #ffffff;
     transform: translateX(5px);
-  }
-}
+  }}
 
 .icon {
-  font-size: 22px;
+  font-size: 50px;
   transition: color 0.3s ease;
   &:hover {
     color: #ffffff;
@@ -31,11 +30,12 @@
   .sidebar-h1 .title {
     background-color: #4b89ff;
     color: #ffffff;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: bold;
-    padding: 10px;
+    padding: 5px 9px;
     border-radius: 50%;
     display: inline-block;
+    margin-top: 20px;
   }
 
   .sidebar-h1 {
@@ -45,7 +45,7 @@
   }
 }
 
-.submenu {
+/* .submenu {
   border-left: 2px solid #4b89ff;
   padding-left: 15px;
   .submenu-item {
@@ -56,5 +56,24 @@
     &:hover {
       color: #ffffff;
     }
+  }
+} */
+
+.sidebar {
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    color: #a4b2c2 !important; // Couleur personnalisée
+  }
+
+  .ant-menu-item-selected,
+  .ant-menu-submenu-selected {
+    background-color: #4b89ff !important;
+    color: #ffffff !important;
+  }
+
+  .ant-menu-item:hover,
+  .ant-menu-submenu-title:hover {
+    color: #ffffff !important;
+    background-color: #4b89ff !important;
   }
 }

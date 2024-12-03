@@ -37,22 +37,23 @@ const Sidebar = () => {
           onOpenChange={onOpenChange}
           style={{
             backgroundColor: 'transparent',
-            color: '#ffffff',
+            color: '#a4b2c2', // Couleur personnalisée pour le texte
             fontSize: '18px',
           }}
         >
-          <Item key="/" icon={<HomeOutlined />} onClick={toggleMenu}>
+
+          <Item key="/" icon={<HomeOutlined style={{ fontSize: '22px', color: '#a4b2c2' }}/>} onClick={toggleMenu}>
             <Link to="/">Accueil</Link>
           </Item>
-          <Item key="/departement" icon={<ApartmentOutlined />} onClick={toggleMenu}>
+          <Item key="/departement" icon={<ApartmentOutlined style={{ fontSize: '22px', color: '#a4b2c2' }} />} onClick={toggleMenu}>
             <Link to="/departement">Carburant</Link>
           </Item>
-          <SubMenu key="sub1" icon={<BankOutlined />} title="Véhicule">
+          <SubMenu key="sub1" icon={<BankOutlined style={{ fontSize: '22px', color: '#a4b2c2' }} />} title="Véhicule">
             <Item key="/batiment">
               <Link to="/batiment">Liste des véhicules</Link>
             </Item>
           </SubMenu>
-          <Item key="logout" icon={<LogoutOutlined />} className="logout-item">
+          <Item key="logout" icon={<LogoutOutlined style={{ fontSize: '22px', color: '#a4b2c2' }} />} className="logout-item">
             <Link>Déconnexion</Link>
           </Item>
         </Menu>
