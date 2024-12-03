@@ -4,6 +4,7 @@ import './App.css';
 import Topbar from './components/topbar/Topbar';
 import Sidebar from './components/sidebar/Sidebar';
 import RightBars from './pages/rightBars/RightBars';
+import Chauffeur from './pages/chauffeur/Chauffeur';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,10 @@ function App() {
           { 
             path: '/', 
             element: <RightBars /> 
+          },
+          {
+            path: '/chauffeur', 
+            element: <Chauffeur /> 
           }
         ]
       }

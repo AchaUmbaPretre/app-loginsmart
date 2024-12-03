@@ -61,6 +61,9 @@ const Sidebar = () => {
             </Item>
           </SubMenu>
           <SubMenu key="sub3" icon={<TeamOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Personnel">
+            <Item key="/chauffeur">
+              <Link to="/chauffeur">Liste des chauffeurs</Link>
+            </Item>
             <Item key="/personnel">
               <Link to="/personnel">Gestion du Personnel</Link>
             </Item>
