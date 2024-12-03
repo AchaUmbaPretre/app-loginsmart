@@ -1,8 +1,7 @@
 import { Breadcrumb, Button, Input, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import './chauffeur.scss';
 
-const Chauffeur = ({ onAddChauffeur }) => {
+const Generateur = ({ onAddChauffeur }) => {
 
     const columns = [
         { 
@@ -11,7 +10,7 @@ const Chauffeur = ({ onAddChauffeur }) => {
             key: 'id', 
             render: (text, record, index) => index + 1, 
             width: "3%" 
-          },
+        },
         {
           title: 'Name',
           dataIndex: 'name',
@@ -79,13 +78,13 @@ const Chauffeur = ({ onAddChauffeur }) => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">Liste des chauffeurs</h2>
+                <h2 className="chauffeur_h2">Liste des génerateurs</h2>
                 <Breadcrumb
                 separator=">"
                 items={[
                     { title: 'Accueil', href: '/' },
                     { title: 'Gestion', href: '/gestion' },
-                    { title: 'Chauffeurs' },
+                    { title: 'Génerateur' },
                 ]}
                 className="chauffeur_breadcrumb"
                 />
@@ -93,7 +92,7 @@ const Chauffeur = ({ onAddChauffeur }) => {
             <div className="chauffeur_top_right">
                 <Space size="middle">
                 <Input
-                    placeholder="Rechercher un chauffeur"
+                    placeholder="Rechercher un génerateur"
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />
@@ -122,4 +121,4 @@ const Chauffeur = ({ onAddChauffeur }) => {
   );
 };
 
-export default Chauffeur;
+export default Generateur;

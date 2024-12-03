@@ -5,6 +5,8 @@ import Topbar from './components/topbar/Topbar';
 import Sidebar from './components/sidebar/Sidebar';
 import RightBars from './pages/rightBars/RightBars';
 import Chauffeur from './pages/chauffeur/Chauffeur';
+import Vehicule from './pages/vehicule/Vehicule';
+import Generateur from './pages/generateur/Generateur';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -33,6 +35,14 @@ function App() {
           {
             path: '/chauffeur', 
             element: <Chauffeur /> 
+          },
+          {
+            path: '/vehicule', 
+            element: <Vehicule /> 
+          },
+          {
+            path: '/generateur', 
+            element: <Generateur /> 
           }
         ]
       }

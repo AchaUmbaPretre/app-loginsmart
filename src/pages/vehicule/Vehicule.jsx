@@ -1,8 +1,7 @@
 import { Breadcrumb, Button, Input, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import './chauffeur.scss';
 
-const Chauffeur = ({ onAddChauffeur }) => {
+const Vehicule = ({ onAddChauffeur }) => {
 
     const columns = [
         { 
@@ -79,7 +78,7 @@ const Chauffeur = ({ onAddChauffeur }) => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">Liste des chauffeurs</h2>
+                <h2 className="chauffeur_h2">Liste des véhicules</h2>
                 <Breadcrumb
                 separator=">"
                 items={[
@@ -122,4 +121,4 @@ const Chauffeur = ({ onAddChauffeur }) => {
   );
 };
 
-export default Chauffeur;
+export default Vehicule;

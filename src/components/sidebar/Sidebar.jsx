@@ -57,7 +57,7 @@ const Sidebar = () => {
           </SubMenu>
           <SubMenu key="sub2" icon={<ToolOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Générateur">
             <Item key="/generateur">
-              <Link to="/generateur">Gestion Générateur</Link>
+              <Link to="/generateur">Liste des générateurs</Link>
             </Item>
           </SubMenu>
           <SubMenu key="sub3" icon={<TeamOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Personnel">
