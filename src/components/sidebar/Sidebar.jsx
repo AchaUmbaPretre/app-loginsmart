@@ -47,8 +47,8 @@ const Sidebar = () => {
           <Item key="/" icon={<HomeOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} onClick={toggleMenu}>
             <Link to="/">Accueil</Link>
           </Item>
-          <Item key="/departement" icon={<AppstoreAddOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} onClick={toggleMenu}>
-            <Link to="/departement">Carburant</Link>
+          <Item key="/carburant" icon={<AppstoreAddOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} onClick={toggleMenu}>
+            <Link to="/carburant">Carburant</Link>
           </Item>
           <SubMenu key="sub1" icon={<CarOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Véhicule">
             <Item key="/vehicule">
@@ -65,7 +65,7 @@ const Sidebar = () => {
               <Link to="/chauffeur">Liste des chauffeurs</Link>
             </Item>
             <Item key="/personnel">
-              <Link to="/personnel">Gestion du Personnel</Link>
+              <Link to="/personnel">Liste des Personnels</Link>
             </Item>
           </SubMenu>
           <SubMenu key="sub4" icon={<BankOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Approvisionnement">

@@ -7,6 +7,7 @@ import RightBars from './pages/rightBars/RightBars';
 import Chauffeur from './pages/chauffeur/Chauffeur';
 import Vehicule from './pages/vehicule/Vehicule';
 import Generateur from './pages/generateur/Generateur';
+import Personnel from './pages/personnel/Personnel';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -43,6 +44,10 @@ function App() {
           {
             path: '/generateur', 
             element: <Generateur /> 
+          },
+          {
+            path: '/personnel', 
+            element: <Personnel /> 
           }
         ]
       }

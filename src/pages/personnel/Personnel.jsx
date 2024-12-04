@@ -1,8 +1,7 @@
 import { Breadcrumb, Button, Input, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import './chauffeur.scss';
 
-const Chauffeur = ({ onAddChauffeur }) => {
+const Personnel = ({ onAddChauffeur }) => {
 
     const columns = [
         { 
@@ -79,21 +78,21 @@ const Chauffeur = ({ onAddChauffeur }) => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">Liste des chauffeurs</h2>
+                <h2 className="chauffeur_h2">Liste des personnels</h2>
                 <Breadcrumb
-                    separator=">"
-                    items={[
-                        { title: 'Accueil', href: '/' },
-                        { title: 'Gestion', href: '/gestion' },
-                        { title: 'Chauffeurs' },
-                    ]}
-                    className="chauffeur_breadcrumb"
+                separator=">"
+                items={[
+                    { title: 'Accueil', href: '/' },
+                    { title: 'Gestion', href: '/gestion' },
+                    { title: 'Personnel' },
+                ]}
+                className="chauffeur_breadcrumb"
                 />
             </div>
             <div className="chauffeur_top_right">
                 <Space size="middle">
                 <Input
-                    placeholder="Rechercher un chauffeur"
+                    placeholder="Rechercher un personnel"
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />
@@ -106,7 +105,7 @@ const Chauffeur = ({ onAddChauffeur }) => {
                     icon={<PlusCircleOutlined />}
                     onClick={onAddChauffeur}
                 >
-                    Nouveau chauffeur
+                    Nouveau personnel
                 </Button>
                 </Space>
             </div>
@@ -122,4 +121,4 @@ const Chauffeur = ({ onAddChauffeur }) => {
   );
 };
 
-export default Chauffeur;
+export default Personnel;
