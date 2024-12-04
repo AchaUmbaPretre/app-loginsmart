@@ -6,6 +6,7 @@ import StatistiqueItems from '../statistiqueItems/StatistiqueItems';
 import ChartHome from '../chartHome/ChartHome';
 
 const Statistique = () => {
+  
   return (
     <div className="statistique">
       <div className="statistique_wrapper">
