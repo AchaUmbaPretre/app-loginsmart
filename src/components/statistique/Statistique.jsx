@@ -1,9 +1,10 @@
 import React from 'react';
 import { DatePicker, Button } from 'antd';
-import { ExportOutlined } from '@ant-design/icons';
+import { ExportOutlined, DashboardOutlined } from '@ant-design/icons';
 import './statistique.scss';
 import StatistiqueItems from '../statistiqueItems/StatistiqueItems';
 import ChartHome from '../chartHome/ChartHome';
+import StaticTop from '../staticTop/StaticTop';
 
 const Statistique = () => {
 
@@ -12,7 +13,10 @@ const Statistique = () => {
       <div className="statistique_wrapper">
         <div className="statistique_top">
           <div className="statistique_top_right">
-          <h2 className="statistique_h2">Accueil</h2>
+            <div className="static_icon_row">
+              <DashboardOutlined className="static_icon" />
+            </div>
+            <h2 className="static-h2">Accueil</h2>
           </div>
           <div className="statistique_top_left">
             <div className="static_right">
@@ -24,6 +28,9 @@ const Statistique = () => {
               </Button>
             </div>
           </div>
+        </div>
+        <div className="statistique_center">
+          <StaticTop/>
         </div>
         <div className="statistique_bottom">
             <div className="static_bottom_right">
