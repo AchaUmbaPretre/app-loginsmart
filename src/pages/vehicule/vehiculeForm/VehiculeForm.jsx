@@ -142,7 +142,7 @@ const VehiculeForm = () => {
                                 {loadingData ? <Skeleton.Input active={true} /> :    <DatePicker 
                                                                                         picker="year" 
                                                                                         onChange={handleYearChange} 
-                                                                                        style={{ width: 150 }} 
+                                                                                        style={{width:'100%'}}
                                                                                         placeholder="Sélectionnez une année" 
                                                                                         />}
                             </Form.Item>
@@ -160,10 +160,10 @@ const VehiculeForm = () => {
                                 ]}
                             >
                                 {loadingData ? <Skeleton.Input active={true} /> :    <DatePicker 
-                                                                                        picker="year" 
-                                                                                        onChange={handleYearChange} 
-                                                                                        style={{ width: 150 }} 
-                                                                                        placeholder="Sélectionnez une année" 
+                                                                                            picker="year" 
+                                                                                            onChange={handleYearChange} 
+                                                                                            placeholder="Sélectionnez une année" 
+                                                                                            style={{width:'100%'}}
                                                                                         />}
                             </Form.Item>
                         </Col>
@@ -215,6 +215,36 @@ const VehiculeForm = () => {
                                 ]}
                             >
                             {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer la largeur" style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="hauteur"
+                                label="Hauteur"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un hauteur...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer l'hauteur..." style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="poids"
+                                label="Poids"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un poids...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le poids..." style={{width:'100%'}} />}
                             </Form.Item>
                         </Col>
 
