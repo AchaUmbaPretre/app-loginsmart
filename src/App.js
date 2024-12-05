@@ -8,6 +8,8 @@ import Chauffeur from './pages/chauffeur/Chauffeur';
 import Vehicule from './pages/vehicule/Vehicule';
 import Generateur from './pages/generateur/Generateur';
 import Personnel from './pages/personnel/Personnel';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -50,7 +52,9 @@ function App() {
             element: <Personnel /> 
           }
         ]
-      }
+      },
+      { path: '/login', element: <Login /> },
+      { path: '/register', element: <Register /> },
   ])
 
   return (

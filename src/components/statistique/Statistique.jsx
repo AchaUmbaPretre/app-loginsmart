@@ -6,12 +6,13 @@ import StatistiqueItems from '../statistiqueItems/StatistiqueItems';
 import ChartHome from '../chartHome/ChartHome';
 
 const Statistique = () => {
-  
+
   return (
     <div className="statistique">
       <div className="statistique_wrapper">
         <div className="statistique_top">
           <div className="statistique_top_right">
+          <h2 className="statistique_h2">Accueil</h2>
           </div>
           <div className="statistique_top_left">
             <div className="static_right">
