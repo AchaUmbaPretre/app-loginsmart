@@ -1,23 +1,8 @@
-import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
+import { Breadcrumb, Button, Input, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import VehiculeForm from './vehiculeForm/VehiculeForm';
-import { useState } from 'react';
+import './carburant.scss';
 
-const Vehicule = ({ onAddChauffeur }) => {
-  const [modalType, setModalType] = useState(null);
-
-  const closeAllModals = () => {
-    setModalType(null);
-  };
-
-  const openModal = (type, idBatiment = '') => {
-    closeAllModals();
-    setModalType(type);
-  };
-
-  const handleAddCroquis = ( idBatiment) =>{
-    openModal('addCroquis', idBatiment)
-  }
+const Carburant = ({ onAddChauffeur }) => {
 
     const columns = [
         { 
@@ -94,15 +79,15 @@ const Vehicule = ({ onAddChauffeur }) => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">Liste des véhicules</h2>
+                <h2 className="chauffeur_h2">Liste des carburants</h2>
                 <Breadcrumb
-                separator=">"
-                items={[
-                    { title: 'Accueil', href: '/' },
-                    { title: 'Gestion', href: '/gestion' },
-                    { title: 'Chauffeurs' },
-                ]}
-                className="chauffeur_breadcrumb"
+                    separator=">"
+                    items={[
+                        { title: 'Accueil', href: '/' },
+                        { title: 'Gestion', href: '/gestion' },
+                        { title: 'Carburant' },
+                    ]}
+                    className="chauffeur_breadcrumb"
                 />
             </div>
             <div className="chauffeur_top_right">
@@ -121,7 +106,7 @@ const Vehicule = ({ onAddChauffeur }) => {
                     icon={<PlusCircleOutlined />}
                     onClick={onAddChauffeur}
                 >
-                    Nouveau chauffeur
+                    Nouveau carburant
                 </Button>
                 </Space>
             </div>
@@ -133,18 +118,8 @@ const Vehicule = ({ onAddChauffeur }) => {
                 onChange={onChange} 
             />
         </div>
-        <Modal
-          title=""
-          visible={modalType === 'add'}
-          onCancel={closeAllModals}
-          footer={null}
-          width={700}
-          centered
-        >
-          <VehiculeForm/>
-        </Modal>
     </div>
   );
 };
 
-export default Vehicule;
+export default Carburant;

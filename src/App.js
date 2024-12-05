@@ -10,6 +10,8 @@ import Generateur from './pages/generateur/Generateur';
 import Personnel from './pages/personnel/Personnel';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
+import Carburant from './pages/carburant/Carburant';
+import Approvisionnement from './pages/approvisionnement/Approvisionnement'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -36,6 +38,10 @@ function App() {
             element: <RightBars /> 
           },
           {
+            path: '/carburant', 
+            element: <Carburant /> 
+          },
+          {
             path: '/chauffeur', 
             element: <Chauffeur /> 
           },
@@ -50,6 +56,10 @@ function App() {
           {
             path: '/personnel', 
             element: <Personnel /> 
+          },
+          {
+            path: '/approvisionnement', 
+            element: <Approvisionnement /> 
           }
         ]
       },
