@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './vehiculeForm.scss'
-import { Button, Form,Card, Input, Space, Row, Col, Select, notification, DatePicker, Skeleton, Modal, Divider, InputNumber } from 'antd';
+import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 const VehiculeForm = () => {
@@ -309,6 +310,45 @@ const VehiculeForm = () => {
                             >
                             {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer la capacité cartel..." style={{width:'100%'}} />}
                             </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="nbre_place"
+                                label="Nombre place"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un nombre place...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le nombre place..." style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="nbre_portes"
+                                label="Nombre portes"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir le nombre porte...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer la capacité cartel..." style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item name="img" label="Image du Véhicule">
+                                <Upload>
+                                    <Button icon={<UploadOutlined />}>Télécharger</Button>
+                                </Upload>
+                            </Form.Item>
+
                         </Col>
 
                     </Row>
