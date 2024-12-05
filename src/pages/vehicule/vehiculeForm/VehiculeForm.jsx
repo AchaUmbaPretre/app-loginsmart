@@ -283,31 +283,31 @@ const VehiculeForm = () => {
 
                         <Col xs={24} md={8}>
                             <Form.Item
-                                name="poids"
-                                label="Poids"
+                                name="capacite_radiateur"
+                                label="Capacité radiateur"
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir un poids...',
+                                        message: 'Veuillez fournir la capacité du radiateur...',
                                     },
                                 ]}
                             >
-                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le poids..." style={{width:'100%'}} />}
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer la capacité du radiateur..." style={{width:'100%'}} />}
                             </Form.Item>
                         </Col>
 
                         <Col xs={24} md={8}>
                             <Form.Item
-                                name="poids"
-                                label="Poids"
+                                name="capacite_carter"
+                                label="Capacité carter"
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir un poids...',
+                                        message: 'Veuillez fournir une capacité carter...',
                                     },
                                 ]}
                             >
-                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le poids..." style={{width:'100%'}} />}
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer la capacité cartel..." style={{width:'100%'}} />}
                             </Form.Item>
                         </Col>
 
