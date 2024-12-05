@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import './vehiculeForm.scss'
 import { Button, Form,Card, Input, Space, Row, Col, Select, notification, DatePicker, Skeleton, Modal } from 'antd';
 
 
 const VehiculeForm = () => {
     const [form] = Form.useForm();
+    const [loadingData, setLoadingData] = useState(false);
 
     const onFinish = () => {
 
@@ -24,7 +26,11 @@ const VehiculeForm = () => {
                     className="custom-form"
                     onFinish={onFinish}
                 >
-                    
+                    <Row gutter={12}>
+                        <Col xs={24} md={8}>
+
+                        </Col>
+                    </Row>
                 </Form>
             </div>
         </div>
