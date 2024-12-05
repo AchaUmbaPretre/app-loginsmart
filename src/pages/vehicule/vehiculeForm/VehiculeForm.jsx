@@ -248,6 +248,69 @@ const VehiculeForm = () => {
                             </Form.Item>
                         </Col>
 
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="id_couleur"
+                                label="Couleur"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir une couleur...',
+                                    },
+                                ]}
+                            >
+                                <Select placeholder="Choisir une couleur">
+                                    <Option value="1">Couleur 1</Option>
+                                    <Option value="2">Couleur 2</Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="capacite_carburant"
+                                label="Capacité carburant"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir la capacité du carburant...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer la capacité du carburant..." style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="poids"
+                                label="Poids"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un poids...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le poids..." style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="poids"
+                                label="Poids"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un poids...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le poids..." style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
                     </Row>
                 </Form>
             </div>
