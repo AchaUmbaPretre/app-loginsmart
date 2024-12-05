@@ -344,11 +344,108 @@ const VehiculeForm = () => {
 
                         <Col xs={24} md={8}>
                             <Form.Item name="img" label="Image du Véhicule">
-                                <Upload>
+                                <Upload  >
                                     <Button icon={<UploadOutlined />}>Télécharger</Button>
                                 </Upload>
                             </Form.Item>
 
+                        </Col>
+
+                        <Divider>Moteur</Divider>
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="nbre_moteur"
+                                label="Nombre moteur"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un nombre de moteur...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le nombre de moteur..." style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="cylindre"
+                                label="Cylindre"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir le cylindre...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le cylindre..." style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="cylindre"
+                                label="Nombre de cylindre"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir le Nombre de cylindre...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le Nombre de cylindre..." style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="disposition_cylindre"
+                                label="Disposition"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir une disposition...',
+                                    },
+                                ]}
+                            >
+                                <Select placeholder="Choisir une disposition">
+                                    <Option value="1">Dispo 1</Option>
+                                    <Option value="2">Dispo 2</Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="id_type_carburant"
+                                label="Type carburant"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un carburant...',
+                                    },
+                                ]}
+                            >
+                                <Select placeholder="Choisir un type de carburant">
+                                    <Option value="1">Type carburant 1</Option>
+                                    <Option value="2">Type carburant 2</Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="regime_moteur_vehicule"
+                                label="Regime moteur"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un regime moteur...',
+                                    },
+                                ]}
+                            >
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le regime moteur" />}
+                            </Form.Item>
                         </Col>
 
                     </Row>
