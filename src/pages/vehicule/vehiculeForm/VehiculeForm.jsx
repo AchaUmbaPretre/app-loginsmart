@@ -493,7 +493,76 @@ const VehiculeForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le km initial" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir le km initial" style={{width:'100%'}}/>}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="puissance"
+                                label="Puissance"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir la puissance...',
+                                    },
+                                ]}
+                            >
+                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir la puissance" style={{width:'100%'}}/>}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="id_transmission"
+                                label="Transmission"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir une transmission...',
+                                    },
+                                ]}
+                            >
+                                <Select placeholder="Choisir une Transmission">
+                                    <Option value="1">Transmission 1</Option>
+                                    <Option value="2">Transmission 2</Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="id_climatisation"
+                                label="Climatisation"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir une climatisation...',
+                                    },
+                                ]}
+                            >
+                                <Select placeholder="Choisir une climatisation">
+                                    <Option value="1">Climatisation 1</Option>
+                                    <Option value="2">Climatisation 2</Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="pneus"
+                                label="Type de pneu"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un pneu...',
+                                    },
+                                ]}
+                            >
+                                <Select placeholder="Choisir un pneu">
+                                    <Option value="1">Pneu 1</Option>
+                                    <Option value="2">Pneu 2</Option>
+                                </Select>
                             </Form.Item>
                         </Col>
 
