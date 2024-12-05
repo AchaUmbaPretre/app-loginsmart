@@ -3,7 +3,7 @@ import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/
 import VehiculeForm from './vehiculeForm/VehiculeForm';
 import { useState } from 'react';
 
-const Vehicule = ({ onAddChauffeur }) => {
+const Vehicule = () => {
   const [modalType, setModalType] = useState(null);
 
   const closeAllModals = () => {
@@ -15,8 +15,8 @@ const Vehicule = ({ onAddChauffeur }) => {
     setModalType(type);
   };
 
-  const handleAddCroquis = ( idBatiment) =>{
-    openModal('addCroquis', idBatiment)
+  const handleAdd = ( idBatiment) =>{
+    openModal('add', idBatiment)
   }
 
     const columns = [
@@ -119,7 +119,7 @@ const Vehicule = ({ onAddChauffeur }) => {
                     className="chauffeur_btn"
                     type="primary"
                     icon={<PlusCircleOutlined />}
-                    onClick={onAddChauffeur}
+                    onClick={handleAdd}
                 >
                     Nouveau chauffeur
                 </Button>
@@ -138,7 +138,7 @@ const Vehicule = ({ onAddChauffeur }) => {
           visible={modalType === 'add'}
           onCancel={closeAllModals}
           footer={null}
-          width={700}
+          width={900}
           centered
         >
           <VehiculeForm/>
