@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './vehiculeForm.scss'
-import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber } from 'antd';
+import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
@@ -439,12 +439,61 @@ const VehiculeForm = () => {
                                 label="Regime moteur"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir un regime moteur...',
                                     },
                                 ]}
                             >
                                 {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le regime moteur" />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="consommation_carburant"
+                                label="Consommation carburant"
+                                rules={[
+                                    {
+                                        required: false,
+                                        message: 'Veuillez fournir une Consommation carburant...',
+                                    },
+                                ]}
+                            >
+                                <Radio.Group>
+                                    <Radio value={1}>OUI</Radio>
+                                    <Radio value={2}>NON</Radio>
+                                </Radio.Group>
+                            </Form.Item>
+                        </Col>
+
+                        <Divider>Information complementaires</Divider>
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="date_service"
+                                label="Mise en service"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir une date service...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <DatePicker style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="km_initial"
+                                label="Km initial"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un km initial...',
+                                    },
+                                ]}
+                            >
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le km initial" />}
                             </Form.Item>
                         </Col>
 
