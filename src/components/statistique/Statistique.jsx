@@ -5,6 +5,7 @@ import './statistique.scss';
 import StatistiqueItems from '../statistiqueItems/StatistiqueItems';
 import ChartHome from '../chartHome/ChartHome';
 import StaticTop from '../staticTop/StaticTop';
+import PiaChart from '../piaChart/PiaChart';
 
 const Statistique = () => {
 
@@ -34,7 +35,7 @@ const Statistique = () => {
         </div>
         <div className="statistique_bottom">
             <div className="static_bottom_right">
-                <StatistiqueItems/>
+                <PiaChart/>
             </div>
             <div className="static_bottom_left">
               <ChartHome/>

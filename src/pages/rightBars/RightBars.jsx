@@ -3,6 +3,7 @@ import PiaChart from '../../components/piaChart/PiaChart';
 import Statistique from '../../components/statistique/Statistique';
 import ListeVehicule from '../listeVehicule/ListeVehicule';
 import './rightBars.scss';
+import StatistiqueItems from '../../components/statistiqueItems/StatistiqueItems';
 
 const RightBars = () => {
   return (
@@ -15,7 +16,7 @@ const RightBars = () => {
           <ListeVehicule />
         </div>
         <div className="pia-chart">
-          <PiaChart />
+          <StatistiqueItems />
         </div>
       </div>
     </div>
