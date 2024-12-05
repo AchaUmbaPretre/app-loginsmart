@@ -1,47 +1,110 @@
 .topBar {
-    height: 60px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 0 20px;
+  height: 70px;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 240px;
+  width: calc(100% - 240px);
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #f3f4f6;
+  }
+
+  .menu-icon {
+    font-size: 22px;
+    cursor: pointer;
+    color: #6c63ff;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+
+  .search-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 240px; /* Assurez-vous que cela correspond à la largeur de la sidebar */
-    width: calc(100% - 240px); /* Ajusté pour exclure la sidebar */
-    z-index: 1000;
-    box-sizing: border-box;
-  
-    .search-bar {
-      display: flex;
-      align-items: center;
-      max-width: 400px;
-      padding: 8px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      background-color: #f7f8fa;
-  
-      input {
-        border: none;
-        outline: none;
-        background: transparent;
-        width: 100%;
-        margin-left: 10px;
-        font-size: 14px;
+    max-width: 400px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    background-color: #f7f8fa;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:focus-within {
+      border-color: #6c63ff;
+      box-shadow: 0 2px 6px rgba(108, 99, 255, 0.2);
+    }
+
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      width: 100%;
+      margin-left: 10px;
+      font-size: 15px;
+      color: #333;
+    }
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .icon {
+      font-size: 20px;
+      color: #555;
+      cursor: pointer;
+      transition: color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        color: #6c63ff;
+        transform: scale(1.1);
       }
     }
-  
-    .user-profile {
+
+    .user-info {
       display: flex;
       align-items: center;
-  
-      .icon {
-        font-size: 18px;
-        color: #555;
-        margin-left: 20px;
-        cursor: pointer;
+      gap: 10px;
+      cursor: pointer;
+      padding: 5px 12px;
+      border-radius: 30px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background-color: rgba(108, 99, 255, 0.1);
+        box-shadow: 0 4px 8px rgba(108, 99, 255, 0.2);
+      }
+
+      .user-name {
+        font-size: 15px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .down-icon {
+        font-size: 14px;
+        color: #999;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: rotate(180deg);
+        }
       }
     }
   }
-  
+}
