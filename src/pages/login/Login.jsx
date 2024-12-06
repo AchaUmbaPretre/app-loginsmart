@@ -6,20 +6,7 @@ const Login = () => {
   const [form] = Form.useForm();
 
   const handleLogin = (values) => {
-    fetch('http://votre-api-endpoint/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values),
-    })
-      .then((response) => {
-        if (response.ok) {
-          message.success('Connexion réussie !');
-          form.resetFields();
-        } else {
-          message.error('Email ou mot de passe incorrect.');
-        }
-      })
-      .catch(() => message.error('Une erreur est survenue.'));
+    
   };
 
   return (
