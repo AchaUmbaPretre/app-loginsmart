@@ -1,13 +1,13 @@
 import axios from 'axios';
-import store from '../redux/store'; 
-import { logout, refreshAccessToken } from '../redux/authSlice';
+import store from '../redux/store';
+import { logout, refreshAccessToken, updateRefreshToken } from '../redux/authSlice';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8080',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  baseURL: 'http://localhost:8080',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 api.interceptors.request.use(
   (config) => {
@@ -27,21 +27,35 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
+    // Si la réponse est 401 (non autorisé) et qu'on n'a pas encore essayé de renouveler le token
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
-        // Rafraîchir le token
-        const response = await axios.post('http://localhost:8080/api/auth/refresh', {}, { withCredentials: true });
+        const state = store.getState();
+        const refreshToken = state.auth.refreshToken; // Récupérer le refreshToken de Redux
 
-        const { accessToken } = response.data;
-        store.dispatch(refreshAccessToken(accessToken)); // Met à jour le token dans Redux
+        if (!refreshToken) {
+          store.dispatch(logout()); // Si pas de refreshToken, déconnecter l'utilisateur
+          return Promise.reject(error);
+        }
 
-        // Réessaye la requête avec le nouveau token
+        // Envoyer une requête pour rafraîchir le token avec le refreshToken
+        const response = await axios.post(
+          'http://localhost:8080/api/auth/refresh',
+          { refreshToken },
+          { withCredentials: true } // On envoie le refreshToken dans la requête
+        );
+
+        const { accessToken, refreshToken: newRefreshToken } = response.data;
+        store.dispatch(refreshAccessToken(accessToken)); // Mettre à jour le accessToken dans Redux
+        store.dispatch(updateRefreshToken(newRefreshToken)); // Mettre à jour le refreshToken dans Redux
+
+        // Réessayer la requête initiale avec le nouveau accessToken
         originalRequest.headers.Authorization = `Bearer ${accessToken}`;
         return api(originalRequest);
       } catch (err) {
-        store.dispatch(logout());
+        store.dispatch(logout()); // Déconnexion en cas d'échec du renouvellement du token
         return Promise.reject(err);
       }
     }
@@ -51,4 +65,3 @@ api.interceptors.response.use(
 );
 
 export default api;
-

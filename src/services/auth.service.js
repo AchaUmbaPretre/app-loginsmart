@@ -15,8 +15,8 @@ const AuthService = {
 
   login: async (email, mot_de_passe) => {
     const response = await api.post('/api/auth/login', { email, mot_de_passe });
-    const { accessToken, user } = response.data;
-    store.dispatch(login({ accessToken, user }));
+    const { accessToken, refreshToken, user } = response.data;
+    store.dispatch(login({ accessToken, refreshToken, user }));
     return response.data;
   },
 
