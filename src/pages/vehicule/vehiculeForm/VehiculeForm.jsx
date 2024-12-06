@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import './vehiculeForm.scss'
-import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio } from 'antd';
+import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 const VehiculeForm = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const handleYearChange = (date, dateString) => {
         console.log("Selected year:", dateString);
@@ -596,6 +598,18 @@ const VehiculeForm = () => {
                                     <Option value="1">Lubrifiant 1</Option>
                                     <Option value="2">Lubrifiant 2</Option>
                                 </Select>
+                            </Form.Item>
+                        </Col>
+                        <Col xs={24}>
+                            <Form.Item>
+                                <Space className="button-group">
+                                    <Button type="primary" htmlType="submit" loading={isLoading} disabled={isLoading}>
+                                        {'Ajouter'}
+                                    </Button>
+                                    <Button htmlType="reset">
+                                        Réinitialiser
+                                    </Button>
+                                </Space>
                             </Form.Item>
                         </Col>
                     </Row>
