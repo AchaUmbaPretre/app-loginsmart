@@ -12,6 +12,7 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Carburant from './pages/carburant/Carburant';
 import Approvisionnement from './pages/approvisionnement/Approvisionnement'
+import VehiculeForm from './pages/vehicule/vehiculeForm/VehiculeForm';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -48,6 +49,10 @@ function App() {
           {
             path: '/vehicule', 
             element: <Vehicule /> 
+          },
+          {
+            path: '/new_vehicule', 
+            element: <VehiculeForm /> 
           },
           {
             path: '/generateur', 
