@@ -1,12 +1,22 @@
 import React from 'react';
 import './login.scss';
 import { Form, Input, Button, message } from 'antd';
+import AuthService from '../../services/auth.service';  // Assurez-vous que le chemin est correct
 
 const Login = () => {
   const [form] = Form.useForm();
 
-  const handleLogin = (values) => {
-    
+  const handleLogin = async (values) => {
+    try {
+      const { email, mot_de_passe } = values;
+      const response = await AuthService.login(email, mot_de_passe);
+      if (response) {
+        message.success('Connexion réussie');
+        // Vous pouvez rediriger l'utilisateur ou effectuer d'autres actions après la connexion.
+      }
+    } catch (error) {
+      message.error('Échec de la connexion, veuillez vérifier vos identifiants.');
+    }
   };
 
   return (

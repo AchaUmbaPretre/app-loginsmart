@@ -1,8 +1,13 @@
 import api from '../utils/api';
-import { login } from '../redux/authSlice';
+import { login, logout } from '../redux/authSlice';
 import store from '../redux/store';
 
 const AuthService = {
+
+  register : async (nom, prenom, email, mot_de_passe, img) => {
+    await api.post('/auth/register', {nom, prenom, email, mot_de_passe, img})
+  },
+
   login: async (email, mot_de_passe) => {
     const response = await api.post('/auth/login', { email, mot_de_passe });
     const { accessToken, user } = response.data;
