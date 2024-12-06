@@ -13,10 +13,7 @@ import { useSelector } from 'react-redux';
 
 
 const Topbar = () => {
-  const [userName] = useState("John Doe");
-  const nom = useSelector((state) => state);
-
-  console.log(nom)
+  const userName = useSelector((state) => state.auth.user.nom);
 
   const menu = (
     <Menu
