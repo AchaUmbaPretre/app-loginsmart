@@ -138,7 +138,7 @@ const Vehicule = () => {
           visible={modalType === 'add'}
           onCancel={closeAllModals}
           footer={null}
-          width={900}
+          width={1023}
           centered
         >
           <VehiculeForm/>

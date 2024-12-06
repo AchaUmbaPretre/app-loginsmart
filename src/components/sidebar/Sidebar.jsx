@@ -10,7 +10,7 @@ import {
   LogoutOutlined,
   BankOutlined,
 } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const { Sider } = Layout;
@@ -18,6 +18,7 @@ const { SubMenu, Item } = Menu;
 
 const Sidebar = () => {
   const [openKeys, setOpenKeys] = useState([]);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
   };
@@ -30,7 +31,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <h1 className="sidebar-h1"><span className='title'>L</span>OGINSMART</h1>
+        <h1 className="sidebar-h1" onClick={()=>navigate('/')}><span className='title'>L</span>OGINSMART</h1>
       </div>
       <Sider width={240} style={{ backgroundColor: 'transparent' }}>
         <Menu

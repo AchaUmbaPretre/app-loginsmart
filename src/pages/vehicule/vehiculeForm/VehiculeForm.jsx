@@ -393,7 +393,7 @@ const VehiculeForm = () => {
                                     },
                                 ]}
                             >
-                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Entrer le Nombre de cylindre..." style={{width:'100%'}} />}
+                            {loadingData ? <Skeleton.Input active={true} /> : <InputNumber min={0} placeholder="Entrer le Nombre de cylindre..." style={{width:'100%'}} />}
                             </Form.Item>
                         </Col>
 
@@ -444,7 +444,7 @@ const VehiculeForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le regime moteur" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input min={0} placeholder="Saisir le regime moteur" />}
                             </Form.Item>
                         </Col>
 
@@ -493,7 +493,7 @@ const VehiculeForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir le km initial" style={{width:'100%'}}/>}
+                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber min={0} placeholder="Saisir le km initial" style={{width:'100%'}}/>}
                             </Form.Item>
                         </Col>
 
@@ -508,7 +508,7 @@ const VehiculeForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir la puissance" style={{width:'100%'}}/>}
+                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber min={0} placeholder="Saisir la puissance" style={{width:'100%'}}/>}
                             </Form.Item>
                         </Col>
 
@@ -563,6 +563,21 @@ const VehiculeForm = () => {
                                     <Option value="1">Pneu 1</Option>
                                     <Option value="2">Pneu 2</Option>
                                 </Select>
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="valeur_acquisition"
+                                label="Valeur d'acquisition"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir la valeur d acquisition...',
+                                    },
+                                ]}
+                            >
+                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber min={0} placeholder="Saisir la valeur d acquisition" style={{width:'100%'}}/>}
                             </Form.Item>
                         </Col>
 
