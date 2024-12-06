@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store from '../redux/store';
+import { store} from '../redux/store';
 import { logout, refreshAccessToken, updateRefreshToken } from '../redux/authSlice';
 
 const api = axios.create({

@@ -2,9 +2,11 @@ import React from 'react';
 import './login.scss';
 import { Form, Input, Button, message } from 'antd';
 import AuthService from '../../services/auth.service';  // Assurez-vous que le chemin est correct
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const handleLogin = async (values) => {
     try {
@@ -12,6 +14,7 @@ const Login = () => {
       const response = await AuthService.login(email, mot_de_passe);
       if (response) {
         message.success('Connexion réussie');
+        navigate('/')
         // Vous pouvez rediriger l'utilisateur ou effectuer d'autres actions après la connexion.
       }
     } catch (error) {

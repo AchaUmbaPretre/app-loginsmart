@@ -9,9 +9,14 @@ import {
 } from '@ant-design/icons';
 import { Dropdown, Menu, Avatar, Tooltip } from 'antd';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 
 const Topbar = () => {
   const [userName] = useState("John Doe");
+  const nom = useSelector((state) => state);
+
+  console.log(nom)
 
   const menu = (
     <Menu

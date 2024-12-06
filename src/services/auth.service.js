@@ -1,6 +1,6 @@
 import api from '../utils/api';
 import { login, logout } from '../redux/authSlice';
-import store from '../redux/store';
+import { store } from '../redux/store';
 
 const AuthService = {
 
