@@ -4,12 +4,16 @@ import store from '../redux/store';
 
 const AuthService = {
 
-  register : async (nom, prenom, email, mot_de_passe, img) => {
-    await api.post('/auth/register', {nom, prenom, email, mot_de_passe, img})
-  },
-
+ register: async (formData) => {
+        try {
+          const response = await api.post('/api/auth/register', formData);
+          return response.data; // Retourne la réponse ou effectue une action supplémentaire si nécessaire
+        } catch (error) {
+          throw error; // Lance l'erreur pour être capturée dans le composant
+        }
+      },
   login: async (email, mot_de_passe) => {
-    const response = await api.post('/auth/login', { email, mot_de_passe });
+    const response = await api.post('/api/auth/login', { email, mot_de_passe });
     const { accessToken, user } = response.data;
     store.dispatch(login({ accessToken, user }));
     return response.data;
