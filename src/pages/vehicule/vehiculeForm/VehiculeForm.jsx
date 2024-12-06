@@ -20,7 +20,7 @@ const VehiculeForm = () => {
     <>
         <div className="vehiculeForm">
             <div className="vehicule_row_title">
-                <div className="title_h2">Formulaire</div>
+                <h2 className="title_h2">Formulaire du véhicule</h2>
             </div>
             <div className="vehiculeForm_wrapper">
                 <Form
@@ -32,7 +32,7 @@ const VehiculeForm = () => {
                     onFinish={onFinish}
                 >
                     <Row gutter={12}>
-                        <Divider>Identification</Divider>
+                        <Divider className='title_row'>Identification</Divider>
                         <Col xs={24} md={8}>
                             <Form.Item
                                 name="immatriculation"
@@ -187,7 +187,7 @@ const VehiculeForm = () => {
                             </Form.Item>
                         </Col>
 
-                        <Divider>Dimensions et Poids</Divider>
+                        <Divider className='title_row'>Dimensions et Poids</Divider>
 
                         <Col xs={24} md={8}>
                             <Form.Item
@@ -351,7 +351,7 @@ const VehiculeForm = () => {
 
                         </Col>
 
-                        <Divider>Moteur</Divider>
+                        <Divider className='title_row'>Moteur</Divider>
                         <Col xs={24} md={8}>
                             <Form.Item
                                 name="nbre_moteur"
@@ -466,7 +466,7 @@ const VehiculeForm = () => {
                             </Form.Item>
                         </Col>
 
-                        <Divider>Information complementaires</Divider>
+                        <Divider className='title_row'>Information complementaires</Divider>
                         <Col xs={24} md={8}>
                             <Form.Item
                                 name="date_service"
@@ -581,6 +581,23 @@ const VehiculeForm = () => {
                             </Form.Item>
                         </Col>
 
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="lubrifiant_moteur"
+                                label="Lubrifiant"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un lubrifiant moteur...',
+                                    },
+                                ]}
+                            >
+                                <Select placeholder="Choisir un lubrifiant moteur">
+                                    <Option value="1">Lubrifiant 1</Option>
+                                    <Option value="2">Lubrifiant 2</Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
                     </Row>
                 </Form>
             </div>
