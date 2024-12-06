@@ -9,7 +9,7 @@ const AuthService = {
           const response = await api.post('/api/auth/register', formData);
           return response.data; 
         } catch (error) {
-          throw error; // Lance l'erreur pour être capturée dans le composant
+          throw error;
         }
       },
 
