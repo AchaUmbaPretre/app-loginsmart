@@ -1,5 +1,5 @@
 .topBar {
-  height: 70px;
+  height: 60px;
   background: linear-gradient(145deg, #ffffff, #f8f9fa);
   border-bottom: 1px solid #e0e0e0;
   padding: 0 25px;
@@ -63,7 +63,7 @@
     gap: 20px;
 
     .icon {
-      font-size: 20px;
+      font-size: 18px;
       color: #555;
       cursor: pointer;
       transition: color 0.3s ease, transform 0.2s ease;

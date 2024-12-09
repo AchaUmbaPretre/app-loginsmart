@@ -8,7 +8,6 @@ import {
   DownOutlined,
 } from '@ant-design/icons';
 import { Dropdown, Menu, Avatar, Tooltip } from 'antd';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 
@@ -44,7 +43,7 @@ const Topbar = () => {
         </Tooltip>
         <Dropdown overlay={menu} trigger={['click']} placement="bottomRight">
           <div className="user-info">
-            <Avatar size="large" style={{ backgroundColor: '#6c63ff' }}>
+            <Avatar size="small" style={{ backgroundColor: '#6c63ff' }}>
               {userName[0]}
             </Avatar>
             <div className="user-details">
