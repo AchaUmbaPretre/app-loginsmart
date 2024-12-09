@@ -53,14 +53,13 @@
       }
     .carburantForm-wrapper{
         display: flex;
-        align-items: center;
-        justify-content:space-between;
         gap: 10px;
         .carburantForm-left{
             flex: 5;
             padding: 15px;
             border : 1px solid #e0e0e0;
             border-radius: 10px;
+            height: max-content;
         }
         .carburantForm-right{
             flex: 4;
