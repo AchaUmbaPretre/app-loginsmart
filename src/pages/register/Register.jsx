@@ -15,7 +15,7 @@ const Register = () => {
     formData.append('email', values.email);
     formData.append('mot_de_passe', values.mot_de_passe);
     try {
-      const response = await AuthService.register(formData);
+       await AuthService.register(formData);
       message.success('Inscription réussie !');
       form.resetFields();
       navigate('/login')
