@@ -115,7 +115,7 @@ const CarburantForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir l'immatriculation" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Selectionnez un chauffeur" />}
                             </Form.Item>
                         </Col>
 
