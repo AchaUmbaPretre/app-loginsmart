@@ -4,6 +4,7 @@ import './carburantBoard.scss'
 const CarburantBoard = () => {
 
     const columns = [
+        { title: '#', dataIndex: 'id', key: 'id', render: (_, __, index) => index + 1, width: "5%" },
         {
           title: 'Name',
           dataIndex: 'name',
