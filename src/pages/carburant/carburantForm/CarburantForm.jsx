@@ -84,7 +84,7 @@ const CarburantForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir la quantité" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir la quantité" style={{width:'100%'}} />}
                             </Form.Item>
                         </Col>
 
