@@ -5,7 +5,7 @@ const CarburantBoard = () => {
     <>
         <div className="carburantBord">
             <div className="carburantBord-wrapper">
-                
+                Carburant Board
             </div>
         </div>
     </>

@@ -1,6 +1,7 @@
 import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Skeleton, Space } from 'antd';
 import './carburantForm.scss'
 import { useState } from 'react';
+import CarburantBoard from '../carburantBoard/CarburantBoard';
 
 const CarburantForm = () => {
     const [form] = Form.useForm();
@@ -105,12 +106,12 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="Chauffeur"
-                                label="Immatriculation"
+                                name="chauffeur"
+                                label="Chauffeur"
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir une immatriculation...',
+                                        message: 'Veuillez fournir un chauffeur...',
                                     },
                                 ]}
                             >
@@ -163,7 +164,7 @@ const CarburantForm = () => {
                 </Form>
                 </div>
                 <div className="carburantForm-right">
-                    vvvvvvv
+                    <CarburantBoard/>
                 </div>
             </div>
         </div>
