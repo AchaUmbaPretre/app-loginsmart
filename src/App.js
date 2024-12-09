@@ -15,6 +15,7 @@ import Approvisionnement from './pages/approvisionnement/Approvisionnement';
 import VehiculeForm from './pages/vehicule/vehiculeForm/VehiculeForm';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import ConsomCarburant from './pages/carburant/consomCarburant/ConsomCarburant';
+import CarburantSearch from './pages/carburant/carburantSearch/CarburantSearch';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -60,6 +61,10 @@ function App() {
         {
           path: '/consommation_carburant',
           element: <PrivateRoute element={ConsomCarburant} />
+        },
+        {
+          path: '/seach_carburant',
+          element: <PrivateRoute element={CarburantSearch} />
         },
         {
           path: '/personnel',
