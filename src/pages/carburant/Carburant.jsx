@@ -4,7 +4,7 @@ import './carburant.scss';
 import { useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
 
-const Carburant = ({ onAddChauffeur }) => {
+const Carburant = () => {
     const [modalType, setModalType] = useState(null);
     const [idVehicule, setIdVehicule] = useState('');
 
