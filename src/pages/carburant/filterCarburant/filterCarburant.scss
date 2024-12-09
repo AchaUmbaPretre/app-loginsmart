@@ -8,7 +8,11 @@
     border: 1px solid #e0e0e0;
     transition: transform 0.2s, box-shadow 0.2s;
     .filterCarburant-wrapper{
+        display: flex;
+        gap: 10px;
+        width: 100%;
         .form_control{
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 8px;
