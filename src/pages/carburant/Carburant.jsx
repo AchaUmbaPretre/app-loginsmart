@@ -28,7 +28,7 @@ const Carburant = () => {
       }
 
     const handleFilterChange = () => {
-        
+
     }
 
     const columns = [
@@ -135,7 +135,8 @@ const Carburant = () => {
                     separator=">"
                     items={[
                         { title: 'Accueil', href: '/' },
-                        { title: 'Gestion', href: '/gestion' },
+                        { title: 'Consommation', href: '/gestion' },
+                        { title: 'Recherche globale', href: '/gestion' },
                         { title: 'Carburant' },
                     ]}
                     className="chauffeur_breadcrumb"
@@ -144,7 +145,7 @@ const Carburant = () => {
             <div className="chauffeur_top_right">
                 <Space size="middle">
                 <Input
-                    placeholder="Rechercher un chauffeur"
+                    placeholder="Rechercher..."
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />
