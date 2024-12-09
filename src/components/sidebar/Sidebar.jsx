@@ -41,17 +41,17 @@ const Sidebar = () => {
           onOpenChange={onOpenChange}
           style={{
             backgroundColor: 'transparent',
-            color: '#a4b2c2',
+            color: '#333333;',
             fontSize: '18px',
           }}
         >
-          <Item key="/" icon={<HomeOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} onClick={toggleMenu}>
+          <Item key="/" icon={<HomeOutlined style={{ fontSize: '19px', color: '#4b4a4a' }} />} onClick={toggleMenu}>
             <Link to="/">Accueil</Link>
           </Item>
-          <Item key="/carburant" icon={<AppstoreAddOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} onClick={toggleMenu}>
+          <Item key="/carburant" icon={<AppstoreAddOutlined style={{ fontSize: '19px', color: '#4b4a4a' }} />} onClick={toggleMenu}>
             <Link to="/carburant">Carburant</Link>
           </Item>
-          <SubMenu key="sub1" icon={<CarOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Véhicule">
+          <SubMenu key="sub1" icon={<CarOutlined style={{ fontSize: '19px', color: '#4b4a4a' }} />} title="Véhicule">
             <Item key="/vehicule">
               <Link to="/vehicule">Liste des véhicules</Link>
             </Item>
@@ -59,12 +59,12 @@ const Sidebar = () => {
               <Link to="/new_vehicule">Créer un nouveau vehicule</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub2" icon={<ToolOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Générateur">
+          <SubMenu key="sub2" icon={<ToolOutlined style={{ fontSize: '19px', color: '#4b4a4a' }} />} title="Générateur">
             <Item key="/generateur">
               <Link to="/generateur">Liste des générateurs</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub3" icon={<TeamOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Personnel">
+          <SubMenu key="sub3" icon={<TeamOutlined style={{ fontSize: '19px', color: '#4b4a4a' }} />} title="Personnel">
             <Item key="/chauffeur">
               <Link to="/chauffeur">Liste des chauffeurs</Link>
             </Item>
@@ -72,17 +72,17 @@ const Sidebar = () => {
               <Link to="/personnel">Liste des Personnels</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub4" icon={<BankOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Approvisionnement">
+          <SubMenu key="sub4" icon={<BankOutlined style={{ fontSize: '19px', color: '#4b4a4a' }} />} title="Approvisionnement">
             <Item key="/approvisionnement">
               <Link to="/approvisionnement">Suivi Approvisionnement</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub5" icon={<SettingOutlined style={{ fontSize: '19px', color: '#a4b2c2' }} />} title="Administrateur">
+          <SubMenu key="sub5" icon={<SettingOutlined style={{ fontSize: '19px', color: '#4b4a4a' }} />} title="Administrateur">
             <Item key="/administrateur">
               <Link to="/administrateur">Gestion des Admins</Link>
             </Item>
           </SubMenu>
-          <Item key="logout" icon={<LogoutOutlined style={{ fontSize: '20px', color: '#a4b2c2' }} />} className="logout-item">
+          <Item key="logout" icon={<LogoutOutlined style={{ fontSize: '19px', color: '#4b4a4a' }} />} className="logout-item">
             <Link>Déconnexion</Link>
           </Item>
         </Menu>

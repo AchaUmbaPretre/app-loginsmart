@@ -1,9 +1,11 @@
 .sidebar {
   width: 240px;
   height: 100vh;
-  background: linear-gradient(180deg, #2d3a4b, #1e2a38);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+/*   background: linear-gradient(180deg, #2d3a4b, #1e2a38);
+ */  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+ background: #ffffff;
   color: #a4b2c2!important;
+  border-right: 1px solid #e0e0e0;
 }
 
 .menu-item,
@@ -24,23 +26,27 @@
 }
 
 .sidebar-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 20px;
+/*   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px; */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
 
   .sidebar-h1 .title {
     background-color: #4b89ff;
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     padding: 5px 9px;
     border-radius: 50%;
     display: inline-block;
-    margin-top: 20px;
-    margin-right: 2px;
   }
 
   .sidebar-h1 {
-    color: #ffffff;
+    color: #4b89ff;
     font-size: 1.4rem;
     letter-spacing: 3px;
     text-align: center;
@@ -64,8 +70,8 @@
 .sidebar {
   .ant-menu-item,
   .ant-menu-submenu-title {
-    font-size: 1rem;
-    color: #a4b2c2 !important; // Couleur personnalisée
+    font-size: .870rem;
+    color: #4b4a4a !important; // Couleur personnalisée
   }
 
   .ant-menu-item-selected,
