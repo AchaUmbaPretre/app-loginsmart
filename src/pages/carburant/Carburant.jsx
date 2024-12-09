@@ -1,7 +1,8 @@
-import { Breadcrumb, Button, Input, Space, Table } from 'antd';
+import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './carburant.scss';
 import { useState } from 'react';
+import CarburantForm from './carburantForm/CarburantForm';
 
 const Carburant = ({ onAddChauffeur }) => {
     const [modalType, setModalType] = useState(null);
@@ -134,6 +135,16 @@ const Carburant = ({ onAddChauffeur }) => {
                 onChange={onChange} 
             />
         </div>
+        <Modal
+          title=""
+          visible={modalType === 'add'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1025}
+          centered
+        >
+          <CarburantForm/>
+        </Modal>
     </div>
   );
 };
