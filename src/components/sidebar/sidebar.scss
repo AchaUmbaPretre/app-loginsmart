@@ -2,8 +2,9 @@
   width: 240px;
   height: 100vh;
 /*   background: linear-gradient(180deg, #2d3a4b, #1e2a38);
- */  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
- background: #ffffff;
+ */  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: #ffffff;
   color: #a4b2c2!important;
   border-right: 1px solid #e0e0e0;
 }
@@ -18,7 +19,7 @@
   }}
 
 .icon {
-  font-size: 50px;
+  font-size: 40px;
   transition: color 0.3s ease;
   color: #4b4a4a;
   &:hover {

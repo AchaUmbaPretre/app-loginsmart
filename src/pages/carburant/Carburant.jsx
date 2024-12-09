@@ -5,6 +5,7 @@ import { useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
 
 const Carburant = () => {
+    const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [idVehicule, setIdVehicule] = useState('');
 
