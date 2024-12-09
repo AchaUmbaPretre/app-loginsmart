@@ -3,6 +3,7 @@ import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/
 import './carburant.scss';
 import { useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
+import FilterCarburant from './filterCarburant/FilterCarburant';
 
 const Carburant = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -25,6 +26,10 @@ const Carburant = () => {
     const handFilter = () => {
         setFilterVisible(!filterVisible)
       }
+
+    const handleFilterChange = () => {
+        
+    }
 
     const columns = [
         { 
@@ -157,6 +162,7 @@ const Carburant = () => {
                 </Space>
             </div>
         </div>
+        {filterVisible && <FilterCarburant onFilter={handleFilterChange}/>}
         <div className="chauffeur_bottom">
             <Table 
                 columns={columns} 
