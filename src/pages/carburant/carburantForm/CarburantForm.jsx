@@ -65,7 +65,7 @@ const CarburantForm = () => {
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir une immatriculation...',
+                                        message: 'Veuillez fournir une date...',
                                     },
                                 ]}
                             >
@@ -75,12 +75,12 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="immatriculation"
-                                label="Immatriculation"
+                                name="quantite"
+                                label="Quantité"
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir une immatriculation...',
+                                        message: 'Veuillez fournir une quantité...',
                                     },
                                 ]}
                             >
