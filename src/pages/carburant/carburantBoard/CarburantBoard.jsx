@@ -5,7 +5,12 @@ const CarburantBoard = () => {
     <>
         <div className="carburantBord">
             <div className="carburantBord-wrapper">
-                Carburant Board
+                <div className="carburantBord_top">
+                    TOP BAR
+                </div>
+                <div className="carburantBord_bottom">
+                    BOTTOM BAR
+                </div>
             </div>
         </div>
     </>
