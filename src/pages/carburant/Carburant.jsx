@@ -135,7 +135,7 @@ const Carburant = () => {
                     separator=">"
                     items={[
                         { title: 'Accueil', href: '/' },
-                        { title: 'Consommation', href: '/gestion' },
+                        { title: 'Consommation', href: '/consommation_carburant' },
                         { title: 'Recherche globale', href: '/gestion' },
                         { title: 'Carburant' },
                     ]}
