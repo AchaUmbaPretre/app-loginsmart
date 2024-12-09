@@ -5,9 +5,18 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 20px;
-        padding: 10px;
-        background-color: #f5f5f5;
+        padding: 15px;
         margin: 20px 0;
+        background: linear-gradient(145deg, #ffffff, #f3f3f3); 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Ombre élégante
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        transition: transform 0.2s, box-shadow 0.2s;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
 
         .chauffeur_top_left {
           display: flex;
@@ -15,9 +24,10 @@
           gap: 8px;
       
           .chauffeur_h2 {
-            font-size: 18px;
-            color: linear-gradient(180deg, #2d3a4b, #1e2a38);
+            font-size: 15px;
+            color: #040270d2;
             font-weight: bold;
+            text-transform: uppercase;
           }
       
           .chauffeur_breadcrumb {
@@ -74,7 +84,11 @@
         }
     }
     .chauffeur_bottom{
-        background: #fff;
+        background: linear-gradient(145deg, #ffffff, #f3f3f3); 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Ombre élégante
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        transition: transform 0.2s, box-shadow 0.2s;
     }
 }
   

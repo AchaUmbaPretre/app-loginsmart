@@ -20,6 +20,7 @@
 .icon {
   font-size: 50px;
   transition: color 0.3s ease;
+  color: #4b4a4a;
   &:hover {
     color: #ffffff;
   }
@@ -38,8 +39,8 @@
   .sidebar-h1 .title {
     background-color: #4b89ff;
     color: #ffffff;
-    font-size: 1.8rem;
-    font-weight: bold;
+    font-size: 1.9rem;
+    font-weight:900;
     padding: 5px 9px;
     border-radius: 50%;
     display: inline-block;
@@ -67,12 +68,14 @@
   }
 } */
 
+
 .sidebar {
   .ant-menu-item,
   .ant-menu-submenu-title {
     font-size: .870rem;
     color: #4b4a4a !important; // Couleur personnalisée
   }
+
 
   .ant-menu-item-selected,
   .ant-menu-submenu-selected {
