@@ -1,5 +1,5 @@
 import './filterCarburant.scss';
-import { Select, DatePicker } from 'antd';
+import { Select, DatePicker, Button } from 'antd';
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
@@ -7,7 +7,7 @@ const FilterCarburant = () => {
   return (
     <div className="filterCarburant">
       <div className="filterCarburant-wrapper">
-        {/* Immatriculation Filter */}
+
         <div className="form_control">
           <label htmlFor="immatriculation" className="label-carburant">
             Immatriculation
@@ -24,7 +24,6 @@ const FilterCarburant = () => {
           </Select>
         </div>
 
-        {/* Date Filter */}
         <div className="form_control">
           <label htmlFor="date-range" className="label-carburant">
             Période
@@ -35,6 +34,10 @@ const FilterCarburant = () => {
             className="date-picker"
             placeholder={['Date début', 'Date fin']}
           />
+        </div>
+
+        <div className="form_control">
+            <Button type="primary" htmlType="submit" className='btn-filter' >Filtrer</Button>
         </div>
       </div>
     </div>

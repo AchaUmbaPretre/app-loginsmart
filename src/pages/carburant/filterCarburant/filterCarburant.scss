@@ -16,6 +16,9 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+            .btn-filter{
+                margin-top: 22px;
+            }
             .label-carburant{
                 font-size: .8rem;
                 color: #313131ee;
