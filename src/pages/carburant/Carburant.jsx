@@ -57,6 +57,30 @@ const Carburant = ({ onAddChauffeur }) => {
             multiple: 1,
           },
         },
+        {
+            title: 'Qte',
+            dataIndex: 'english',
+            sorter: {
+              compare: (a, b) => a.english - b.english,
+              multiple: 1,
+            },
+        },
+        {
+            title: 'Kilometrage',
+            dataIndex: 'english',
+            sorter: {
+              compare: (a, b) => a.english - b.english,
+              multiple: 1,
+            },
+        },
+        {
+            title: 'Numero',
+            dataIndex: 'english',
+            sorter: {
+              compare: (a, b) => a.english - b.english,
+              multiple: 1,
+            },
+        }
       ];
       const data = [
         {
@@ -96,7 +120,7 @@ const Carburant = ({ onAddChauffeur }) => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">Liste des carburants</h2>
+                <h2 className="chauffeur_h2">LISTE DES PRELEVEMENTS CARBURANT</h2>
                 <Breadcrumb
                     separator=">"
                     items={[
