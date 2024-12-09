@@ -1,11 +1,8 @@
-// Register.js
-import React, { useState } from 'react';
+import React from 'react';
 import './register.scss';
-import { Form, Input, Button, Upload, message } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { Form, Input, Button, message } from 'antd';
 import AuthService from '../../services/auth.service';
 import { useNavigate } from 'react-router-dom';
-
 
 const Register = () => {
   const [form] = Form.useForm();
@@ -20,7 +17,7 @@ const Register = () => {
     try {
       const response = await AuthService.register(formData);
       message.success('Inscription réussie !');
-      form.resetFields(); // Réinitialiser le formulaire après soumission réussie
+      form.resetFields();
       navigate('/login')
     } catch (error) {
       message.error('Échec de l\'inscription, veuillez réessayer.');
