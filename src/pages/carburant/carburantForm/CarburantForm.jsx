@@ -95,17 +95,17 @@ const CarburantForm = () => {
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir une immatriculation...',
+                                        message: 'Veuillez fournir un kilométrage...',
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir l'immatriculation" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir le kilométrage" style={{width:'100%'}} />}
                             </Form.Item>
                         </Col>
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="immatriculation"
+                                name="Chauffeur"
                                 label="Immatriculation"
                                 rules={[
                                     {
@@ -120,16 +120,16 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="immatriculation"
-                                label="Immatriculation"
+                                name="carburant"
+                                label="Carburant"
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir une immatriculation...',
+                                        message: 'Veuillez fournir le carburant...',
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir l'immatriculation" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le carburant" />}
                             </Form.Item>
                         </Col>
 
