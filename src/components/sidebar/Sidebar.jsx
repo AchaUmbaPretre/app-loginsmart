@@ -12,6 +12,7 @@ import {
 } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import logo from './../../assets/logo.png'
 
 const { Sider } = Layout;
 const { SubMenu, Item } = Menu;
@@ -31,8 +32,9 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <h1 className="sidebar-h1" onClick={()=>navigate('/')}><span className='title'>L</span>OGINSMART</h1>
-      </div>
+              <img src={logo} alt="" className="sidebar-logo_v" />
+{/*         <h1 className="sidebar-h1" onClick={()=>navigate('/')}><span className='title'>L</span>OGINSMART</h1>
+ */}      </div>
       <Sider width={240} style={{ backgroundColor: 'transparent' }}>
         <Menu
           mode="inline"
