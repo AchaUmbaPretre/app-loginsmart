@@ -135,16 +135,16 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="immatriculation"
-                                label="Immatriculation"
+                                name="commentaire"
+                                label="Commentaire"
                                 rules={[
                                     {
-                                        required: true,
-                                        message: 'Veuillez fournir une immatriculation...',
+                                        required: false,
+                                        message: 'Veuillez fournir un commentaire...',
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir l'immatriculation" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir le commentaire" />}
                             </Form.Item>
                         </Col>
                         <Col xs={24}>
