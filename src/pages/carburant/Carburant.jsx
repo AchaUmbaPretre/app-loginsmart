@@ -1,8 +1,24 @@
 import { Breadcrumb, Button, Input, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './carburant.scss';
+import { useState } from 'react';
 
 const Carburant = ({ onAddChauffeur }) => {
+    const [modalType, setModalType] = useState(null);
+    const [idVehicule, setIdVehicule] = useState('');
+
+    const closeAllModals = () => {
+      setModalType(null);
+    };
+  
+    const openModal = (type, idVehicule = '') => {
+      closeAllModals();
+      setModalType(type);
+    };
+  
+    const handleAdd = (idVehicule) =>{
+      openModal('add', idVehicule )
+    }
 
     const columns = [
         { 
