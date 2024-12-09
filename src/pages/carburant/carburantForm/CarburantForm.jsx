@@ -1,4 +1,4 @@
-import { Button, Col, Form, Input, Row, Skeleton, Space } from 'antd';
+import { Button, Col, DatePicker, Form, Input, Row, Skeleton, Space } from 'antd';
 import './carburantForm.scss'
 import { useState } from 'react';
 
@@ -30,12 +30,12 @@ const CarburantForm = () => {
                     <Row gutter={12}>
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="immatriculation"
-                                label="Immatriculation"
+                                name="numero"
+                                label="Numero de bon"
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir une immatriculation...',
+                                        message: 'Veuillez fournir un numero...',
                                     },
                                 ]}
                             >
@@ -60,8 +60,8 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="immatriculation"
-                                label="Immatriculation"
+                                name="date"
+                                label="Date"
                                 rules={[
                                     {
                                         required: true,
@@ -69,7 +69,7 @@ const CarburantForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir l'immatriculation" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <DatePicker style={{width:'100%'}} />}
                             </Form.Item>
                         </Col>
 
