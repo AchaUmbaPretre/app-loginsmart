@@ -1,9 +1,15 @@
 import './carburantSearch.scss'
 
 const CarburantSearch = () => {
-    
+
   return (
-    <div>CarburantSearch</div>
+    <>
+        <div className="carburantSearch">
+            <div className="carburant_search_wrapper">
+                
+            </div>
+        </div>
+    </>
   )
 }
 
