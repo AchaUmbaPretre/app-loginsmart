@@ -120,7 +120,7 @@ const Carburant = ({ onAddChauffeur }) => {
                     className="chauffeur_btn"
                     type="primary"
                     icon={<PlusCircleOutlined />}
-                    onClick={onAddChauffeur}
+                    onClick={handleAdd}
                 >
                     Nouveau carburant
                 </Button>
