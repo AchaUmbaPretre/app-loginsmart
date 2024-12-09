@@ -1,4 +1,4 @@
-import { Button, Col, DatePicker, Form, Input, Row, Skeleton, Space } from 'antd';
+import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Skeleton, Space } from 'antd';
 import './carburantForm.scss'
 import { useState } from 'react';
 
@@ -84,7 +84,7 @@ const CarburantForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir l'immatriculation" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir la quantité" />}
                             </Form.Item>
                         </Col>
 
