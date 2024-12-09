@@ -50,7 +50,8 @@ const CarburantBoard = () => {
                 </div>
                 <Divider className='title_row'></Divider>
                 <div className="carburantBord_bottom">
-                    BOTTOM BAR
+                    <h2 className="carburantBord-h2">Tableau de bord</h2>
+                    <Table columns={columns} size="small" dataSource={dataSource} onChange={onChange} />
                 </div>
             </div>
         </div>
