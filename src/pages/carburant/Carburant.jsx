@@ -30,11 +30,11 @@ const Carburant = ({ onAddChauffeur }) => {
             width: "3%" 
           },
         {
-          title: 'Name',
+          title: 'Immatriculation',
           dataIndex: 'name',
         },
         {
-          title: 'Chinese Score',
+          title: 'Chauffeur',
           dataIndex: 'chinese',
           sorter: {
             compare: (a, b) => a.chinese - b.chinese,
@@ -42,7 +42,7 @@ const Carburant = ({ onAddChauffeur }) => {
           },
         },
         {
-          title: 'Math Score',
+          title: 'Modele',
           dataIndex: 'math',
           sorter: {
             compare: (a, b) => a.math - b.math,
@@ -50,7 +50,7 @@ const Carburant = ({ onAddChauffeur }) => {
           },
         },
         {
-          title: 'English Score',
+          title: 'Date',
           dataIndex: 'english',
           sorter: {
             compare: (a, b) => a.english - b.english,
