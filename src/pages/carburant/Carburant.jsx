@@ -22,6 +22,10 @@ const Carburant = () => {
       openModal('add', idVehicule )
     }
 
+    const handFilter = () => {
+        setFilterVisible(!filterVisible)
+      }
+
     const columns = [
         { 
             title: '#', 
@@ -139,7 +143,7 @@ const Carburant = () => {
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />
-                <Button icon={<FilterOutlined />} className="chauffeur_filter">
+                <Button icon={<FilterOutlined />} onClick={handFilter} className="chauffeur_filter">
                     Filtres
                 </Button>
                 <Button
