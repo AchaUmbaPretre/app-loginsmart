@@ -9,7 +9,6 @@ const CarburantForm = () => {
     const [loadingData, setLoadingData] = useState(false);
 
     const onFinish = () => {
-
     }
 
   return (
