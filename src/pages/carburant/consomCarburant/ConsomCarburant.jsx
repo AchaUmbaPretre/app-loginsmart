@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Transfer, DatePicker, Button, notification } from 'antd';
+import { CalculatorOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import './consomCarburant.scss';
 
@@ -11,7 +12,7 @@ const ConsomCarburant = () => {
   const [selectedDates, setSelectedDates] = useState([]);
 
   // Générer des données fictives pour le Transfer
-  React.useEffect(() => {
+  useEffect(() => {
     const data = [];
     for (let i = 0; i < 20; i++) {
       data.push({
@@ -83,12 +84,16 @@ const ConsomCarburant = () => {
               render={(item) => item.title}
               oneWay
               style={{ width: '100%' }} // Ajuste la largeur
+              listStyle={{
+                width: 300, // Largeur des listes
+                height: 310, // Hauteur des listes
+              }}
             />
           </div>
 
           {/* Bouton de recherche */}
           <div className="search-button">
-            <Button type="primary" onClick={handleSearch}>
+            <Button type="primary" onClick={handleSearch} icon={<CalculatorOutlined />}>
               Rechercher
             </Button>
           </div>
