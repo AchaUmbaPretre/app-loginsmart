@@ -29,6 +29,8 @@ const ConsomCarburant = () => {
     setTargetKeys(nextTargetKeys);
   };
 
+  console.log(targetKeys)
+
   // Gérer la sélection des dates
   const handleDateChange = (dates) => {
     if (dates) {
@@ -83,13 +85,12 @@ const ConsomCarburant = () => {
               oneWay
               style={{ width: '100%' }}
               listStyle={{
-                width: 300, // Largeur des listes
-                height: 310, // Hauteur des listes
+                width: 300,
+                height: 310,
               }}
             />
           </div>
 
-          {/* Bouton de recherche */}
           <div className="search-button">
             <Button type="primary" onClick={handleSearch} icon={<CalculatorOutlined />}>
               Calculer conso.
