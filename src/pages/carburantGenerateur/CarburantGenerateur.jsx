@@ -1,6 +1,7 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import CarburantGenerateurForm from './carburantGenerateurForm/CarburantGenerateurForm';
 
 const CarburantGenerateur = () => {
   const [modalType, setModalType] = useState(null);
@@ -91,7 +92,7 @@ const CarburantGenerateur = () => {
             dataIndex: 'actions'
         }
       ];
-      
+
       const data = [
         {
           key: '1',
@@ -177,6 +178,7 @@ const CarburantGenerateur = () => {
           width={1023}
           centered
         >
+            <CarburantGenerateurForm/>
         </Modal>
     </div>
   );

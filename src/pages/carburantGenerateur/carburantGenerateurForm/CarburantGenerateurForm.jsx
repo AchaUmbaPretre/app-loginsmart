@@ -1,7 +1,5 @@
 import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Skeleton, Space } from 'antd';
-import './carburantForm.scss'
 import { useState } from 'react';
-import CarburantBoard from '../carburantBoard/CarburantBoard';
 
 const CarburantGenerateurForm = () => {
     const [form] = Form.useForm();
@@ -134,8 +132,8 @@ const CarburantGenerateurForm = () => {
                 </Form>
                 </div>
                 <div className="carburantForm-right">
-                    <CarburantBoard/>
-                </div>
+{/*                     <CarburantBoard/>
+ */}                </div>
             </div>
         </div>
     </>
