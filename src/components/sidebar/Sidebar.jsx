@@ -32,9 +32,9 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-              <img src={logo} alt="" className="sidebar-logo_v" />
-{/*         <h1 className="sidebar-h1" onClick={()=>navigate('/')}><span className='title'>L</span>OGINSMART</h1>
- */}      </div>
+{/*               <img src={logo} alt="" className="sidebar-logo_v" />
+ */}    <h1 className="sidebar-h1" onClick={()=>navigate('/')}><span className='title'>L</span>OGINSMART</h1>
+      </div>
       <Sider width={240} style={{ backgroundColor: 'transparent' }}>
         <Menu
           mode="inline"
