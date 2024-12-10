@@ -68,12 +68,11 @@ const ConsomCarburant = () => {
           <h2 className="title_h2">CALCUL CONSOMATION</h2>
         </div>
         <div className="consomCarburant_rows">
-          {/* Plage de dates */}
+        
           <div className="date-picker-section">
             <RangePicker onChange={handleDateChange} />
           </div>
 
-          {/* Composant Transfer */}
           <div className="transfer-section">
             <Transfer
               dataSource={mockData}
@@ -82,7 +81,7 @@ const ConsomCarburant = () => {
               onChange={handleTransferChange}
               render={(item) => item.title}
               oneWay
-              style={{ width: '100%' }} // Ajuste la largeur
+              style={{ width: '100%' }}
               listStyle={{
                 width: 300, // Largeur des listes
                 height: 310, // Hauteur des listes
