@@ -1,5 +1,7 @@
 import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Skeleton, Space } from 'antd';
 import { useState } from 'react';
+import { SendOutlined } from '@ant-design/icons';
+import CarburantGenerateurBord from '../carburantGenerateurBord/CarburantGenerateurBord';
 
 const CarburantGenerateurForm = () => {
     const [form] = Form.useForm();
@@ -119,8 +121,8 @@ const CarburantGenerateurForm = () => {
                         <Col xs={24}>
                             <Form.Item>
                                 <Space className="button-group">
-                                    <Button type="primary" htmlType="submit" loading={isLoading} disabled={isLoading}>
-                                        {'Ajouter'}
+                                    <Button type="primary" htmlType="submit" loading={isLoading} disabled={isLoading} icon={<SendOutlined />}>
+                                        {'Enregistrer'}
                                     </Button>
                                     <Button htmlType="reset">
                                         Réinitialiser
@@ -132,8 +134,8 @@ const CarburantGenerateurForm = () => {
                 </Form>
                 </div>
                 <div className="carburantForm-right">
-{/*                     <CarburantBoard/>
- */}                </div>
+                    <CarburantGenerateurBord/>
+                </div>
             </div>
         </div>
     </>
