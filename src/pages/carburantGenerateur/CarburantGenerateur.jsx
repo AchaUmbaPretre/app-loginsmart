@@ -61,32 +61,37 @@ const CarburantGenerateur = () => {
               compare: (a, b) => a.english - b.english,
               multiple: 1,
             },
-          },
-          {
+        },
+        {
             title: 'Quantité',
             dataIndex: 'quantité',
             sorter: {
               compare: (a, b) => a.english - b.english,
               multiple: 1,
             },
-          },
-          {
+        },
+        {
             title: 'Carburant',
             dataIndex: 'carburant',
             sorter: {
               compare: (a, b) => a.english - b.english,
               multiple: 1,
             },
-          },
-          {
+        },
+        {
             title: 'Agent',
             dataIndex: 'agent'
-          },
-          {
+        },
+        {
             title: 'Utilisateur',
             dataIndex: 'utilisateur'
-          },
+        },
+        {
+            title: 'Actions',
+            dataIndex: 'actions'
+        }
       ];
+      
       const data = [
         {
           key: '1',
