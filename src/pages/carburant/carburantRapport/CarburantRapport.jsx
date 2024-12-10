@@ -5,7 +5,7 @@ const CarburantRapport = () => {
     <>
         <div className="carburantRapport">
             <div className="carburantRapport_wrapper">
-                
+                Carburant rapport
             </div>
         </div>
     </>
