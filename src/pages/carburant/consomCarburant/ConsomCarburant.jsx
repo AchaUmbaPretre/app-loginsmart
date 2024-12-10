@@ -24,14 +24,10 @@ const ConsomCarburant = () => {
     setMockData(data);
   }, []);
 
-  // Gérer les données transférées
   const handleTransferChange = (nextTargetKeys) => {
     setTargetKeys(nextTargetKeys);
   };
 
-  console.log(targetKeys)
-
-  // Gérer la sélection des dates
   const handleDateChange = (dates) => {
     if (dates) {
       setSelectedDates(dates.map((date) => dayjs(date).format('YYYY-MM-DD')));
