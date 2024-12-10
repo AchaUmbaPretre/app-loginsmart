@@ -16,6 +16,7 @@ import VehiculeForm from './pages/vehicule/vehiculeForm/VehiculeForm';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import ConsomCarburant from './pages/carburant/consomCarburant/ConsomCarburant';
 import CarburantSearch from './pages/carburant/carburantSearch/CarburantSearch';
+import CarburantGenerateur from './pages/carburantGenerateur/CarburantGenerateur';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -45,6 +46,10 @@ function App() {
         {
           path: '/consommation_carburant',
           element: <PrivateRoute element={ConsomCarburant} />
+        },
+        {
+          path: '/generateur_carburant',
+          element: <PrivateRoute element={CarburantGenerateur} />
         },
         {
           path: '/chauffeur',

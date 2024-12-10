@@ -55,7 +55,7 @@ const Sidebar = () => {
               <Link to="/carburant">Liste carburant</Link>
             </Item>
             <Item key="/generateur" >
-              <Link to="/carburant">Génerateurs</Link>
+              <Link to="/generateur">Génerateurs</Link>
             </Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<CarOutlined style={{ fontSize: '18px' }} />} title="Véhicule">
