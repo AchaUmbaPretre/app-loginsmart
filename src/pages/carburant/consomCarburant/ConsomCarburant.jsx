@@ -65,7 +65,7 @@ const ConsomCarburant = () => {
         separator=">"
         items={[
           { title: 'Accueil', href: '/' },
-          { title: 'Recherche globale', href: '/gestion' },
+          { title: 'Carburant', href: '/carburant' },
           { title: 'Calcule consommation' },
         ]}
         className="chauffeur_breadcrumb"
