@@ -105,34 +105,19 @@ const CarburantGenerateurForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="chauffeur"
-                                label="Chauffeur"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Veuillez fournir un chauffeur...',
-                                    },
-                                ]}
-                            >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Selectionnez un chauffeur" />}
-                            </Form.Item>
-                        </Col>
-
-                        <Col xs={24} md={12}>
-                            <Form.Item
                                 name="carburant"
                                 label="Carburant"
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir le carburant...',
+                                        message: 'Veuillez fournir un carburant...',
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le carburant" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <InputNumber placeholder="Saisir un carburant..." style={{width:'100%'}} />}
                             </Form.Item>
                         </Col>
-                        
+
                         <Col xs={24}>
                             <Form.Item>
                                 <Space className="button-group">
