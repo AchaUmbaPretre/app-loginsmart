@@ -1,8 +1,16 @@
-import React from 'react'
+import './consomCarburant.scss'
 
 const ConsomCarburant = () => {
   return (
-    <div>ConsomCarburant</div>
+    <>
+        <div className="consomCarburant">
+          <div className="consomCarburant-wrapper">
+            <div className="consomCarburant-row-title">
+              <h2 className="title_h2">CALCUL CONSOMATION</h2>
+            </div>
+          </div>
+        </div>
+    </>
   )
 }
 
