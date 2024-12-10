@@ -92,7 +92,7 @@ const ConsomCarburant = () => {
           {/* Bouton de recherche */}
           <div className="search-button">
             <Button type="primary" onClick={handleSearch} icon={<CalculatorOutlined />}>
-              Rechercher
+              Calculer conso.
             </Button>
           </div>
         </div>
