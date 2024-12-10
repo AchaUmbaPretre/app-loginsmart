@@ -43,6 +43,10 @@ function App() {
           element: <PrivateRoute element={Carburant} />
         },
         {
+          path: '/consommation_carburant',
+          element: <PrivateRoute element={ConsomCarburant} />
+        },
+        {
           path: '/chauffeur',
           element: <PrivateRoute element={Chauffeur} />
         },
@@ -57,10 +61,6 @@ function App() {
         {
           path: '/generateur',
           element: <PrivateRoute element={Generateur} />
-        },
-        {
-          path: '/consommation_carburant',
-          element: <PrivateRoute element={ConsomCarburant} />
         },
         {
           path: '/seach_carburant',
