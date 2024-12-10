@@ -1,5 +1,11 @@
 .carburantRapport{
     .carburantRapport_wrapper{
         width: 100%;
+        .carburantRapport_row_title{
+            border-bottom: 1px solid #eaeaea;
+            .carburant_h2{
+                font-size: 1rem;
+            }
+        }
     }
 }
