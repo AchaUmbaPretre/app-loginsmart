@@ -50,10 +50,15 @@ const Sidebar = () => {
           <Item key="/" icon={<HomeOutlined className='icon_sidebar' style={{ fontSize: '18px'}} />} onClick={toggleMenu}>
             <Link to="/">Accueil</Link>
           </Item>
-          <Item key="/carburant" icon={<AppstoreAddOutlined style={{ fontSize: '18px'}} />} onClick={toggleMenu}>
-            <Link to="/carburant">Carburant</Link>
-          </Item>
-          <SubMenu key="sub1" icon={<CarOutlined style={{ fontSize: '18px' }} />} title="Véhicule">
+          <SubMenu key="sub1" icon={<AppstoreAddOutlined style={{ fontSize: '18px'}} />} title="Carburant" onClick={toggleMenu}>
+            <Item key="/carburant" >
+              <Link to="/carburant">Liste carburant</Link>
+            </Item>
+            <Item key="/generateur" >
+              <Link to="/carburant">Génerateur</Link>
+            </Item>
+          </SubMenu>
+          <SubMenu key="sub2" icon={<CarOutlined style={{ fontSize: '18px' }} />} title="Véhicule">
             <Item key="/vehicule">
               <Link to="/vehicule">Liste des véhicules</Link>
             </Item>
@@ -61,12 +66,12 @@ const Sidebar = () => {
               <Link to="/new_vehicule">Créer un nouveau vehicule</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub2" icon={<ToolOutlined style={{ fontSize: '18px'}} />} title="Générateur">
+          <SubMenu key="sub3" icon={<ToolOutlined style={{ fontSize: '18px'}} />} title="Générateur">
             <Item key="/generateur">
               <Link to="/generateur">Liste des générateurs</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub3" icon={<TeamOutlined style={{ fontSize: '18px'}} />} title="Personnel">
+          <SubMenu key="sub4" icon={<TeamOutlined style={{ fontSize: '18px'}} />} title="Personnel">
             <Item key="/chauffeur">
               <Link to="/chauffeur">Liste des chauffeurs</Link>
             </Item>
@@ -74,12 +79,12 @@ const Sidebar = () => {
               <Link to="/personnel">Liste des Personnels</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub4" icon={<BankOutlined style={{ fontSize: '18px' }} />} title="Approvisionnement">
+          <SubMenu key="sub5" icon={<BankOutlined style={{ fontSize: '18px' }} />} title="Approvisionnement">
             <Item key="/approvisionnement">
               <Link to="/approvisionnement">Suivi Approvisionnement</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub5" icon={<SettingOutlined style={{ fontSize: '18px' }} />} title="Administrateur">
+          <SubMenu key="sub6" icon={<SettingOutlined style={{ fontSize: '18px' }} />} title="Administrateur">
             <Item key="/administrateur">
               <Link to="/administrateur">Gestion des Admins</Link>
             </Item>
