@@ -50,8 +50,7 @@ const ConsomCarburant = () => {
 
     const [startDate, endDate] = selectedDates;
     const filteredData = targetKeys.filter((key) => {
-      // Logique fictive de filtrage basée sur les dates (à personnaliser selon vos données réelles)
-      return true; // Remplacez cette ligne par votre logique de filtrage
+      return true;
     });
 
     notification.success({
