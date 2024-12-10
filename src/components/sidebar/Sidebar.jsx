@@ -12,7 +12,6 @@ import {
 } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import logo from './../../assets/logo.png'
 
 const { Sider } = Layout;
 const { SubMenu, Item } = Menu;
@@ -43,7 +42,6 @@ const Sidebar = () => {
           onOpenChange={onOpenChange}
           style={{
             backgroundColor: 'transparent',
-            color: '#333333;',
             fontSize: '18px',
           }}
         >
