@@ -27,19 +27,19 @@ const CarburantGenerateur = () => {
             width: "3%" 
           },
         {
-          title: 'Name',
-          dataIndex: 'name',
+          title: 'Code',
+          dataIndex: 'code',
         },
         {
-          title: 'Chinese Score',
-          dataIndex: 'chinese',
+          title: 'Groupe',
+          dataIndex: 'groupe',
           sorter: {
             compare: (a, b) => a.chinese - b.chinese,
             multiple: 3,
           },
         },
         {
-          title: 'Math Score',
+          title: 'Modele',
           dataIndex: 'math',
           sorter: {
             compare: (a, b) => a.math - b.math,
@@ -47,13 +47,45 @@ const CarburantGenerateur = () => {
           },
         },
         {
-          title: 'English Score',
-          dataIndex: 'english',
+          title: 'Date',
+          dataIndex: 'date',
           sorter: {
             compare: (a, b) => a.english - b.english,
             multiple: 1,
           },
         },
+        {
+            title: 'Index',
+            dataIndex: 'Index',
+            sorter: {
+              compare: (a, b) => a.english - b.english,
+              multiple: 1,
+            },
+          },
+          {
+            title: 'Quantité',
+            dataIndex: 'quantité',
+            sorter: {
+              compare: (a, b) => a.english - b.english,
+              multiple: 1,
+            },
+          },
+          {
+            title: 'Carburant',
+            dataIndex: 'carburant',
+            sorter: {
+              compare: (a, b) => a.english - b.english,
+              multiple: 1,
+            },
+          },
+          {
+            title: 'Agent',
+            dataIndex: 'agent'
+          },
+          {
+            title: 'Utilisateur',
+            dataIndex: 'utilisateur'
+          },
       ];
       const data = [
         {
@@ -99,7 +131,7 @@ const CarburantGenerateur = () => {
                 items={[
                     { title: 'Accueil', href: '/' },
                     { title: 'Gestion', href: '/gestion' },
-                    { title: 'Chauffeurs' },
+                    { title: 'Generateur' },
                 ]}
                 className="chauffeur_breadcrumb"
                 />
@@ -120,7 +152,7 @@ const CarburantGenerateur = () => {
                     icon={<PlusCircleOutlined />}
                     onClick={handleAdd}
                 >
-                    Nouveau chauffeur
+                    Nouveau génerateur
                 </Button>
                 </Space>
             </div>
