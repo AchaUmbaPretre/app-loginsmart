@@ -1,4 +1,4 @@
-import React from 'react'
+import './carburantRapport.scss'
 
 const CarburantRapport = () => {
   return (
