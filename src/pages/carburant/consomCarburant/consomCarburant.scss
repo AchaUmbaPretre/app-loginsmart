@@ -1,7 +1,15 @@
 .consomCarburant{
-    background: #fff;
     padding: 5px 10px 10px 10px;
     border-radius: 5px;
+    .chauffeur_breadcrumb{
+        .ant-breadcrumb-link {
+            color: #1890ff;
+            font-size: .800rem;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+    }
     .consomCarburant-wrapper{
         .consomCarburant-row-title{
             padding: 10px;
@@ -48,6 +56,8 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
+            background: #fff;
+            padding: 20px;
         }
     }
 }

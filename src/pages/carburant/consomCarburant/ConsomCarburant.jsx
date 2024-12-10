@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Transfer, DatePicker, Button, notification } from 'antd';
+import { Transfer, DatePicker, Button, notification, Breadcrumb } from 'antd';
 import { CalculatorOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import './consomCarburant.scss';
@@ -61,6 +61,15 @@ const ConsomCarburant = () => {
 
   return (
     <div className="consomCarburant">
+      <Breadcrumb
+        separator=">"
+        items={[
+          { title: 'Accueil', href: '/' },
+          { title: 'Recherche globale', href: '/gestion' },
+          { title: 'Calcule consommation' },
+        ]}
+        className="chauffeur_breadcrumb"
+      />
       <div className="consomCarburant-wrapper">
         <div className="consomCarburant-row-title">
           <h2 className="title_h2">CALCUL CONSOMMATION</h2>
@@ -82,7 +91,7 @@ const ConsomCarburant = () => {
               style={{ width: '100%' }}
               listStyle={{
                 width: 300,
-                height: 310,
+                height: 300,
               }}
             />
           </div>
