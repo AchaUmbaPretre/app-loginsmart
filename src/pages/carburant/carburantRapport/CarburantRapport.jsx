@@ -1,6 +1,15 @@
+import { useState } from 'react';
 import './carburantRapport.scss'
+import { Radio } from 'antd';
+
 
 const CarburantRapport = () => {
+    const [value, setValue] = useState(1);
+
+    const onChange = (e) => {
+        console.log('radio checked', e.target.value);
+        setValue(e.target.value);
+    };
 
   return (
     <>
@@ -9,8 +18,46 @@ const CarburantRapport = () => {
                 <div className="carburantRapport_row_title">
                     <h2 className="carburant_h2">Rapport consomation carburant par vehicule (sur les 360 dernier jours )</h2>
                 </div>
-                <div className="carburantRapport_rows">
-                    
+                <div className="carburantRapport_top">
+                
+                    <div className="carburant_control">
+                        <label htmlFor="" className="carburant_label">Spectre</label>
+                        <Radio.Group size="small" onChange={onChange} className='carburant_radio' >
+                            <Radio value={1} className='carburant_radio_txt'>MES SITES</Radio>
+                            <Radio value={2} className='carburant_radio_txt'>SIEGE KIN</Radio>
+                        </Radio.Group>
+                    </div>
+
+                    <div className="carburant_control">
+                        <label htmlFor="" className="carburant_label">Par</label>
+                        <Radio.Group onChange={onChange} className='carburant_radio'>
+                            <Radio value={1} className='carburant_radio_txt'>Sites</Radio>
+                            <Radio value={2} className='carburant_radio_txt'>Vehicule</Radio>
+                        </Radio.Group>
+                    </div>
+
+                    <div className="carburant_control">
+                        <label htmlFor="" className="carburant_label">Nombre du jours</label>
+                        <Radio.Group onChange={onChange} className='carburant_radio'>
+                            <Radio value={1} className='carburant_radio_txt'>7 jours</Radio>
+                            <Radio value={2} className='carburant_radio_txt'>30 jours</Radio>
+                            <Radio value={3} className='carburant_radio_txt'>90 jours</Radio>
+                            <Radio value={4} className='carburant_radio_txt'>180 jours</Radio>
+                            <Radio value={5} className='carburant_radio_txt'>360 jours</Radio>
+                        </Radio.Group>
+                    </div>
+
+                    <div className="carburant_control">
+                        <label htmlFor="" className="carburant_label">Selection status</label>
+                        <Radio.Group onChange={onChange} className='carburant_radio'>
+                            <Radio value={1} className='carburant_radio_txt'>Litres</Radio>
+                            <Radio value={2} className='carburant_radio_txt'>Option</Radio>
+                            <Radio value={3} className='carburant_radio_txt'>Vehicules</Radio>
+                        </Radio.Group>
+                    </div>
+                </div>
+                <div className="carburantRapport_bottom">
+
                 </div>
             </div>
         </div>

@@ -1,10 +1,37 @@
 .carburantRapport{
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
     .carburantRapport_wrapper{
         width: 100%;
         .carburantRapport_row_title{
             border-bottom: 1px solid #eaeaea;
             .carburant_h2{
-                font-size: 1rem;
+                font-size: 1.2rem;
+                font-weight: 400;
+                text-align: center;
+                margin: 10px;
+            }
+        }
+        .carburantRapport_top{
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            .carburant_control{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .carburant_label{
+                    font-size: .9rem;
+                    color: #555;
+                }
+                .carburant_radio{
+                    display: flex;
+                    align-items: center;
+                    .carburant_radio_txt{
+                        font-size: 12px;
+                    }
+                }
             }
         }
     }
