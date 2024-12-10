@@ -87,7 +87,7 @@ const Vehicule = () => {
             <div className="chauffeur_top_right">
                 <Space size="middle">
                 <Input
-                    placeholder="Rechercher un chauffeur"
+                    placeholder="Rechercher un véhicule..."
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />
@@ -100,16 +100,16 @@ const Vehicule = () => {
                     icon={<PlusCircleOutlined />}
                     onClick={handleAdd}
                 >
-                    Nouveau chauffeur
+                    Nouveau vehicule
                 </Button>
                 </Space>
             </div>
         </div>
         <div className="chauffeur_bottom">
             <Table 
-                columns={columns} 
-                dataSource={data} 
-                onChange={onChange} 
+              columns={columns} 
+              dataSource={[]} 
+              onChange={onChange} 
             />
         </div>
         <Modal
