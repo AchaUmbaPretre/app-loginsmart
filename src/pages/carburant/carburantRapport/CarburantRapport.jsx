@@ -19,12 +19,12 @@ const CarburantRapport = () => {
                     <h2 className="carburant_h2">Rapport consomation carburant par vehicule (sur les 360 dernier jours )</h2>
                 </div>
                 <div className="carburantRapport_top">
-                
+
                     <div className="carburant_control">
                         <label htmlFor="" className="carburant_label">Spectre</label>
                         <Radio.Group size="small" onChange={onChange} className='carburant_radio' >
-                            <Radio value={1} className='carburant_radio_txt'>MES SITES</Radio>
-                            <Radio value={2} className='carburant_radio_txt'>SIEGE KIN</Radio>
+                            <Radio value={1} className='carburant_radio_txt'>Mes sites</Radio>
+                            <Radio value={2} className='carburant_radio_txt'>Siege kin</Radio>
                         </Radio.Group>
                     </div>
 
