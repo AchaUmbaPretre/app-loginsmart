@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './carburantRapport.scss'
 import { Radio } from 'antd';
+import CarburantTabInfo from './carburantTabInfo/CarburantTabInfo';
+import CarburantTabDetail from './carburantTabDetail/CarburantTabDetail';
 
 
 const CarburantRapport = () => {
@@ -55,10 +57,15 @@ const CarburantRapport = () => {
                             <Radio value={3} className='carburant_radio_txt'>Vehicules</Radio>
                         </Radio.Group>
                     </div>
-                    
-                </div>
-                <div className="carburantRapport_bottom">
 
+                </div>
+                <div className="carburantRapport_center">
+                    <div className="carburantRapport_left">
+                        <CarburantTabInfo/>
+                    </div>
+                    <div className="carburantRapport_right">
+                        <CarburantTabDetail/>
+                    </div>
                 </div>
             </div>
         </div>
