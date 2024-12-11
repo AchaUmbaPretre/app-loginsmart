@@ -16,16 +16,16 @@
         .carburantRapport_top{
             display: flex;
             align-items: center;
-            margin: 20px;
+            margin: 20px 0;
             gap: 10px;
             .carburant_control{
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
-                padding: 5px;
+                padding: 10px;
                 border: 1px solid #eaeaea;
                 .carburant_label{
-                    font-size: .7rem;
+                    font-size: .8rem;
                     font-weight: 600;
                     color: #555;
                 }
