@@ -7,7 +7,7 @@ const CarburantTabInfo = () => {
   const columns = [
     {
       title: 'Mes véhicules',
-      dataIndex: 'vehicule',
+      dataIndex: 'vehicules',
       className: 'vehicule-column',
     },
     {
@@ -31,7 +31,7 @@ const CarburantTabInfo = () => {
   const data = [
     {
       key: '1',
-      vehicule: 'Voiture 1',
+      vehicules: 'Voiture 1',
       plein: 50,
       vehicule: 40,
       litre: 30,
@@ -39,7 +39,7 @@ const CarburantTabInfo = () => {
     },
     {
       key: '2',
-      vehicule: 'Voiture 2',
+      vehicules: 'Voiture 2',
       plein: 70,
       vehicule: 15,
       litre: 45,
@@ -47,7 +47,7 @@ const CarburantTabInfo = () => {
     },
     {
       key: '3',
-      vehicule: 'Voiture 3',
+      vehicules: 'Voiture 3',
       plein: 60,
       vehicule: 30,
       litre: 50,
@@ -65,7 +65,7 @@ const CarburantTabInfo = () => {
     },
     {
       title: 'SIEGE KIN',
-      dataIndex: 'name',
+      dataIndex: 'vehicules',
       className: 'vehicule-column'
     },
     {
