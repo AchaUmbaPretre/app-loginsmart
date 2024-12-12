@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Divider, Space, Table, Tag } from 'antd';
-
+import '/carburantTabDetail.scss'
 
 const CarburantTabDetail = () => {
   const [data, setData] = useState([])
