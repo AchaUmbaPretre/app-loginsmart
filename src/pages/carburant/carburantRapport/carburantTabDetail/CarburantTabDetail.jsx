@@ -2,7 +2,13 @@ import React from 'react'
 
 const CarburantTabDetail = () => {
   return (
-    <div>CarburantTabDetail</div>
+    <>
+      <div className="carburantTabDetail">
+        <div className="CarburantTabDetail-wrapper">
+          
+        </div>
+      </div>
+    </>
   )
 }
 
