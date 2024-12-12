@@ -66,6 +66,15 @@ const CarburantRapport = () => {
                     <div className="carburantRapport_right">
                         <CarburantTabDetail/>
                     </div>
+                    .
+                </div>
+                <div className="carburantRapport_bottom">
+                    <div className="carburantRapport_bottom-left">
+                        1
+                    </div>
+                    <div className="carburantRapport_bottom-right">
+                        2
+                    </div>
                 </div>
             </div>
         </div>

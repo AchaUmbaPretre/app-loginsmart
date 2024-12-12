@@ -43,6 +43,7 @@
             width: 100%;
             display: flex;
             gap: 25px;
+            padding: 10px;
             .carburantRapport_left{
                 flex: 3;
                 border: 1px solid #eaeaea;
@@ -56,6 +57,20 @@
                 padding: 10px;
                 height: max-content;
 
+            }
+        }
+        .carburantRapport_bottom{
+            display: flex;
+            gap: 20px;
+            border: 1px solid #eaeaea;
+            padding: 20px;
+            .carburantRapport_bottom-left{
+                flex: 1;
+                background: red;
+            }
+            .carburantRapport_bottom-right{
+                flex: 1;
+                background: yellow;
             }
         }
     }
