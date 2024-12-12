@@ -68,27 +68,38 @@ const CarburantTabInfo = () => {
                     pagination={false}
                     summary={(pageData) => {
                       let totalPlein = 0;
+                      let totalVehicule = 0;
                       let totalLitre = 0;
+                      let totalKm = 0
 
-                      pageData.forEach(({ plein, litre }) => {
+                      pageData.forEach(({ plein, vehicule, litre, km }) => {
                         totalPlein += plein;
+                        totalVehicule += vehicule;
                         totalLitre += litre;
+                        totalKm += km;
                       });
 
                       const moyennePlein = pageData.length > 0 ? (totalPlein / pageData.length).toFixed(2) : 0;
+                      const moyenneVehicule = pageData.length > 0 ? (totalVehicule / pageData.length).toFixed(2) : 0;
                       const moyenneLitre = pageData.length > 0 ? (totalLitre / pageData.length).toFixed(2) : 0;
+                      const moyenneKm = pageData.length > 0 ? (totalKm / pageData.length).toFixed(2) : 0;
 
                       return (
                         <>
                           <Table.Summary.Row>
                             <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
                             <Table.Summary.Cell index={1}>{totalPlein}</Table.Summary.Cell>
-                            <Table.Summary.Cell index={2}>{totalLitre}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={2}>{totalVehicule}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={3}>{totalLitre}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={4}>{totalKm}</Table.Summary.Cell>
                           </Table.Summary.Row>
                           <Table.Summary.Row>
                             <Table.Summary.Cell index={0}>Moyenne</Table.Summary.Cell>
                             <Table.Summary.Cell index={1}>{moyennePlein}</Table.Summary.Cell>
-                            <Table.Summary.Cell index={2}>{moyenneLitre}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={2}>{moyenneVehicule}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={3}>{moyenneLitre}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={4}>{moyenneKm}</Table.Summary.Cell>
+
                           </Table.Summary.Row>
                         </>
                       );
