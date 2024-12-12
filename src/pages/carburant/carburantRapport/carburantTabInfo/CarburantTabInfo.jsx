@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import './carburantTabInfo.scss'
 import { Divider, Table } from 'antd';
 
 
 const CarburantTabInfo = () => {
+
+  const [data1, setData1] = useState([]);
+  const [data2, setData2] = useState([]);
+  const [data3, setData3] = useState([]);
+
 
   const columns = [
     { 
@@ -93,26 +99,6 @@ const CarburantTabInfo = () => {
     }
   ];
 
-  const data2 = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sydney No. 1 Lake Park',
-    },
-  ];
 
   const columns3 = [
     { 
@@ -143,27 +129,6 @@ const CarburantTabInfo = () => {
       title: 'Km',
       dataIndex: 'km',
     }
-  ];
-
-  const data3 = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sydney No. 1 Lake Park',
-    },
   ];
   
     // Fonction pour appliquer des classes alternées
