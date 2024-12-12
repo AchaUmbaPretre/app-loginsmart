@@ -9,6 +9,13 @@
                 font-weight: 500;
                 background: #1a73e821; // Bleu professionnel
               }
+
+              .even-row {
+                background-color: #ffffff; // Blanc pour les lignes impaires
+              }
+              .odd-row {
+                background-color: #f9f9f9; // Gris clair pour les lignes paires
+              }
         
             .carburant_h2{
                 font-size: .9rem;
@@ -17,9 +24,29 @@
         }
         .carburantTabInfo-center{
             width: 100%;
+            .ant-table-tbody .ant-table-cell.vehicule-column {
+                font-weight: 500;
+                background: #1a73e821;
+            }
+            .even-row {
+                background-color: #ffffff;
+              }
+              .odd-row {
+                background-color: #f9f9f9;
+              }
         }
         .carburantTabInfo-bottom{
             width: 100%;
+            .ant-table-tbody .ant-table-cell.vehicule-column {
+                font-weight: 500;
+                background: #1a73e821;
+              }
+              .even-row {
+                background-color: #ffffff;
+              }
+              .odd-row {
+                background-color: #f9f9f9;
+              }
         }
     }
 }

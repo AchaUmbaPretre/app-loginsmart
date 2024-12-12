@@ -62,12 +62,11 @@ const CarburantTabInfo = () => {
       key: 'id', 
       render: (text, record, index) => index + 1, 
       width: "3%" ,
-      className: 'vehicule-column',
-
     },
     {
       title: 'SIEGE KIN',
       dataIndex: 'name',
+      className: 'vehicule-column'
     },
     {
       title: 'Plein',
@@ -114,13 +113,12 @@ const CarburantTabInfo = () => {
       dataIndex: 'id', 
       key: 'id', 
       render: (text, record, index) => index + 1, 
-      width: "3%" ,
-      className: 'vehicule-column',
-
+      width: "3%" 
     },
     {
       title: 'Mes Vehicules',
       dataIndex: 'name',
+      className: 'vehicule-column'
     },
     {
       title: 'Plein',
@@ -160,6 +158,11 @@ const CarburantTabInfo = () => {
       address: 'Sydney No. 1 Lake Park',
     },
   ];
+  
+    // Fonction pour appliquer des classes alternées
+    const rowClassName = (record, index) => {
+      return index % 2 === 0 ? 'even-row' : 'odd-row';
+    };
 
   return (
     <>
@@ -172,6 +175,7 @@ const CarburantTabInfo = () => {
                     dataSource={data}
                     size="small"
                     pagination={false}
+                    rowClassName={rowClassName}
                     summary={(pageData) => {
                       let totalPlein = 0;
                       let totalVehicule = 0;
@@ -214,10 +218,10 @@ const CarburantTabInfo = () => {
 
                 </div>
                 <div className="carburantTabInfo-center">
-                  <Table columns={columns2} dataSource={data2} size="small" />
+                  <Table columns={columns2} dataSource={data2} size="small" rowClassName={rowClassName} />
                 </div>
                 <div className="carburantTabInfo-bottom">
-                  <Table columns={columns3} dataSource={data3} size="small" />
+                  <Table columns={columns3} dataSource={data3} size="small" rowClassName={rowClassName} />
                 </div>
             </div>
         </div>
