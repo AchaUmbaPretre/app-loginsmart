@@ -16,16 +16,16 @@ ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Tooltip)
 const StaticTop = () => {
   const cardData = [
     {
-      title: 'Users',
-      value: '26K',
+      title: 'Personnel',
+      value: '26',
       change: '-12.4%',
       changeType: 'down',
       color: '#6C63FF',
       chartData: [65, 59, 80, 81, 56, 55, 40],
     },
     {
-      title: 'Income',
-      value: '$6,200',
+      title: 'Vehicule',
+      value: '20K',
       change: '40.9%',
       changeType: 'up',
       color: '#2196F3',
