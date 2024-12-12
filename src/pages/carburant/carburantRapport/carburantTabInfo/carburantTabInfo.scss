@@ -6,6 +6,11 @@
             .ant-table-tbody .ant-table-cell.vehicule-column {
                 font-weight: 500;
                 background: #1a73e821; // Bleu professionnel
+                font-size: .750rem;
+
+              }
+              .ant-table-tbody .ant-table-cell{
+                font-size: .750rem;
               }
 
               .even-row {
@@ -42,6 +47,9 @@
             .ant-table-tbody .ant-table-cell.vehicule-column {
                 font-weight: 500;
                 background: #1a73e821;
+              }
+              .ant-table-tbody .ant-table-cell{
+                font-size: .750rem;
               }
               .even-row {
                 background-color: #ffffff;
