@@ -5,6 +5,13 @@ import { Divider, Table } from 'antd';
 const CarburantTabInfo = () => {
 
   const columns = [
+    { 
+      title: '#', 
+      dataIndex: 'id', 
+      key: 'id', 
+      render: (text, record, index) => index + 1, 
+      width: "3%" 
+    },
     {
       title: 'Mes véhicules',
       dataIndex: 'vehicules',
@@ -167,13 +174,14 @@ const CarburantTabInfo = () => {
   return (
     <>
         <div className="carburantTabInfo">
+        <Divider>Information générales</Divider>
+
             <div className="carburantTabInfo_wrapper">
                 <div className="carburantTabInfo-left">
-                  <Divider>Information générales</Divider>
                   <Table
                     columns={columns}
                     dataSource={data}
-                    size="middle"
+                    size="small" 
                     pagination={false}
                     rowClassName={rowClassName}
                     summary={(pageData) => {
@@ -197,18 +205,20 @@ const CarburantTabInfo = () => {
                       return (
                         <>
                           <Table.Summary.Row>
-                            <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
-                            <Table.Summary.Cell index={1}>{totalPlein}</Table.Summary.Cell>
-                            <Table.Summary.Cell index={2}>{totalVehicule}</Table.Summary.Cell>
-                            <Table.Summary.Cell index={3}>{totalLitre}</Table.Summary.Cell>
-                            <Table.Summary.Cell index={4}>{totalKm}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={0}></Table.Summary.Cell>
+                            <Table.Summary.Cell index={1}>Total</Table.Summary.Cell>
+                            <Table.Summary.Cell index={2}>{totalPlein}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={3}>{totalVehicule}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={4}>{totalLitre}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={5}>{totalKm}</Table.Summary.Cell>
                           </Table.Summary.Row>
                           <Table.Summary.Row>
-                            <Table.Summary.Cell index={0}>Moyenne</Table.Summary.Cell>
-                            <Table.Summary.Cell index={1}>{moyennePlein}</Table.Summary.Cell>
-                            <Table.Summary.Cell index={2}>{moyenneVehicule}</Table.Summary.Cell>
-                            <Table.Summary.Cell index={3}>{moyenneLitre}</Table.Summary.Cell>
-                            <Table.Summary.Cell index={4}>{moyenneKm}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={0}></Table.Summary.Cell>
+                            <Table.Summary.Cell index={1}>Moyenne</Table.Summary.Cell>
+                            <Table.Summary.Cell index={2}>{moyennePlein}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={3}>{moyenneVehicule}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={4}>{moyenneLitre}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={5}>{moyenneKm}</Table.Summary.Cell>
 
                           </Table.Summary.Row>
                         </>
@@ -218,11 +228,9 @@ const CarburantTabInfo = () => {
 
                 </div>
                 <div className="carburantTabInfo-center">
-                  <Divider></Divider>
                   <Table columns={columns2} dataSource={data2} size="small" rowClassName={rowClassName} />
                 </div>
                 <div className="carburantTabInfo-bottom">
-                  <Divider></Divider>
                   <Table columns={columns3} dataSource={data3} size="small" rowClassName={rowClassName} />
                 </div>
             </div>

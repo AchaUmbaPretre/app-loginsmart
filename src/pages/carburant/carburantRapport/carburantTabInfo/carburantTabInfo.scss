@@ -1,8 +1,14 @@
 .carburantTabInfo{
     .carburantTabInfo_wrapper{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
         .carburantTabInfo-left{
+            border: 1px solid #eaeaea;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
             .ant-table-tbody .ant-table-cell.vehicule-column {
                 font-weight: 500;
                 background: #1a73e821; // Bleu professionnel
@@ -31,6 +37,11 @@
         }
         .carburantTabInfo-center{
             width: 100%;
+            border: 1px solid #eaeaea;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
             .ant-table-tbody .ant-table-cell.vehicule-column {
                 font-weight: 500;
                 background: #1a73e821;
@@ -43,7 +54,11 @@
               }
         }
         .carburantTabInfo-bottom{
+            border: 1px solid #eaeaea;
+            padding: 10px;
+            border-radius: 10px;
             width: 100%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             .ant-table-tbody .ant-table-cell.vehicule-column {
                 font-weight: 500;
                 background: #1a73e821;

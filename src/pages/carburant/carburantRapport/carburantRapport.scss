@@ -49,6 +49,7 @@
         .carburantRapport_center{
             width: 100%;
             display: flex;
+            flex-direction: column;
             gap: 25px;
             padding: 10px;
             .carburantRapport_left{
