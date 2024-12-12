@@ -11,7 +11,7 @@ const RapportPieMensuel = () => {
       {
         label: 'Consommation',
         data: [60, 40],
-        backgroundColor: ['#1a73e8', '#fbbc04'],
+        backgroundColor: ['#1a73e8', 'rgb(255, 99, 132)'],
         hoverOffset: 4,
       },
     ],
