@@ -24,6 +24,7 @@
                 gap: 10px;
                 padding: 10px;
                 border: 1px solid #eaeaea;
+                border-radius: 5px;
                 .carburant_label{
                     font-size: .8rem;
                     font-weight: 600;
@@ -41,12 +42,20 @@
         .carburantRapport_center{
             width: 100%;
             display: flex;
-            gap: 20px;
+            gap: 25px;
             .carburantRapport_left{
                 flex: 3;
+                border: 1px solid #eaeaea;
+                border-radius: 5px;
+                padding: 10px;
             }
             .carburantRapport_right{
                 flex: 4;
+                border: 1px solid #eaeaea;
+                border-radius: 5px;
+                padding: 10px;
+                height: max-content;
+
             }
         }
     }

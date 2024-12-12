@@ -173,7 +173,7 @@ const CarburantTabInfo = () => {
                   <Table
                     columns={columns}
                     dataSource={data}
-                    size="small"
+                    size="middle"
                     pagination={false}
                     rowClassName={rowClassName}
                     summary={(pageData) => {
