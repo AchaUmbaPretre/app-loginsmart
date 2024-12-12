@@ -218,9 +218,11 @@ const CarburantTabInfo = () => {
 
                 </div>
                 <div className="carburantTabInfo-center">
+                  <Divider></Divider>
                   <Table columns={columns2} dataSource={data2} size="small" rowClassName={rowClassName} />
                 </div>
                 <div className="carburantTabInfo-bottom">
+                  <Divider></Divider>
                   <Table columns={columns3} dataSource={data3} size="small" rowClassName={rowClassName} />
                 </div>
             </div>

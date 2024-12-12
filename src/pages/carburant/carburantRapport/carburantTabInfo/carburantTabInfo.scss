@@ -2,9 +2,7 @@
     .carburantTabInfo_wrapper{
         display: flex;
         flex-direction: column;
-        gap: 10px;
         .carburantTabInfo-left{
-            margin-bottom: 20px;
             .ant-table-tbody .ant-table-cell.vehicule-column {
                 font-weight: 500;
                 background: #1a73e821; // Bleu professionnel
@@ -15,6 +13,10 @@
               }
               .odd-row {
                 background-color: #f9f9f9; // Gris clair pour les lignes paires
+              }
+              .ant-table-summary {
+                background-color: #f9f9f9; // Gris clair pour le résumé
+                font-weight: bold; // Optionnel : rendre le texte du résumé plus visible
               }
         
             .carburant_h2{
