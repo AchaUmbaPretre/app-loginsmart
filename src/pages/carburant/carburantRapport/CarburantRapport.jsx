@@ -4,6 +4,8 @@ import { Radio } from 'antd';
 import CarburantTabInfo from './carburantTabInfo/CarburantTabInfo';
 import CarburantTabDetail from './carburantTabDetail/CarburantTabDetail';
 import { Divider } from 'antd';
+import RapportLineMensuel from '../../../components/rapportLineMensuel/RapportLineMensuel';
+import RapportPieMensuel from '../../../components/rapportPieMensuel/RapportPieMensuel';
 
 
 const CarburantRapport = () => {
@@ -72,11 +74,11 @@ const CarburantRapport = () => {
                 <div className="carburantRapport_bottom">
                     <div className="carburantRapport_bottom-left">
                         <Divider>Consommation mensuelle de mes vehicules</Divider>
-
+                        <RapportLineMensuel/>
                     </div>
                     <div className="carburantRapport_bottom-right">
                         <Divider>Réparation de la consomation(Litre)</Divider>
-
+                        <RapportPieMensuel/>
                     </div>
                 </div>
             </div>
