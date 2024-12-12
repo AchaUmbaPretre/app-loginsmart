@@ -3,6 +3,7 @@ import './carburantRapport.scss'
 import { Radio } from 'antd';
 import CarburantTabInfo from './carburantTabInfo/CarburantTabInfo';
 import CarburantTabDetail from './carburantTabDetail/CarburantTabDetail';
+import { Divider } from 'antd';
 
 
 const CarburantRapport = () => {
@@ -70,10 +71,12 @@ const CarburantRapport = () => {
                 </div>
                 <div className="carburantRapport_bottom">
                     <div className="carburantRapport_bottom-left">
-                        1
+                        <Divider>Consommation mensuelle de mes vehicules</Divider>
+
                     </div>
                     <div className="carburantRapport_bottom-right">
-                        2
+                        <Divider>Réparation de la consomation(Litre)</Divider>
+
                     </div>
                 </div>
             </div>
