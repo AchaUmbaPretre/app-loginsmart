@@ -1,22 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Divider, Space, Table, Tag } from 'antd';
 
 
 const CarburantTabDetail = () => {
-  const dataSource = [
-    {
-      key: '1',
-      name: 'Mike',
-      age: 32,
-      address: '10 Downing Street',
-    },
-    {
-      key: '2',
-      name: 'John',
-      age: 42,
-      address: '10 Downing Street',
-    },
-  ];
+  const [data, setData] = useState([])
+
   
   const columns = [
     { 
@@ -67,7 +55,7 @@ const CarburantTabDetail = () => {
       <div className="carburantTabDetail">
         <div className="CarburantTabDetail-wrapper">
           <Divider>Détails pour chaque véhicule</Divider>
-          <Table dataSource={dataSource} columns={columns} size="middle"  />
+          <Table dataSource={data} columns={columns} size="middle"  />
         </div>
       </div>
     </>
