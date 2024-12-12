@@ -1,6 +1,10 @@
 .carburantTabInfo{
     .carburantTabInfo_wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         .carburantTabInfo-left{
+            margin-bottom: 20px;
             .ant-table-tbody .ant-table-cell.vehicule-column {
                 font-weight: 500;
                 background: #1a73e821; // Bleu professionnel

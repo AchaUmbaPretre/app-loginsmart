@@ -55,6 +55,59 @@ const CarburantTabInfo = () => {
     },
   ];
 
+  const columns2 = [
+    { 
+      title: '#', 
+      dataIndex: 'id', 
+      key: 'id', 
+      render: (text, record, index) => index + 1, 
+      width: "3%" ,
+      className: 'vehicule-column', // Ajouter une classe pour la colonne
+
+    },
+    {
+      title: 'SIEGE KIN',
+      dataIndex: 'name',
+    },
+    {
+      title: 'Plein',
+      dataIndex: 'plein',
+    },
+    {
+      title: 'Vehicules',
+      dataIndex: 'vehicules',
+    },
+    {
+      title: 'Litre',
+      dataIndex: 'vehicules',
+    },
+    {
+      title: 'Km',
+      dataIndex: 'km',
+    }
+  ];
+
+  const data2 = [
+    {
+      key: '1',
+      name: 'John Brown',
+      age: 32,
+      address: 'New York No. 1 Lake Park',
+    },
+    {
+      key: '2',
+      name: 'Jim Green',
+      age: 42,
+      address: 'London No. 1 Lake Park',
+    },
+    {
+      key: '3',
+      name: 'Joe Black',
+      age: 32,
+      address: 'Sydney No. 1 Lake Park',
+    },
+  ];
+
   return (
     <>
         <div className="carburantTabInfo">
@@ -108,10 +161,10 @@ const CarburantTabInfo = () => {
 
                 </div>
                 <div className="carburantTabInfo-center">
-
+                  <Table columns={columns2} dataSource={data2} size="small" />
                 </div>
                 <div className="carburantTabInfo-bottom">
-
+                  <Table columns={columns2} dataSource={data2} size="small" />
                 </div>
             </div>
         </div>
