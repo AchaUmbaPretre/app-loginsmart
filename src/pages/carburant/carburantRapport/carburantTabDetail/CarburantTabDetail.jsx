@@ -39,7 +39,7 @@ const CarburantTabDetail = () => {
     <>
       <div className="carburantTabDetail">
         <div className="CarburantTabDetail-wrapper">
-          <Divider>Information générales</Divider>
+          <Divider>Détails pour chaque véhicule</Divider>
           <Table dataSource={dataSource} columns={columns} size="middle" />
         </div>
       </div>
