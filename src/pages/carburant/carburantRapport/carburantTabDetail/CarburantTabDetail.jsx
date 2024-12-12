@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Divider, Space, Table, Tag } from 'antd';
-import '/carburantTabDetail.scss'
+import { Button, Divider, Space, Table, Tag } from 'antd';
+import './carburantTabDetail.scss'
+import { SendOutlined } from '@ant-design/icons';
+
 
 const CarburantTabDetail = () => {
   const [data, setData] = useState([])
 
-  
   const columns = [
     { 
       title: '#', 
@@ -53,6 +54,9 @@ const CarburantTabDetail = () => {
   return (
     <>
       <div className="carburantTabDetail">
+        <div className="carburant-rows-btn">
+          <Button className='btn' type='primary' icon={<SendOutlined />}>Compare la conso.</Button>
+        </div>
         <div className="CarburantTabDetail-wrapper">
           <Divider>Détails pour chaque véhicule</Divider>
           <Table dataSource={data} columns={columns} size="middle"  />
