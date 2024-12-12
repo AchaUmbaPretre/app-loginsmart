@@ -20,7 +20,7 @@ const RapportLineMensuel = () => {
       {
         label: 'Essence',
         data: [40, 60, 55, 80, 95, 100, 105, 115, 120, 135, 145, 150], // Données pour l'essence
-        backgroundColor: '#fbbc04', // Couleur des barres pour l'essence
+        backgroundColor: 'rgb(255, 99, 132)', // Couleur des barres pour l'essence
         borderColor: '#fbbc04',
         borderWidth: 1,
       },
