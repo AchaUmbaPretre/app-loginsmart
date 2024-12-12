@@ -6,45 +6,45 @@ const CarburantTabInfo = () => {
 
   const columns = [
     {
-      title: 'Mes vehicules',
+      title: 'Mes véhicules',
       dataIndex: 'vehicule',
+      className: 'vehicule-column', // Ajouter une classe pour la colonne
     },
     {
       title: 'Plein',
       dataIndex: 'plein',
     },
     {
-      title: 'Vehicules',
-      dataIndex: 'vehicule',
-    },
-    {
       title: 'Litre',
       dataIndex: 'litre',
     },
     {
-      title: 'Litre',
-      dataIndex: 'litre',
+      title: 'Km',
+      dataIndex: 'km',
     },
   ];
 
   const data = [
     {
       key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
+      vehicule: 'Voiture 1',
+      plein: 50,
+      litre: 30,
+      km: 1000,
     },
     {
       key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
+      vehicule: 'Voiture 2',
+      plein: 70,
+      litre: 45,
+      km: 500,
     },
     {
       key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sydney No. 1 Lake Park',
+      vehicule: 'Voiture 3',
+      plein: 60,
+      litre: 50,
+      km: 800,
     },
   ];
 
@@ -53,8 +53,40 @@ const CarburantTabInfo = () => {
         <div className="carburantTabInfo">
             <div className="carburantTabInfo_wrapper">
                 <div className="carburantTabInfo-left">
-                <Divider>Middle size table</Divider>
-                <Table columns={columns} dataSource={data} size="middle" />
+                  <Divider>Information générales</Divider>
+                  <Table
+                    columns={columns}
+                    dataSource={data}
+                    size="small"
+                    pagination={false}
+                    summary={(pageData) => {
+                      let totalPlein = 0;
+                      let totalLitre = 0;
+
+                      pageData.forEach(({ plein, litre }) => {
+                        totalPlein += plein;
+                        totalLitre += litre;
+                      });
+
+                      const moyennePlein = pageData.length > 0 ? (totalPlein / pageData.length).toFixed(2) : 0;
+                      const moyenneLitre = pageData.length > 0 ? (totalLitre / pageData.length).toFixed(2) : 0;
+
+                      return (
+                        <>
+                          <Table.Summary.Row>
+                            <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
+                            <Table.Summary.Cell index={1}>{totalPlein}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={2}>{totalLitre}</Table.Summary.Cell>
+                          </Table.Summary.Row>
+                          <Table.Summary.Row>
+                            <Table.Summary.Cell index={0}>Moyenne</Table.Summary.Cell>
+                            <Table.Summary.Cell index={1}>{moyennePlein}</Table.Summary.Cell>
+                            <Table.Summary.Cell index={2}>{moyenneLitre}</Table.Summary.Cell>
+                          </Table.Summary.Row>
+                        </>
+                      );
+                    }}
+                  />
 
                 </div>
                 <div className="carburantTabInfo-center">
