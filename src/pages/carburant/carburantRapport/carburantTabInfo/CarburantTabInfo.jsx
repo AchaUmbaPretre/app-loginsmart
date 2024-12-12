@@ -5,13 +5,6 @@ import { Divider, Table } from 'antd';
 const CarburantTabInfo = () => {
 
   const columns = [
-    { 
-      title: '#', 
-      dataIndex: 'id', 
-      key: 'id', 
-      render: (text, record, index) => index + 1, 
-      width: "3%" ,
-    },
     {
       title: 'Mes véhicules',
       dataIndex: 'vehicule',
