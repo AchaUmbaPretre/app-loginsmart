@@ -8,23 +8,6 @@ const Maintenance_form = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
 
-    // État pour les réparations dynamiques
-    const [reparations, setReparations] = useState([
-        { id: 1, type: '', montant: null, description: '' }
-    ]);
-
-    // Ajouter un nouvel ensemble de champs
-    const addReparation = () => {
-        setReparations([...reparations, { id: Date.now(), type: '', montant: null, description: '' }]);
-    };
-
-    console.log(reparations)
-
-    // Supprimer un ensemble de champs
-    const removeReparation = (id) => {
-        setReparations(reparations.filter((rep) => rep.id !== id));
-    };
-
     const onFinish = (values) => {
         console.log('Form Values:', values);
     };
@@ -158,82 +141,82 @@ const Maintenance_form = () => {
                             </Col>
                         </Row>
 
-                                                {/* Réparations dynamiques */}
-            <Form.List name="reparations">
-              {(fields, { add, remove }) => (
-                <>
-                  {fields.map(({ key, name, ...restField }) => (
-                    <Row key={key} gutter={12} align="middle">
-                      <Col xs={24} md={7}>
-                        <Form.Item
-                          {...restField}
-                          name={[name, 'type_reparation']}
-                          label="Type de réparation"
-                          rules={[
-                            { required: true, message: 'Veuillez fournir une réparation...' },
-                          ]}
-                        >
-                          <Select placeholder="Choisir une réparation">
-                            <Option value="1">Réparation 1</Option>
-                            <Option value="2">Réparation 2</Option>
-                          </Select>
-                        </Form.Item>
-                      </Col>
-                      <Col xs={24} md={7}>
-                        <Form.Item
-                          {...restField}
-                          name={[name, 'montant']}
-                          label="Montant"
-                          rules={[
-                            { required: true, message: 'Veuillez fournir un montant...' },
-                          ]}
-                        >
-                          <InputNumber
-                            min={0}
-                            placeholder="Saisir le montant"
-                            style={{ width: '100%' }}
-                          />
-                        </Form.Item>
-                      </Col>
-                      <Col xs={24} md={8}>
-                        <Form.Item
-                          {...restField}
-                          name={[name, 'description']}
-                          label="Description"
-                          rules={[
-                            { required: true, message: 'Veuillez fournir une description...' },
-                          ]}
-                        >
-                          <Input.TextArea
-                            placeholder="Saisir la description"
-                            style={{ width: '100%', resize: 'none' }}
-                          />
-                        </Form.Item>
-                      </Col>
-                      <Col xs={24} md={2}>
-                        <Button
-                          type="text"
-                          danger
-                          icon={<MinusCircleOutlined />}
-                          onClick={() => remove(name)}
-                        >
-                        </Button>
-                      </Col>
-                    </Row>
-                  ))}
-                  <Form.Item>
-                    <Button
-                      type="dashed"
-                      onClick={() => add()}
-                      icon={<PlusCircleOutlined />}
-                      style={{ width: '100%' }}
-                    >
-                      Ajouter une réparation
-                    </Button>
-                  </Form.Item>
-                </>
-              )}
-            </Form.List>
+                        {/* Réparations dynamiques */}
+                        <Form.List name="reparations">
+                        {(fields, { add, remove }) => (
+                            <>
+                            {fields.map(({ key, name, ...restField }) => (
+                                <Row key={key} gutter={12} align="middle">
+                                <Col xs={24} md={7}>
+                                    <Form.Item
+                                    {...restField}
+                                    name={[name, 'type_reparation']}
+                                    label="Type de réparation"
+                                    rules={[
+                                        { required: true, message: 'Veuillez fournir une réparation...' },
+                                    ]}
+                                    >
+                                    <Select placeholder="Choisir une réparation">
+                                        <Option value="1">Réparation 1</Option>
+                                        <Option value="2">Réparation 2</Option>
+                                    </Select>
+                                    </Form.Item>
+                                </Col>
+                                <Col xs={24} md={7}>
+                                    <Form.Item
+                                    {...restField}
+                                    name={[name, 'montant']}
+                                    label="Montant"
+                                    rules={[
+                                        { required: true, message: 'Veuillez fournir un montant...' },
+                                    ]}
+                                    >
+                                    <InputNumber
+                                        min={0}
+                                        placeholder="Saisir le montant"
+                                        style={{ width: '100%' }}
+                                    />
+                                    </Form.Item>
+                                </Col>
+                                <Col xs={24} md={8}>
+                                    <Form.Item
+                                    {...restField}
+                                    name={[name, 'description']}
+                                    label="Description"
+                                    rules={[
+                                        { required: true, message: 'Veuillez fournir une description...' },
+                                    ]}
+                                    >
+                                    <Input.TextArea
+                                        placeholder="Saisir la description"
+                                        style={{ width: '100%', resize: 'none' }}
+                                    />
+                                    </Form.Item>
+                                </Col>
+                                <Col xs={24} md={2}>
+                                    <Button
+                                    type="text"
+                                    danger
+                                    icon={<MinusCircleOutlined />}
+                                    onClick={() => remove(name)}
+                                    >
+                                    </Button>
+                                </Col>
+                                </Row>
+                            ))}
+                            <Form.Item>
+                                <Button
+                                type="dashed"
+                                onClick={() => add()}
+                                icon={<PlusCircleOutlined />}
+                                style={{ width: '100%' }}
+                                >
+                                Ajouter une réparation
+                                </Button>
+                            </Form.Item>
+                            </>
+                        )}
+                        </Form.List>
                         <div style={{ marginTop: '20px' }}>
                             <Button type="primary" htmlType="submit" icon={<SendOutlined />}>
                                 Soumettre
