@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './maintenance_form.scss'
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton } from 'antd';
 const { Option } = Select;
 
@@ -27,7 +28,7 @@ const Maintenance_form = () => {
                     onFinish={onFinish}
                 >
                     <Row gutter={12}>
-                        <Col xs={24} md={12}>
+                        <Col xs={24} md={8}>
                             <Form.Item
                                 name="immatriculation"
                                 label="Immatriculation"
@@ -46,7 +47,7 @@ const Maintenance_form = () => {
                             </Form.Item>
                         </Col>
 
-                        <Col xs={24} md={12}>
+                        <Col xs={24} md={8}>
                             <Form.Item
                                 name="date"
                                 label="Date"
@@ -61,7 +62,7 @@ const Maintenance_form = () => {
                             </Form.Item>
                         </Col>
 
-                        <Col xs={24} md={12}>
+                        <Col xs={24} md={8}>
                             <Form.Item
                                 name="kilometrage"
                                 label="Kilometrage"
