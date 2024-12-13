@@ -72,22 +72,22 @@ const Generateur = ({ onAddChauffeur }) => {
             </div>
             <div className="chauffeur_top_right">
                 <Space size="middle">
-                <Input
-                    placeholder="Rechercher un génerateur"
-                    prefix={<SearchOutlined />}
-                    className="chauffeur_search"
-                />
-                <Button icon={<FilterOutlined />} className="chauffeur_filter">
-                    Filtres
-                </Button>
-                <Button
-                    className="chauffeur_btn"
-                    type="primary"
-                    icon={<PlusCircleOutlined />}
-                    onClick={onAddChauffeur}
-                >
-                    Nouveau génerateur
-                </Button>
+                  <Input
+                      placeholder="Rechercher un génerateur"
+                      prefix={<SearchOutlined />}
+                      className="chauffeur_search"
+                  />
+                  <Button icon={<FilterOutlined />} className="chauffeur_filter">
+                      Filtres
+                  </Button>
+                  <Button
+                      className="chauffeur_btn"
+                      type="primary"
+                      icon={<PlusCircleOutlined />}
+                      onClick={onAddChauffeur}
+                  >
+                      Nouveau génerateur
+                  </Button>
                 </Space>
             </div>
         </div>
