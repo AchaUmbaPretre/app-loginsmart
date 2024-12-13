@@ -9,6 +9,7 @@ import {
   SettingOutlined,
   LogoutOutlined,
   BankOutlined,
+  ThunderboltOutlined
 } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -67,12 +68,23 @@ const Sidebar = () => {
               <Link to="/new_vehicule">Créer un nouveau vehicule</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub3" icon={<ToolOutlined style={{ fontSize: '18px'}} />} title="Générateur">
+          <SubMenu key="sub3" icon={<ToolOutlined style={{ fontSize: '18px'}} />} title="Maintenance">
+            <Item key="/vehicule_maintenance">
+              <Link to="/vehicule_maintenance">Véhicule</Link>
+            </Item>
+            <Item key="/maintenance_generateur">
+              <Link to="/vehicule_maintenance">Génerateur</Link>
+            </Item>
+            <Item key="/rapport_maintenance">
+              <Link to="/vehicule_maintenance">Rapport</Link>
+            </Item>
+          </SubMenu>
+          <SubMenu key="sub4" icon={<ThunderboltOutlined style={{ fontSize: '18px'}} />} title="Générateur">
             <Item key="/generateur">
               <Link to="/generateur">Liste des générateurs</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub4" icon={<TeamOutlined style={{ fontSize: '18px'}} />} title="Personnel">
+          <SubMenu key="sub5" icon={<TeamOutlined style={{ fontSize: '18px'}} />} title="Personnel">
             <Item key="/chauffeur">
               <Link to="/chauffeur">Liste des chauffeurs</Link>
             </Item>
@@ -80,12 +92,12 @@ const Sidebar = () => {
               <Link to="/personnel">Liste des Personnels</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub5" icon={<BankOutlined style={{ fontSize: '18px' }} />} title="Approvisionnement">
+          <SubMenu key="sub6" icon={<BankOutlined style={{ fontSize: '18px' }} />} title="Approvisionnement">
             <Item key="/approvisionnement">
               <Link to="/approvisionnement">Suivi Approvisionnement</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub6" icon={<SettingOutlined style={{ fontSize: '18px' }} />} title="Administrateur">
+          <SubMenu key="sub7" icon={<SettingOutlined style={{ fontSize: '18px' }} />} title="Administrateur">
             <Item key="/administrateur">
               <Link to="/administrateur">Gestion des Admins</Link>
             </Item>
