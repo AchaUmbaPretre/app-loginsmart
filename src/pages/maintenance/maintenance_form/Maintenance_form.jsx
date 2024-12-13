@@ -61,7 +61,7 @@ const Maintenance_form = () => {
                             </Form.Item>
                         </Col>
 
-                        <Col xs={24} md={8}>
+                        <Col xs={24} md={12}>
                             <Form.Item
                                 name="kilometrage"
                                 label="Kilometrage"
@@ -76,7 +76,7 @@ const Maintenance_form = () => {
                             </Form.Item>
                         </Col>
 
-                        <Col xs={24} md={8}>
+                        <Col xs={24} md={12}>
                             <Form.Item
                                 name="Cout"
                                 label="Cout(devise)"
@@ -88,6 +88,25 @@ const Maintenance_form = () => {
                                 ]}
                             >
                                 {loadingData ? <Skeleton.Input active={true} /> : <InputNumber min={0} placeholder="Saisir le kilometrage" style={{width:'100%'}}/>}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={12}>
+                            <Form.Item
+                                name="fournisseur"
+                                label="Fournisseur"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir un fournisseur...',
+                                    },
+                                ]}
+                            >
+                                {loadingData ? <Skeleton.Input active={true} /> : 
+                                <Select placeholder="Choisir un fournisseur">
+                                    <Option value="1">Fournisseur 1</Option>
+                                    <Option value="2">Fournisseur 2</Option>
+                                </Select> }
                             </Form.Item>
                         </Col>
                     </Row>
