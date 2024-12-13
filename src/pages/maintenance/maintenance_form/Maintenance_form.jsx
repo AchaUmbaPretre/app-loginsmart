@@ -146,7 +146,7 @@ const Maintenance_form = () => {
                                     label="Commentaire"
                                     rules={[
                                         {
-                                            required: true,
+                                            required: false,
                                             message: 'Veuillez fournir un commentaire...',
                                         }
                                     ]}
