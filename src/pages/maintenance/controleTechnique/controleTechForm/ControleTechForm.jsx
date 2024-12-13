@@ -90,7 +90,8 @@ const ControleTechForm = () => {
                                     )}
                                 </Form.Item>
                             </Col> 
-                            <Col xs={24} md={12}>
+
+                            <Col xs={24} md={8}>
                                 <Form.Item
                                     name="ref_controle"
                                     label="Ref. Controle Tech"
@@ -105,7 +106,7 @@ const ControleTechForm = () => {
                                 </Form.Item>
                             </Col>
 
-                            <Col xs={24} md={12}>
+                            <Col xs={24} md={8}>
                                 <Form.Item
                                     name="agent"
                                     label="Agent"
@@ -121,6 +122,21 @@ const ControleTechForm = () => {
                                         <Option value="1">Agent 1</Option>
                                         <Option value="2">Agent 2</Option>
                                     </Select> }
+                                </Form.Item>
+                            </Col>
+
+                            <Col xs={24} md={8}>
+                                <Form.Item
+                                    name="resultat"
+                                    label="Resultat"
+                                    rules={[
+                                        {
+                                            required: false,
+                                            message: 'Veuillez fournir un résultat...',
+                                        }
+                                    ]}
+                                >
+                                    {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le resultat.." style={{width:'100%'}}/>}
                                 </Form.Item>
                             </Col>
 
