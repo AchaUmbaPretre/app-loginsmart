@@ -268,6 +268,7 @@ const ControleTechForm = () => {
                         <Form.List name="reparations">
                         {(fields, { add, remove }) => (
                             <>
+                            <Divider className='title_row'>Réparations</Divider>
                             {fields.map(({ key, name, ...restField }) => (
                                 <Row key={key} gutter={12} align="middle">
                                 <Col xs={24} md={7}>

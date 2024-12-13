@@ -115,7 +115,7 @@ const Maintenance = () => {
                     icon={<PlusCircleOutlined />}
                     onClick={handleAdd}
                 >
-                    Nouveau carburant
+                    Nouvelle réparation
                 </Button>
                 </Space>
             </div>
