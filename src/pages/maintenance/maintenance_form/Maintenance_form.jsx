@@ -110,6 +110,21 @@ const Maintenance_form = () => {
                                 </Select> }
                             </Form.Item>
                         </Col>
+
+                        <Col xs={24} md={12}>
+                            <Form.Item
+                                name="description"
+                                label="Description"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir une description...',
+                                    }
+                                ]}
+                            >
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir la description..." style={{width:'100%', resize:'none'}}/>}
+                            </Form.Item>
+                        </Col>
                     </Row>
                 </Form>
             </div>
