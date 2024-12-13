@@ -226,6 +226,28 @@ const ControleTechForm = () => {
                                 </Form.Item>
                             </Col>
 
+                            <Col xs={24} md={8}>
+                                <Form.Item
+                                    name="chauffeur"
+                                    label="Chauffeur"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Veuillez sélectionner un chauffeur...',
+                                        },
+                                    ]}
+                                >
+                                    {loadingData ? (
+                                        <Skeleton.Input active={true} />
+                                    ) : (
+                                        <Select placeholder="Choisir un chauffeur">
+                                            <Option value="1">Chauffeur 1</Option>
+                                            <Option value="2">Chauffeur 2</Option>
+                                        </Select>
+                                    )}
+                                </Form.Item>
+                            </Col>
+
                             <Col xs={24} md={24}>
                                 <Form.Item
                                     name="commentaire"
@@ -266,17 +288,16 @@ const ControleTechForm = () => {
                                 <Col xs={24} md={7}>
                                     <Form.Item
                                     {...restField}
-                                    name={[name, 'montant']}
-                                    label="Montant"
+                                    name={[name, 'autres']}
+                                    label="Autre visite"
                                     rules={[
-                                        { required: true, message: 'Veuillez fournir un montant...' },
+                                        { required: false, message: 'Veuillez fournir l information de ce champ...' },
                                     ]}
                                     >
-                                    <InputNumber
-                                        min={0}
-                                        placeholder="Saisir le montant"
-                                        style={{ width: '100%' }}
-                                    />
+                                    <Select placeholder="Choisir une réparation">
+                                        <Option value="1">OUI</Option>
+                                        <Option value="2">NON</Option>
+                                    </Select>
                                     </Form.Item>
                                 </Col>
                                 <Col xs={24} md={8}>
