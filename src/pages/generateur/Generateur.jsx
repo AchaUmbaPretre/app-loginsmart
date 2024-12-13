@@ -48,7 +48,7 @@ const Generateur = ({ onAddChauffeur }) => {
           dataIndex: 'actions'
         }
       ];
-      
+
       const data = [];
 
       const onChange = (pagination, filters, sorter, extra) => {
@@ -86,7 +86,7 @@ const Generateur = ({ onAddChauffeur }) => {
                     icon={<PlusCircleOutlined />}
                     onClick={onAddChauffeur}
                 >
-                    Nouveau chauffeur
+                    Nouveau génerateur
                 </Button>
                 </Space>
             </div>
