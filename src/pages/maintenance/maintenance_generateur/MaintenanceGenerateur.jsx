@@ -2,7 +2,7 @@ import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 
-const Maintenance_generateur = () => {
+const MaintenanceGenerateur = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [idVehicule, setIdVehicule] = useState('');
@@ -37,20 +37,20 @@ const Maintenance_generateur = () => {
             width: "3%" 
           },
         {
-          title: 'Immatriculation',
-          dataIndex: 'immatricule',
+          title: 'Num_bon',
+          dataIndex: 'num_bon',
         },
         {
-          title: 'Marque',
-          dataIndex: 'marque'
+          title: 'Groupe(Agence)',
+          dataIndex: 'groupe'
         },
         {
-          title: 'Date entreé',
-          dataIndex: 'date_entree'
+          title: '	Date debut',
+          dataIndex: 'date_debut'
         },
         {
-          title: 'Date sortie',
-          dataIndex: 'date_sortie'
+          title: 'Date fin',
+          dataIndex: 'date_fin'
         },
         {
             title: 'Nbre jour',
@@ -61,16 +61,16 @@ const Maintenance_generateur = () => {
             dataIndex: 'description'
         },
         {
-            title: 'Type Réparation',
-            dataIndex: 'type_reparation'
-        },
-        {
             title: 'Fournisseur',
             dataIndex: 'fournisseur'
         },
         {
             title: 'Etat',
             dataIndex: 'etat'
+        },
+        {
+            title: 'Suivie',
+            dataIndex: 'suivi'
         },
         {
             title: 'Actions',
@@ -140,4 +140,4 @@ const Maintenance_generateur = () => {
   );
 };
 
-export default Maintenance_generateur;
+export default MaintenanceGenerateur;
