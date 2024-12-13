@@ -48,8 +48,9 @@ const Generateur = ({ onAddChauffeur }) => {
           dataIndex: 'actions'
         }
       ];
-      const data = [];
       
+      const data = [];
+
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
       };
