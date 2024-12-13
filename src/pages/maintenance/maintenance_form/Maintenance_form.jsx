@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './maintenance_form.scss';
-import { MinusCircleOutlined } from '@ant-design/icons';
+import { MinusCircleOutlined, SendOutlined } from '@ant-design/icons';
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
 const { Option } = Select;
 
@@ -241,7 +241,7 @@ const Maintenance_form = () => {
                             </Button>
                         </div>
                         <div style={{ marginTop: '20px' }}>
-                            <Button type="primary" htmlType="submit">
+                            <Button type="primary" htmlType="submit" icon={<SendOutlined />}>
                                 Soumettre
                             </Button>
                         </div>
