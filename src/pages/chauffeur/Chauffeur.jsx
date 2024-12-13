@@ -13,33 +13,38 @@ const Chauffeur = ({ onAddChauffeur }) => {
             width: "3%" 
           },
         {
-          title: 'Name',
-          dataIndex: 'name',
+          title: 'Matricule',
+          dataIndex: 'matricule',
         },
         {
-          title: 'Chinese Score',
-          dataIndex: 'chinese',
-          sorter: {
-            compare: (a, b) => a.chinese - b.chinese,
-            multiple: 3,
-          },
+          title: 'Nom',
+          dataIndex: 'nom'
         },
         {
-          title: 'Math Score',
-          dataIndex: 'math',
-          sorter: {
-            compare: (a, b) => a.math - b.math,
-            multiple: 2,
-          },
+          title: 'Prenom',
+          dataIndex: 'prenom'
         },
         {
-          title: 'English Score',
-          dataIndex: 'english',
-          sorter: {
-            compare: (a, b) => a.english - b.english,
-            multiple: 1,
-          },
+          title: 'Telephone',
+          dataIndex: 'telephone'
         },
+        {
+          title: 'Fonction',
+          dataIndex: 'fonction'
+        },
+        {
+          title: 'Affectation',
+          dataIndex: 'affectation'
+        },
+        {
+          title: 'Conges',
+          dataIndex: 'Conges'
+        },
+        {
+          title: 'Actions',
+          dataIndex: 'actions'
+        }
+        
       ];
       const data = [
         {
