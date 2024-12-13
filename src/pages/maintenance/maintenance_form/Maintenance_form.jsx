@@ -140,7 +140,7 @@ const Maintenance_form = () => {
                                 </Form.Item>
                             </Col>
 
-                            <Col xs={24} md={12}>
+                            <Col xs={24} md={24}>
                                 <Form.Item
                                     name="commentaire"
                                     label="Commentaire"
