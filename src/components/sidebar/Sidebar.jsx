@@ -72,6 +72,9 @@ const Sidebar = () => {
             <Item key="/vehicule_maintenance">
               <Link to="/vehicule_maintenance">Véhicule</Link>
             </Item>
+            <Item key="/controle_technique">
+              <Link to="/controle_technique">Controle technique</Link>
+            </Item>
             <Item key="/generateur_maintenance">
               <Link to="/generateur_maintenance">Génerateur</Link>
             </Item>
