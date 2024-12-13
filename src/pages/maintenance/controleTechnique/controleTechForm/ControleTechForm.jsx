@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './maintenance_form.scss';
 import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
 const { Option } = Select;

@@ -1,7 +1,7 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import Maintenance_form from './maintenance_form/Maintenance_form';
+import ControleTechForm from './controleTechForm/ControleTechForm';
 
 const ControleTechnique = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -111,7 +111,7 @@ const ControleTechnique = () => {
                     icon={<PlusCircleOutlined />}
                     onClick={handleAdd}
                 >
-                    Nouveau carburant
+                    Nouveau controle
                 </Button>
                 </Space>
             </div>
@@ -132,7 +132,7 @@ const ControleTechnique = () => {
           width={1025}
           centered
         >
-            <Maintenance_form/>
+            <ControleTechForm/>
         </Modal>
     </div>
   );
