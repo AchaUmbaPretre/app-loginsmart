@@ -52,7 +52,26 @@ const ControleTechForm = () => {
                             <Col xs={24} md={8}>
                                 <Form.Item
                                     name="date"
-                                    label="Date"
+                                    label="Date Controle"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Veuillez fournir une date...',
+                                        },
+                                    ]}
+                                >
+                                    {loadingData ? (
+                                        <Skeleton.Input active={true} />
+                                    ) : (
+                                        <DatePicker style={{ width: '100%' }} />
+                                    )}
+                                </Form.Item>
+                            </Col>
+
+                            <Col xs={24} md={8}>
+                                <Form.Item
+                                    name="date_validite"
+                                    label="Date validité"
                                     rules={[
                                         {
                                             required: true,
@@ -137,6 +156,73 @@ const ControleTechForm = () => {
                                     ]}
                                 >
                                     {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le resultat.." style={{width:'100%'}}/>}
+                                </Form.Item>
+                            </Col>
+
+                            <Col xs={24} md={8}>
+                                <Form.Item
+                                    name="Cout"
+                                    label="Cout(devise)"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Veuillez fournir un cout...',
+                                        }
+                                    ]}
+                                >
+                                    {loadingData ? <Skeleton.Input active={true} /> : <InputNumber min={0} placeholder="Saisir le kilometrage" style={{width:'100%'}}/>}
+                                </Form.Item>
+                            </Col>
+
+                            <Col xs={24} md={8}>
+                                <Form.Item
+                                    name="Cout_ttc"
+                                    label="Cout TTC"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Veuillez fournir un cout TCC...',
+                                        }
+                                    ]}
+                                >
+                                    {loadingData ? <Skeleton.Input active={true} /> : <InputNumber min={0} placeholder="Saisir le cout TCC" style={{width:'100%'}}/>}
+                                </Form.Item>
+                            </Col>
+
+                            <Col xs={24} md={8}>
+                                <Form.Item
+                                    name="taxe"
+                                    label="Taxe"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Veuillez fournir une taxe...',
+                                        }
+                                    ]}
+                                >
+                                    {loadingData ? <Skeleton.Input active={true} /> : <InputNumber min={0} placeholder="Saisir la taxe..." style={{width:'100%'}}/>}
+                                </Form.Item>
+                            </Col>
+
+                            <Col xs={24} md={8}>
+                                <Form.Item
+                                    name="fournisseur"
+                                    label="Fournisseur"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Veuillez fournir un fournisseur...',
+                                        },
+                                    ]}
+                                >
+                                    {loadingData ? (
+                                        <Skeleton.Input active={true} />
+                                    ) : (
+                                        <Select placeholder="Choisir un fournisseur">
+                                            <Option value="1">Fournisseur 1</Option>
+                                            <Option value="2">Fournisseur 2</Option>
+                                        </Select>
+                                    )}
                                 </Form.Item>
                             </Col>
 

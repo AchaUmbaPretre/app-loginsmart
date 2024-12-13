@@ -91,6 +91,7 @@ const Maintenance_form = () => {
                                     )}
                                 </Form.Item>
                             </Col>
+                            
                             <Col xs={24} md={12}>
                                 <Form.Item
                                     name="Cout"
