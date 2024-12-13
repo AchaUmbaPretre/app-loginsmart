@@ -19,8 +19,8 @@ import CarburantSearch from './pages/carburant/carburantSearch/CarburantSearch';
 import CarburantGenerateur from './pages/carburantGenerateur/CarburantGenerateur';
 import CarburantRapport from './pages/carburant/carburantRapport/CarburantRapport';
 import Maintenance from './pages/maintenance/Maintenance';
-import Maintenance_generateur from './pages/maintenance/maintenance_generateur/MaintenanceGenerateur';
 import ControleTechnique from './pages/maintenance/controleTechnique/ControleTechnique';
+import GenerateurMaintenance from './pages/maintenance/generateurMaintenance/GenerateurMaintenance';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -64,12 +64,12 @@ function App() {
           element: <PrivateRoute element={Maintenance} />
         },
         {
-          path: '/generateur_maintenance',
-          element: <PrivateRoute element={Maintenance_generateur} />
-        },
-        {
           path: '/controle_technique',
           element: <PrivateRoute element={ControleTechnique} />
+        },
+        {
+          path: '/generateur_maintenance',
+          element: <PrivateRoute element={GenerateurMaintenance} />
         },
         {
           path: '/chauffeur',

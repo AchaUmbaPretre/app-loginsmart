@@ -1,6 +1,7 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import GenerateurMaintenanceForm from './generateurMaintenanceForm/GenerateurMaintenanceForm';
 
 const GenerateurMaintenance = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -131,6 +132,7 @@ const GenerateurMaintenance = () => {
           width={1025}
           centered
         >
+            <GenerateurMaintenanceForm/>
         </Modal>
     </div>
   );
