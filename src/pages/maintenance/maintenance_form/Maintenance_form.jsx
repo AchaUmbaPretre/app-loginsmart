@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './maintenance_form.scss';
-import { MinusCircleOutlined, SendOutlined } from '@ant-design/icons';
+import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
 const { Option } = Select;
 
@@ -17,6 +17,8 @@ const Maintenance_form = () => {
     const addReparation = () => {
         setReparations([...reparations, { id: Date.now(), type: '', montant: null, description: '' }]);
     };
+
+    console.log(reparations)
 
     // Supprimer un ensemble de champs
     const removeReparation = (id) => {
@@ -236,7 +238,7 @@ const Maintenance_form = () => {
                                     </Col>
                                 </Row>
                             ))}
-                            <Button type="dashed" onClick={addReparation} block>
+                            <Button type="dashed" icon={<PlusCircleOutlined /> } onClick={addReparation} block>
                                 Ajouter une réparation
                             </Button>
                         </div>
