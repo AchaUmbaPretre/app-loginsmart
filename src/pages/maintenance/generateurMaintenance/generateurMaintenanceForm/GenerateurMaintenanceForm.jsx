@@ -171,57 +171,59 @@ const GenerateurMaintenanceForm = () => {
                             <Divider className='title_row'>Réparations</Divider>
                             {fields.map(({ key, name, ...restField }) => (
                                 <Row key={key} gutter={12} align="middle">
-                                <Col xs={24} md={7}>
-                                    <Form.Item
-                                    {...restField}
-                                    name={[name, 'type_reparation']}
-                                    label="Type de réparation"
-                                    rules={[
-                                        { required: true, message: 'Veuillez fournir une réparation...' },
-                                    ]}
-                                    >
-                                    <Select placeholder="Choisir une réparation">
-                                        <Option value="1">Réparation 1</Option>
-                                        <Option value="2">Réparation 2</Option>
-                                    </Select>
-                                    </Form.Item>
-                                </Col>
-                                <Col xs={24} md={7}>
-                                    <Form.Item
-                                    {...restField}
-                                    name={[name, 'montant']}
-                                    label="Montant"
-                                    rules={[
-                                        { required: false, message: 'Veuillez fournir le montant...' },
-                                    ]}
-                                    >
-                                        <InputNumber min={0} placeholder="Saisir le montant..." style={{width:'100%'}}/>
-                                    </Form.Item>
-                                </Col>
-                                <Col xs={24} md={8}>
-                                    <Form.Item
-                                    {...restField}
-                                    name={[name, 'description']}
-                                    label="Description"
-                                    rules={[
-                                        { required: true, message: 'Veuillez fournir une description...' },
-                                    ]}
-                                    >
-                                        <Input.TextArea
-                                            placeholder="Saisir la description"
-                                            style={{ width: '100%', resize: 'none' }}
-                                        />
-                                    </Form.Item>
-                                </Col>
-                                <Col xs={24} md={2}>
-                                    <Button
-                                    type="text"
-                                    danger
-                                    icon={<MinusCircleOutlined />}
-                                    onClick={() => remove(name)}
-                                    >
-                                    </Button>
-                                </Col>
+
+                                    <Col xs={24} md={7}>
+                                        <Form.Item
+                                        {...restField}
+                                        name={[name, 'type_reparation']}
+                                        label="Type de réparation"
+                                        rules={[
+                                            { required: true, message: 'Veuillez fournir une réparation...' },
+                                        ]}
+                                        >
+                                        <Select placeholder="Choisir une réparation">
+                                            <Option value="1">Réparation 1</Option>
+                                            <Option value="2">Réparation 2</Option>
+                                        </Select>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col xs={24} md={7}>
+                                        <Form.Item
+                                        {...restField}
+                                        name={[name, 'montant']}
+                                        label="Montant"
+                                        rules={[
+                                            { required: false, message: 'Veuillez fournir le montant...' },
+                                        ]}
+                                        >
+                                            <InputNumber min={0} placeholder="Saisir le montant..." style={{width:'100%'}}/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col xs={24} md={8}>
+                                        <Form.Item
+                                        {...restField}
+                                        name={[name, 'description']}
+                                        label="Description"
+                                        rules={[
+                                            { required: true, message: 'Veuillez fournir une description...' },
+                                        ]}
+                                        >
+                                            <Input.TextArea
+                                                placeholder="Saisir la description"
+                                                style={{ width: '100%', resize: 'none' }}
+                                            />
+                                        </Form.Item>
+                                    </Col>
+                                    <Col xs={24} md={2}>
+                                        <Button
+                                        type="text"
+                                        danger
+                                        icon={<MinusCircleOutlined />}
+                                        onClick={() => remove(name)}
+                                        >
+                                        </Button>
+                                    </Col>
+                                    
                                 </Row>
                             ))}
                             <Form.Item>
