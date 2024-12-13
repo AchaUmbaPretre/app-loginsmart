@@ -1,6 +1,7 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import Maintenance_form from './maintenance_form/Maintenance_form';
 
 const Maintenance = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -135,6 +136,7 @@ const Maintenance = () => {
           width={1025}
           centered
         >
+            <Maintenance_form/>
         </Modal>
     </div>
   );
