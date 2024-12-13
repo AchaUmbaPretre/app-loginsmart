@@ -89,19 +89,19 @@ const ControleTechForm = () => {
                                         />
                                     )}
                                 </Form.Item>
-                            </Col>
+                            </Col> 
                             <Col xs={24} md={12}>
                                 <Form.Item
-                                    name="Cout"
-                                    label="Cout(devise)"
+                                    name="ref_controle"
+                                    label="Ref. Controle Tech"
                                     rules={[
                                         {
                                             required: true,
-                                            message: 'Veuillez fournir un cout...',
+                                            message: 'Veuillez fournir une référence...',
                                         }
                                     ]}
                                 >
-                                    {loadingData ? <Skeleton.Input active={true} /> : <InputNumber min={0} placeholder="Saisir le kilometrage" style={{width:'100%'}}/>}
+                                    {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir la ref..." style={{width:'100%'}}/>}
                                 </Form.Item>
                             </Col>
 
