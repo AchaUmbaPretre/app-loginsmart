@@ -93,7 +93,7 @@ const GenerateurMaintenanceForm = () => {
 
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="revele_prochaine"
+                                    name="revele_prochain"
                                     label="Relevé Prochain (Hrs)"
                                     rules={[
                                         {
@@ -107,7 +107,7 @@ const GenerateurMaintenanceForm = () => {
                                     ) : (
                                         <InputNumber
                                             min={0}
-                                            placeholder="Saisir le relevé actuel"
+                                            placeholder="Saisir le relevé prochain"
                                             style={{ width: '100%' }}
                                         />
                                     )}
