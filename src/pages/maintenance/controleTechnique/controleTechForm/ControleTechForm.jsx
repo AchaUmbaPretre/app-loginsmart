@@ -117,9 +117,9 @@ const ControleTechForm = () => {
                                     ]}
                                 >
                                     {loadingData ? <Skeleton.Input active={true} /> : 
-                                    <Select placeholder="Choisir un fournisseur">
-                                        <Option value="1">Fournisseur 1</Option>
-                                        <Option value="2">Fournisseur 2</Option>
+                                    <Select placeholder="Choisir un agent">
+                                        <Option value="1">Agent 1</Option>
+                                        <Option value="2">Agent 2</Option>
                                     </Select> }
                                 </Form.Item>
                             </Col>
