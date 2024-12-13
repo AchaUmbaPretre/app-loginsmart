@@ -71,11 +71,11 @@ const GenerateurMaintenanceForm = () => {
                             <Col xs={24} md={8}>
                                 <Form.Item
                                     name="revele"
-                                    label="Relevé actuelle (Hrs)"
+                                    label="Relevé actuel (Hrs)"
                                     rules={[
                                         {
                                             required: true,
-                                            message: 'Veuillez fournir une relevé actuelle...',
+                                            message: 'Veuillez fournir un relevé actuel...',
                                         },
                                     ]}
                                 >
@@ -94,7 +94,7 @@ const GenerateurMaintenanceForm = () => {
                             <Col xs={24} md={8}>
                                 <Form.Item
                                     name="revele_prochaine"
-                                    label="Relevé Prochaine (Hrs)"
+                                    label="Relevé Prochain (Hrs)"
                                     rules={[
                                         {
                                             required: true,
@@ -141,7 +141,7 @@ const GenerateurMaintenanceForm = () => {
                                     ]}
                                 >
                                     {loadingData ? <Skeleton.Input active={true} /> : 
-                                    <Select placeholder="Choisir un agent">
+                                    <Select placeholder="Choisir un fournisseur">
                                         <Option value="1">Fournisseur 1</Option>
                                         <Option value="2">Fournisseur 2</Option>
                                     </Select> }
@@ -223,7 +223,7 @@ const GenerateurMaintenanceForm = () => {
                                         >
                                         </Button>
                                     </Col>
-                                    
+
                                 </Row>
                             ))}
                             <Form.Item>
