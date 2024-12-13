@@ -18,6 +18,13 @@
     transform: translateX(5px);
   }}
 
+  .ant-menu-submenu {
+    &:hover > .ant-menu-submenu-title,
+    &.ant-menu-submenu-open > .ant-menu-submenu-title {
+      color: #ffffff !important;
+      background-color: #4b89ff !important;
+    }
+  }
 .icon {
   font-size: 40px;
   transition: color 0.3s ease;
@@ -77,5 +84,12 @@
   .ant-menu-submenu-title:hover {
     color: #ffffff !important;
     background-color: #4b89ff !important;
+  }
+
+  .ant-menu-submenu-title {
+    &:focus,
+    &:hover {
+      color: #ffffff !important;
+    }
   }
 }
