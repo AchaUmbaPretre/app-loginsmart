@@ -107,12 +107,12 @@ const ControleTechForm = () => {
 
                             <Col xs={24} md={12}>
                                 <Form.Item
-                                    name="fournisseur"
-                                    label="Fournisseur"
+                                    name="agent"
+                                    label="Agent"
                                     rules={[
                                         {
                                             required: true,
-                                            message: 'Veuillez fournir un fournisseur...',
+                                            message: 'Veuillez selectionner un agent...',
                                         },
                                     ]}
                                 >
