@@ -12,20 +12,16 @@ const AffectationVehicule = ({ onAddChauffeur }) => {
             width: "3%" 
           },
         {
-          title: 'Nom',
-          dataIndex: 'nom',
+          title: 'Immatricule',
+          dataIndex: 'immatricule',
         },
         {
-          title: 'Prénom',
-          dataIndex: 'prenom'
+          title: 'Marque',
+          dataIndex: 'marque'
         },
         {
-          title: 'Email',
-          dataIndex: 'email'
-        },
-        {
-          title: 'Role',
-          dataIndex: 'role'
+          title: 'Client',
+          dataIndex: 'client'
         },
       ];
       const data = [];
