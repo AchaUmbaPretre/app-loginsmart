@@ -23,6 +23,7 @@ import ControleTechnique from './pages/maintenance/controleTechnique/ControleTec
 import GenerateurMaintenance from './pages/maintenance/generateurMaintenance/GenerateurMaintenance';
 import AffectationVehicule from './pages/vehicule/affectationVehicule/AffectationVehicule';
 import AssuranceVehicule from './pages/vehicule/assuranceVehicule/AssuranceVehicule';
+import SinistreVehicule from './pages/vehicule/sinistreVehicule/SinistreVehicule';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -96,6 +97,10 @@ function App() {
         {
           path: '/assurance',
           element: <PrivateRoute element={AssuranceVehicule} />
+        },
+        {
+          path: '/sinistres_inspection',
+          element: <PrivateRoute element={SinistreVehicule} />
         },
         {
           path: '/seach_carburant',
