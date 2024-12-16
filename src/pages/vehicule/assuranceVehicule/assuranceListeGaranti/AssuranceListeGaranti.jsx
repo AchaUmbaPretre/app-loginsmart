@@ -54,7 +54,7 @@ const AssuranceListeGaranti = () => {
             <div className="carburantBord-wrapper">
                 <div className="carburantBord_top">
                     <h2 className="carburantBord-h2">Tableau de bord</h2>
-                    <Table columns={columns} size="small" dataSource={dataSource} onChange={onChange} />
+                    <Table columns={columns} dataSource={dataSource} onChange={onChange} />
                 </div>
             </div>
         </div>
@@ -62,4 +62,4 @@ const AssuranceListeGaranti = () => {
   )
 }
 
-export default AssuranceListeGaranti
+export default AssuranceListeGaranti;

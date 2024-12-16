@@ -1,6 +1,7 @@
 import { Button, Checkbox, Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Space } from 'antd';
 import { useState } from 'react';
 import { SendOutlined } from '@ant-design/icons';
+import AssuranceListeGaranti from '../assuranceListeGaranti/AssuranceListeGaranti';
 const { Option } = Select;
 
 
@@ -197,8 +198,7 @@ const AssuranceForm = () => {
                 </Form>
                 </div>
                 <div className="carburantForm-right">
-{/*                     <CarburantGenerateurBord/> */}
-                    cccc
+                     <AssuranceListeGaranti/>
                 </div>
             </div>
         </div>
