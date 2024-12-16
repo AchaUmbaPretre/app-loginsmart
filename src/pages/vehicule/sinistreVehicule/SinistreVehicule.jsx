@@ -53,13 +53,13 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
             <div className="chauffeur_top_left">
                 <h2 className="chauffeur_h2">LISTE D'INSPECTIONS JOURNALIERES</h2>
                 <Breadcrumb
-                separator=">"
-                items={[
-                    { title: 'Accueil', href: '/' },
-                    { title: 'Gestion', href: '/gestion' },
-                    { title: 'Personnel' },
-                ]}
-                className="chauffeur_breadcrumb"
+                    separator=">"
+                    items={[
+                        { title: 'Accueil', href: '/' },
+                        { title: 'Gestion', href: '/gestion' },
+                        { title: 'Personnel' },
+                    ]}
+                    className="chauffeur_breadcrumb"
                 />
             </div>
             <div className="chauffeur_top_right">
