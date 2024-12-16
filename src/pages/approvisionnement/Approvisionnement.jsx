@@ -12,32 +12,32 @@ const Approvisionnement = ({ onAddChauffeur }) => {
             width: "3%" 
           },
         {
-          title: 'Name',
-          dataIndex: 'name',
+          title: 'Immatriculation',
+          dataIndex: 'immatriculation',
         },
         {
-          title: 'Chinese Score',
-          dataIndex: 'chinese',
-          sorter: {
-            compare: (a, b) => a.chinese - b.chinese,
-            multiple: 3,
-          },
+          title: 'N° facture	',
+          dataIndex: 'numero_de_facture'
         },
         {
-          title: 'Math Score',
-          dataIndex: 'math',
-          sorter: {
-            compare: (a, b) => a.math - b.math,
-            multiple: 2,
-          },
+          title: 'Produit Acheté',
+          dataIndex: 'produit_achete'
         },
         {
-          title: 'English Score',
-          dataIndex: 'english',
-          sorter: {
-            compare: (a, b) => a.english - b.english,
-            multiple: 1,
-          },
+          title: 'Quantité',
+          dataIndex: 'quantite'
+        },
+        {
+          title: 'P.U',
+          dataIndex: 'pu'
+        },
+        {
+          title: 'Prix',
+          dataIndex: 'Prix'
+        },
+        {
+          title: 'Actions',
+          dataIndex: 'actions'
         },
       ];
       const data = [

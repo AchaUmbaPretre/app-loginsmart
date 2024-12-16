@@ -29,10 +29,10 @@ const Personnel = ({ onAddChauffeur }) => {
         },
       ];
       const data = [];
-      
+
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
-      };
+      }; 
 
   return (
     <div className="chauffeur">
