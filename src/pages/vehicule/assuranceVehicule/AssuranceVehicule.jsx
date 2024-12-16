@@ -1,7 +1,23 @@
-import { Breadcrumb, Button, Input, Space, Table } from 'antd';
+import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { useState } from 'react';
+import AssuranceForm from './assuranceForm/AssuranceForm';
 
 const AssuranceVehicule = ({ onAddChauffeur }) => {
+    const [modalType, setModalType] = useState(null);
+
+    const closeAllModals = () => {
+      setModalType(null);
+    };
+  
+    const openModal = (type, idBatiment = '') => {
+      closeAllModals();
+      setModalType(type);
+    };
+  
+    const handleAdd = () =>{
+      openModal('add')
+    }
 
     const columns = [
         { 
@@ -91,7 +107,7 @@ const AssuranceVehicule = ({ onAddChauffeur }) => {
                     className="chauffeur_btn"
                     type="primary"
                     icon={<PlusCircleOutlined />}
-                    onClick={onAddChauffeur}
+                    onClick={handleAdd}
                 >
                     Nouvel assurancne
                 </Button>
@@ -105,6 +121,16 @@ const AssuranceVehicule = ({ onAddChauffeur }) => {
                 onChange={onChange} 
             />
         </div>
+        <Modal
+          title=""
+          visible={modalType === 'add'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1023}
+          centered
+        >
+          <AssuranceForm/>
+        </Modal>
     </div>
   );
 };
