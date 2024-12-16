@@ -60,15 +60,7 @@ const Sidebar = () => {
               <Link to="/rapport_carburant">Rapport</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub2" icon={<CarOutlined style={{ fontSize: '18px' }} />} title="Véhicule">
-            <Item key="/vehicule">
-              <Link to="/vehicule">Liste des véhicules</Link>
-            </Item>
-            <Item key="/new_vehicule">
-              <Link to="/new_vehicule">Créer un nouveau vehicule</Link>
-            </Item>
-          </SubMenu>
-          <SubMenu key="sub3" icon={<ToolOutlined style={{ fontSize: '18px'}} />} title="Maintenance">
+          <SubMenu key="sub2" icon={<ToolOutlined style={{ fontSize: '18px'}} />} title="Maintenance">
             <Item key="/vehicule_maintenance">
               <Link to="/vehicule_maintenance">Véhicule</Link>
             </Item>
@@ -80,6 +72,14 @@ const Sidebar = () => {
             </Item>
             <Item key="/rapport_maintenance">
               <Link to="/vehicule_maintenance">Rapport</Link>
+            </Item>
+          </SubMenu>
+          <SubMenu key="sub3" icon={<CarOutlined style={{ fontSize: '18px' }} />} title="Véhicule">
+            <Item key="/vehicule">
+              <Link to="/vehicule">Liste des véhicules</Link>
+            </Item>
+            <Item key="/new_vehicule">
+              <Link to="/new_vehicule">Créer un nouveau vehicule</Link>
             </Item>
           </SubMenu>
           <SubMenu key="sub4" icon={<ThunderboltOutlined style={{ fontSize: '18px'}} />} title="Générateur">
@@ -97,7 +97,7 @@ const Sidebar = () => {
           </SubMenu>
           <SubMenu key="sub6" icon={<BankOutlined style={{ fontSize: '18px' }} />} title="Approvisionnement">
             <Item key="/approvisionnement">
-              <Link to="/approvisionnement">Suivi Approvisionnement</Link>
+              <Link to="/approvisionnement">Acheté</Link>
             </Item>
           </SubMenu>
           <SubMenu key="sub7" icon={<SettingOutlined style={{ fontSize: '18px' }} />} title="Administrateur">
