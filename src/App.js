@@ -85,7 +85,7 @@ function App() {
           element: <PrivateRoute element={VehiculeForm} />
         },
         {
-          path: '/affectation',
+          path: '/affectations',
           element: <PrivateRoute element={AffectationVehicule} />
         },
         {
