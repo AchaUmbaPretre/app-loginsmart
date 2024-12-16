@@ -126,7 +126,7 @@ const AssuranceVehicule = ({ onAddChauffeur }) => {
           visible={modalType === 'add'}
           onCancel={closeAllModals}
           footer={null}
-          width={1023}
+          width={1025}
           centered
         >
           <AssuranceForm/>
