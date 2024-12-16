@@ -81,6 +81,15 @@ const Sidebar = () => {
             <Item key="/new_vehicule">
               <Link to="/new_vehicule">Créer un nouveau vehicule</Link>
             </Item>
+            <Item key="/affectations">
+              <Link to="/affectations">Affectations</Link>
+            </Item>
+            <Item key="/assurance">
+              <Link to="/assurance">Assurances</Link>
+            </Item>
+            <Item key="/sinistres_inspection">
+              <Link to="/sinistres_inspection">Sinistres & Inspection</Link>
+            </Item>
           </SubMenu>
           <SubMenu key="sub4" icon={<ThunderboltOutlined style={{ fontSize: '18px'}} />} title="Générateur">
             <Item key="/generateur">
