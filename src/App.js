@@ -21,6 +21,7 @@ import CarburantRapport from './pages/carburant/carburantRapport/CarburantRappor
 import Maintenance from './pages/maintenance/Maintenance';
 import ControleTechnique from './pages/maintenance/controleTechnique/ControleTechnique';
 import GenerateurMaintenance from './pages/maintenance/generateurMaintenance/GenerateurMaintenance';
+import AffectationVehicule from './pages/vehicule/affectationVehicule/AffectationVehicule';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -82,6 +83,10 @@ function App() {
         {
           path: '/new_vehicule',
           element: <PrivateRoute element={VehiculeForm} />
+        },
+        {
+          path: '/affectation',
+          element: <PrivateRoute element={AffectationVehicule} />
         },
         {
           path: '/generateur',
