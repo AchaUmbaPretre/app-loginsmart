@@ -22,6 +22,7 @@ import Maintenance from './pages/maintenance/Maintenance';
 import ControleTechnique from './pages/maintenance/controleTechnique/ControleTechnique';
 import GenerateurMaintenance from './pages/maintenance/generateurMaintenance/GenerateurMaintenance';
 import AffectationVehicule from './pages/vehicule/affectationVehicule/AffectationVehicule';
+import AssuranceVehicule from './pages/vehicule/assuranceVehicule/AssuranceVehicule';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -89,8 +90,12 @@ function App() {
           element: <PrivateRoute element={AffectationVehicule} />
         },
         {
-          path: '/generateur',
-          element: <PrivateRoute element={Generateur} />
+          path: '/affectations',
+          element: <PrivateRoute element={AffectationVehicule} />
+        },
+        {
+          path: '/assurance',
+          element: <PrivateRoute element={AssuranceVehicule} />
         },
         {
           path: '/seach_carburant',
