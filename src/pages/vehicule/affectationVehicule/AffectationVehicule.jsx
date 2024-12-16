@@ -23,6 +23,10 @@ const AffectationVehicule = ({ onAddChauffeur }) => {
           title: 'Client',
           dataIndex: 'client'
         },
+        {
+            title: 'Actions',
+            dataIndex: 'actions'
+          },
       ];
       const data = [];
 
