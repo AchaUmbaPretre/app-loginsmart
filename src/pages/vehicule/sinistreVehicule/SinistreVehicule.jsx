@@ -10,7 +10,7 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
             key: 'id', 
             render: (text, record, index) => index + 1, 
             width: "3%" 
-          },
+        },
         {
           title: 'N°',
           dataIndex: 'numero',
@@ -40,6 +40,7 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
             dataIndex: 'actions'
         }
       ];
+
       const data = [];
 
       const onChange = (pagination, filters, sorter, extra) => {
@@ -50,7 +51,7 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">LISTE D'INSPECTIONS</h2>
+                <h2 className="chauffeur_h2">LISTE D'INSPECTIONS JOURNALIERES</h2>
                 <Breadcrumb
                 separator=">"
                 items={[
