@@ -151,7 +151,34 @@ const AssuranceForm = () => {
                         </Col>
 
                         <Col xs={24} md={12}>
-                            <Checkbox>Carte verte</Checkbox>
+                            <Form.Item
+                            name="carte_verte"
+                            label="Carte verte"
+                            rules={[
+                                {
+                                    required: false,
+                                    message: 'Veuillez fournir une carte verte...',
+                                },
+                            ]}
+                            >
+                                <Checkbox>Carte verte</Checkbox>
+                            
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={24}>
+                            <Form.Item
+                                name="commentaire"
+                                label="Commentaire"
+                                rules={[
+                                    {
+                                        required: false,
+                                        message: 'Veuillez fournir un commentaire...',
+                                    }
+                                    ]}
+                                >
+                                    {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir le commentaire..." style={{width:'100%', resize:'none'}}/>}
+                                </Form.Item>
                         </Col>
 
                         <Col xs={24}>
