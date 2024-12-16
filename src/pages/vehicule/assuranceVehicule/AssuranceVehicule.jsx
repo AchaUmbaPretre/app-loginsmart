@@ -93,7 +93,7 @@ const AssuranceVehicule = ({ onAddChauffeur }) => {
                     icon={<PlusCircleOutlined />}
                     onClick={onAddChauffeur}
                 >
-                    Nouvelle affectation
+                    Nouvel assurancne
                 </Button>
                 </Space>
             </div>
