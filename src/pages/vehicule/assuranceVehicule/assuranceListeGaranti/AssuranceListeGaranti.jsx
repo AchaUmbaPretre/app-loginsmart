@@ -40,7 +40,7 @@ const AssuranceListeGaranti = () => {
   };
 
   console.log(dataSource)
-  // Colonnes du tableau
+
   const columns = [
     {
       title: '#',
