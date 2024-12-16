@@ -1,115 +1,83 @@
 import React, { useState } from 'react';
-import { Table, Button } from 'antd';
 import moment from 'moment';
+import './assuranceListeGarantie.scss'
 
 const AssuranceListeGaranti = () => {
-  // État local pour stocker les données
   const [dataSource, setDataSource] = useState([
-    { key: '1', garanti: 'DM', date_effet: '2024-10-01', echeance: '2024-12-01', checked: false },
-    { key: '2', garanti: 'RC', date_effet: '2024-10-05', echeance: '2025-01-05', checked: false },
-    { key: '3', garanti: 'INC', date_effet: '2024-11-01', echeance: '2025-02-01', checked: false },
-    { key: '4', garanti: 'VOL', date_effet: '2024-12-01', echeance: '2025-03-01', checked: false },
+    { id: 1, garanti: 'DM', checked: false, date_effet: null, echeance: null },
+    { id: 2, garanti: 'RC', checked: false, date_effet: null, echeance: null },
+    { id: 3, garanti: 'INC', checked: false, date_effet: null, echeance: null },
   ]);
 
-  // Fonction pour gérer la modification des dates ou l'état des cases à cocher
-  const handleDateChange = (key, field, value) => {
-    const newDataSource = dataSource.map((item) => {
-      if (item.key === key) {
-        return { ...item, [field]: value };
-      }
-      return item;
-    });
-    setDataSource(newDataSource);
+  // Fonction pour gérer les changements de "checked"
+  const handleCheckChange = (id, checked) => {
+    const updatedData = dataSource.map((item) =>
+      item.id === id ? { ...item, checked } : item
+    );
+    setDataSource(updatedData);
   };
 
-  const handleCheckboxChange = (key, checked) => {
-    const newDataSource = dataSource.map((item) => {
-      if (item.key === key) {
-        return { ...item, checked };
-      }
-      return item;
-    });
-    setDataSource(newDataSource);
+  // Fonction pour gérer les changements de date
+  const handleDateChange = (id, dateField, value) => {
+    const updatedData = dataSource.map((item) =>
+      item.id === id ? { ...item, [dateField]: value } : item
+    );
+    setDataSource(updatedData);
   };
-
-  // Fonction pour récupérer les lignes cochées
-  const getCheckedRows = () => {
-    const checkedRows = dataSource.filter((item) => item.checked);
-    console.log('Lignes cochées :', checkedRows);
-    return checkedRows;
-  };
-
-  console.log(dataSource)
-
-  const columns = [
-    {
-      title: '#',
-      dataIndex: 'id',
-      key: 'id',
-      render: (_, __, index) => index + 1,
-      width: '5%',
-    },
-    {
-      title: 'Sélectionner',
-      dataIndex: 'checked',
-      key: 'checked',
-      render: (text, record) => (
-        <input
-          type="checkbox"
-          checked={record.checked}
-          onChange={(e) => handleCheckboxChange(record.key, e.target.checked)}
-        />
-      ),
-      width: '10%',
-    },
-    {
-      title: 'Garanti',
-      dataIndex: 'garanti',
-      key: 'garanti',
-    },
-    {
-      title: 'Date effet',
-      dataIndex: 'date_effet',
-      key: 'date_effet',
-      render: (text, record) => (
-        <input
-          style={{ border: 'none', padding: '8px', color: '#555', fontSize: '12px' }}
-          type="date"
-          value={moment(record.date_effet).format('YYYY-MM-DD')}
-          onChange={(e) =>
-            handleDateChange(record.key, 'date_effet', moment(e.target.value, 'YYYY-MM-DD').format('YYYY-MM-DD'))
-          }
-        />
-      ),
-    },
-    {
-      title: 'Échéance (mois)',
-      dataIndex: 'echeance',
-      key: 'echeance',
-      render: (text, record) => (
-        <input
-          style={{ border: 'none', padding: '8px', color: '#555', fontSize: '12px' }}
-          type="date"
-          value={moment(record.echeance).format('YYYY-MM-DD')}
-          onChange={(e) =>
-            handleDateChange(record.key, 'echeance', moment(e.target.value, 'YYYY-MM-DD').format('YYYY-MM-DD'))
-          }
-        />
-      ),
-    },
-  ];
 
   return (
-    <div className="carburantBord">
-      <div className="carburantBord-wrapper">
-        <div className="carburantBord_top">
-          <h2 className="carburantBord-h2">Tableau de bord</h2>
-          <Table columns={columns} bordered dataSource={dataSource} pagination={false} />
-          <Button type="primary" onClick={getCheckedRows} style={{ marginTop: '16px' }}>
-            Récupérer les lignes cochées
-          </Button>
-        </div>
-      </div>
+    <div className="table-container">
+      <h2>Liste des Garanties</h2>
+      <table className="data-table">
+        <thead>
+          <tr>
+            <th>Actif</th>
+            <th>#</th>
+            <th>Garanti</th>
+            <th>Date Effet</th>
+            <th>Échéance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dataSource.map((record) => (
+            <tr key={record.id}>
+              <td>
+                <input
+                  type="checkbox"
+                  checked={record.checked}
+                  onChange={(e) => handleCheckChange(record.id, e.target.checked)}
+                />
+              </td>
+              <td>{record.id}</td>
+              <td>{record.garanti}</td>
+              <td>
+                {record.checked ? (
+                  <input
+                    type="date"
+                    value={record.date_effet || ''}
+                    onChange={(e) => handleDateChange(record.id, 'date_effet', e.target.value)}
+                    className="input-date"
+                  />
+                ) : (
+                  <span className="inactive">Non actif</span>
+                )}
+              </td>
+              <td>
+                {record.checked ? (
+                  <input
+                    type="date"
+                    value={record.echeance || ''}
+                    onChange={(e) => handleDateChange(record.id, 'echeance', e.target.value)}
+                    className="input-date"
+                  />
+                ) : (
+                  <span className="inactive">Non actif</span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
