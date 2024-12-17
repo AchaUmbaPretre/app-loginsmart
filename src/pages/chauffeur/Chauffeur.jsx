@@ -78,7 +78,8 @@ const Chauffeur = ({ onAddChauffeur }) => {
                     separator=">"
                     items={[
                         { title: 'Accueil', href: '/' },
-                        { title: 'Gestion', href: '/gestion' },
+                        { title: 'Affectation', href: '/gestion' },
+                        { title: 'Congé', href: '/gestion' },
                         { title: 'Chauffeurs' },
                     ]}
                     className="chauffeur_breadcrumb"
