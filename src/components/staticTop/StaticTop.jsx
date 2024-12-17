@@ -32,7 +32,7 @@ const StaticTop = () => {
       chartData: [75, 69, 90, 91, 66, 65, 50],
     },
     {
-      title: 'Conversion Rate',
+      title: 'Générateur',
       value: '2.49%',
       change: '84.7%',
       changeType: 'up',
@@ -40,8 +40,8 @@ const StaticTop = () => {
       chartData: [50, 45, 60, 80, 70, 90, 100],
     },
     {
-      title: 'Sessions',
-      value: '44K',
+      title: 'Chauffeur',
+      value: '40',
       change: '-23.6%',
       changeType: 'down',
       color: '#F44336',
