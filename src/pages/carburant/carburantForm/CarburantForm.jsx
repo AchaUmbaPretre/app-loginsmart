@@ -26,6 +26,7 @@ const CarburantForm = () => {
                     autoComplete="off"
                     className="custom-form"
                     onFinish={onFinish}
+                    variant={'filled'}
                 >
                     <Row gutter={12}>
                         <Col xs={24} md={12}>
