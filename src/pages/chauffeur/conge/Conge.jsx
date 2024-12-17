@@ -17,7 +17,7 @@ const Conge = () => {
     <>
         <div className="vehiculeForm">
             <div className="vehicule_row_title">
-                <h2 className="title_h2">Enregistrer conge</h2>
+                <h2 className="title_h2">Enregistrer congé</h2>
             </div>
             <div className="vehiculeForm_wrapper">
                 <Form
@@ -135,7 +135,7 @@ const Conge = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir..." style={{height:'100px', resize:'none'}}/>}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir..." style={{height:'80px', resize:'none'}}/>}
                             </Form.Item>
                         </Col>
                         <Col xs={24}>
