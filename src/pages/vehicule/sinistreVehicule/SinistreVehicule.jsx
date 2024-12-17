@@ -16,24 +16,32 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
           dataIndex: 'numero',
         },
         {
-          title: 'Vehicule',
-          dataIndex: 'vehicule'
+          title: 'Immatriculation',
+          dataIndex: 'immatriculation'
         },
         {
-          title: 'Par',
-          dataIndex: 'par'
+          title: 'Date',
+          dataIndex: 'date'
         },
         {
             title: 'Date',
             dataIndex: 'date'
         },
         {
-            title: 'Carte verte',
-            dataIndex: 'carte_verte'
+            title: 'Lieu',
+            dataIndex: 'lieu'
+        },
+        {
+            title: 'Chauffeur',
+            dataIndex: 'chauffeur'
         },
         {
             title: 'Commentaire',
             dataIndex: 'commentaire'
+        },
+        {
+            title: 'Suivi',
+            dataIndex: 'suivi'
         },
         {
             title: 'Actions',
@@ -51,7 +59,7 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">LISTE D'INSPECTIONS JOURNALIERES</h2>
+                <h2 className="chauffeur_h2">LISTE DES SINISTRES</h2>
                 <Breadcrumb
                     separator=">"
                     items={[
