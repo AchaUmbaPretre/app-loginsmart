@@ -133,7 +133,7 @@ const Conge = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir..." />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir..." style={{height:'100px'}}/>}
                             </Form.Item>
                         </Col>
 
