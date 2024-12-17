@@ -148,6 +148,7 @@ const CarburantForm = () => {
                                 {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir le commentaire" />}
                             </Form.Item>
                         </Col>
+                        
                         <Col xs={24}>
                             <Form.Item>
                                 <Space className="button-group">

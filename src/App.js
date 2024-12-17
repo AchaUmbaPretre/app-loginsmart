@@ -24,6 +24,7 @@ import GenerateurMaintenance from './pages/maintenance/generateurMaintenance/Gen
 import AffectationVehicule from './pages/vehicule/affectationVehicule/AffectationVehicule';
 import AssuranceVehicule from './pages/vehicule/assuranceVehicule/AssuranceVehicule';
 import SinistreVehicule from './pages/vehicule/sinistreVehicule/SinistreVehicule';
+import ChauffeurAffect from './pages/chauffeur/chauffeurAffect/ChauffeurAffect';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -77,6 +78,10 @@ function App() {
         {
           path: '/chauffeur',
           element: <PrivateRoute element={Chauffeur} />
+        },
+        {
+          path: '/affectation',
+          element: <PrivateRoute element={ChauffeurAffect} />
         },
         {
           path: '/vehicule',

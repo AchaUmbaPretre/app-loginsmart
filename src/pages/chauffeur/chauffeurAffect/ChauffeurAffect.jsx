@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
+import { SendOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 
 const ChauffeurAffect = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
+
+    const onFinish = () => {
+
+    }
 
   return (
     <>
@@ -55,6 +60,21 @@ const ChauffeurAffect = () => {
                                     <Option value="1">Chauffeur 1</Option>
                                     <Option value="2">Chauffeur 2</Option>
                                 </Select> }
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={12}>
+                            <Form.Item
+                                name="commentaire"
+                                label="Commentaire"
+                                rules={[
+                                    {
+                                        required: false,
+                                        message: 'Veuillez fournir un commentaire...',
+                                    },
+                                ]}
+                            >
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir le commentaire" />}
                             </Form.Item>
                         </Col>
                     </Row>
