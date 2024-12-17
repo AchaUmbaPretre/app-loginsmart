@@ -35,7 +35,7 @@ const ChauffeurAffect = () => {
                                     }
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le site..." style={{width:'100%', resize:'none'}}/>}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le site..." style={{width:'100%'}}/>}
                             </Form.Item>
                         </Col>
 
@@ -58,6 +58,11 @@ const ChauffeurAffect = () => {
                             </Form.Item>
                         </Col>
                     </Row>
+                    <div style={{ marginTop: '20px' }}>
+                        <Button type="primary" htmlType="submit" icon={<SendOutlined />}>
+                            Soumettre
+                        </Button>
+                    </div>
                 </Form>
             </div>
         </div>
