@@ -73,6 +73,7 @@ const ChauffeurForm = () => {
                         autoComplete="off"
                         className="custom-form"
                         onFinish={onFinish}
+                        variant={'filled'}
                     >
                         <Row gutter={16}>
                         <Divider className='title_row' orientation="left" plain>INFORMATION GENERALE</Divider>
@@ -181,7 +182,7 @@ const ChauffeurForm = () => {
                                 </Form.Item>
                             </Col>
 
-                            <Col xs={24} md={8}>
+                            <Col xs={24} md={10}>
                                 <Form.Item
                                     name="adresse"
                                     label="Adresse"
@@ -190,7 +191,7 @@ const ChauffeurForm = () => {
                                 </Form.Item>
                             </Col>
 
-                            <Col xs={24} md={8}>
+                            <Col xs={24} md={6}>
                                 <Form.Item
                                     name="photo"
                                     label="Photo"
