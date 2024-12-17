@@ -11,7 +11,7 @@ const CarburantGenerateur = () => {
     setModalType(null);
   };
 
-  const openModal = (type, idBatiment = '') => {
+  const openModal = (type) => {
     closeAllModals();
     setModalType(type);
   };
