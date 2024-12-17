@@ -176,7 +176,7 @@ const Carburant = () => {
           visible={modalType === 'add'}
           onCancel={closeAllModals}
           footer={null}
-          width={1025}
+          width={1035}
           centered
         >
           <CarburantForm/>
