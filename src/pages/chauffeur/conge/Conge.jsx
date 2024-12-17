@@ -6,6 +6,8 @@ const { Option } = Select;
 const Conge = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const onFinish = () => {
     }
@@ -133,10 +135,21 @@ const Conge = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir..." style={{height:'100px'}}/>}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir..." style={{height:'100px', resize:'none'}}/>}
                             </Form.Item>
                         </Col>
-
+                        <Col xs={24}>
+                            <Form.Item>
+                                <Space className="button-group">
+                                    <Button type="primary" htmlType="submit" loading={isLoading} disabled={isLoading}>
+                                        {'Ajouter'}
+                                    </Button>
+                                    <Button htmlType="reset">
+                                        Réinitialiser
+                                    </Button>
+                                </Space>
+                            </Form.Item>
+                        </Col>
                     </Row>
                 </Form>
             </div>
