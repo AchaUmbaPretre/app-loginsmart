@@ -65,7 +65,7 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
                     items={[
                         { title: 'Accueil', href: '/' },
                         { title: 'Gestion', href: '/gestion' },
-                        { title: 'Personnel' },
+                        { title: 'Sinistre' },
                     ]}
                     className="chauffeur_breadcrumb"
                 />
@@ -96,6 +96,7 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
                 columns={columns} 
                 dataSource={data} 
                 onChange={onChange} 
+                bordered
             />
         </div>
     </div>
