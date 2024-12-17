@@ -78,7 +78,7 @@ const Chauffeur = ({ onAddChauffeur }) => {
                     separator=">"
                     items={[
                         { title: 'Accueil', href: '/' },
-                        { title: 'Affectation', href: '/gestion' },
+                        { title: 'Affectation', href: '/affectation' },
                         { title: 'Congé', href: '/gestion' },
                         { title: 'Chauffeurs' },
                     ]}

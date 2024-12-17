@@ -14,11 +14,11 @@ const ChauffeurAffect = () => {
 
   return (
     <>
-        <div className="Maintenance_form">
+        <div className="vehiculeForm">
             <div className="vehicule_row_title">
                 <h2 className="title_h2">AFFECTER UN AGENT</h2>
             </div>
-            <div className="maintenance_form_wrapper">
+            <div className="vehiculeForm_wrapper">
                 <Form
                     form={form}
                     name="validateOnly"
@@ -29,7 +29,7 @@ const ChauffeurAffect = () => {
                     variant={'filled'}
                 >
                     <Row gutter={12}>
-                        <Col xs={24} md={24}>
+                        <Col xs={24} md={12}>
                             <Form.Item
                                 name="id_site"
                                 label="Site d'affecation"
@@ -40,7 +40,12 @@ const ChauffeurAffect = () => {
                                     }
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le site..." style={{width:'100%'}}/>}
+                                {loadingData ? <Skeleton.Input active={true} /> : 
+                                <Select placeholder="Sélectionnez un site">
+                                    <Option value="1">Site 1</Option>
+                                    <Option value="2">Site 2</Option>
+                                </Select>
+                                }
                             </Form.Item>
                         </Col>
 
@@ -63,7 +68,7 @@ const ChauffeurAffect = () => {
                             </Form.Item>
                         </Col>
 
-                        <Col xs={24} md={12}>
+                        <Col xs={24} md={24}>
                             <Form.Item
                                 name="commentaire"
                                 label="Commentaire"
@@ -74,7 +79,7 @@ const ChauffeurAffect = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir le commentaire" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir le commentaire" style={{height:'100px', resize:'none'}} />}
                             </Form.Item>
                         </Col>
                     </Row>
