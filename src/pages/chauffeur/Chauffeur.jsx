@@ -1,8 +1,25 @@
-import { Breadcrumb, Button, Input, Space, Table } from 'antd';
+import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './chauffeur.scss';
+import { useState } from 'react';
+import ChauffeurForm from './chauffeurForm/ChauffeurForm';
 
 const Chauffeur = ({ onAddChauffeur }) => {
+  const [modalType, setModalType] = useState(null);
+
+  const closeAllModals = () => {
+    setModalType(null);
+  };
+
+  const openModal = (type) => {
+    closeAllModals();
+    setModalType(type);
+  };
+
+  const handleAdd = ( idBatiment) =>{
+    openModal('add', idBatiment)
+  }
+
 
     const columns = [
         { 
@@ -47,7 +64,7 @@ const Chauffeur = ({ onAddChauffeur }) => {
         
       ];
       const data = [];
-      
+
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
       };
@@ -81,7 +98,7 @@ const Chauffeur = ({ onAddChauffeur }) => {
                     className="chauffeur_btn"
                     type="primary"
                     icon={<PlusCircleOutlined />}
-                    onClick={onAddChauffeur}
+                    onClick={handleAdd}
                 >
                     Nouveau chauffeur
                 </Button>
@@ -95,6 +112,16 @@ const Chauffeur = ({ onAddChauffeur }) => {
                 onChange={onChange} 
             />
         </div>
+        <Modal
+          title=""
+          visible={modalType === 'add'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1023}
+          centered
+        >
+          <ChauffeurForm/>
+        </Modal>
     </div>
   );
 };
