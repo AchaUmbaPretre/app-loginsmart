@@ -12,12 +12,12 @@ const ChauffeurForm = () => {
     const onFinish = () => {
 
     }
-    
+
   return (
     <>
         <div className="vehiculeForm">
             <div className="vehicule_row_title">
-                <h2 className="title_h2">Formulaire du véhicule</h2>
+                <h2 className="title_h2">ENREGISTRER UN CHAUFFEUR</h2>
             </div>
             <div className="vehiculeForm_wrapper">
                 <Form
@@ -72,6 +72,72 @@ const ChauffeurForm = () => {
                                 {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="+243..." />}
                             </Form.Item>
                         </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="date_naissance"
+                                label="Date de naissance"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir la date de naissance...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <DatePicker style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="date_engagement"
+                                label="Date engagement"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir la date d engagement...',
+                                    },
+                                ]}
+                            >
+                            {loadingData ? <Skeleton.Input active={true} /> : <DatePicker style={{width:'100%'}} />}
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="sexe"
+                                label="Sexe"
+                                rules={[
+                                        {
+                                            required: true,
+                                            message: 'Veuillez fournir l information sur le sexe..',
+                                        },
+                                    ]}
+                                >
+                                    <Radio.Group>
+                                        <Radio value='H'>Homme</Radio>
+                                        <Radio value='F'>Femme</Radio>
+                                    </Radio.Group>
+                            </Form.Item> 
+                        </Col> 
+
+                        <Col xs={24} md={8}>
+                            <Form.Item
+                                name="etat_civil"
+                                label="Etat civil"
+                                rules={[
+                                        {
+                                            required: true,
+                                            message: 'Veuillez fournir l information sur l etat civil..',
+                                        },
+                                    ]}
+                                >
+                                    <Radio.Group>
+                                        <Radio value={1}>Marié(e)</Radio>
+                                        <Radio value={2}>Célibataire</Radio>
+                                    </Radio.Group>
+                            </Form.Item> 
+                        </Col>       
                     </Row>
                 </Form>
             </div>
