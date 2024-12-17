@@ -26,6 +26,7 @@ const Maintenance_form = () => {
                         autoComplete="off"
                         className="custom-form"
                         onFinish={onFinish}
+                        variant={'filled'}
                     >
                         <Row gutter={12}>
                             <Col xs={24} md={8}>
@@ -91,7 +92,7 @@ const Maintenance_form = () => {
                                     )}
                                 </Form.Item>
                             </Col>
-                            
+
                             <Col xs={24} md={12}>
                                 <Form.Item
                                     name="Cout"
