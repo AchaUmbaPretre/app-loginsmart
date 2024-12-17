@@ -32,6 +32,7 @@ const VehiculeForm = () => {
                     autoComplete="off"
                     className="custom-form"
                     onFinish={onFinish}
+                    variant={'filled'}
                 >
                     <Row gutter={12}>
                         <Divider className='title_row'>Identification</Divider>
