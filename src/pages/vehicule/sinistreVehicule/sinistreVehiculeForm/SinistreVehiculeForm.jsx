@@ -207,7 +207,7 @@ const SinistreVehiculeForm = () => {
 
                         <Divider className='title_row'></Divider>
                         
-                        <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', width:'100%'}}>
+                        <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', width:'100%', marginBottom:'20px'}}>
                             <div>
                                 <h4>Y a-t-il eu Débit de fuite ?</h4>
                                 <Col xs={24} md={8}>
