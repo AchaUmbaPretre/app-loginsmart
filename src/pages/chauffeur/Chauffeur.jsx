@@ -79,7 +79,7 @@ const Chauffeur = ({ onAddChauffeur }) => {
                     items={[
                         { title: 'Accueil', href: '/' },
                         { title: 'Affectation', href: '/affectation' },
-                        { title: 'Congé', href: '/gestion' },
+                        { title: 'Congé', href: '/conge' },
                         { title: 'Chauffeurs' },
                     ]}
                     className="chauffeur_breadcrumb"

@@ -25,6 +25,7 @@ import AffectationVehicule from './pages/vehicule/affectationVehicule/Affectatio
 import AssuranceVehicule from './pages/vehicule/assuranceVehicule/AssuranceVehicule';
 import SinistreVehicule from './pages/vehicule/sinistreVehicule/SinistreVehicule';
 import ChauffeurAffect from './pages/chauffeur/chauffeurAffect/ChauffeurAffect';
+import Conge from './pages/chauffeur/conge/Conge';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -82,6 +83,10 @@ function App() {
         {
           path: '/affectation',
           element: <PrivateRoute element={ChauffeurAffect} />
+        },
+        {
+          path: '/conge',
+          element: <PrivateRoute element={Conge} />
         },
         {
           path: '/vehicule',
