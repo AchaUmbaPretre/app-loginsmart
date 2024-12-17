@@ -2,7 +2,9 @@
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    
+    border : 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
     .vehicule_row_title {
         padding: 10px;
         background: linear-gradient(90deg, rgba(100, 115, 247, 0.048), rgba(255, 255, 255, 0.9));

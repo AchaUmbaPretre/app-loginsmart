@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Form, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space, Checkbox } from 'antd';
+import { Form, Input, Row, Button, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space, Checkbox } from 'antd';
 const { Option } = Select;
 
 const SinistreVehiculeForm = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const onFinish = () => {
@@ -284,6 +285,18 @@ const SinistreVehiculeForm = () => {
                                 ]}
                             >
                                 {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir...." />}
+                            </Form.Item>
+                        </Col>
+                        <Col xs={24}>
+                            <Form.Item>
+                                <Space className="button-group">
+                                    <Button type="primary" htmlType="submit" loading={isLoading} disabled={isLoading}>
+                                        {'Ajouter'}
+                                    </Button>
+                                    <Button htmlType="reset">
+                                        Réinitialiser
+                                    </Button>
+                                </Space>
                             </Form.Item>
                         </Col>
                     </Row>

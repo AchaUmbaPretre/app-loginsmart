@@ -121,7 +121,7 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
           visible={modalType === 'add'}
           onCancel={closeAllModals}
           footer={null}
-          width={1045}
+          width={1000}
           centered
         >
           <SinistreVehiculeForm/>
