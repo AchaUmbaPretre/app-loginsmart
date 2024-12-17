@@ -35,7 +35,7 @@ const ChauffeurAffect = () => {
                                 label="Site d'affecation"
                                 rules={[
                                     {
-                                        required: false,
+                                        required: true,
                                         message: 'Veuillez fournir un commentaire...',
                                     }
                                 ]}
