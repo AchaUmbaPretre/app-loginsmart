@@ -1,7 +1,24 @@
-import { Breadcrumb, Button, Input, Space, Table } from 'antd';
+import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { useState } from 'react';
+import SinistreVehiculeForm from './sinistreVehiculeForm/SinistreVehiculeForm';
 
 const SinistreVehicule = ({ onAddChauffeur }) => {
+    const [modalType, setModalType] = useState(null);
+
+    const closeAllModals = () => {
+        setModalType(null);
+      };
+    
+      const openModal = (type, idVehicule = '') => {
+        closeAllModals();
+        setModalType(type);
+      };
+    
+      const handleAdd = (idVehicule) =>{
+        openModal('add', idVehicule )
+      }
+
 
     const columns = [
         { 
@@ -84,7 +101,7 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
                     className="chauffeur_btn"
                     type="primary"
                     icon={<PlusCircleOutlined />}
-                    onClick={onAddChauffeur}
+                    onClick={handleAdd}
                 >
                     Nouveau sinistre
                 </Button>
@@ -99,6 +116,16 @@ const SinistreVehicule = ({ onAddChauffeur }) => {
                 bordered
             />
         </div>
+        <Modal
+          title=""
+          visible={modalType === 'add'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1045}
+          centered
+        >
+          <SinistreVehiculeForm/>
+        </Modal>
     </div>
   );
 };
