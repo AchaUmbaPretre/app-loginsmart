@@ -1,6 +1,7 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import FournisseurForm from './fournisseurForm/FournisseurForm';
 
 const Fournisseur = () => {
   const [modalType, setModalType] = useState(null);
@@ -104,10 +105,10 @@ const Fournisseur = () => {
           visible={modalType === 'add'}
           onCancel={closeAllModals}
           footer={null}
-          width={1023}
+          width={900}
           centered
         >
-{/*           <VehiculeForm/> */}
+          <FournisseurForm/>
         </Modal>
     </div>
   );

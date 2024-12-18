@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space } from 'antd';
 const { Option } = Select;
 
-const fournisseurForm = () => {
+const FournisseurForm = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -132,4 +132,4 @@ const fournisseurForm = () => {
   )
 }
 
-export default fournisseurForm;
+export default FournisseurForm;
