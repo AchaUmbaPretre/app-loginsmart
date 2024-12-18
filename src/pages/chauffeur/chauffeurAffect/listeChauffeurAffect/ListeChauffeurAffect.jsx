@@ -3,7 +3,7 @@ import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/
 import { useState } from 'react';
 import ChauffeurAffect from '../ChauffeurAffect';
 
-const ListeChauffeurAffect = ({ onAddChauffeur }) => {
+const ListeChauffeurAffect = () => {
   const [modalType, setModalType] = useState(null);
 
   const closeAllModals = () => {
