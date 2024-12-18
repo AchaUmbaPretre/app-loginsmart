@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space, Modal } from 'antd';
 import { UploadOutlined, PlusOutlined } from '@ant-design/icons';
 import Cropper from 'react-easy-crop';
 import getCroppedImg from './../../../utils/getCroppedImg'; // Fonction utilitaire pour rogner l'image
+import TypeService from '../../../services/type.service';
 
 const { Option } = Select;
 
@@ -16,9 +17,40 @@ const ChauffeurForm = () => {
     const [zoom, setZoom] = useState(1);
     const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
     const [croppedImage, setCroppedImage] = useState(null);
+    const [catPermis, setCatPermis] = useState([]);
+    const [typeContrat, setTypeContrat] = useState([]);
+    const [etatCivil, setEtatCivil] = useState([]);
+    const [fonction, setFonction] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(()=> {
+        const fetchData = async() => {
+            try {
+                setLoading(true);
+                const [catPermisData, typeContratData, etatCivilData, typeFonctionData] = await Promise.all([
+                    TypeService.catPermis,
+                    TypeService.typeContrat,
+                    TypeService.etatCivil,
+                    TypeService.typeFonction
+                ])
+
+                setCatPermis(catPermisData);
+                setTypeContrat(typeContratData);
+                setEtatCivil(etatCivilData);
+                setFonction(typeFonctionData);
+                
+            } catch (error) {
+                setError('Une erreur est survenue lors du chargement des données.');
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchData();
+    }, [])
 
 
-    
     const onFinish = (values) => {
         console.log('Form values:', values, 'Cropped Image:', croppedImage);
       };
