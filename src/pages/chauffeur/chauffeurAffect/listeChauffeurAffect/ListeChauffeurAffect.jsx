@@ -1,8 +1,7 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import './chauffeur.scss';
 import { useState } from 'react';
-import ChauffeurForm from './chauffeurForm/ChauffeurForm';
+import ChauffeurAffect from '../ChauffeurAffect';
 
 const ListeChauffeurAffect = ({ onAddChauffeur }) => {
   const [modalType, setModalType] = useState(null);
@@ -121,7 +120,7 @@ const ListeChauffeurAffect = ({ onAddChauffeur }) => {
           width={1023}
           centered
         >
-          <ChauffeurForm/>
+          <ChauffeurAffect/>
         </Modal>
     </div>
   );

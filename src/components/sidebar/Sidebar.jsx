@@ -109,6 +109,9 @@ const Sidebar = () => {
             <Item key="/affectation">
               <Link to="/affectation">Liste d'affectations</Link>
             </Item>
+            <Item key="/liste_affectation">
+              <Link to="/liste_affectation">Liste d'affectations</Link>
+            </Item>
           </SubMenu>
           <SubMenu key="sub6" icon={<BankOutlined style={{ fontSize: '18px' }} />} title="Approvisionnement">
             <Item key="/approvisionnement">
