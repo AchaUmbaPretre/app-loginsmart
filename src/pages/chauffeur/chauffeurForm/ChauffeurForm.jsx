@@ -62,7 +62,7 @@ const onFinish = async (values) => {
 
         message.success({ content: 'Chauffeur ajouté avec succès!', key: 'submit' });
 
-        console.log('Résultat :', result);
+        form.resetFields();
     } catch (error) {
         message.error({ content: 'Une erreur est survenue.', key: 'submit' });
         console.error('Erreur lors de l\'ajout du chauffeur:', error);
@@ -204,7 +204,7 @@ const onFinish = async (values) => {
                                     ]}
                                 >
                                     <Radio.Group>
-                                        <Radio value="H">Homme</Radio>
+                                        <Radio value="M">Homme</Radio>
                                         <Radio value="F">Femme</Radio>
                                     </Radio.Group>
                                 </Form.Item>
