@@ -51,9 +51,6 @@ const ChauffeurForm = () => {
     
         fetchData();
     }, []);
-    
-
-    console.log(etatCivil)
 
     const onFinish = (values) => {
         console.log('Form values:', values, 'Cropped Image:', croppedImage);
@@ -209,10 +206,15 @@ const ChauffeurForm = () => {
                                         },
                                     ]}
                                 >
-                                    <Radio.Group>
-                                        <Radio value={1}>Marié(e)</Radio>
-                                        <Radio value={2}>Célibataire</Radio>
-                                    </Radio.Group>
+                                    <Select
+                                        showSearch
+                                        options={etatCivil.map((item) => ({
+                                            value: item.id_etat_civil                                           ,
+                                            label: item.nom_etat_civil,
+                                        }))}
+                                        placeholder="Sélectionnez un etat civil..."
+                                        optionFilterProp="label"
+                                    />
                                 </Form.Item>
                             </Col>
 

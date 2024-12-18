@@ -14,7 +14,6 @@ const TypeService = {
     catPermis: () => fetchData('/api/type/cat_permis'),
     typeContrat: () => fetchData('/api/type/type_contrat'),
     etatCivil: () => fetchData('/api/type/etat_civil'),
-    typeFonction: () => fetchData('/api/type/type_fonction'),
-};
+    typeFonction: () => fetchData('/api/type/type_fonction')};
 
 export default TypeService;
