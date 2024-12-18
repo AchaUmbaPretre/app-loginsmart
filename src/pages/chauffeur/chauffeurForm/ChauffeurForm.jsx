@@ -24,32 +24,35 @@ const ChauffeurForm = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(()=> {
-        const fetchData = async() => {
+    useEffect(() => {
+        const fetchData = async () => {
             try {
                 setLoading(true);
+    
                 const [catPermisData, typeContratData, etatCivilData, typeFonctionData] = await Promise.all([
-                    TypeService.catPermis,
-                    TypeService.typeContrat,
-                    TypeService.etatCivil,
-                    TypeService.typeFonction
-                ])
-
+                    TypeService.catPermis(),
+                    TypeService.typeContrat(),
+                    TypeService.etatCivil(),
+                    TypeService.typeFonction(),
+                ]);
+    
                 setCatPermis(catPermisData);
                 setTypeContrat(typeContratData);
                 setEtatCivil(etatCivilData);
                 setFonction(typeFonctionData);
-                
             } catch (error) {
                 setError('Une erreur est survenue lors du chargement des données.');
                 console.error(error);
             } finally {
                 setLoading(false);
             }
-        }
+        };
+    
         fetchData();
-    }, [])
+    }, []);
+    
 
+    console.log(etatCivil)
 
     const onFinish = (values) => {
         console.log('Form values:', values, 'Cropped Image:', croppedImage);
@@ -71,9 +74,7 @@ const ChauffeurForm = () => {
         try {
           const cropped = await getCroppedImg(previewImage, croppedAreaPixels);
           setCroppedImage(cropped);
-      
-          // Mettre à jour fileList avec l'image croppée
-          const croppedFile = new File([await fetch(cropped).then((r) => r.blob())], 'cropped-image.jpg', { type: 'image/jpeg' });
+                const croppedFile = new File([await fetch(cropped).then((r) => r.blob())], 'cropped-image.jpg', { type: 'image/jpeg' });
           setFileList([
             {
               uid: '-1',
@@ -84,7 +85,7 @@ const ChauffeurForm = () => {
             },
           ]);
       
-          setCropping(false); // Fermer le modal de rognage
+          setCropping(false);
         } catch (e) {
           console.error('Error cropping image:', e);
         }
@@ -262,10 +263,15 @@ const ChauffeurForm = () => {
                                         },
                                     ]}
                                 >
-                                    <Select placeholder="Choisir une fonction">
-                                        <Option value="1">Fonction 1</Option>
-                                        <Option value="2">Fonction 2</Option>
-                                    </Select>
+                                    <Select
+                                        showSearch
+                                        options={fonction.map((item) => ({
+                                            value: item.id_type_fonction                                           ,
+                                            label: item.nom_type_fonction,
+                                        }))}
+                                        placeholder="Sélectionnez une fonction..."
+                                        optionFilterProp="label"
+                                    />
                                 </Form.Item>
                             </Col>
                             <Col xs={24} md={8}>
@@ -279,10 +285,15 @@ const ChauffeurForm = () => {
                                         },
                                     ]}
                                 >
-                                    <Select placeholder="Choisir un contrat">
-                                        <Option value="1">Contrat 1</Option>
-                                        <Option value="2">Contrat 2</Option>
-                                    </Select>
+                                    <Select
+                                        showSearch
+                                        options={typeContrat.map((item) => ({
+                                            value: item.id_type_contrat                                           ,
+                                            label: item.nom_type_contrat,
+                                        }))}
+                                        placeholder="Sélectionnez un type de contrat..."
+                                        optionFilterProp="label"
+                                    />
                                 </Form.Item>
                             </Col>
                             <Col xs={24} md={8}>
@@ -327,10 +338,15 @@ const ChauffeurForm = () => {
                                         },
                                     ]}
                                 >
-                                    <Select placeholder="Choisir une catégorie">
-                                        <Option value="1">Catégorie 1</Option>
-                                        <Option value="2">Catégorie 2</Option>
-                                    </Select>
+                                    <Select
+                                        showSearch
+                                        options={catPermis.map((item) => ({
+                                            value: item.id_cat_permis                                           ,
+                                            label: item.nom_cat_permis,
+                                        }))}
+                                        placeholder="Sélectionnez un type de permis..."
+                                        optionFilterProp="label"
+                                    />
                                 </Form.Item>
                             </Col>
                             <Col xs={24} md={8}>
@@ -364,7 +380,7 @@ const ChauffeurForm = () => {
                             image={previewImage}
                             crop={crop}
                             zoom={zoom}
-                            aspect={1} // Carré
+                            aspect={1}
                             onCropChange={setCrop}
                             onZoomChange={setZoom}
                             onCropComplete={onCropComplete}

@@ -3,7 +3,7 @@ import api from '../utils/api';
 const fetchData = async (endpoint) => {
     try {
         const response = await api.get(endpoint);
-        return response.data;
+        return response.data.data;
     } catch (error) {
         console.error(`Error fetching data from ${endpoint}:`, error);
         throw error;
