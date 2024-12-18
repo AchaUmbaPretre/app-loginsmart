@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space, Modal } from 'antd';
+import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space, Modal, message } from 'antd';
 import { UploadOutlined, PlusOutlined } from '@ant-design/icons';
 import Cropper from 'react-easy-crop';
 import getCroppedImg from './../../../utils/getCroppedImg'; // Fonction utilitaire pour rogner l'image
 import TypeService from '../../../services/type.service';
 import moment from 'moment';
+import ChauffeurService from '../../../services/chauffeur.service';
 
 const { Option } = Select;
 
@@ -52,9 +53,22 @@ const ChauffeurForm = () => {
         fetchData();
     }, []);
 
-    const onFinish = (values) => {
-        console.log('Form values:', values, 'Cropped Image:', croppedImage);
-      };
+    
+const onFinish = async (values) => {
+    try {
+        message.loading({ content: 'En cours...', key: 'submit' });
+
+        const result = await ChauffeurService.postChauffeur(values);
+
+        message.success({ content: 'Chauffeur ajouté avec succès!', key: 'submit' });
+
+        console.log('Résultat :', result);
+    } catch (error) {
+        message.error({ content: 'Une erreur est survenue.', key: 'submit' });
+        console.error('Erreur lors de l\'ajout du chauffeur:', error);
+    }
+};
+
     
       const handleUploadChange = ({ fileList }) => {
         setFileList(fileList);
@@ -197,7 +211,7 @@ const ChauffeurForm = () => {
                             </Col>
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="etat_civil"
+                                    name="id_etat_civil"
                                     label="État civil"
                                     rules={[
                                         {
@@ -229,11 +243,11 @@ const ChauffeurForm = () => {
 
                             <Col xs={24} md={6}>
                                 <Form.Item
-                                    name="photo"
+                                    name="profil"
                                     label="Photo"
                                     rules={[
                                         {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir une photo.',
                                         },
                                     ]}
@@ -293,7 +307,7 @@ const ChauffeurForm = () => {
                             </Col>
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="type_contrat"
+                                    name="id_type_contrat"
                                     label="Type de contrat"
                                     rules={[
                                         {
@@ -346,7 +360,7 @@ const ChauffeurForm = () => {
                             </Col>
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="cat_permis"
+                                    name="id_permis"
                                     label="Catégorie Permis"
                                     rules={[
                                         {
