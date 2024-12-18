@@ -364,7 +364,7 @@ const ChauffeurForm = () => {
                                     />
                                 </Form.Item>
                             </Col>
-                            <Col xs={24} md={8}>
+                            <Col xs={24} md={24}>
                                 <Form.Item
                                     name="date_validite"
                                     label="Validité"
