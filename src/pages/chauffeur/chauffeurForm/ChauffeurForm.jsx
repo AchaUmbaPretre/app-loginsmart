@@ -4,6 +4,7 @@ import { UploadOutlined, PlusOutlined } from '@ant-design/icons';
 import Cropper from 'react-easy-crop';
 import getCroppedImg from './../../../utils/getCroppedImg'; // Fonction utilitaire pour rogner l'image
 import TypeService from '../../../services/type.service';
+import moment from 'moment';
 
 const { Option } = Select;
 
@@ -353,8 +354,9 @@ const ChauffeurForm = () => {
                                 <Form.Item
                                     name="date_validite"
                                     label="Validité"
+                                    initialValue={moment()}
                                 >
-                                    {loadingData ? <Skeleton.Input active /> : <DatePicker style={{ width: '100%' }} />}
+                                    {loadingData ? <Skeleton.Input active /> : <DatePicker  style={{ width: '100%' }} />}
                                 </Form.Item>
                             </Col>
                         </Row>
