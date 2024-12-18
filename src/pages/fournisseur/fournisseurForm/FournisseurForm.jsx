@@ -99,6 +99,24 @@ const FournisseurForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
+                                name="id_ville"
+                                label="Ville"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Veuillez fournir une ville...',
+                                    },
+                                ]}
+                            >
+                                <Select placeholder="Sélectionnez une ville">
+                                    <Option value="1">ville 1</Option>
+                                    <Option value="2">ville 2</Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} md={24}>
+                            <Form.Item
                                 name="adresse"
                                 label="Adresse"
                                 rules={[
