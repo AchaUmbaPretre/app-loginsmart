@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 const LocalisationForm = () => {
@@ -127,7 +126,7 @@ const LocalisationForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir l'adresse...." />}
+                                {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir l'adresse...." style={{height:"80px", resize:'none'}} />}
 
                             </Form.Item>
                         </Col>
