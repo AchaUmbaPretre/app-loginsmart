@@ -107,7 +107,7 @@ function App() {
           element: <PrivateRoute element={AffectationVehicule} />
         },
         {
-          path: '/liste_affectations',
+          path: '/liste_affectation',
           element: <PrivateRoute element={ListeChauffeurAffect} />
         },
         {
