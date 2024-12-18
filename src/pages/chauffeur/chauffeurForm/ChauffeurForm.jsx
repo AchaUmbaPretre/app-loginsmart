@@ -10,7 +10,6 @@ const ChauffeurForm = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [fileList, setFileList] = useState([]);
-    const [previewVisible, setPreviewVisible] = useState(false);
     const [previewImage, setPreviewImage] = useState('');
     const [cropping, setCropping] = useState(false);
     const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -19,6 +18,7 @@ const ChauffeurForm = () => {
     const [croppedImage, setCroppedImage] = useState(null);
 
 
+    
     const onFinish = (values) => {
         console.log('Form values:', values, 'Cropped Image:', croppedImage);
       };
