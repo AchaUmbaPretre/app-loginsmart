@@ -127,7 +127,6 @@ const LocalisationForm = () => {
                                 ]}
                             >
                                 {loadingData ? <Skeleton.Input active={true} /> : <Input.TextArea placeholder="Saisir l'adresse...." style={{height:"80px", resize:'none'}} />}
-
                             </Form.Item>
                         </Col>
 
