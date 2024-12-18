@@ -4,7 +4,7 @@ import './chauffeur.scss';
 import { useState } from 'react';
 import ChauffeurForm from './chauffeurForm/ChauffeurForm';
 
-const Chauffeur = ({ onAddChauffeur }) => {
+const Chauffeur = () => {
   const [modalType, setModalType] = useState(null);
 
   const closeAllModals = () => {
@@ -121,7 +121,7 @@ const Chauffeur = ({ onAddChauffeur }) => {
           width={1023}
           centered
         >
-          <ChauffeurForm/>
+          <ChauffeurForm closeModal={closeAllModals}/>
         </Modal>
     </div>
   );

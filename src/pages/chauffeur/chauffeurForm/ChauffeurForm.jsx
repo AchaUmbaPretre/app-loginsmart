@@ -9,7 +9,7 @@ import ChauffeurService from '../../../services/chauffeur.service';
 
 const { Option } = Select;
 
-const ChauffeurForm = () => {
+const ChauffeurForm = ({closeModal}) => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [fileList, setFileList] = useState([]);
@@ -63,6 +63,7 @@ const onFinish = async (values) => {
         message.success({ content: 'Chauffeur ajouté avec succès!', key: 'submit' });
 
         form.resetFields();
+        closeModal()
     } catch (error) {
         message.error({ content: 'Une erreur est survenue.', key: 'submit' });
         console.error('Erreur lors de l\'ajout du chauffeur:', error);
