@@ -255,6 +255,20 @@ const ChauffeurForm = () => {
 
                             <Col xs={24} md={8}>
                                 <Form.Item
+                                    name="matricule"
+                                    label="Matricule"
+                                    rules={[
+                                        {
+                                            required: false,
+                                            message: 'Matricule est requis.',
+                                        },
+                                    ]}
+                                >
+                                    {loadingData ? <Skeleton.Input active /> : <Input placeholder="B1C21..." />}
+                                </Form.Item>
+                            </Col>
+                            <Col xs={24} md={8}>
+                                <Form.Item
                                     name="id_fonction"
                                     label="Fonction"
                                     rules={[
