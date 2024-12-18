@@ -28,6 +28,7 @@ import ChauffeurAffect from './pages/chauffeur/chauffeurAffect/ChauffeurAffect';
 import Conge from './pages/chauffeur/conge/Conge';
 import ListeConge from './pages/chauffeur/conge/listeConge/ListeConge';
 import ListeChauffeurAffect from './pages/chauffeur/chauffeurAffect/listeChauffeurAffect/ListeChauffeurAffect';
+import Fournisseur from './pages/fournisseur/Fournisseur';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -129,6 +130,14 @@ function App() {
         {
           path: '/approvisionnement',
           element: <PrivateRoute element={Approvisionnement} />
+        },
+        {
+          path: '/localisation',
+          element: <PrivateRoute element={ListeChauffeurAffect} />
+        },
+        {
+          path: '/fournisseur',
+          element: <PrivateRoute element={Fournisseur} />
         },
       ]
     },

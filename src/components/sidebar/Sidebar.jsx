@@ -115,9 +115,12 @@ const Sidebar = () => {
               <Link to="/approvisionnement">Acheté</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub7" icon={<SettingOutlined style={{ fontSize: '18px' }} />} title="Administrateur">
-            <Item key="/administrateur">
-              <Link to="/administrateur">Gestion des Admins</Link>
+          <SubMenu key="sub7" icon={<SettingOutlined style={{ fontSize: '18px' }} />} title="Parametre">
+            <Item key="/localisation">
+              <Link to="/localisation">Localisation</Link>
+            </Item>
+            <Item key="/fournisseur">
+              <Link to="/fournisseur">Fournisseurs</Link>
             </Item>
           </SubMenu>
           <Item key="logout" icon={<LogoutOutlined style={{ fontSize: '18px' }} />} className="logout-item">
