@@ -42,6 +42,7 @@ const ChauffeurForm = ({closeModal}) => {
                 setTypeContrat(typeContratData);
                 setEtatCivil(etatCivilData);
                 setFonction(typeFonctionData);
+                
             } catch (error) {
                 setError('Une erreur est survenue lors du chargement des données.');
                 console.error(error);
