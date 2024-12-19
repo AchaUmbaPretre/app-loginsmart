@@ -61,9 +61,11 @@ const VehiculeForm = ({fetchData, closeModal}) => {
     const onFinish = async (values) => {
 
         try {
+            if (fileList.length > 0) {
+                values.img = fileList[0].originFileObj;
+            }
             message.loading({ content: 'En cours...', key: 'submit' });
             await vehiculeService.postVehicule(values)
-
             message.success({ content: 'Véhicule ajouté avec succès!', key: 'submit' });
 
             form.resetFields();
