@@ -4,6 +4,7 @@ import './chauffeur.scss';
 import { useEffect, useState } from 'react';
 import ChauffeurForm from './chauffeurForm/ChauffeurForm';
 import ChauffeurService from '../../services/chauffeur.service';
+import api from './../../utils/api'
 
 const Chauffeur = () => {
   const [modalType, setModalType] = useState(null);
@@ -57,7 +58,7 @@ const Chauffeur = () => {
           <Image
             className="userImg"
             src="error"
-            fallback={`http://localhost:8080/${record.profil}`}
+            fallback={`${api.defaults.baseURL}/${record.profil}`}
             width={40}
             height={40}
             style={{ borderRadius: '50%' }}
