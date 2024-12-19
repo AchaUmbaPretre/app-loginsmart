@@ -14,6 +14,7 @@ const VehiculeForm = () => {
     const [marque, setMarque] = useState([]);
     const [error, setError] = useState(null);
     const [couleur, setCouleur] = useState([]);
+    const [catVehicule, setCatVehicule] = useState([]);
 
 
     useEffect(() => {
@@ -23,9 +24,11 @@ const VehiculeForm = () => {
     
                 const marqueData = await TypeService.typeMarque();
                 const couleurData = await TypeService.typeCouleur();
+                const catVehiculeData = await TypeService.catVehicule();
 
-                setCouleur(couleurData)
+                setCouleur(couleurData);
                 setMarque(marqueData);
+                setCatVehicule(catVehiculeData);
     
                 if (iDmarque) {
                     const  data  = await TypeService.typeModele(iDmarque);
@@ -228,10 +231,15 @@ const VehiculeForm = () => {
                                     },
                                 ]}
                             >
-                                <Select placeholder="Choisir une categorie">
-                                    <Option value="1">Cat 1</Option>
-                                    <Option value="2">Cat 2</Option>
-                                </Select>
+                                <Select
+                                    showSearch
+                                    options={catVehicule.map((item) => ({
+                                            value: item.id                                           ,
+                                            label: item.nom_cat,
+                                    }))}
+                                    placeholder="Sélectionnez une categorie..."
+                                    optionFilterProp="label"
+                                />
                             </Form.Item>
                         </Col>
 
@@ -308,10 +316,15 @@ const VehiculeForm = () => {
                                     },
                                 ]}
                             >
-                                <Select placeholder="Choisir une couleur">
-                                    <Option value="1">Couleur 1</Option>
-                                    <Option value="2">Couleur 2</Option>
-                                </Select>
+                                <Select
+                                    showSearch
+                                    options={couleur.map((item) => ({
+                                            value: item.id_couleur                                          ,
+                                            label: item.nom_couleur,
+                                    }))}
+                                    placeholder="Sélectionnez une couleur..."
+                                    optionFilterProp="label"
+                                />
                             </Form.Item>
                         </Col>
 

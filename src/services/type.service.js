@@ -26,6 +26,8 @@ const TypeService = {
 
     typeCouleur: () => fetchData('/api/type/couleur'),
 
+    catVehicule: () => fetchData('/api/type/cat_vehicule'),
+
 };
 
 export default TypeService;
