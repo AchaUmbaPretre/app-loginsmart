@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import './vehiculeForm.scss'
-import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space, message } from 'antd';
+import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space, message, Modal } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import TypeService from '../../../services/type.service';
 import vehiculeService from '../../../services/vehicule.service';
+import getCroppedImg from '../../../utils/getCroppedImg';
+import Cropper from 'react-easy-crop';
 const { Option } = Select;
 
 const VehiculeForm = ({fetchData, closeModal}) => {
@@ -16,10 +18,16 @@ const VehiculeForm = ({fetchData, closeModal}) => {
     const [error, setError] = useState(null);
     const [couleur, setCouleur] = useState([]);
     const [catVehicule, setCatVehicule] = useState([]);
+    const [fileList, setFileList] = useState([]);
+    const [previewImage, setPreviewImage] = useState('');
+    const [cropping, setCropping] = useState(false);
+    const [crop, setCrop] = useState({ x: 0, y: 0 });
+    const [zoom, setZoom] = useState(1);
+    const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchDatas = async () => {
             try {
                 setIsLoading(true);
     
@@ -43,7 +51,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
             }
         };
     
-        fetchData();
+        fetchDatas();
     }, [iDmarque]);
     
     const handleYearChange = (date, dateString) => {
@@ -68,7 +76,42 @@ const VehiculeForm = ({fetchData, closeModal}) => {
         }
     }
 
-    console.log(modele)
+    const handleUploadChange = ({ fileList }) => {
+        setFileList(fileList);
+        if (fileList.length > 0) {
+          setPreviewImage(URL.createObjectURL(fileList[0].originFileObj));
+          setCropping(true);
+        }
+      };
+    
+      const onCropComplete = (croppedArea, croppedAreaPixels) => {
+        setCroppedAreaPixels(croppedAreaPixels);
+      };
+    
+      const handleCrop = async () => {
+        try {
+            const cropped = await getCroppedImg(previewImage, croppedAreaPixels);
+            const croppedFile = new File(
+                [await fetch(cropped).then((r) => r.blob())],
+                'cropped-image.jpg',
+                { type: 'image/jpeg' }
+            );
+    
+            setFileList([
+                {
+                    uid: '-1',
+                    name: 'cropped-image.jpg',
+                    status: 'done',
+                    url: cropped,
+                    originFileObj: croppedFile,
+                },
+            ]);
+    
+            setCropping(false);
+        } catch (e) {
+            console.error('Error cropping image:', e);
+        }
+    };
 
   return (
     <>
@@ -420,7 +463,12 @@ const VehiculeForm = ({fetchData, closeModal}) => {
 
                         <Col xs={24} md={8}>
                             <Form.Item name="img" label="Image du Véhicule">
-                                <Upload  >
+                                <Upload  
+                                    accept="image/*"
+                                    listType="picture-card"
+                                    onChange={handleUploadChange}
+                                    beforeUpload={() => false} 
+                                >
                                     <Button icon={<UploadOutlined />}>Télécharger</Button>
                                 </Upload>
                             </Form.Item>
@@ -688,6 +736,28 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                         </Col>
                     </Row>
                 </Form>
+
+                <Modal
+                        visible={cropping}
+                        title="Rogner l'image"
+                        onCancel={() => setCropping(false)}
+                        onOk={handleCrop}
+                        okText="Rogner"
+                        cancelText="Annuler"
+                        width={800}
+                    >
+                        <div style={{ position: 'relative', height: 400 }}>
+                        <Cropper
+                            image={previewImage}
+                            crop={crop}
+                            zoom={zoom}
+                            aspect={1}
+                            onCropChange={setCrop}
+                            onZoomChange={setZoom}
+                            onCropComplete={onCropComplete}
+                        />
+                        </div>
+                    </Modal>
             </div>
         </div>
     </>
