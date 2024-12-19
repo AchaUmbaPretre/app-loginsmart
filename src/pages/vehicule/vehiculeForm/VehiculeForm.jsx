@@ -1,14 +1,48 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './vehiculeForm.scss'
 import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import TypeService from '../../../services/type.service';
 const { Option } = Select;
 
 const VehiculeForm = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [modele, setModele] = useState([]);
+    const [iDmarque, setIdMarque] = useState('');
+    const [marque, setMarque] = useState([]);
+    const [error, setError] = useState(null);
 
+
+    useEffect(()=> {
+        const fetchData = async () => {
+            try {
+                setIsLoading(true);
+
+                const [marqueData] = await Promise.all([
+                    TypeService.typeMarque()
+                ]);
+
+                if(iDmarque) {
+                    TypeService.typeModele(iDmarque)
+
+                }
+
+                setMarque(marqueData)
+                
+            } catch (error) {
+                setError('Une erreur est survenue lors du chargement des données.');
+                console.error(error);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+
+        fetchData()
+    }, [])
+
+    console.log(marque)
 
     const handleYearChange = (date, dateString) => {
         console.log("Selected year:", dateString);
@@ -77,10 +111,15 @@ const VehiculeForm = () => {
                                     },
                                 ]}
                             >
-                                <Select placeholder="Choisir la marque">
-                                    <Option value="1">Marque 1</Option>
-                                    <Option value="2">Marque 2</Option>
-                                </Select>
+                                <Select
+                                    showSearch
+                                    options={marque.map((item) => ({
+                                            value: item.id_marque                                           ,
+                                            label: item.nom_marque,
+                                    }))}
+                                    placeholder="Sélectionnez une marque..."
+                                    optionFilterProp="label"
+                                />
                             </Form.Item>
                         </Col>
 
