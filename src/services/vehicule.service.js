@@ -4,7 +4,7 @@ const vehiculeService = {
     getVehicule : async () => {
         try {
             const response = await api.get('/api/vehicule')
-            return response.data;
+            return response.data.data;
         } catch (error) {
             console.error('Erreur lors de la récupération des chauffeurs:', error);
             throw error;
@@ -25,3 +25,5 @@ const vehiculeService = {
         }
     }
 }
+
+export default vehiculeService;

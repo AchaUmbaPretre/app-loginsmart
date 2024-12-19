@@ -1,10 +1,13 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import VehiculeForm from './vehiculeForm/VehiculeForm';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import vehiculeService from '../../services/vehicule.service';
 
 const Vehicule = () => {
   const [modalType, setModalType] = useState(null);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const closeAllModals = () => {
     setModalType(null);
@@ -18,6 +21,25 @@ const Vehicule = () => {
   const handleAdd = ( idBatiment) =>{
     openModal('add', idBatiment)
   }
+
+
+    const fetchData = async () =>{
+      try {
+        setLoading(true);
+        const [chauffeurData] = await Promise.all([
+          vehiculeService.getVehicule()
+        ])
+
+        setData(chauffeurData)
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+  useEffect(()=> {
+    fetchData()
+  }, [])
 
     const columns = [
         { 
@@ -104,7 +126,7 @@ const Vehicule = () => {
         <div className="chauffeur_bottom">
             <Table 
               columns={columns} 
-              dataSource={[]} 
+              dataSource={data} 
               onChange={onChange} 
             />
         </div>
@@ -116,7 +138,7 @@ const Vehicule = () => {
           width={1023}
           centered
         >
-          <VehiculeForm/>
+          <VehiculeForm fetchData={fetchData} closeModal={()=>setModalType(null)}/>
         </Modal>
     </div>
   );

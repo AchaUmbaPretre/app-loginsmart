@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import './vehiculeForm.scss'
-import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space } from 'antd';
+import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import TypeService from '../../../services/type.service';
+import vehiculeService from '../../../services/vehicule.service';
 const { Option } = Select;
 
-const VehiculeForm = () => {
+const VehiculeForm = ({fetchData, closeModal}) => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -49,8 +50,22 @@ const VehiculeForm = () => {
         console.log("Selected year:", dateString);
       };
 
-    const onFinish = () => {
+    const onFinish = async (values) => {
 
+        try {
+            message.loading({ content: 'En cours...', key: 'submit' });
+            await vehiculeService.postVehicule(values)
+
+            message.success({ content: 'Véhicule ajouté avec succès!', key: 'submit' });
+
+            form.resetFields();
+            closeModal();
+            fetchData();
+
+        } catch (error) {
+            message.error({ content: 'Une erreur est survenue.', key: 'submit' });
+            console.error('Erreur lors de l\'ajout du chauffeur:', error);
+        }
     }
 
     console.log(modele)
