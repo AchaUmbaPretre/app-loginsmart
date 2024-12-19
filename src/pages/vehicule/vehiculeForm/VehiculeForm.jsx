@@ -171,7 +171,7 @@ const VehiculeForm = () => {
                                 label="Numero chassis"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir un numero de chassis',
                                     },
                                 ]}
@@ -334,7 +334,7 @@ const VehiculeForm = () => {
                                 label="Capacité carburant"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir la capacité du carburant...',
                                     },
                                 ]}
@@ -349,7 +349,7 @@ const VehiculeForm = () => {
                                 label="Capacité radiateur"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir la capacité du radiateur...',
                                     },
                                 ]}
@@ -364,7 +364,7 @@ const VehiculeForm = () => {
                                 label="Capacité carter"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir une capacité carter...',
                                     },
                                 ]}
@@ -394,7 +394,7 @@ const VehiculeForm = () => {
                                 label="Nombre portes"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir le nombre porte...',
                                     },
                                 ]}
@@ -419,7 +419,7 @@ const VehiculeForm = () => {
                                 label="Nombre moteur"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir un nombre de moteur...',
                                     },
                                 ]}
@@ -434,7 +434,7 @@ const VehiculeForm = () => {
                                 label="Cylindre"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir le cylindre...',
                                     },
                                 ]}
@@ -449,7 +449,7 @@ const VehiculeForm = () => {
                                 label="Nombre de cylindre"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir le Nombre de cylindre...',
                                     },
                                 ]}
@@ -464,7 +464,7 @@ const VehiculeForm = () => {
                                 label="Disposition"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir une disposition...',
                                     },
                                 ]}
@@ -482,7 +482,7 @@ const VehiculeForm = () => {
                                 label="Type carburant"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir un carburant...',
                                     },
                                 ]}
@@ -564,7 +564,7 @@ const VehiculeForm = () => {
                                 label="Puissance"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir la puissance...',
                                     },
                                 ]}
@@ -579,7 +579,7 @@ const VehiculeForm = () => {
                                 label="Transmission"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir une transmission...',
                                     },
                                 ]}
@@ -597,7 +597,7 @@ const VehiculeForm = () => {
                                 label="Climatisation"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir une climatisation...',
                                     },
                                 ]}
@@ -615,7 +615,7 @@ const VehiculeForm = () => {
                                 label="Type de pneu"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir un pneu...',
                                     },
                                 ]}
@@ -633,7 +633,7 @@ const VehiculeForm = () => {
                                 label="Valeur d'acquisition"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir la valeur d acquisition...',
                                     },
                                 ]}
@@ -648,7 +648,7 @@ const VehiculeForm = () => {
                                 label="Lubrifiant"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir un lubrifiant moteur...',
                                     },
                                 ]}
