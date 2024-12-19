@@ -45,11 +45,7 @@ const Vehicule = () => {
         },
         {
           title: 'Année',
-          dataIndex: 'annee',
-          sorter: {
-            compare: (a, b) => a.annee - b.annee,
-            multiple: 1,
-          },
+          dataIndex: 'annee'
         },
         {
           title: 'Categorie',

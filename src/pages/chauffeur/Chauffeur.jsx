@@ -35,7 +35,7 @@ const Chauffeur = () => {
         setData(chauffeurData.data)
 
       } catch (error) {
-        
+        console.log(error)
       }
     }
     fetchData()
