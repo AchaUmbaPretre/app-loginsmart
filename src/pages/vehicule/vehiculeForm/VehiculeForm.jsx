@@ -13,6 +13,7 @@ const VehiculeForm = () => {
     const [iDmarque, setIdMarque] = useState('');
     const [marque, setMarque] = useState([]);
     const [error, setError] = useState(null);
+    const [couleur, setCouleur] = useState([]);
 
 
     useEffect(() => {
@@ -21,7 +22,9 @@ const VehiculeForm = () => {
                 setIsLoading(true);
     
                 const marqueData = await TypeService.typeMarque();
-    
+                const couleurData = await TypeService.typeCouleur();
+
+                setCouleur(couleurData)
                 setMarque(marqueData);
     
                 if (iDmarque) {

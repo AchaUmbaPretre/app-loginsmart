@@ -23,6 +23,9 @@ const TypeService = {
     typeModele: (id) => fetchData('/api/type/type_modele', { id_marque: id }),
 
     typeMarque: () => fetchData('/api/type/type_marque'),
+
+    typeCouleur: () => fetchData('/api/type/couleur'),
+
 };
 
 export default TypeService;
