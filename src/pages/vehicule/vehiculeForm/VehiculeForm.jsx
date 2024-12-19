@@ -15,35 +15,30 @@ const VehiculeForm = () => {
     const [error, setError] = useState(null);
 
 
-    useEffect(()=> {
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 setIsLoading(true);
-
-                const [marqueData] = await Promise.all([
-                    TypeService.typeMarque()
-                ]);
-
-                if(iDmarque) {
-                    TypeService.typeModele(iDmarque)
-
+    
+                const marqueData = await TypeService.typeMarque();
+    
+                setMarque(marqueData);
+    
+                if (iDmarque) {
+                    const  data  = await TypeService.typeModele(iDmarque);
+                    setModele(data);
                 }
-
-                setMarque(marqueData)
-                
             } catch (error) {
                 setError('Une erreur est survenue lors du chargement des données.');
                 console.error(error);
             } finally {
                 setIsLoading(false);
             }
-        }
-
-        fetchData()
-    }, [])
-
-    console.log(marque)
-
+        };
+    
+        fetchData();
+    }, [iDmarque]);
+    
     const handleYearChange = (date, dateString) => {
         console.log("Selected year:", dateString);
       };
@@ -51,6 +46,8 @@ const VehiculeForm = () => {
     const onFinish = () => {
 
     }
+
+    console.log(modele)
 
   return (
     <>
@@ -99,7 +96,7 @@ const VehiculeForm = () => {
                                 {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Numéro d'ordre (optionnel)" />}
                             </Form.Item>
                         </Col>
-
+                        
                         <Col xs={24} md={8}>
                             <Form.Item
                                 name="id_marque"
@@ -114,15 +111,16 @@ const VehiculeForm = () => {
                                 <Select
                                     showSearch
                                     options={marque.map((item) => ({
-                                            value: item.id_marque                                           ,
-                                            label: item.nom_marque,
+                                        value: item.id_marque                                           ,
+                                        label: item.nom_marque,
                                     }))}
                                     placeholder="Sélectionnez une marque..."
                                     optionFilterProp="label"
+                                    onChange={(value)=> setIdMarque(value)}
                                 />
                             </Form.Item>
-                        </Col>
-
+                        </Col> 
+                        { iDmarque && 
                         <Col xs={24} md={8}>
                             <Form.Item
                                 name="id_modele"
@@ -134,12 +132,17 @@ const VehiculeForm = () => {
                                     },
                                 ]}
                             >
-                                <Select placeholder="Choisir un modèle">
-                                    <Option value="1">Modele 1</Option>
-                                    <Option value="2">Modele 2</Option>
-                                </Select>
+                                <Select
+                                    showSearch
+                                    options={modele.map((item) => ({
+                                            value: item.id_modele                                           ,
+                                            label: item.modele,
+                                    }))}
+                                    placeholder="Sélectionnez une modèle..."
+                                    optionFilterProp="label"
+                                />
                             </Form.Item>
-                        </Col>
+                        </Col> }
 
                         <Col xs={24} md={8}>
                             <Form.Item

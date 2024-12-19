@@ -1,21 +1,28 @@
 import api from '../utils/api';
 
-const fetchData = async (endpoint) => {
+const fetchData = async (endpoint, params = {}) => {
     try {
-        const response = await api.get(endpoint);
-        return response.data.data;
+        const response = await api.get(endpoint, { params });
+        return response.data.data; 
     } catch (error) {
-        console.error(`Error fetching data from ${endpoint}:`, error);
-        throw error;
+        console.error(`Erreur lors de la récupération des données depuis ${endpoint}:`, error);
+        throw new Error(`Impossible de récupérer les données depuis ${endpoint}`);
     }
 };
 
+// Service regroupant les appels API
 const TypeService = {
     catPermis: () => fetchData('/api/type/cat_permis'),
+
     typeContrat: () => fetchData('/api/type/type_contrat'),
+
     etatCivil: () => fetchData('/api/type/etat_civil'),
+
     typeFonction: () => fetchData('/api/type/type_fonction'),
-    typeModele: () => fetchData('/api/type/type_modele'),
-    typeMarque: () => fetchData('/api/type/type_marque')};
+
+    typeModele: (id) => fetchData('/api/type/type_modele', { id_marque: id }),
+
+    typeMarque: () => fetchData('/api/type/type_marque'),
+};
 
 export default TypeService;
