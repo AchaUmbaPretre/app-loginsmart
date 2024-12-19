@@ -3,7 +3,7 @@ import api from '../utils/api';
 const ChauffeurService = {
     getChauffeur: async () => {
         try {
-            const response = await api.post('/api/chauffeur');
+            const response = await api.get('/api/chauffeur');
             return response.data;
         } catch (error) {
             console.error('Erreur lors de la récupération des chauffeurs:', error);
