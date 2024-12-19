@@ -1,11 +1,13 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './chauffeur.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ChauffeurForm from './chauffeurForm/ChauffeurForm';
 
 const Chauffeur = () => {
   const [modalType, setModalType] = useState(null);
+  const [loading, setLoading] = useState(true);
+
 
   const closeAllModals = () => {
     setModalType(null);
@@ -20,6 +22,16 @@ const Chauffeur = () => {
     openModal('add', idBatiment)
   }
 
+  useEffect(()=> {
+    const fetchData = async () =>{
+      try {
+        
+      } catch (error) {
+        
+      }
+    }
+    fetchData()
+  }, [])
 
     const columns = [
         { 
@@ -121,7 +133,7 @@ const Chauffeur = () => {
           width={1023}
           centered
         >
-          <ChauffeurForm closeModal={closeAllModals}/>
+          <ChauffeurForm closeModal={() => setModalType(null)}/>
         </Modal>
     </div>
   );

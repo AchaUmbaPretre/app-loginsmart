@@ -13,7 +13,11 @@ const ChauffeurService = {
 
     postChauffeur: async (formData) => {
         try {
-            const response = await api.post('/api/chauffeur', formData);
+            const response = await api.post('/api/chauffeur', formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                },
+              });
             return response.data;
         } catch (error) {
             console.error('Erreur lors de l\'ajout du chauffeur:', error);

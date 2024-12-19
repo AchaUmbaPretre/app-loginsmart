@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space, Modal, message } from 'antd';
-import { UploadOutlined, PlusOutlined } from '@ant-design/icons';
+import {  PlusOutlined } from '@ant-design/icons';
 import Cropper from 'react-easy-crop';
 import getCroppedImg from './../../../utils/getCroppedImg'; // Fonction utilitaire pour rogner l'image
 import TypeService from '../../../services/type.service';
@@ -56,9 +56,13 @@ const ChauffeurForm = ({closeModal}) => {
     
 const onFinish = async (values) => {
     try {
+        if (fileList.length > 0) {
+            values.profil = fileList[0].originFileObj;
+        }
+
         message.loading({ content: 'En cours...', key: 'submit' });
 
-        const result = await ChauffeurService.postChauffeur(values);
+        await ChauffeurService.postChauffeur(values);
 
         message.success({ content: 'Chauffeur ajouté avec succès!', key: 'submit' });
 
@@ -85,24 +89,29 @@ const onFinish = async (values) => {
     
       const handleCrop = async () => {
         try {
-          const cropped = await getCroppedImg(previewImage, croppedAreaPixels);
-          setCroppedImage(cropped);
-                const croppedFile = new File([await fetch(cropped).then((r) => r.blob())], 'cropped-image.jpg', { type: 'image/jpeg' });
-          setFileList([
-            {
-              uid: '-1',
-              name: 'cropped-image.jpg',
-              status: 'done',
-              url: cropped,
-              originFileObj: croppedFile,
-            },
-          ]);
-      
-          setCropping(false);
+            const cropped = await getCroppedImg(previewImage, croppedAreaPixels);
+            const croppedFile = new File(
+                [await fetch(cropped).then((r) => r.blob())],
+                'cropped-image.jpg',
+                { type: 'image/jpeg' }
+            );
+    
+            setFileList([
+                {
+                    uid: '-1',
+                    name: 'cropped-image.jpg',
+                    status: 'done',
+                    url: cropped,
+                    originFileObj: croppedFile,
+                },
+            ]);
+    
+            setCropping(false);
         } catch (e) {
-          console.error('Error cropping image:', e);
+            console.error('Error cropping image:', e);
         }
-      };
+    };
+    
       
 
     return (
