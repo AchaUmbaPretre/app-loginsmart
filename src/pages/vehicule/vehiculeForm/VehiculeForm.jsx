@@ -289,7 +289,6 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                             >
                                 {loadingData ? <Skeleton.Input active={true} /> :    <DatePicker 
                                                                                             picker="year" 
-                                                                                            onChange={handleYearChange} 
                                                                                             placeholder="Sélectionnez une année" 
                                                                                             style={{width:'100%'}}
                                                                                         />}
