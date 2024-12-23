@@ -54,19 +54,11 @@ const Carburant = () => {
         },
         {
           title: 'Modele',
-          dataIndex: 'math',
-          sorter: {
-            compare: (a, b) => a.math - b.math,
-            multiple: 2,
-          },
+          dataIndex: 'modele'
         },
         {
           title: 'Date',
-          dataIndex: 'english',
-          sorter: {
-            compare: (a, b) => a.english - b.english,
-            multiple: 1,
-          },
+          dataIndex: 'date'
         },
         {
             title: 'Qte',
@@ -78,11 +70,7 @@ const Carburant = () => {
         },
         {
             title: 'Kilometrage',
-            dataIndex: 'english',
-            sorter: {
-              compare: (a, b) => a.english - b.english,
-              multiple: 1,
-            },
+            dataIndex: 'english'
         },
         {
             title: 'Numero',
