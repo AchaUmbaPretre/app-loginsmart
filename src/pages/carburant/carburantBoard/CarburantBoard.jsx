@@ -118,7 +118,9 @@ useEffect(()=> {
 
                 <Divider className='title_row'></Divider>
 
-                <div className="carburantBord_bottom">
+                {
+                  vehiculeData.length !== 0 &&
+                  <div className="carburantBord_bottom">
                     <h2 className="carburantBord-h2">{vehiculeData[0]?.nom_marque} {vehiculeData[0]?.modele}</h2>
                     <Table 
                       columns={columnsDeux} 
@@ -128,6 +130,8 @@ useEffect(()=> {
                       scroll={scroll}
                     />
                 </div>
+                }
+
             </div>
         </div>
     </>
