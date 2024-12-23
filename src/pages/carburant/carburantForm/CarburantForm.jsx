@@ -1,12 +1,34 @@
-import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Skeleton, Space } from 'antd';
+import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Space } from 'antd';
 import './carburantForm.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CarburantBoard from '../carburantBoard/CarburantBoard';
+import vehiculeService from '../../../services/vehicule.service';
+const { Option } = Select;
+
 
 const CarburantForm = () => {
     const [form] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false);
+    const [vehicule, setVehicule] = useState([]);
     const [loadingData, setLoadingData] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setIsLoading(true);
+                const vehiculeData = await vehiculeService.getVehicule();
+
+                setVehicule(vehiculeData)
+                
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+
+        fetchData();
+    }, [])
 
     const onFinish = () => {
     }
@@ -55,7 +77,16 @@ const CarburantForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir l'immatriculation" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : 
+                                <Select
+                                    showSearch
+                                    options={vehicule.map((item) => ({
+                                        value: item.id_vehicule                                           ,
+                                        label: item.immatriculation,
+                                    }))}
+                                    placeholder="Sélectionnez un vehicule..."
+                                    optionFilterProp="label"
+                                />}
                             </Form.Item>
                         </Col>
 
