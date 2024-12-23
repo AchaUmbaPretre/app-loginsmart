@@ -61,15 +61,11 @@ const Carburant = () => {
           },
         {
           title: 'Immatriculation',
-          dataIndex: 'name',
+          dataIndex: 'immatriculation',
         },
         {
           title: 'Chauffeur',
           dataIndex: 'chinese',
-          sorter: {
-            compare: (a, b) => a.chinese - b.chinese,
-            multiple: 3,
-          },
         },
         {
           title: 'Modele',
@@ -89,15 +85,12 @@ const Carburant = () => {
         },
         {
             title: 'Kilometrage',
-            dataIndex: 'english'
+            dataIndex: 'kilometrage'
         },
         {
             title: 'Numero',
-            dataIndex: 'english',
-            sorter: {
-              compare: (a, b) => a.english - b.english,
-              multiple: 1,
-            },
+            dataIndex: 'numero'
+
         }
       ];
 
