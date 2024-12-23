@@ -32,7 +32,7 @@ const Chauffeur = () => {
           ChauffeurService.getChauffeur()
         ])
 
-        setData(chauffeurData.data)
+        setData(chauffeurData)
 
       } catch (error) {
         console.log(error)
