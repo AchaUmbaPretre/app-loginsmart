@@ -64,6 +64,12 @@ const VehiculeForm = ({fetchData, closeModal}) => {
             if (fileList.length > 0) {
                 values.img = fileList[0].originFileObj;
             }
+            if (values.annee_circulation) {
+                values.annee_circulation = values.annee_circulation.format("YYYY");
+            }
+            if (values.annee_fabrication) {
+                values.annee_fabrication = values.annee_fabrication.format("YYYY");
+            }
             message.loading({ content: 'En cours...', key: 'submit' });
             await vehiculeService.postVehicule(values)
             message.success({ content: 'Véhicule ajouté avec succès!', key: 'submit' });
@@ -604,7 +610,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
-                            {loadingData ? <Skeleton.Input active={true} /> : <DatePicker style={{width:'100%'}} />}
+                            {loadingData ? <Skeleton.Input active={true} /> : <DatePicker style={{width:'100%'}} format="YYYY-MM-DD" />}
                             </Form.Item>
                         </Col>
 

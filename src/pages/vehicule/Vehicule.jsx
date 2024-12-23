@@ -55,7 +55,7 @@ const Vehicule = () => {
         },
         {
           title: 'Marque',
-          dataIndex: 'marque',
+          dataIndex: 'nom_marque',
           sorter: {
             compare: (a, b) => a.chinese - b.chinese,
             multiple: 3,
