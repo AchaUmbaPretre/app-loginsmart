@@ -1,9 +1,10 @@
-import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Space } from 'antd';
+import { Button, Col, DatePicker, Form, Input, InputNumber, message, Row, Select, Skeleton, Space } from 'antd';
 import './carburantForm.scss'
 import { useEffect, useState } from 'react';
 import CarburantBoard from '../carburantBoard/CarburantBoard';
 import vehiculeService from '../../../services/vehicule.service';
 import ChauffeurService from '../../../services/chauffeur.service';
+import carburantService from '../../../services/carburant.service';
 const { Option } = Select;
 
 
@@ -12,6 +13,7 @@ const CarburantForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [vehicule, setVehicule] = useState([]);
     const [chauffeur, setChauffeur] = useState([]);
+    const [carburant, setCarburant] = useState([]);
     const [loadingData, setLoadingData] = useState(false);
 
     useEffect(() => {
@@ -34,7 +36,17 @@ const CarburantForm = () => {
         fetchData();
     }, [])
 
-    const onFinish = () => {
+    const onFinish = async (values) => {
+
+        try {
+            message.loading({ content: 'En cours...', key: 'submit' });
+            await carburantService.postCarburant(values)
+            message.success({ content: 'Carburant ajouté avec succès!', key: 'submit' });
+            
+        } catch (error) {
+            message.error({ content: 'Une erreur est survenue.', key: 'submit' });
+            console.error('Erreur lors de l\'ajout du carburant:', error);
+        }
     }
 
   return (
@@ -57,7 +69,7 @@ const CarburantForm = () => {
                     <Row gutter={12}>
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="numero"
+                                name="matricule_ch"
                                 label="Numero de bon"
                                 rules={[
                                     {
@@ -96,7 +108,7 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="date"
+                                name="date_plein"
                                 label="Date"
                                 rules={[
                                     {
@@ -111,7 +123,7 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="quantite"
+                                name="qte_plein"
                                 label="Quantité"
                                 rules={[
                                     {
@@ -141,7 +153,7 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="chauffeur"
+                                name="id_chauffeur"
                                 label="Chauffeur"
                                 rules={[
                                     {
@@ -165,7 +177,7 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="carburant"
+                                name="type_carburant"
                                 label="Carburant"
                                 rules={[
                                     {
@@ -180,7 +192,7 @@ const CarburantForm = () => {
 
                         <Col xs={24} md={12}>
                             <Form.Item
-                                name="commentaire"
+                                name="observation"
                                 label="Commentaire"
                                 rules={[
                                     {
