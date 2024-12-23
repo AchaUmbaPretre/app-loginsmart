@@ -30,6 +30,9 @@ const TypeService = {
 
     typeDisposition: () => fetchData('/api/type/type_disposition'),
 
+    typeCarburant: () => fetchData('/api/type/type_carburant'),
+
+
 
 };
 
