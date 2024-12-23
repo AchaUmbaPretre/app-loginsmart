@@ -66,8 +66,12 @@ const Vehicule = () => {
           dataIndex: 'modele'
         },
         {
-          title: 'Année',
-          dataIndex: 'annee'
+          title: 'Année de fab',
+          dataIndex: 'annee_fabrication'
+        },
+        {
+          title: 'Année circulation',
+          dataIndex: 'annee_circulation'
         },
         {
           title: 'Categorie',
