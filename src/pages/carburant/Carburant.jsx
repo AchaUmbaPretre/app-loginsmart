@@ -61,7 +61,7 @@ const Carburant = () => {
             width: "3%" 
           },
         {
-          title: 'Immatriculation',
+          title: 'Immatri.',
           dataIndex: 'immatriculation',
         },
         {
