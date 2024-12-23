@@ -32,8 +32,6 @@ const TypeService = {
 
     typeCarburant: () => fetchData('/api/type/type_carburant'),
 
-
-
 };
 
 export default TypeService;
