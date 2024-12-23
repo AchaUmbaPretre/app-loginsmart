@@ -194,6 +194,7 @@ const Chauffeur = () => {
                 dataSource={data} 
                 onChange={onChange}
                 bordered 
+                size="small"
             />
         </div>
         <Modal
