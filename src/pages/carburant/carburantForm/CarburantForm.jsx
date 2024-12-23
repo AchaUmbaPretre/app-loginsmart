@@ -18,7 +18,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
     const [iDVehicule, setIdVehicule] = useState('');
     const [loadingData, setLoadingData] = useState(false);
     const userId = useSelector((state) => state.auth.user.id);
-
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -28,8 +28,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
 
                 if(iDVehicule) {
                     const vehiculeOne = await carburantService.getCarburantOne(iDVehicule);
-                    setCarburantOne(vehiculeOne)
-                }
+                    setCarburantOne(vehiculeOne)                }
 
                 setVehicule(vehiculeData);
                 setChauffeur(chauffeurData);
@@ -42,7 +41,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
         }
 
         fetchData();
-    }, [])
+    }, [iDVehicule])
 
     const onFinish = async (values) => {
 
