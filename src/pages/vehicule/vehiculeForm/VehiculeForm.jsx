@@ -19,6 +19,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
     const [error, setError] = useState(null);
     const [couleur, setCouleur] = useState([]);
     const [disposition, setDisposition] = useState([]);
+    const [typeCarburant, setTypeCarburant] = useState([]);
     const [catVehicule, setCatVehicule] = useState([]);
     const [fileList, setFileList] = useState([]);
     const [previewImage, setPreviewImage] = useState('');
@@ -37,12 +38,14 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                 const couleurData = await TypeService.typeCouleur();
                 const catVehiculeData = await TypeService.catVehicule();
                 const dispositionData = await TypeService.typeDisposition();
+                const typeCarburantData = await TypeService.typeCarburant();
 
                 setCouleur(couleurData);
                 setMarque(marqueData);
                 setCatVehicule(catVehiculeData);
                 setDisposition(dispositionData);
-    
+                setTypeCarburant(typeCarburantData);
+
                 if (iDmarque) {
                     const  data  = await TypeService.typeModele(iDmarque);
                     setModele(data);
@@ -570,10 +573,15 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
-                                <Select placeholder="Choisir un type de carburant">
-                                    <Option value="1">Type carburant 1</Option>
-                                    <Option value="2">Type carburant 2</Option>
-                                </Select>
+                                <Select
+                                    showSearch
+                                    options={typeCarburant.map((item) => ({
+                                            value: item.id_type_carburant                                          ,
+                                            label: item.nom_type_carburant,
+                                    }))}
+                                    placeholder="Sélectionnez un type de carburant..."
+                                    optionFilterProp="label"
+                                />
                             </Form.Item>
                         </Col>
 
