@@ -150,7 +150,16 @@ const CarburantForm = () => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Selectionnez un chauffeur" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : 
+                                <Select
+                                    showSearch
+                                    options={chauffeur.map((item) => ({
+                                        value: item.id_chauffeur                                           ,
+                                        label: item.nom,
+                                    }))}
+                                    placeholder="Sélectionnez un chauffeur..."
+                                    optionFilterProp="label"
+                                />}
                             </Form.Item>
                         </Col>
 
