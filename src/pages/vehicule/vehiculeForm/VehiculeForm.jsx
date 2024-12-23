@@ -18,6 +18,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
     const [marque, setMarque] = useState([]);
     const [error, setError] = useState(null);
     const [couleur, setCouleur] = useState([]);
+    const [disposition, setDisposition] = useState([]);
     const [catVehicule, setCatVehicule] = useState([]);
     const [fileList, setFileList] = useState([]);
     const [previewImage, setPreviewImage] = useState('');
@@ -35,10 +36,12 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                 const marqueData = await TypeService.typeMarque();
                 const couleurData = await TypeService.typeCouleur();
                 const catVehiculeData = await TypeService.catVehicule();
+                const dispositionData = await TypeService.typeDisposition();
 
                 setCouleur(couleurData);
                 setMarque(marqueData);
                 setCatVehicule(catVehiculeData);
+                setDisposition(dispositionData);
     
                 if (iDmarque) {
                     const  data  = await TypeService.typeModele(iDmarque);
@@ -544,10 +547,15 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
-                                <Select placeholder="Choisir une disposition">
-                                    <Option value="1">Dispo 1</Option>
-                                    <Option value="2">Dispo 2</Option>
-                                </Select>
+                                <Select
+                                    showSearch
+                                    options={disposition.map((item) => ({
+                                            value: item.id_disposition_cylindre                                          ,
+                                            label: item.nom_disposition,
+                                    }))}
+                                    placeholder="Sélectionnez une disposition..."
+                                    optionFilterProp="label"
+                                />
                             </Form.Item>
                         </Col>
 
