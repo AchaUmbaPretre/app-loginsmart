@@ -3,6 +3,7 @@ import './carburantForm.scss'
 import { useEffect, useState } from 'react';
 import CarburantBoard from '../carburantBoard/CarburantBoard';
 import vehiculeService from '../../../services/vehicule.service';
+import ChauffeurService from '../../../services/chauffeur.service';
 const { Option } = Select;
 
 
@@ -10,6 +11,7 @@ const CarburantForm = () => {
     const [form] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [vehicule, setVehicule] = useState([]);
+    const [chauffeur, setChauffeur] = useState([]);
     const [loadingData, setLoadingData] = useState(false);
 
     useEffect(() => {
@@ -17,8 +19,10 @@ const CarburantForm = () => {
             try {
                 setIsLoading(true);
                 const vehiculeData = await vehiculeService.getVehicule();
+                const chauffeurData = await ChauffeurService.getChauffeur();
 
-                setVehicule(vehiculeData)
+                setVehicule(vehiculeData);
+                setChauffeur(chauffeurData);
                 
             } catch (error) {
                 console.error(error);
