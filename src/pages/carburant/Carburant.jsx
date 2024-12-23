@@ -65,7 +65,7 @@ const Carburant = () => {
         },
         {
           title: 'Chauffeur',
-          dataIndex: 'chinese',
+          dataIndex: 'nom_chauffeur',
         },
         {
           title: 'Modele',
