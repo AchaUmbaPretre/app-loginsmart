@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
 import FilterCarburant from './filterCarburant/FilterCarburant';
 import carburantService from '../../services/carburant.service';
+import moment from 'moment';
 
 const Carburant = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -73,11 +74,18 @@ const Carburant = () => {
         },
         {
           title: 'Date',
-          dataIndex: 'date_plein'
+          dataIndex: 'date_plein',
+          render: text => (
+            <div>{moment(text).format('DD-MM-yyyy')}</div>
+          ),
         },
         {
             title: 'Kilometrage',
             dataIndex: 'kilometrage'
+        },
+        {
+          title: 'T. carburant',
+          dataIndex: 'nom_type_carburant'
         },
         {
           title: 'Qté',
