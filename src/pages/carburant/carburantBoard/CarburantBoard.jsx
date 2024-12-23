@@ -4,10 +4,9 @@ import { useEffect, useState } from 'react';
 import carburantService from '../../../services/carburant.service';
 import moment from 'moment';
 
-const CarburantBoard = () => {
+const CarburantBoard = ({vehiculeData}) => {
   const [data, setData] = useState([]);
   const [dataDeux, setDataDeux] = useState([]);
-  const [nom, setNom] = useState('');
   const [loading, setLoading] = useState(false);
   const scroll = { x: 400 };
 
@@ -121,8 +120,8 @@ useEffect(()=> {
                 <Divider className='title_row'></Divider>
 
                 <div className="carburantBord_bottom">
-                    <h2 className="carburantBord-h2">SUZUKI GRAND VITARA</h2>
-                    <Table columns={columnsDeux} bordered size="small" dataSource={dataDeux} />
+                    <h2 className="carburantBord-h2">{vehiculeData[0]?.nom_marque} {vehiculeData[0]?.modele}</h2>
+                    <Table columns={columnsDeux} bordered size="small" dataSource={vehiculeData} />
                 </div>
             </div>
         </div>

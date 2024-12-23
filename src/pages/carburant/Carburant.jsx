@@ -223,7 +223,7 @@ const Carburant = () => {
           visible={modalType === 'add'}
           onCancel={closeAllModals}
           footer={null}
-          width={1045}
+          width={1055}
           centered
         >
           <CarburantForm closeModal={() => setModalType(null)} fetchData={fetchData}/>

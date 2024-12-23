@@ -235,7 +235,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
                 </Form>
                 </div>
                 <div className="carburantForm-right">
-                    <CarburantBoard/>
+                    <CarburantBoard vehiculeData={carburantOne}/>
                 </div>
             </div>
         </div>

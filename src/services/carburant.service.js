@@ -12,7 +12,6 @@ const carburantService = {
     },
 
     getCarburantOne: async (id) => {
-        console.log(id)
         try {
             const response = await api.get(`/api/carburant/one?id_vehicule=${id}`);
             return response.data.data;
