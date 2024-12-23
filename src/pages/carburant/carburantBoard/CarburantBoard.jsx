@@ -64,6 +64,44 @@ useEffect(()=> {
         }
       ];
 
+    
+      const columnsDeux = [
+        { title: '#', dataIndex: 'id', key: 'id', render: (_, __, index) => index + 1, width: "5%" },
+        {
+          title: 'N°',
+          dataIndex: 'matricule_ch',
+          key: 'matricule_ch',
+        },
+        {
+          title: 'Immatri.',
+          dataIndex: 'immatriculation',
+          key: 'immatriculation',
+        },
+        {
+          title: 'Qte',
+          dataIndex: 'qte_plein',
+          key: 'qte_plein',
+        },
+        {
+          title: 'Km',
+          dataIndex: 'kilometrage',
+          key: 'kilometrage',
+        },
+        {
+          title: 'Date',
+          dataIndex: 'date_plein',
+          key: 'date_plein',
+          render: text => (
+            <div>{moment(text).format('DD-MM-yyyy')}</div>
+          ),
+        },
+        {
+          title: 'User',
+          dataIndex: 'nom',
+          key: 'nom'
+        }
+      ];
+
 
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
@@ -82,7 +120,7 @@ useEffect(()=> {
 
                 <div className="carburantBord_bottom">
                     <h2 className="carburantBord-h2">SUZUKI GRAND VITARA</h2>
-                    <Table columns={columns} bordered size="small" dataSource={data} onChange={onChange} />
+                    <Table columns={columnsDeux} bordered size="small" dataSource={data} onChange={onChange} />
                 </div>
             </div>
         </div>
