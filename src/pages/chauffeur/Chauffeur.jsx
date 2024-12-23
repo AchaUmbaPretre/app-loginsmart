@@ -57,8 +57,8 @@ const Chauffeur = () => {
         <div className="userList">
           <Image
             className="userImg"
-            src="error"
-            fallback={`${api.defaults.baseURL}/${record.profil}`}
+            src={`${api.defaults.baseURL}/${record.profil}`} // Utilisation directe de l'URL complète
+            fallback={`${api.defaults.baseURL}/default-image.jpg`} // Image de secours en cas d'échec
             width={40}
             height={40}
             style={{ borderRadius: '50%' }}

@@ -2,6 +2,7 @@
   "name": "loginsmart",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@nivo/line": "^0.88.0",
     "@reduxjs/toolkit": "^2.4.0",

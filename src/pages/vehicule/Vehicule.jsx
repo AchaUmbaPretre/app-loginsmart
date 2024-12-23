@@ -1,7 +1,8 @@
-import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
+import { Breadcrumb, Button, Image, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import VehiculeForm from './vehiculeForm/VehiculeForm';
 import { useEffect, useState } from 'react';
+import api from './../../utils/api'
 import vehiculeService from '../../services/vehicule.service';
 
 const Vehicule = () => {
@@ -48,6 +49,25 @@ const Vehicule = () => {
             key: 'id', 
             render: (text, record, index) => index + 1, 
             width: "3%" 
+          },
+          {
+            title: 'Image',
+            dataIndex: 'img',
+            key: 'img',
+            render: (text, record) => (
+              <div className="userList">
+                <Image
+                  className="userImg"
+                  src={`${api.defaults.baseURL}/${record.img}`}
+                  fallback={`${api.defaults.baseURL}/default-image.jpg`}
+                  width={40}
+                  height={40}
+                  style={{ borderRadius: '50%' }}
+                  alt="Profil utilisateur"
+                />
+              </div>
+            ),
+          
           },
         {
           title: 'Immatriculation',
