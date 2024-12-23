@@ -6,6 +6,7 @@ import TypeService from '../../../services/type.service';
 import vehiculeService from '../../../services/vehicule.service';
 import getCroppedImg from '../../../utils/getCroppedImg';
 import Cropper from 'react-easy-crop';
+import moment from 'moment';
 const { Option } = Select;
 
 const VehiculeForm = ({fetchData, closeModal}) => {
@@ -61,6 +62,10 @@ const VehiculeForm = ({fetchData, closeModal}) => {
     const onFinish = async (values) => {
 
         try {
+            if(values.date_service) {
+                values.date_service =  values.date_service ? moment(values.date_service).format('YYYY-MM-DD') : null;
+
+            }
             if (fileList.length > 0) {
                 values.img = fileList[0].originFileObj;
             }
@@ -259,7 +264,6 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                             >
                                 {loadingData ? <Skeleton.Input active={true} /> :    <DatePicker 
                                                                                         picker="year" 
-                                                                                        onChange={handleYearChange} 
                                                                                         style={{width:'100%'}}
                                                                                         placeholder="Sélectionnez une année" 
                                                                                         />}
@@ -477,7 +481,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     onChange={handleUploadChange}
                                     beforeUpload={() => false} 
                                 >
-                                    <Button icon={<UploadOutlined />}>Télécharger</Button>
+                                    <Button icon={<UploadOutlined />}></Button>
                                 </Upload>
                             </Form.Item>
 
@@ -516,7 +520,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
 
                         <Col xs={24} md={8}>
                             <Form.Item
-                                name="cylindre"
+                                name="nbre_cylindre"
                                 label="Nombre de cylindre"
                                 rules={[
                                     {
@@ -609,6 +613,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                         message: 'Veuillez fournir une date service...',
                                     },
                                 ]}
+                                initialValue={moment()}
                             >
                             {loadingData ? <Skeleton.Input active={true} /> : <DatePicker style={{width:'100%'}} format="YYYY-MM-DD" />}
                             </Form.Item>
