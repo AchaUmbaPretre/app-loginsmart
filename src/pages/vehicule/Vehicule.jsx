@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Image, Input, Modal, Space, Table } from 'antd';
-import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Breadcrumb, Button, Image, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
+import { PlusCircleOutlined,EditOutlined,DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import VehiculeForm from './vehiculeForm/VehiculeForm';
 import { useEffect, useState } from 'react';
 import api from './../../utils/api'
@@ -103,13 +103,46 @@ const Vehicule = () => {
           dataIndex: 'nbre_place'
         },
         {
-          title: 'Affectation',
-          dataIndex: 'affectation'
+          title: 'Nbre porte',
+          dataIndex: 'nbre_portes'
         },
         {
           title: 'Actions',
-          dataIndex: 'actions'
-        },
+          dataIndex: 'actions',
+          key: 'actions',
+          width: '10%',
+          render: (text, record) => (
+            <Space size="middle">
+              <Tooltip title="Modifier">
+                <Button
+                  icon={<EditOutlined />}
+                  style={{
+                    color: '#fff',
+                    backgroundColor: '#52c41a',
+                    borderColor: '#52c41a',
+                  }}
+                  aria-label="Modifier"
+                />
+              </Tooltip>
+              <Tooltip title="Supprimer">
+                <Popconfirm
+                  title="Êtes-vous sûr de vouloir supprimer ce client ?"
+                  okText="Oui"
+                  cancelText="Non"            >
+                  <Button
+                    icon={<DeleteOutlined />}
+                    style={{
+                      color: '#fff',
+                      backgroundColor: '#ff4d4f',
+                      borderColor: '#ff4d4f',
+                    }}
+                    aria-label="Supprimer"
+                  />
+                </Popconfirm>
+              </Tooltip>
+            </Space>
+          ),
+        }
       ];
 
       const onChange = (pagination, filters, sorter, extra) => {
