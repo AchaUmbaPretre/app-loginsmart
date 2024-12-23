@@ -6,7 +6,6 @@ import moment from 'moment';
 
 const CarburantBoard = ({vehiculeData}) => {
   const [data, setData] = useState([]);
-  const [dataDeux, setDataDeux] = useState([]);
   const [loading, setLoading] = useState(false);
   const scroll = { x: 400 };
 
