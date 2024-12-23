@@ -1,15 +1,34 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './carburant.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
 import FilterCarburant from './filterCarburant/FilterCarburant';
+import carburantService from '../../services/carburant.service';
 
 const Carburant = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
-    const [idVehicule, setIdVehicule] = useState('');
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const fetchData = async () =>{
+      try {
+        setLoading(true);
+        const [carburantData] = await Promise.all([
+          carburantService.getCarburant()
+        ])
+
+        setData(carburantData)
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+  useEffect(()=> {
+    fetchData()
+  }, [])
 
     const closeAllModals = () => {
       setModalType(null);
