@@ -9,6 +9,7 @@ const Vehicule = () => {
   const [modalType, setModalType] = useState(null);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const scroll = { x: 400 };
 
   const closeAllModals = () => {
     setModalType(null);
@@ -166,6 +167,8 @@ const Vehicule = () => {
           footer={null}
           width={1023}
           centered
+          scroll={scroll}
+          size="small"
         >
           <VehiculeForm fetchData={fetchData} closeModal={()=>setModalType(null)}/>
         </Modal>
