@@ -156,6 +156,7 @@ const Vehicule = () => {
               columns={columns} 
               dataSource={data} 
               onChange={onChange} 
+              bordered
             />
         </div>
         <Modal
