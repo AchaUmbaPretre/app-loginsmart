@@ -75,7 +75,11 @@ const Vehicule = () => {
         },
         {
           title: 'Categorie',
-          dataIndex: 'categorie'
+          dataIndex: 'nom_cat'
+        },
+        {
+          title: 'Nbre place',
+          dataIndex: 'nbre_place'
         },
         {
           title: 'Affectation',
