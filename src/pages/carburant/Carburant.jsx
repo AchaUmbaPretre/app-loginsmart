@@ -226,7 +226,7 @@ const Carburant = () => {
           width={1045}
           centered
         >
-          <CarburantForm closeModal={() => setModalType(null)}/>
+          <CarburantForm closeModal={() => setModalType(null)} fetchData={fetchData}/>
         </Modal>
     </div>
   );

@@ -1,9 +1,31 @@
 import { Divider, Table } from 'antd'
 import './carburantBoard.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import carburantService from '../../../services/carburant.service';
+import moment from 'moment';
 
 const CarburantBoard = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const scroll = { x: 400 };
+
+  const fetchData = async () =>{
+    try {
+      setLoading(true);
+      const [chauffeurData] = await Promise.all([
+        carburantService.getCarburantCinq()
+      ])
+
+      setData(chauffeurData)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+useEffect(()=> {
+  fetchData()
+}, [])
 
     const columns = [
         { title: '#', dataIndex: 'id', key: 'id', render: (_, __, index) => index + 1, width: "5%" },
@@ -13,30 +35,33 @@ const CarburantBoard = () => {
           key: 'num',
         },
         {
-          title: 'Immatriculation',
+          title: 'Immatri.',
           dataIndex: 'immatriculation',
           key: 'immatriculation',
         },
         {
           title: 'Qte',
-          dataIndex: 'qte',
-          key: 'qte',
+          dataIndex: 'qte_plein',
+          key: 'qte_plein',
         },
         {
           title: 'Km',
-          dataIndex: 'km',
-          key: 'km',
+          dataIndex: 'kilometrage',
+          key: 'kilometrage',
         },
         {
           title: 'Date',
-          dataIndex: 'date',
-          key: 'date',
+          dataIndex: 'date_plein',
+          key: 'date_plein',
+          render: text => (
+            <div>{moment(text).format('DD-MM-yyyy')}</div>
+          ),
         },
         {
           title: 'User',
-          dataIndex: 'user',
-          key: 'user',
-        },
+          dataIndex: 'nom',
+          key: 'nom'
+        }
       ];
 
 
@@ -50,14 +75,14 @@ const CarburantBoard = () => {
             <div className="carburantBord-wrapper">
                 <div className="carburantBord_top">
                     <h2 className="carburantBord-h2">Tableau de bord</h2>
-                    <Table columns={columns} size="small" dataSource={data} onChange={onChange} />
+                    <Table columns={columns} bordered size="small" dataSource={data} onChange={onChange} />
                 </div>
 
                 <Divider className='title_row'></Divider>
-                
+
                 <div className="carburantBord_bottom">
                     <h2 className="carburantBord-h2">SUZUKI GRAND VITARA</h2>
-                    <Table columns={columns} size="small" dataSource={data} onChange={onChange} />
+                    <Table columns={columns} bordered size="small" dataSource={data} onChange={onChange} />
                 </div>
             </div>
         </div>

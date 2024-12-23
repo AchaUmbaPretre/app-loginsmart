@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 const { Option } = Select;
 
 
-const CarburantForm = ({closeModal}) => {
+const CarburantForm = ({closeModal, fetchData}) => {
     const [form] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [vehicule, setVehicule] = useState([]);
@@ -49,7 +49,8 @@ const CarburantForm = ({closeModal}) => {
             await carburantService.postCarburant(values)
             message.success({ content: 'Carburant ajouté avec succès!', key: 'submit' });
              form.resetFields();
-             closeModal()
+             fetchData();
+             closeModal();
         } catch (error) {
             message.error({ content: 'Une erreur est survenue.', key: 'submit' });
             console.error('Erreur lors de l\'ajout du carburant:', error);
