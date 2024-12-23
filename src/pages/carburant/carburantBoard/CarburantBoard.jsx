@@ -31,8 +31,8 @@ useEffect(()=> {
         { title: '#', dataIndex: 'id', key: 'id', render: (_, __, index) => index + 1, width: "5%" },
         {
           title: 'N°',
-          dataIndex: 'num',
-          key: 'num',
+          dataIndex: 'matricule_ch',
+          key: 'matricule_ch',
         },
         {
           title: 'Immatri.',
