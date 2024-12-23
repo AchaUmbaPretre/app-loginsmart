@@ -105,7 +105,7 @@ const CarburantForm = ({closeModal}) => {
                                     showSearch
                                     options={vehicule.map((item) => ({
                                         value: item.id_vehicule                                           ,
-                                        label: item.immatriculation,
+                                        label: `${item.immatriculation} / ${item.nom_marque} / ${item.modele}`,
                                     }))}
                                     placeholder="Sélectionnez un vehicule..."
                                     optionFilterProp="label"
