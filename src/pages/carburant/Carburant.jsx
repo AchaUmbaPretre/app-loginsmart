@@ -141,6 +141,8 @@ const Carburant = () => {
                 columns={columns} 
                 dataSource={data} 
                 onChange={onChange} 
+                bordered 
+                size="small"
             />
         </div>
         <Modal
@@ -151,7 +153,7 @@ const Carburant = () => {
           width={1045}
           centered
         >
-          <CarburantForm/>
+          <CarburantForm closeModal={() => setModalType(null)}/>
         </Modal>
     </div>
   );

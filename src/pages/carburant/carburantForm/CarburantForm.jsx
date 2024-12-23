@@ -5,16 +5,18 @@ import CarburantBoard from '../carburantBoard/CarburantBoard';
 import vehiculeService from '../../../services/vehicule.service';
 import ChauffeurService from '../../../services/chauffeur.service';
 import carburantService from '../../../services/carburant.service';
+import { useSelector } from 'react-redux';
 const { Option } = Select;
 
 
-const CarburantForm = () => {
+const CarburantForm = ({closeModal}) => {
     const [form] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [vehicule, setVehicule] = useState([]);
     const [chauffeur, setChauffeur] = useState([]);
     const [carburant, setCarburant] = useState([]);
     const [loadingData, setLoadingData] = useState(false);
+    const userId = useSelector((state) => state.auth.user.id);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,10 +41,15 @@ const CarburantForm = () => {
     const onFinish = async (values) => {
 
         try {
+            if(userId){
+                values.id_user = userId
+            }
+
             message.loading({ content: 'En cours...', key: 'submit' });
             await carburantService.postCarburant(values)
             message.success({ content: 'Carburant ajouté avec succès!', key: 'submit' });
-            
+             form.resetFields();
+             closeModal()
         } catch (error) {
             message.error({ content: 'Une erreur est survenue.', key: 'submit' });
             console.error('Erreur lors de l\'ajout du carburant:', error);
