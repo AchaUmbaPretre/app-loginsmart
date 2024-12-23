@@ -14,7 +14,8 @@ const CarburantForm = ({closeModal, fetchData}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [vehicule, setVehicule] = useState([]);
     const [chauffeur, setChauffeur] = useState([]);
-    const [carburant, setCarburant] = useState([]);
+    const [carburantOne, setCarburantOne] = useState([]);
+    const [iDVehicule, setIdVehicule] = useState('');
     const [loadingData, setLoadingData] = useState(false);
     const userId = useSelector((state) => state.auth.user.id);
 
@@ -24,6 +25,11 @@ const CarburantForm = ({closeModal, fetchData}) => {
                 setIsLoading(true);
                 const vehiculeData = await vehiculeService.getVehicule();
                 const chauffeurData = await ChauffeurService.getChauffeur();
+
+                if(iDVehicule) {
+                    const vehiculeOne = await carburantService.getCarburantOne(iDVehicule);
+                    setCarburantOne(vehiculeOne)
+                }
 
                 setVehicule(vehiculeData);
                 setChauffeur(chauffeurData);
@@ -110,6 +116,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
                                     }))}
                                     placeholder="Sélectionnez un vehicule..."
                                     optionFilterProp="label"
+                                    onChange={(value)=> setIdVehicule(value)}
                                 />}
                             </Form.Item>
                         </Col>
