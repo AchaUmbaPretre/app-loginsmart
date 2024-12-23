@@ -6,6 +6,8 @@ import moment from 'moment';
 
 const CarburantBoard = () => {
   const [data, setData] = useState([]);
+  const [dataDeux, setDataDeux] = useState([]);
+  const [nom, setNom] = useState('');
   const [loading, setLoading] = useState(false);
   const scroll = { x: 400 };
 
@@ -120,7 +122,7 @@ useEffect(()=> {
 
                 <div className="carburantBord_bottom">
                     <h2 className="carburantBord-h2">SUZUKI GRAND VITARA</h2>
-                    <Table columns={columnsDeux} bordered size="small" dataSource={data} onChange={onChange} />
+                    <Table columns={columnsDeux} bordered size="small" dataSource={dataDeux} />
                 </div>
             </div>
         </div>
