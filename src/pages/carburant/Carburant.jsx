@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
-import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
+import { PlusCircleOutlined,EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './carburant.scss';
 import { useEffect, useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
@@ -64,33 +64,98 @@ const Carburant = () => {
           dataIndex: 'immatriculation',
         },
         {
+          title: 'Marque',
+          dataIndex: 'nom_marque'
+        },
+        {
           title: 'Chauffeur',
           dataIndex: 'nom_chauffeur',
         },
         {
-          title: 'Modele',
-          dataIndex: 'modele'
-        },
-        {
           title: 'Date',
-          dataIndex: 'date'
-        },
-        {
-            title: 'Qte',
-            dataIndex: 'english',
-            sorter: {
-              compare: (a, b) => a.english - b.english,
-              multiple: 1,
-            },
+          dataIndex: 'date_plein'
         },
         {
             title: 'Kilometrage',
             dataIndex: 'kilometrage'
         },
         {
+          title: 'Qté',
+          dataIndex: 'qte_plein',
+          sorter: {
+              compare: (a, b) => a.qte_plein - b.qte_plein,
+              multiple: 1,
+            },
+        },
+        {
             title: 'Numero',
-            dataIndex: 'numero'
+            dataIndex: 'matricule_ch'
 
+        },
+        {
+          title: 'Actions',
+          dataIndex: 'actions',
+          key: 'actions',
+          width: '15%',
+          render: (text, record) => (
+            <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+              <Tooltip title="Détail" placement="top">
+                <Button
+                  icon={<EyeOutlined />}
+                  style={{
+                    color: '#fff',
+                    backgroundColor: '#1890ff',
+                    borderColor: '#1890ff',
+                    transition: 'all 0.3s ease',
+                  }}
+                  aria-label="Détail"
+                  onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
+                  onClick={() => {
+                    console.log('Afficher les détails pour', record);
+                  }}
+                />
+              </Tooltip>
+      
+              <Tooltip title="Modifier" placement="top">
+                <Button
+                  icon={<EditOutlined />}
+                  style={{
+                    color: '#fff',
+                    backgroundColor: '#52c41a',
+                    borderColor: '#52c41a',
+                    transition: 'all 0.3s ease',
+                  }}
+                  aria-label="Modifier"
+                  onMouseEnter={(e) => e.target.style.backgroundColor = '#45b22d'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = '#52c41a'}
+                />
+              </Tooltip>
+      
+              <Tooltip title="Supprimer" placement="top">
+                <Popconfirm
+                  title="Êtes-vous sûr de vouloir supprimer ce client ?"
+                  okText="Oui"
+                  cancelText="Non"
+                  onConfirm={() => {
+                  }}
+                >
+                  <Button
+                    icon={<DeleteOutlined />}
+                    style={{
+                      color: '#fff',
+                      backgroundColor: '#ff4d4f',
+                      borderColor: '#ff4d4f',
+                      transition: 'all 0.3s ease',
+                    }}
+                    aria-label="Supprimer"
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#e10000'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#ff4d4f'}
+                  />
+                </Popconfirm>
+              </Tooltip>
+            </Space>
+          ),
         }
       ];
 
