@@ -67,8 +67,8 @@ const Maintenance = () => {
           dataIndex: 'nom_marque'
         },
         {
-          title: 'Date entreé',
-          dataIndex: 'date_entree'
+          title: 'Date réparation',
+          dataIndex: 'date_reparation'
         },
         {
           title: 'Date sortie',
@@ -84,7 +84,7 @@ const Maintenance = () => {
         },
         {
             title: 'Type Réparation',
-            dataIndex: 'type_reparation'
+            dataIndex: 'type_rep'
         },
         {
             title: 'Fournisseur',
