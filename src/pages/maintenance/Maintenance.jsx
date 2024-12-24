@@ -3,11 +3,31 @@ import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/
 import { useEffect, useState } from 'react';
 import Maintenance_form from './maintenance_form/Maintenance_form';
 import vehiculeService from '../../services/vehicule.service';
+import maintenanceService from '../../services/maintenance.service';
 
 const Maintenance = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
 
+
+    useEffect(()=> {
+      const fetchData = async () =>{
+        try {
+          setLoading(true);
+          const [maintenantData] = await Promise.all([
+            maintenanceService.getMaintenance()
+          ])
+  
+          setData(maintenantData)
+  
+        } catch (error) {
+          console.log(error)
+        }
+      }
+      fetchData()
+    }, [])
 
     const closeAllModals = () => {
       setModalType(null);
@@ -79,7 +99,6 @@ const Maintenance = () => {
             dataIndex: 'actions'
         }
       ];
-      const data = [];
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
       };
