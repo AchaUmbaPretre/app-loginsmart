@@ -200,10 +200,15 @@ const Maintenance_form = () => {
                                         { required: true, message: 'Veuillez fournir une réparation...' },
                                     ]}
                                     >
-                                    <Select placeholder="Choisir une réparation">
-                                        <Option value="1">Réparation 1</Option>
-                                        <Option value="2">Réparation 2</Option>
-                                    </Select>
+                                        <Select
+                                            showSearch
+                                            options={reparation.map((item) => ({
+                                                value: item.id_reparation                                           ,
+                                                label: `${item.type_rep}`,
+                                            }))}
+                                            placeholder="Sélectionnez un vehicule..."
+                                            optionFilterProp="label"
+                                        />
                                     </Form.Item>
                                 </Col>
                                 <Col xs={24} md={7}>
