@@ -13,7 +13,7 @@ const Maintenance_form = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [vehicule, setVehicule] = useState([]);
     const [reparation, setReparation] = useState([]);
-
+    const [fournisseur, setFournisseur] = useState([]);
 
     useEffect(()=> {
         const fetchData = async () => {
@@ -21,9 +21,12 @@ const Maintenance_form = () => {
             setIsLoading(true);
             const vehiculeData = await vehiculeService.getVehicule();
             const reparationData = await TypeService.typeReparation();
+            const fournisseurData = await TypeService.getFournisseur();
+
 
             setVehicule(vehiculeData);
             setReparation(reparationData);
+            setFournisseur(fournisseurData);
             
           } catch (error) {
             console.error(error);
@@ -162,10 +165,15 @@ const Maintenance_form = () => {
                                     ]}
                                 >
                                     {loadingData ? <Skeleton.Input active={true} /> : 
-                                    <Select placeholder="Choisir un fournisseur">
-                                        <Option value="1">Fournisseur 1</Option>
-                                        <Option value="2">Fournisseur 2</Option>
-                                    </Select> }
+                                        <Select
+                                            showSearch
+                                            options={fournisseur.map((item) => ({
+                                                value: item.id_fournisseur                                           ,
+                                                label: `${item.nom}`,
+                                            }))}
+                                            placeholder="Sélectionnez un vehicule..."
+                                            optionFilterProp="label"
+                                        /> }
                                 </Form.Item>
                             </Col>
 

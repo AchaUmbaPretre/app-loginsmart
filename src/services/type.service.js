@@ -34,6 +34,8 @@ const TypeService = {
 
     typeReparation: () => fetchData('/api/type/type_reparation'),
 
+    getFournisseur: () => fetchData('/api/type/fournisseur'),
+
 };
 
 export default TypeService;
