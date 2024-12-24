@@ -211,6 +211,8 @@ const Maintenance = () => {
                 columns={columns} 
                 dataSource={data} 
                 onChange={onChange} 
+                bordered 
+                size="small"
             />
         </div>
         <Modal
