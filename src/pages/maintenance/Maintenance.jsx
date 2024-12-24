@@ -3,6 +3,7 @@ import { PlusCircleOutlined,EyeOutlined,DeleteOutlined,EditOutlined, SearchOutli
 import { useEffect, useState } from 'react';
 import Maintenance_form from './maintenance_form/Maintenance_form';
 import maintenanceService from '../../services/maintenance.service';
+import moment from 'moment';
 
 const Maintenance = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -67,7 +68,10 @@ const Maintenance = () => {
         },
         {
           title: 'Date réparation',
-          dataIndex: 'date_reparation'
+          dataIndex: 'date_reparation',
+          render: text => (
+            <div>{moment(text).format('DD-MM-yyyy')}</div>
+          ),
         },
         {
           title: 'Date sortie',
