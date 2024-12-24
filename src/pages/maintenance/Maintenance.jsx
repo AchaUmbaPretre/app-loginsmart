@@ -1,12 +1,13 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Maintenance_form from './maintenance_form/Maintenance_form';
+import vehiculeService from '../../services/vehicule.service';
 
 const Maintenance = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
-    const [idVehicule, setIdVehicule] = useState('');
+
 
     const closeAllModals = () => {
       setModalType(null);

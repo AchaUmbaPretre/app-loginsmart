@@ -1,12 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './maintenance_form.scss';
 import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
+import vehiculeService from '../../../services/vehicule.service';
 const { Option } = Select;
 
 const Maintenance_form = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [vehicule, setVehicule] = useState([]);
+
+
+    useEffect(()=> {
+        const fetchData = async () => {
+          try {
+            setIsLoading(true);
+            const vehiculeData = await vehiculeService.getVehicule();
+            setVehicule(vehiculeData)
+            
+          } catch (error) {
+            console.error(error);
+          } finally {
+            setIsLoading(false);
+          }
+        }
+        fetchData()
+    }, [])
 
     const onFinish = (values) => {
         console.log('Form Values:', values);
@@ -43,11 +63,16 @@ const Maintenance_form = () => {
                                     {loadingData ? (
                                         <Skeleton.Input active={true} />
                                     ) : (
-                                        <Select placeholder="Choisir une immatriculation">
-                                            <Option value="1">Immatriculation 1</Option>
-                                            <Option value="2">Immatriculation 2</Option>
-                                        </Select>
-                                    )}
+                                        <Select
+                                            showSearch
+                                            options={vehicule.map((item) => ({
+                                                value: item.id_vehicule                                           ,
+                                                label: `${item.immatriculation} / ${item.nom_marque} / ${item.modele}`,
+                                            }))}
+                                            placeholder="Sélectionnez un vehicule..."
+                                            optionFilterProp="label"
+                                        />
+                                            )}
                                 </Form.Item>
                             </Col>
 
