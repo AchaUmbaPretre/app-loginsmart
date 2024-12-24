@@ -90,7 +90,7 @@ const Maintenance_form = () => {
 
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="date"
+                                    name="date_reparation"
                                     label="Date"
                                     rules={[
                                         {
@@ -132,7 +132,7 @@ const Maintenance_form = () => {
 
                             <Col xs={24} md={12}>
                                 <Form.Item
-                                    name="Cout"
+                                    name="cout"
                                     label="Cout(devise)"
                                     rules={[
                                         {
@@ -147,7 +147,7 @@ const Maintenance_form = () => {
 
                             <Col xs={24} md={12}>
                                 <Form.Item
-                                    name="fournisseur"
+                                    name="id_fournisseur"
                                     label="Fournisseur"
                                     rules={[
                                         {
@@ -189,7 +189,7 @@ const Maintenance_form = () => {
                                 <Col xs={24} md={7}>
                                     <Form.Item
                                     {...restField}
-                                    name={[name, 'type_reparation']}
+                                    name={[name, 'id_type_reparation']}
                                     label="Type de réparation"
                                     rules={[
                                         { required: true, message: 'Veuillez fournir une réparation...' },
