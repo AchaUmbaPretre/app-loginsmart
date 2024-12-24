@@ -60,11 +60,11 @@ const Maintenance = () => {
           },
         {
           title: 'Immatriculation',
-          dataIndex: 'immatricule',
+          dataIndex: 'immatriculation',
         },
         {
           title: 'Marque',
-          dataIndex: 'marque'
+          dataIndex: 'nom_marque'
         },
         {
           title: 'Date entreé',
