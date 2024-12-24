@@ -92,7 +92,6 @@ const Maintenance = () => {
           width: '15%',
           render: (text, record) => (
             <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
-              {/* Détail Button */}
               <Tooltip title="Détail" placement="top">
                 <Button
                   icon={<EyeOutlined />}
