@@ -74,14 +74,6 @@ const Maintenance = () => {
           ),
         },
         {
-          title: 'Date sortie',
-          dataIndex: 'date_sortie'
-        },
-        {
-            title: 'Nbre jour',
-            dataIndex: 'nbre_jour',
-        },
-        {
             title: 'Description',
             dataIndex: 'description'
         },
