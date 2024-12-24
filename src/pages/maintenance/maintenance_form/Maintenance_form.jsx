@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './maintenance_form.scss';
 import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
-import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
+import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
 import vehiculeService from '../../../services/vehicule.service';
+import maintenanceService from '../../../services/maintenance.service';
 const { Option } = Select;
 
 const Maintenance_form = () => {
@@ -28,8 +29,19 @@ const Maintenance_form = () => {
         fetchData()
     }, [])
 
-    const onFinish = (values) => {
-        console.log('Form Values:', values);
+    const onFinish = async(values) => {
+        
+        try {
+            message.loading({ content: 'En cours...', key: 'submit' });
+            await maintenanceService.postMaintenance(values)
+            message.success({ content: 'Maintenance ajouté avec succès!', key: 'submit' });
+
+            form.resetFields();
+            
+        } catch (error) {
+            message.error({ content: 'Une erreur est survenue.', key: 'submit' });
+            console.error('Erreur lors de l\'ajout de maintenance:', error);
+        }
     };
 
     return (
