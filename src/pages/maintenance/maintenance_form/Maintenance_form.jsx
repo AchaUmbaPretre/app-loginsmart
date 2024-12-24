@@ -4,6 +4,7 @@ import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-desi
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
 import vehiculeService from '../../../services/vehicule.service';
 import maintenanceService from '../../../services/maintenance.service';
+import TypeService from '../../../services/type.service';
 const { Option } = Select;
 
 const Maintenance_form = () => {
@@ -11,6 +12,7 @@ const Maintenance_form = () => {
     const [loadingData, setLoadingData] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [vehicule, setVehicule] = useState([]);
+    const [reparation, setReparation] = useState([]);
 
 
     useEffect(()=> {
@@ -18,7 +20,10 @@ const Maintenance_form = () => {
           try {
             setIsLoading(true);
             const vehiculeData = await vehiculeService.getVehicule();
-            setVehicule(vehiculeData)
+            const reparationData = await TypeService.typeReparation();
+
+            setVehicule(vehiculeData);
+            setReparation(reparationData);
             
           } catch (error) {
             console.error(error);
