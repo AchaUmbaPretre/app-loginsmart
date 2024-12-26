@@ -75,10 +75,14 @@ const SuiviMaintenance = () => {
                                                     { required: true, message: 'Veuillez fournir une tache...' },
                                                 ]}
                                             >
-                                                <InputNumber
-                                                    min={0}
-                                                    placeholder="Saisir le montant"
-                                                    style={{ width: '100%' }}
+                                                <Select
+                                                    showSearch
+                                                    options={tache.map((item) => ({
+                                                            value: item.id_type_tache                                           ,
+                                                            label: item.	type_tache,
+                                                    }))}
+                                                    placeholder="Sélectionnez une tache..."
+                                                    optionFilterProp="label"
                                                 />
                                             </Form.Item>
                                         </Col>
@@ -91,10 +95,14 @@ const SuiviMaintenance = () => {
                                                 { required: true, message: 'Veuillez fournir une piece...' },
                                             ]}
                                             >
-                                            <InputNumber
-                                                min={0}
-                                                placeholder="Saisir le montant"
-                                                style={{ width: '100%' }}
+                                            <Select
+                                                showSearch
+                                                options={piece.map((item) => ({
+                                                        value: item.id                                          ,
+                                                        label: item.titre,
+                                                }))}
+                                                placeholder="Sélectionnez une piéce..."
+                                                optionFilterProp="label"
                                             />
                                             </Form.Item>
                                         </Col>
