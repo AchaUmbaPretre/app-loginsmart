@@ -1,10 +1,35 @@
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import TypeService from '../../../services/type.service';
 
 
 const SuiviMaintenance = () => {
     const [form] = Form.useForm();
+    const [isLoading, setIsLoading] = useState(false);
+    const [tache, setTache] = useState([]);
+    const [piece, setPiece] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async() => {
+            try {
+                setIsLoading(true);
+
+                const suivieData = await TypeService.getTache();
+                const pieceData = await TypeService.getCatPieces;
+
+                setTache(suivieData);
+                setPiece(pieceData);
+                
+            } catch (error) {
+                setError('Une erreur est survenue lors du chargement des données.');
+                console.error(error);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+    }, [])
 
     const onFinish = async (values) => {
 
