@@ -87,6 +87,10 @@ const Maintenance = () => {
             dataIndex: 'fournisseur'
         },
         {
+          title: 'Etat',
+          dataIndex: 'etat'
+      },
+        {
           title: 'Actions',
           dataIndex: 'actions',
           key: 'actions',
