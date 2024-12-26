@@ -11,6 +11,7 @@ const Maintenance = () => {
     const [modalType, setModalType] = useState(null);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+    const [idReparation, setIdReparation] = useState('');
     const scroll = { x: 400 };
 
       const fetchData = async () =>{
@@ -35,18 +36,19 @@ const Maintenance = () => {
       setModalType(null);
     };
   
-    const openModal = (type, idVehicule = '') => {
+    const openModal = (type, id_reparation = '') => {
       closeAllModals();
       setModalType(type);
+      setIdReparation(id_reparation)
     };
   
-    const handleAdd = (idVehicule) =>{
-      openModal('add', idVehicule )
+    const handleAdd = (id_reparation) =>{
+      openModal('add', id_reparation )
     }
 
 
-    const handleSuivi = (idVehicule) =>{
-      openModal('suivi', idVehicule )
+    const handleSuivi = (id_reparation) =>{
+      openModal('suivi', id_reparation )
     }
 
     const handFilter = () => {
@@ -55,11 +57,12 @@ const Maintenance = () => {
 
       const menu = (record) => (
         <>
+
           <Menu>
             <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />}>
               Liste des suivi
             </Menu.Item>
-            <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record.id_reparation)}>
+            <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record)}>
               Faire un suivi
             </Menu.Item>
           </Menu>          
@@ -309,7 +312,7 @@ const Maintenance = () => {
           width={1000}
           centered
         >
-          <SuiviMaintenance fetchData={fetchData} closeModal={() => setModalType(null)}/>
+          <SuiviMaintenance fetchData={fetchData} closeModal={() => setModalType(null)} idReparation={idReparation}/>
         </Modal>
     </div>
   );

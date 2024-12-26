@@ -5,7 +5,7 @@ import TypeService from '../../../services/type.service';
 import maintenanceService from '../../../services/maintenance.service';
 
 
-const SuiviMaintenance = () => {
+const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
     const [form] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [tache, setTache] = useState([]);
@@ -35,9 +35,10 @@ const SuiviMaintenance = () => {
 
     const onFinish = async (values) => {
         try {
+            
             message.loading({ content: 'En cours...', key: 'submit' });
-            await maintenanceService.postMaintenance(values)
-            message.success({ content: 'Maintenance ajouté avec succès!', key: 'submit' });
+            await maintenanceService.postSuivi({values, id_reparation: idReparation})
+            message.success({ content: 'Suivie a ete ajoutée avec succès!', key: 'submit' });
 
             form.resetFields();
             
