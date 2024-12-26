@@ -301,7 +301,7 @@ const Maintenance = () => {
           width={1025}
           centered
         >
-            <Maintenance_form fetchData={fetchData} closeModal={() => setModalType(null)}/>
+          <Maintenance_form fetchData={fetchData} closeModal={() => setModalType(null)}/>
         </Modal>
     </div>
   );
