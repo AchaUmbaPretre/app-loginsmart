@@ -36,6 +36,11 @@ const TypeService = {
 
     getFournisseur: () => fetchData('/api/type/fournisseur'),
 
+    getTache: () => fetchData('/api/type/type_tache'),
+
+    getCatPieces: () => fetchData('/api/type/cat_piece'),
+
+
 };
 
 export default TypeService;
