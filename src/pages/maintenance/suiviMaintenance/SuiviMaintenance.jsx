@@ -1,5 +1,7 @@
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
 import React from 'react'
+import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
+
 
 const SuiviMaintenance = () => {
     const [form] = Form.useForm();
@@ -23,6 +25,15 @@ const SuiviMaintenance = () => {
                     className="custom-form"
                     onFinish={onFinish}
                     variant={'filled'}
+                    initialValues={{
+                            suivie: [
+                                {
+                                    id_tache: null,
+                                    montant: null,
+                                    description: '',
+                                },
+                            ],
+                        }}
                 >
                     <Form.List name="suivie">
                         {(fields, {add, remove}) => (
@@ -76,11 +87,36 @@ const SuiviMaintenance = () => {
                                             />
                                             </Form.Item>
                                         </Col>
+                                        <Col xs={24} md={2}>
+                                            <Button
+                                            type="text"
+                                            danger
+                                            icon={<MinusCircleOutlined />}
+                                            onClick={() => remove(name)}
+                                            >
+                                            </Button>
+                                        </Col>
+                                        
                                     </Row>
                                 ))}
+                                <Form.Item>
+                                    <Button
+                                    type="dashed"
+                                    onClick={() => add()}
+                                    icon={<PlusCircleOutlined />}
+                                    style={{ width: '100%' }}
+                                    >
+                                        Ajouter une suivie
+                                    </Button>
+                                </Form.Item>
                             </>
                         )}
                     </Form.List>
+                    <div style={{ marginTop: '20px' }}>
+                        <Button type="primary" htmlType="submit" icon={<SendOutlined />}>
+                            Soumettre
+                        </Button>
+                    </div>
                 </Form>
             </div>
         </div>

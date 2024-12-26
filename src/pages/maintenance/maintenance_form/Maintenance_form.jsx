@@ -203,12 +203,12 @@ const Maintenance_form = ({fetchData, closeModal}) => {
                                 <Row key={key} gutter={12} align="middle">
                                 <Col xs={24} md={7}>
                                     <Form.Item
-                                        {...restField}
-                                        name={[name, 'id_type_reparation']}
-                                        label="Type de réparation"
-                                        rules={[
-                                            { required: true, message: 'Veuillez fournir une réparation...' },
-                                        ]}
+                                    {...restField}
+                                    name={[name, 'id_type_reparation']}
+                                    label="Type de réparation"
+                                    rules={[
+                                        { required: true, message: 'Veuillez fournir une réparation...' },
+                                    ]}
                                     >
                                         <Select
                                             showSearch
