@@ -7,7 +7,7 @@ import maintenanceService from '../../../services/maintenance.service';
 import TypeService from '../../../services/type.service';
 const { Option } = Select;
 
-const Maintenance_form = () => {
+const Maintenance_form = ({fetchData}) => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -45,6 +45,7 @@ const Maintenance_form = () => {
             message.success({ content: 'Maintenance ajouté avec succès!', key: 'submit' });
 
             form.resetFields();
+            fetchData();
             
         } catch (error) {
             message.error({ content: 'Une erreur est survenue.', key: 'submit' });

@@ -12,8 +12,6 @@ const Maintenance = () => {
     const [data, setData] = useState([]);
     const scroll = { x: 400 };
 
-
-    useEffect(()=> {
       const fetchData = async () =>{
         try {
           setLoading(true);
@@ -27,6 +25,8 @@ const Maintenance = () => {
           console.log(error)
         }
       }
+
+    useEffect(()=> {
       fetchData()
     }, [])
 
@@ -220,7 +220,7 @@ const Maintenance = () => {
           width={1025}
           centered
         >
-            <Maintenance_form/>
+            <Maintenance_form fetchData={fetchData}/>
         </Modal>
     </div>
   );
