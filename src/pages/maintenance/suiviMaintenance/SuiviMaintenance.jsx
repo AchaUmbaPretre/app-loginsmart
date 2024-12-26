@@ -29,7 +29,8 @@ const SuiviMaintenance = () => {
                             suivie: [
                                 {
                                     id_tache: null,
-                                    montant: null,
+                                    id_piece: null,
+                                    cout: null,
                                     description: '',
                                 },
                             ],
@@ -40,7 +41,7 @@ const SuiviMaintenance = () => {
                             <>
                                 {fields.map(({ key, name, ...restField }) => (
                                     <Row key={key} gutter={12} align="middle">
-                                        <Col xs={24} md={7}>
+                                        <Col xs={24} md={5}>
                                             <Form.Item
                                                 {...restField}
                                                 name={[name, 'id_tache']}
@@ -56,11 +57,28 @@ const SuiviMaintenance = () => {
                                                 />
                                             </Form.Item>
                                         </Col>
-                                        <Col xs={24} md={7}>
+                                        <Col xs={24} md={5}>
                                             <Form.Item
                                             {...restField}
-                                            name={[name, 'montant']}
-                                            label="Montant"
+                                            name={[name, 'id_piece']}
+                                            label="Piece"
+                                            rules={[
+                                                { required: true, message: 'Veuillez fournir une piece...' },
+                                            ]}
+                                            >
+                                            <InputNumber
+                                                min={0}
+                                                placeholder="Saisir le montant"
+                                                style={{ width: '100%' }}
+                                            />
+                                            </Form.Item>
+                                        </Col>
+
+                                        <Col xs={24} md={5}>
+                                            <Form.Item
+                                            {...restField}
+                                            name={[name, 'cout']}
+                                            label="Cout"
                                             rules={[
                                                 { required: true, message: 'Veuillez fournir un montant...' },
                                             ]}
