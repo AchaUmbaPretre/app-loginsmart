@@ -2,6 +2,7 @@ import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Butto
 import React, { useEffect, useState } from 'react'
 import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import TypeService from '../../../services/type.service';
+import maintenanceService from '../../../services/maintenance.service';
 
 
 const SuiviMaintenance = () => {
@@ -33,7 +34,17 @@ const SuiviMaintenance = () => {
     }, [])
 
     const onFinish = async (values) => {
+        try {
+            message.loading({ content: 'En cours...', key: 'submit' });
+            await maintenanceService.postMaintenance(values)
+            message.success({ content: 'Maintenance ajouté avec succès!', key: 'submit' });
 
+            form.resetFields();
+            
+        } catch (error) {
+            message.error({ content: 'Une erreur est survenue.', key: 'submit' });
+            console.error('Erreur lors de l\'ajout de suivie:', error);
+        }
     }
 
   return (
