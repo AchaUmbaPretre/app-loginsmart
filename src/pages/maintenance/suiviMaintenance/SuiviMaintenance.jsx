@@ -17,7 +17,7 @@ const SuiviMaintenance = () => {
                 setIsLoading(true);
 
                 const suivieData = await TypeService.getTache();
-                const pieceData = await TypeService.getCatPieces;
+                const pieceData = await TypeService.getCatPieces();
 
                 setTache(suivieData);
                 setPiece(pieceData);
@@ -28,7 +28,8 @@ const SuiviMaintenance = () => {
             } finally {
                 setIsLoading(false);
             }
-        }
+        };
+        fetchData();
     }, [])
 
     const onFinish = async (values) => {
