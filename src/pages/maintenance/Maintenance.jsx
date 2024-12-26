@@ -10,6 +10,7 @@ const Maintenance = () => {
     const [modalType, setModalType] = useState(null);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+    const scroll = { x: 400 };
 
 
     useEffect(()=> {
@@ -204,6 +205,7 @@ const Maintenance = () => {
                 onChange={onChange} 
                 bordered 
                 size="small"
+                scroll={scroll}
             />
         </div>
         <Modal

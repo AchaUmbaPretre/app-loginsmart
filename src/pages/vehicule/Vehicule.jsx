@@ -226,6 +226,7 @@ const Vehicule = () => {
               onChange={onChange} 
               bordered
               size="small"
+              scroll={scroll}
             />
         </div>
         <Modal
@@ -235,8 +236,7 @@ const Vehicule = () => {
           footer={null}
           width={1023}
           centered
-          scroll={scroll}
-          size="small"
+
         >
           <VehiculeForm fetchData={fetchData} closeModal={()=>setModalType(null)}/>
         </Modal>

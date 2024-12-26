@@ -5,6 +5,7 @@ import FournisseurForm from './fournisseurForm/FournisseurForm';
 
 const Fournisseur = () => {
   const [modalType, setModalType] = useState(null);
+  const scroll = { x: 400 };
 
   const closeAllModals = () => {
     setModalType(null);
@@ -98,6 +99,9 @@ const Fournisseur = () => {
               columns={columns} 
               dataSource={[]} 
               onChange={onChange} 
+              scroll={scroll}
+              bordered
+              size="small"
             />
         </div>
         <Modal
