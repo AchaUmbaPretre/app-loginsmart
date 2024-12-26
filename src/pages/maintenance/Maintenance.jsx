@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Maintenance_form from './maintenance_form/Maintenance_form';
 import maintenanceService from '../../services/maintenance.service';
 import moment from 'moment';
+import SuiviMaintenance from './suiviMaintenance/SuiviMaintenance';
 
 const Maintenance = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -53,14 +54,17 @@ const Maintenance = () => {
       }
 
       const menu = (record) => (
-        <Menu>
-          <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />}>
-            Liste des suivi
-          </Menu.Item>
-          <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />}>
-            Faire un suivi
-          </Menu.Item>
-        </Menu>
+        <>
+          <Menu>
+            <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />}>
+              Liste des suivi
+            </Menu.Item>
+            <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record.id_reparation)}>
+              Faire un suivi
+            </Menu.Item>
+          </Menu>          
+        </>
+
       );
 
     const columns = [
@@ -194,7 +198,7 @@ const Maintenance = () => {
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#52c41a'}
               />
             </Tooltip>
-            <Dropdown overlay={menu(record)} trigger={['click']} placement="bottomRight">
+            <Dropdown overlay={() => menu(record.id_reparation)} trigger={['click']} placement="bottomRight">
               <Button
                 icon={<MoreOutlined />}
                 style={{
@@ -295,6 +299,17 @@ const Maintenance = () => {
           centered
         >
           <Maintenance_form fetchData={fetchData} closeModal={() => setModalType(null)}/>
+        </Modal>
+
+        <Modal
+          title=""
+          visible={modalType === 'suivi'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1000}
+          centered
+        >
+          <SuiviMaintenance fetchData={fetchData} closeModal={() => setModalType(null)}/>
         </Modal>
     </div>
   );
