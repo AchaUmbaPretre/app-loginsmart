@@ -211,10 +211,10 @@ const Maintenance_form = () => {
                                         <Select
                                             showSearch
                                             options={reparation.map((item) => ({
-                                                value: item.id_reparation                                           ,
+                                                value: item.id_type_reparation,
                                                 label: `${item.type_rep}`,
                                             }))}
-                                            placeholder="Sélectionnez un vehicule..."
+                                            placeholder="Sélectionnez un type de réparation..."
                                             optionFilterProp="label"
                                         />
                                     </Form.Item>
