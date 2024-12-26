@@ -30,6 +30,25 @@ const maintenanceService = {
             throw error;
         }
     },
+
+    getSuivi: async () => {
+        try {
+            const response = await api.get('/api/maintenance/suivi');
+            return response.data.data;
+        } catch (error) {
+            console.error('Erreur lors de la récupération des suivi :', error);
+            throw error;
+        }
+    },
+    postSuivi: async (formData) => {
+        try {
+            const response = await api.post('/api/maintenance/suivi', formData);
+            return response.data;
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout de suivi:', error);
+            throw error;
+        }
+    },
 };
 
 export default maintenanceService;
