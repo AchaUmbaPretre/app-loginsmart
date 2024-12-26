@@ -74,7 +74,7 @@ const SuiviMaintenance = () => {
                                             </Form.Item>
                                         </Col>
 
-                                        <Col xs={24} md={5}>
+                                        <Col xs={24} md={4}>
                                             <Form.Item
                                             {...restField}
                                             name={[name, 'cout']}
