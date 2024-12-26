@@ -38,8 +38,7 @@ const TypeService = {
 
     getTache: () => fetchData('/api/type/type_tache'),
 
-    getCatPieces: () => fetchData('/api/type/cat_piece'),
-
+    getCatPieces: () => fetchData('/api/type/cat_piece')
 
 };
 
