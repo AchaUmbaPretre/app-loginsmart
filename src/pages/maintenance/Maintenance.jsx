@@ -49,23 +49,11 @@ const Maintenance = () => {
 
       const menu = (record) => (
         <Menu>
-          <Menu.Item key="listeSuivi" icon={<ToolOutlined />}>
+          <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />}>
             Liste des suivi
           </Menu.Item>
-          <Menu.Item key="edit" icon={<ToolOutlined />}>
+          <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />}>
             Faire un suivi
-          </Menu.Item>
-
-          <Menu.Divider />
-          <Menu.Item key="delete" icon={<DeleteOutlined />}>
-            <Popconfirm
-              title="Êtes-vous sûr de vouloir supprimer cet élément ?"
-              okText="Oui"
-              cancelText="Non"
-              onConfirm={() => console.log('Suppression confirmée pour', record)}
-            >
-              Supprimer
-            </Popconfirm>
           </Menu.Item>
         </Menu>
       );
