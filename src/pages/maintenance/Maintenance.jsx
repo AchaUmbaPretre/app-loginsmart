@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
-import { PlusCircleOutlined,EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Badge, Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
+import { PlusCircleOutlined,EyeOutlined,SyncOutlined,CheckCircleOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import Maintenance_form from './maintenance_form/Maintenance_form';
 import maintenanceService from '../../services/maintenance.service';
@@ -88,8 +88,37 @@ const Maintenance = () => {
         },
         {
           title: 'Etat',
-          dataIndex: 'etat_maintenance'
-      },
+          dataIndex: 'id_etat_maintenance',
+          render: (id_etat_maintenance) => {
+            if (id_etat_maintenance === 1) {
+              return (
+                <Badge
+                  color="green"
+                  text={
+                    <span>
+                      <CheckCircleOutlined style={{ color: 'green', marginRight: 8 }} />
+                      Terminé
+                    </span>
+                  }
+                />
+              );
+            }
+            if (id_etat_maintenance === 2) {
+              return (
+                <Badge
+                  color="blue"
+                  text={
+                    <span>
+                      <SyncOutlined spin style={{ color: 'blue', marginRight: 8 }} />
+                      En cours
+                    </span>
+                  }
+                />
+              );
+            }
+            return null;
+          }
+        },
         {
           title: 'Actions',
           dataIndex: 'actions',
