@@ -88,7 +88,7 @@ const Maintenance = () => {
         },
         {
           title: 'Etat',
-          dataIndex: 'etat'
+          dataIndex: 'etat_maintenance'
       },
         {
           title: 'Actions',
