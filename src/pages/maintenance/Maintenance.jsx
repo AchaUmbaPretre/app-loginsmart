@@ -43,6 +43,11 @@ const Maintenance = () => {
       openModal('add', idVehicule )
     }
 
+
+    const handleSuivi = (idVehicule) =>{
+      openModal('suivi', idVehicule )
+    }
+
     const handFilter = () => {
         setFilterVisible(!filterVisible)
       }
