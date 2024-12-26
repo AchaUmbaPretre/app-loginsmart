@@ -40,6 +40,18 @@ const maintenanceService = {
             throw error;
         }
     },
+
+    getSuiviOneReparation: async (id) => {
+        try {
+            const response = await api.get(`/api/maintenance/suivi/one?id_reparation=${id}`);
+            return response.data.data;
+        } catch (error) {
+            console.error('Erreur lors de la récupération des suivi :', error);
+            throw error;
+        }
+    },
+
+
     postSuivi: async (formData) => {
         try {
             const response = await api.post('/api/maintenance/suivi', formData);
