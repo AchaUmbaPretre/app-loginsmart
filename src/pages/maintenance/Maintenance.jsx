@@ -51,6 +51,10 @@ const Maintenance = () => {
       openModal('suivi', id_reparation )
     }
 
+    const handleListeSuivi = (id_reparation) =>{
+      openModal('liste_suivi', id_reparation )
+    }
+
     const handFilter = () => {
         setFilterVisible(!filterVisible)
       }
@@ -59,7 +63,7 @@ const Maintenance = () => {
         <>
 
           <Menu>
-            <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />}>
+            <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} onClick={() =>handleListeSuivi(record)} />}>
               Liste des suivi
             </Menu.Item>
             <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record)}>
