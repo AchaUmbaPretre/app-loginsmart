@@ -1,12 +1,33 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ControleTechForm from './controleTechForm/ControleTechForm';
+import maintenanceService from '../../../services/maintenance.service';
 
 const ControleTechnique = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [idVehicule, setIdVehicule] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
+
+    const fetchData = async () =>{
+      try {
+        setLoading(true);
+        const [controleData] = await Promise.all([
+          maintenanceService.getControle()
+        ])
+
+        setData(controleData)
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+  useEffect(()=> {
+    fetchData()
+  }, [])
 
     const closeAllModals = () => {
       setModalType(null);
@@ -74,7 +95,6 @@ const ControleTechnique = () => {
             dataIndex: 'actions'
         }
       ];
-      const data = [];
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
       };
@@ -132,7 +152,7 @@ const ControleTechnique = () => {
           width={1025}
           centered
         >
-            <ControleTechForm/>
+            <ControleTechForm closeModal={() => setModalType(null)} fetchData={fetchData}/>
         </Modal>
     </div>
   );
