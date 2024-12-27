@@ -66,7 +66,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
     <>
         <div className="carburantForm">
             <div className="vehicule_row_title">
-                <h2 className="title_h2">Formulaire du Prelevement carburant</h2>
+                <h2 className="title_h2">Formulaire pour le Prélèvement de Carburant</h2>
             </div>
             <div className="carburantForm-wrapper">
                 <div className="carburantForm-left">

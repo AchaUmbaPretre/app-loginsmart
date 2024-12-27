@@ -179,7 +179,7 @@ const Carburant = () => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">LISTE DES PRELEVEMENTS CARBURANT</h2>
+                <h2 className="chauffeur_h2">LISTE DES PRÉLÈVEMENTS DE CARBURANT</h2>
                 <Breadcrumb
                     separator=">"
                     items={[
