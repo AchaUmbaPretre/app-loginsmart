@@ -36,7 +36,6 @@ const DetailMaintenance = ({ idReparation }) => {
     fetchData();
   }, [idReparation]);
 
-
   if (isLoading) {
     return (
       <div style={{ textAlign: 'center', marginTop: '50px' }}>
