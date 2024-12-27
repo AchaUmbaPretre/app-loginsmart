@@ -71,7 +71,6 @@ const Maintenance = () => {
             </Menu.Item>
           </Menu>          
         </>
-
       );
 
     const columns = [

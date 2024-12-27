@@ -15,7 +15,7 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
         try {
           setLoading(true);
           const [maintenantData] = await Promise.all([
-            maintenanceService.getSuiviOneReparation()
+            maintenanceService.getSuiviOneReparation(idReparation)
           ])
   
           setData(maintenantData)
@@ -27,7 +27,7 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
 
     useEffect(()=> {
       fetchDatas()
-    }, [])
+    }, [idReparation])
 
     const closeAllModals = () => {
       setModalType(null);
@@ -99,18 +99,8 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
         ),
       },
       {
-        title: 'Date réparation',
-        dataIndex: 'date_reparation',
-        render: (text) => (
-          <span>
-            <CalendarOutlined style={{ marginRight: 8, color: '#13c2c2' }} />
-            {moment(text).format('DD-MM-yyyy')}
-          </span>
-        ),
-      },
-      {
-        title: 'Type Réparation',
-        dataIndex: 'type_rep',
+        title: 'Type tache',
+        dataIndex: 'type_tache',
         render: (text) => (
           <span>
             <ToolOutlined style={{ marginRight: 8, color: '#d46b08' }} />
@@ -119,8 +109,8 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
         ),
       },
       {
-        title: 'Fournisseur',
-        dataIndex: 'fournisseur',
+        title: 'Pièce',
+        dataIndex: 'nom_piece',
         render: (text) => (
           <span>
             <ShopOutlined style={{ marginRight: 8, color: '#52c41a' }} />
@@ -129,37 +119,13 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
         ),
       },
       {
-        title: 'Etat',
-        dataIndex: 'id_etat_maintenance',
-        render: (id_etat_maintenance) => {
-          if (id_etat_maintenance === 1) {
-            return (
-              <Badge
-                color="green"
-                text={
-                  <span>
-                    <CheckCircleOutlined style={{ color: 'green', marginRight: 8 }} />
-                    Terminé
-                  </span>
-                }
-              />
-            );
-          }
-          if (id_etat_maintenance === 2) {
-            return (
-              <Badge
-                color="blue"
-                text={
-                  <span>
-                    <SyncOutlined spin style={{ color: 'blue', marginRight: 8 }} />
-                    En cours
-                  </span>
-                }
-              />
-            );
-          }
-          return null;
-        },
+        title: 'Montant',
+        dataIndex: 'cout',
+        render: (text) => (
+          <span>
+            {text}
+          </span>
+        ),
       },
       {
         title: 'Actions',
