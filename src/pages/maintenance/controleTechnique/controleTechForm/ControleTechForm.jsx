@@ -3,12 +3,15 @@ import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-desi
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
 import maintenanceService from '../../../../services/maintenance.service';
 import vehiculeService from '../../../../services/vehicule.service';
+import ChauffeurService from '../../../../services/chauffeur.service';
 const { Option } = Select;
 
 const ControleTechForm = ({fetchData, closeModal}) => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [vehicule, setVehicule] = useState([]);
+    const [fournisseur, setFournisseur] = useState([]);
+    const [chauffeur, setChauffeur] = useState([]);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
 
@@ -16,11 +19,13 @@ const ControleTechForm = ({fetchData, closeModal}) => {
     const fetchDatas = async () =>{
         try {
           setLoading(true);
-          const [vehiculeData] = await Promise.all([
-            vehiculeService.getVehicule()
+          const [vehiculeData, chauffeurData] = await Promise.all([
+            vehiculeService.getVehicule(),
+            ChauffeurService.getChauffeur()
           ])
   
           setVehicule(vehiculeData);
+          setChauffeur(chauffeurData);
   
         } catch (error) {
           console.log(error)
@@ -75,10 +80,15 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                                     {loadingData ? (
                                         <Skeleton.Input active={true} />
                                     ) : (
-                                        <Select placeholder="Choisir une immatriculation">
-                                            <Option value="1">Immatriculation 1</Option>
-                                            <Option value="2">Immatriculation 2</Option>
-                                        </Select>
+                                        <Select
+                                            showSearch
+                                            options={vehicule.map((item) => ({
+                                                value: item.id_vehicule                                           ,
+                                                label: `${item.immatriculation} / ${item.nom_marque} / ${item.modele}`,
+                                            }))}
+                                            placeholder="Sélectionnez un vehicule..."
+                                            optionFilterProp="label"
+                                        />
                                     )}
                                 </Form.Item>
                             </Col>
