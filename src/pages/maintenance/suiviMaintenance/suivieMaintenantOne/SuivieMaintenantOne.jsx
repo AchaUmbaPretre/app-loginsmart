@@ -143,9 +143,7 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
                     separator=">"
                     items={[
                         { title: 'Accueil', href: '/' },
-                        { title: 'Consommation', href: '/consommation_carburant' },
-                        { title: 'Recherche globale', href: '/gestion' },
-                        { title: 'Suivie' },
+                        { title: 'Suivie' }
                     ]}
                     className="chauffeur_breadcrumb"
                 />
