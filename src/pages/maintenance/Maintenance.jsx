@@ -1,5 +1,5 @@
 import { Badge, Breadcrumb, Button,Menu, Input, Modal,Dropdown, Popconfirm,Tag, Space, Table, Tooltip, Divider } from 'antd';
-import { PlusCircleOutlined,EyeOutlined,MoreOutlined,FileTextOutlined,CarOutlined,CalendarOutlined,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined, EyeOutlined, MoreOutlined, FormOutlined, FileTextOutlined,CarOutlined,CalendarOutlined,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import Maintenance_form from './maintenance_form/Maintenance_form';
 import maintenanceService from '../../services/maintenance.service';
@@ -67,11 +67,11 @@ const Maintenance = () => {
               Voir le détail
             </Menu.Item>
             <Menu.Divider/>
-            <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleListeSuivi(record)}>
+            <Menu.Item key="listeSuivi" icon={<FileTextOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleListeSuivi(record)}>
               Liste des suivi
             </Menu.Item>
             <Menu.Divider/>
-            <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record)}>
+            <Menu.Item key="edit" icon={<FormOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record)}>
               Faire un suivi
             </Menu.Item>
           </Menu>          
