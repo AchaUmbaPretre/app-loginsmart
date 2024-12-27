@@ -1,4 +1,4 @@
-import { Badge, Breadcrumb, Button,Menu, Input, Modal,Dropdown, Popconfirm,Tag, Space, Table, Tooltip } from 'antd';
+import { Badge, Breadcrumb, Button,Menu, Input, Modal,Dropdown, Popconfirm,Tag, Space, Table, Tooltip, Divider } from 'antd';
 import { PlusCircleOutlined,EyeOutlined,MoreOutlined,FileTextOutlined,CarOutlined,CalendarOutlined,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import Maintenance_form from './maintenance_form/Maintenance_form';
@@ -63,9 +63,14 @@ const Maintenance = () => {
       const menu = (record) => (
         <>
           <Menu>
+            <Menu.Item key="detail" icon={<EyeOutlined style={{ color: '#1890ff' }} />} onClick={() =>handleListeSuivi(record)}>
+              Voir le détail
+            </Menu.Item>
+            <Menu.Divider/>
             <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleListeSuivi(record)}>
               Liste des suivi
             </Menu.Item>
+            <Menu.Divider/>
             <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record)}>
               Faire un suivi
             </Menu.Item>
@@ -106,22 +111,32 @@ const Maintenance = () => {
         ),
       },
       {
-        title: 'Date réparation',
+        title: "Date d'entrée",
         dataIndex: 'date_reparation',
         render: (text) => (
           <span>
-            <CalendarOutlined style={{ marginRight: 8, color: '#13c2c2' }} />
+            <CalendarOutlined style={{ marginRight: 5, color: '#13c2c2' }} />
             {moment(text).format('DD-MM-yyyy')}
           </span>
         ),
       },
       {
-        title: 'Date sortie',
-        dataIndex: 'date_sortie',
+        title: 'Date prévue',
+        dataIndex: 'date_prevu',
+        render: (text) => (
+          <span>
+            <CalendarOutlined style={{ marginRight: 5, color: '#13c2c2' }} />
+            { text ? moment(text).format('DD-MM-yyyy') : 'Aucune'}
+          </span>
+        ),
+      },
+      {
+        title: 'Nbre jour',
+        dataIndex: 'nbre_jour',
         render: (text) => (
           <span>
             <CalendarOutlined style={{ marginRight: 8, color: '#13c2c2' }} />
-            {text ? moment(text).format('DD-MM-yyyy') : 'Aucune'}
+            {text ? text : 'Aucune'}
           </span>
         ),
       },
@@ -140,7 +155,7 @@ const Maintenance = () => {
         dataIndex: 'fournisseur',
         render: (text) => (
           <span>
-            <ShopOutlined style={{ marginRight: 8, color: '#52c41a' }} />
+            <ShopOutlined style={{ marginRight: 5, color: '#52c41a' }} />
             {text}
           </span>
         ),
@@ -185,7 +200,7 @@ const Maintenance = () => {
         width: '15%',
         render: (text, record) => (
           <Space size="middle" style={{ justifyContent: 'space-around', width: '100%' }}>
-            <Tooltip title="Détail" placement="top">
+{/*             <Tooltip title="Détail" placement="top">
               <Button
                 icon={<EyeOutlined />}
                 style={{
@@ -199,7 +214,7 @@ const Maintenance = () => {
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
                 onClick={() => console.log('Afficher les détails pour', record)}
               />
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip title="Modifier" placement="top">
               <Button
                 icon={<EditOutlined />}
