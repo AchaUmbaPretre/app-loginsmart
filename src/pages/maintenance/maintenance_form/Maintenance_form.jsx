@@ -101,7 +101,26 @@ const Maintenance_form = ({fetchData, closeModal}) => {
                             <Col xs={24} md={8}>
                                 <Form.Item
                                     name="date_reparation"
-                                    label="Date"
+                                    label="Date d'entrée"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Veuillez fournir une date...',
+                                        },
+                                    ]}
+                                >
+                                    {loadingData ? (
+                                        <Skeleton.Input active={true} />
+                                    ) : (
+                                        <DatePicker style={{ width: '100%' }} />
+                                    )}
+                                </Form.Item>
+                            </Col>
+
+                            <Col xs={24} md={8}>
+                                <Form.Item
+                                    name="date_prevu"
+                                    label="Date prevue"
                                     rules={[
                                         {
                                             required: true,
@@ -140,7 +159,7 @@ const Maintenance_form = ({fetchData, closeModal}) => {
                                 </Form.Item>
                             </Col>
 
-                            <Col xs={24} md={12}>
+                            <Col xs={24} md={8}>
                                 <Form.Item
                                     name="cout"
                                     label="Cout(devise)"
@@ -155,7 +174,7 @@ const Maintenance_form = ({fetchData, closeModal}) => {
                                 </Form.Item>
                             </Col>
 
-                            <Col xs={24} md={12}>
+                            <Col xs={24} md={8}>
                                 <Form.Item
                                     name="id_fournisseur"
                                     label="Fournisseur"
