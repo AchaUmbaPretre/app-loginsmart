@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Image, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
+import { Breadcrumb, Button, Image, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
 import { PlusCircleOutlined,EditOutlined,EyeOutlined,DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import VehiculeForm from './vehiculeForm/VehiculeForm';
 import { useEffect, useState } from 'react';
@@ -48,8 +48,12 @@ const Vehicule = () => {
       title: '#', 
       dataIndex: 'id', 
       key: 'id', 
-      render: (text, record, index) => index + 1, 
-      width: "3%" 
+      render: (text, record, index) => (
+        <Tooltip title={`Ligne ${index + 1}`}>
+          <Tag color="blue">{index + 1}</Tag>
+        </Tooltip>
+      ),
+      width: "4%" 
     },
     {
       title: 'Image',

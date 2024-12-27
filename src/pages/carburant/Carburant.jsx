@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
+import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
 import { PlusCircleOutlined,EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './carburant.scss';
 import { useEffect, useState } from 'react';
@@ -54,12 +54,16 @@ const Carburant = () => {
 
     const columns = [
         { 
-            title: '#', 
-            dataIndex: 'id', 
-            key: 'id', 
-            render: (text, record, index) => index + 1, 
-            width: "3%" 
-          },
+          title: '#', 
+          dataIndex: 'id', 
+          key: 'id', 
+          render: (text, record, index) => (
+            <Tooltip title={`Ligne ${index + 1}`}>
+              <Tag color="blue">{index + 1}</Tag>
+            </Tooltip>
+          ),
+          width: "4%" 
+        },
         {
           title: 'Immatri.',
           dataIndex: 'immatriculation',
