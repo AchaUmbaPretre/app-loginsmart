@@ -12,6 +12,8 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
     const [piece, setPiece] = useState([]);
     const [etat, setEtat] = useState([]);
     const [error, setError] = useState(null);
+    const [immat, setImmat] = useState('');
+    const [marque, setMarque] = useState('');
 
     useEffect(() => {
         const fetchData = async() => {
@@ -21,6 +23,12 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
                 const suivieData = await TypeService.getTache();
                 const pieceData = await TypeService.getCatPieces();
                 const etatData = await TypeService.getEtatMaintenance();
+
+                if (idReparation){
+                    const add = maintenanceService.getSuiviOneReparation(idReparation)
+                    setImmat(add[0].immatriculation);
+                    setMarque(add[0].nom_marque);
+                }
 
                 setTache(suivieData);
                 setPiece(pieceData);
@@ -57,7 +65,7 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
     <>
         <div className="Maintenance_form">
             <div className="vehicule_row_title">
-                <h2 className="title_h2">SUIVI INTERVENTION BON N° 5: VEHECULE N°FORD RANGER XL 5701AN/01</h2>
+                <h2 className="title_h2">SUIVI INTERVENTION BON N° 5: VEHECULE {marque.toUpperCase()} {immat.toLowerCase()} </h2>
             </div>
             <div className="maintenance_form_wrapper">
                 <Form
