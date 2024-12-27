@@ -70,6 +70,26 @@ const maintenanceService = {
             throw error;
         }
     },
+
+    getControle: async () => {
+        try {
+            const response = await api.get('/api/maintenance/controle');
+            return response.data.data;
+        } catch (error) {
+            console.error('Erreur lors de la récupération de controle :', error);
+            throw error;
+        }
+    },
+
+    postControle: async (formData) => {
+        try {
+            const response = await api.post('/api/maintenance/controle', formData);
+            return response.data;
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout de controle:', error);
+            throw error;
+        }
+    },
 };
 
 export default maintenanceService;
