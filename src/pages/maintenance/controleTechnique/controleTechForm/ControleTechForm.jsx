@@ -64,7 +64,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
         <>
             <div className="Maintenance_form">
                 <div className="vehicule_row_title">
-                    <h2 className="title_h2">ENREGISTRER UN CONTROLE TECHNIQUE</h2>
+                    <h2 className="title_h2">ENREGISTRER UN CONTRÔLE TECHNIQUE</h2>
                 </div>
                 <div className="maintenance_form_wrapper">
                     <Form

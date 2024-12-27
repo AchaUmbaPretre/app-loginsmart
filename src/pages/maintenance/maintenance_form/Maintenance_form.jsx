@@ -57,7 +57,7 @@ const Maintenance_form = ({fetchData, closeModal}) => {
         <>
             <div className="Maintenance_form">
                 <div className="vehicule_row_title">
-                    <h2 className="title_h2">ETABLIR UN BON D'INTERVENTION</h2>
+                    <h2 className="title_h2">ÉTABLIR UN BON D'INTERVENTION</h2>
                 </div>
                 <div className="maintenance_form_wrapper">
                     <Form
