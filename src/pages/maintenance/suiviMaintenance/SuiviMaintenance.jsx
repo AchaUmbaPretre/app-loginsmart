@@ -10,6 +10,7 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [tache, setTache] = useState([]);
     const [piece, setPiece] = useState([]);
+    const [etat, setEtat] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -19,9 +20,11 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
 
                 const suivieData = await TypeService.getTache();
                 const pieceData = await TypeService.getCatPieces();
+                const etatData = await TypeService.getEtatMaintenance();
 
                 setTache(suivieData);
                 setPiece(pieceData);
+                setEtat(etatData);
                 
             } catch (error) {
                 setError('Une erreur est survenue lors du chargement des données.');
