@@ -21,7 +21,9 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
             maintenanceService.getSuiviOneReparation(idReparation)
           ])
   
-          setData(maintenantData)
+          setData(maintenantData);
+          setImmat(maintenantData[0].immatriculation);
+          setMarque(maintenantData[0].nom_marque);
   
         } catch (error) {
           console.log(error)
@@ -60,26 +62,6 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
           </Tooltip>
         ),
         width: "5%" 
-      },
-      {
-        title: 'Immatriculation',
-        dataIndex: 'immatriculation',
-        render: (text) => (
-          <span>
-            <CarOutlined style={{ marginRight: 5, color: '#1890ff' }} />
-            {text}
-          </span>
-        ),
-      },
-      {
-        title: 'Marque',
-        dataIndex: 'nom_marque',
-        render: (text) => (
-          <span>
-            <CarOutlined style={{ marginRight: 5, color: '#722ed1' }} />
-            {text}
-          </span>
-        ),
       },
       {
         title: 'Type tache',
@@ -164,7 +146,7 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">LISTE DE SUIVIE</h2>
+                <h2 className="chauffeur_h2">LISTE DES SUIVIES DE {marque.toUpperCase()} {immat.toUpperCase()}</h2>
                 <Breadcrumb
                     separator=">"
                     items={[
