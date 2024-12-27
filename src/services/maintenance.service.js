@@ -11,6 +11,16 @@ const maintenanceService = {
         }
     },
 
+    getReparationOne: async (id) => {
+        try {
+            const response = await api.get(`/api/maintenance/reparation/one?id_reparation=${id}`);
+            return response.data.data;
+        } catch (error) {
+            console.error('Erreur lors de la récupération des chauffeurs:', error);
+            throw error;
+        }
+    },
+
     getMaintenanceOne: async (id) => {
         try {
             const response = await api.get(`/api/maintenance/reparation?id_reparation=${id}`);

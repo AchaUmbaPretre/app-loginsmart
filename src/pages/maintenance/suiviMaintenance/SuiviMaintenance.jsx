@@ -27,7 +27,7 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
                 const etatData = await TypeService.getEtatMaintenance();
 
                 if (idReparation){
-                    const add = await maintenanceService.getSuiviOneReparation(idReparation)
+                    const add = await maintenanceService.getReparationOne(idReparation)
                     setImmat(add[0].immatriculation);
                     setMarque(add[0].nom_marque);
                     setNumero(add[0].id_suivi_reparation)
