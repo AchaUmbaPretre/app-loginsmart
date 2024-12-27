@@ -59,7 +59,7 @@ const ControleTechnique = () => {
             width: "3%" 
           },
         {
-          title: 'Immatriculation',
+          title: 'Immatricule',
           dataIndex: 'immatriculation',
           render: (text) => (
             <span>
@@ -107,7 +107,7 @@ const ControleTechnique = () => {
             dataIndex: 'type_rep',
             render: (text) => (
               <span>
-                <ToolOutlined style={{ marginRight: 5, color: '#d46b08' }} />
+                <ToolOutlined style={{ marginRight: 5, color: '#000' }} />
                 {text}
               </span>
             ),
@@ -117,7 +117,7 @@ const ControleTechnique = () => {
             dataIndex: 'nom_chauffeur',
             render: (text) => (
               <span>
-                <UserOutlined style={{ marginRight: 4, color: '#13c2c2' }} />
+                <UserOutlined style={{ marginRight: 4, color: '#d46b08' }} />
                 {text}
               </span>
             ),
