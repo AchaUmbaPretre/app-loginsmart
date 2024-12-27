@@ -210,7 +210,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                 label="Modèle"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Veuillez fournir un modèle...',
                                     },
                                 ]}
