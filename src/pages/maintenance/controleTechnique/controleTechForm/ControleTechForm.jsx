@@ -174,7 +174,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
 
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="agent"
+                                    name="id_agent"
                                     label="Agent"
                                     rules={[
                                         {
