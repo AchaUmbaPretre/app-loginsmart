@@ -1,24 +1,21 @@
 import { Badge, Breadcrumb, Button,Menu, Input, Modal,Dropdown, Popconfirm,Tag, Space, Table, Tooltip } from 'antd';
 import { PlusCircleOutlined,EyeOutlined,MoreOutlined,CarOutlined,CalendarOutlined,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
-import Maintenance_form from './maintenance_form/Maintenance_form';
-import maintenanceService from '../../services/maintenance.service';
 import moment from 'moment';
-import SuiviMaintenance from './suiviMaintenance/SuiviMaintenance';
+import maintenanceService from '../../../../services/maintenance.service';
 
-const SuivieMaintenantOne = () => {
+const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
-    const [idReparation, setIdReparation] = useState('');
     const scroll = { x: 400 };
 
-      const fetchData = async () =>{
+      const fetchDatas = async () =>{
         try {
           setLoading(true);
           const [maintenantData] = await Promise.all([
-            maintenanceService.getMaintenance()
+            maintenanceService.getSuiviOneReparation()
           ])
   
           setData(maintenantData)
@@ -29,7 +26,7 @@ const SuivieMaintenantOne = () => {
       }
 
     useEffect(()=> {
-      fetchData()
+      fetchDatas()
     }, [])
 
     const closeAllModals = () => {
@@ -39,7 +36,6 @@ const SuivieMaintenantOne = () => {
     const openModal = (type, id_reparation = '') => {
       closeAllModals();
       setModalType(type);
-      setIdReparation(id_reparation)
     };
   
     const handleAdd = (id_reparation) =>{
@@ -293,27 +289,6 @@ const SuivieMaintenantOne = () => {
                 scroll={scroll}
             />
         </div>
-        <Modal
-          title=""
-          visible={modalType === 'add'}
-          onCancel={closeAllModals}
-          footer={null}
-          width={1025}
-          centered
-        >
-          <Maintenance_form fetchData={fetchData} closeModal={() => setModalType(null)}/>
-        </Modal>
-
-        <Modal
-          title=""
-          visible={modalType === 'suivi'}
-          onCancel={closeAllModals}
-          footer={null}
-          width={1000}
-          centered
-        >
-          <SuiviMaintenance fetchData={fetchData} closeModal={() => setModalType(null)} idReparation={idReparation}/>
-        </Modal>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import Maintenance_form from './maintenance_form/Maintenance_form';
 import maintenanceService from '../../services/maintenance.service';
 import moment from 'moment';
 import SuiviMaintenance from './suiviMaintenance/SuiviMaintenance';
+import SuivieMaintenantOne from './suiviMaintenance/suivieMaintenantOne/SuivieMaintenantOne';
 
 const Maintenance = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -63,7 +64,7 @@ const Maintenance = () => {
         <>
 
           <Menu>
-            <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} onClick={() =>handleListeSuivi(record)} />}>
+            <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleListeSuivi(record)}>
               Liste des suivi
             </Menu.Item>
             <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record)}>
@@ -317,6 +318,17 @@ const Maintenance = () => {
           centered
         >
           <SuiviMaintenance fetchData={fetchData} closeModal={() => setModalType(null)} idReparation={idReparation}/>
+        </Modal>
+
+        <Modal
+          title=""
+          visible={modalType === 'liste_suivi'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1000}
+          centered
+        >
+          <SuivieMaintenantOne fetchData={fetchData} closeModal={() => setModalType(null)} idReparation={idReparation}/>
         </Modal>
     </div>
   );
