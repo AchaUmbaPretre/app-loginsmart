@@ -1,8 +1,9 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table, Popconfirm, Tooltip } from 'antd';
-import { PlusCircleOutlined, SearchOutlined,EyeOutlined,DeleteOutlined, EditOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined, SearchOutlined, CarOutlined, ShopOutlined, CalendarOutlined, EyeOutlined,DeleteOutlined, EditOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import ControleTechForm from './controleTechForm/ControleTechForm';
 import maintenanceService from '../../../services/maintenance.service';
+import moment from 'moment';
 
 const ControleTechnique = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -59,18 +60,42 @@ const ControleTechnique = () => {
         {
           title: 'Immatriculation',
           dataIndex: 'immatriculation',
+          render: (text) => (
+            <span>
+              <CarOutlined style={{ marginRight: 5, color: '#1890ff' }} />
+              {text}
+            </span>
+          ),
         },
         {
           title: 'Marque',
-          dataIndex: 'nom_marque'
+          dataIndex: 'nom_marque',
+          render: (text) => (
+            <span>
+              <CarOutlined style={{ marginRight: 5, color: '#722ed1' }} />
+              {text}
+            </span>
+          ),
         },
         {
           title: 'Date controle',
-          dataIndex: 'date_controle'
+          dataIndex: 'date_controle',
+          render: (text) => (
+            <span>
+              <CalendarOutlined style={{ marginRight: 5, color: '#13c2c2' }} />
+              {moment(text).format('DD-MM-yyyy')}
+            </span>
+          ),
         },
         {
           title: 'Date validité',
-          dataIndex: 'date_validite'
+          dataIndex: 'date_validite',
+          render: (text) => (
+            <span>
+              <CalendarOutlined style={{ marginRight: 5, color: '#13c2c2' }} />
+              {moment(text).format('DD-MM-yyyy')}
+            </span>
+          ),
         },
         {
             title: 'Description',
@@ -86,7 +111,13 @@ const ControleTechnique = () => {
         },
         {
             title: 'Fournisseur',
-            dataIndex: 'nom_fournisseur'
+            dataIndex: 'nom_fournisseur',
+            render: (text) => (
+              <span>
+                <ShopOutlined style={{ marginRight: 5, color: '#52c41a' }} />
+                {text}
+              </span>
+            ),
         },
         {
           title: 'Actions',
