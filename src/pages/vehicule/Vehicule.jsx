@@ -70,7 +70,7 @@ const Vehicule = () => {
       ),
     },
     {
-      title: 'Immatriculation',
+      title: 'Immatricule',
       dataIndex: 'immatriculation',
     },
     {
@@ -83,7 +83,13 @@ const Vehicule = () => {
     },
     {
       title: 'Modèle',
-      dataIndex: 'modele'
+      dataIndex: 'modele',
+      render : (text) => (
+        <div>
+          { text ? text : 'Aucune'}
+        </div>
+      )
+
     },
     {
       title: 'Année de fab',
