@@ -123,83 +123,10 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
         dataIndex: 'cout',
         render: (text) => (
           <span>
-            {text}
+            {text} $
           </span>
         ),
-      },
-      {
-        title: 'Actions',
-        dataIndex: 'actions',
-        key: 'actions',
-        width: '15%',
-        render: (text, record) => (
-          <Space size="middle" style={{ justifyContent: 'space-around', width: '100%' }}>
-            <Tooltip title="Détail" placement="top">
-              <Button
-                icon={<EyeOutlined />}
-                style={{
-                  color: '#fff',
-                  backgroundColor: '#1890ff',
-                  borderColor: '#1890ff',
-                  transition: 'all 0.3s ease',
-                }}
-                aria-label="Détail"
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
-                onClick={() => console.log('Afficher les détails pour', record)}
-              />
-            </Tooltip>
-            <Tooltip title="Modifier" placement="top">
-              <Button
-                icon={<EditOutlined />}
-                style={{
-                  color: '#fff',
-                  backgroundColor: '#52c41a',
-                  borderColor: '#52c41a',
-                  transition: 'all 0.3s ease',
-                }}
-                aria-label="Modifier"
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#45b22d'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#52c41a'}
-              />
-            </Tooltip>
-            <Dropdown overlay={() => menu(record.id_reparation)} trigger={['click']} placement="bottomRight">
-              <Button
-                icon={<MoreOutlined />}
-                style={{
-                  color: '#fff',
-                  backgroundColor: '#595959',
-                  borderColor: '#595959',
-                  transition: 'all 0.3s ease',
-                }}
-                aria-label="Plus d'options"
-              />
-            </Dropdown>
-
-            <Tooltip title="Supprimer" placement="top">
-              <Popconfirm
-                title="Êtes-vous sûr de vouloir supprimer cet élément ?"
-                okText="Oui"
-                cancelText="Non"
-                onConfirm={() => console.log('Suppression confirmée pour', record)}
-              >
-                <Button
-                  icon={<DeleteOutlined />}
-                  style={{
-                    color: '#fff',
-                    backgroundColor: '#ff4d4f',
-                    borderColor: '#ff4d4f',
-                    transition: 'all 0.3s ease',
-                  }}
-                  aria-label="Supprimer"
-                  onMouseEnter={(e) => e.target.style.backgroundColor = '#e10000'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = '#ff4d4f'}
-                />
-              </Popconfirm>
-            </Tooltip>
-          </Space>
-        ),
-      },
+      }
     ];
     
 
