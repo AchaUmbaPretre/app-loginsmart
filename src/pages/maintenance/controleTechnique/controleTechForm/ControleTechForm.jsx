@@ -377,7 +377,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                                     name={[name, 'description']}
                                     label="Description"
                                     rules={[
-                                        { required: true, message: 'Veuillez fournir une description...' },
+                                        { required: false, message: 'Veuillez fournir une description...' },
                                     ]}
                                     >
                                     <Input.TextArea
