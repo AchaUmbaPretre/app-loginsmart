@@ -113,7 +113,7 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
         dataIndex: 'nom_piece',
         render: (text) => (
           <span>
-            <ShopOutlined style={{ marginRight: 8, color: '#52c41a' }} />
+            <ToolOutlined style={{ marginRight: 8, color: '#52c41a' }} />
             {text}
           </span>
         ),
