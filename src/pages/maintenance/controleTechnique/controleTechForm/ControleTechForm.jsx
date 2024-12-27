@@ -48,6 +48,9 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                 message.success({ content: 'le nouveau controle technique a été ajouté avec succès!', key: 'submit' });
 
                 form.resetFields();
+                fetchData();
+                closeModal();
+                
             } catch (error) {
                 message.error({ content: 'Une erreur est survenue.', key: 'submit' });
                 console.error('Erreur lors de l\'ajout du chauffeur:', error);
