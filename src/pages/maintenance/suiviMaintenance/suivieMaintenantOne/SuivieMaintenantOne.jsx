@@ -11,6 +11,8 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     const scroll = { x: 400 };
+    const [immat, setImmat] = useState('');
+    const [marque, setMarque] = useState('');
 
       const fetchDatas = async () =>{
         try {
@@ -38,11 +40,6 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
       closeAllModals();
       setModalType(type);
     };
-  
-    const handleAdd = (id_reparation) =>{
-      openModal('add', id_reparation )
-    }
-
 
     const handleSuivi = (id_reparation) =>{
       openModal('suivi', id_reparation )
