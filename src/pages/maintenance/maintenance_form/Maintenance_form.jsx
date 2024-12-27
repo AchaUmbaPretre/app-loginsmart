@@ -5,7 +5,6 @@ import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Butto
 import vehiculeService from '../../../services/vehicule.service';
 import maintenanceService from '../../../services/maintenance.service';
 import TypeService from '../../../services/type.service';
-const { Option } = Select;
 
 const Maintenance_form = ({fetchData, closeModal}) => {
     const [form] = Form.useForm();
