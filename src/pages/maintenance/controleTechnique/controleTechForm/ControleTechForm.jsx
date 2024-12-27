@@ -98,7 +98,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
 
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="date"
+                                    name="date_controle"
                                     label="Date Controle"
                                     rules={[
                                         {
