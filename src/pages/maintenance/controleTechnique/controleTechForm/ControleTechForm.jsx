@@ -14,7 +14,6 @@ const ControleTechForm = ({fetchData, closeModal}) => {
     const [fournisseur, setFournisseur] = useState([]);
     const [chauffeur, setChauffeur] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([]);
     const [reparation, setReparation] = useState([]);
 
 
