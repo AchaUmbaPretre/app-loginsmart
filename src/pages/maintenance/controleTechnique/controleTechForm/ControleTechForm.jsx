@@ -1,12 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
 import maintenanceService from '../../../../services/maintenance.service';
+import vehiculeService from '../../../../services/vehicule.service';
 const { Option } = Select;
 
 const ControleTechForm = ({fetchData, closeModal}) => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
+    const [vehicule, setVehicule] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
+
+
+    const fetchDatas = async () =>{
+        try {
+          setLoading(true);
+          const [vehiculeData] = await Promise.all([
+            vehiculeService.getVehicule()
+          ])
+  
+          setVehicule(vehiculeData);
+  
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+      useEffect(()=> {
+        fetchDatas()
+      }, [])
 
     const onFinish = async(values) => {
             try {

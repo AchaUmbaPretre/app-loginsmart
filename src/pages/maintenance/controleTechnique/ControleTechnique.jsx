@@ -3,23 +3,23 @@ import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/
 import { useEffect, useState } from 'react';
 import ControleTechForm from './controleTechForm/ControleTechForm';
 import maintenanceService from '../../../services/maintenance.service';
+import TypeService from '../../../services/type.service';
+import vehiculeService from '../../../services/vehicule.service';
 
 const ControleTechnique = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
-    const [idVehicule, setIdVehicule] = useState('');
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
 
     const fetchData = async () =>{
       try {
         setLoading(true);
-        const [controleData] = await Promise.all([
+        const [controleData ] = await Promise.all([
           maintenanceService.getControle()
-        ])
+              ])
 
-        setData(controleData)
-
+        setData(controleData);
       } catch (error) {
         console.log(error)
       }
