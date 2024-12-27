@@ -19,7 +19,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
 
     const fetchDatas = async () =>{
         try {
-          setLoading(true);
+            setLoadingData(true);
           const [vehiculeData, chauffeurData, typeData, reparationData] = await Promise.all([
             vehiculeService.getVehicule(),
             ChauffeurService.getChauffeur(),
@@ -34,7 +34,10 @@ const ControleTechForm = ({fetchData, closeModal}) => {
   
         } catch (error) {
           console.log(error)
-        }
+        } finally {
+            setLoadingData(false);
+          }
+
       }
 
       useEffect(()=> {
@@ -50,7 +53,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                 form.resetFields();
                 fetchData();
                 closeModal();
-                
+
             } catch (error) {
                 message.error({ content: 'Une erreur est survenue.', key: 'submit' });
                 console.error('Erreur lors de l\'ajout du chauffeur:', error);
