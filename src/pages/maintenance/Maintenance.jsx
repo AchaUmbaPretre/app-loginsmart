@@ -116,6 +116,16 @@ const Maintenance = () => {
         ),
       },
       {
+        title: 'Date sortie',
+        dataIndex: 'date_sortie',
+        render: (text) => (
+          <span>
+            <CalendarOutlined style={{ marginRight: 8, color: '#13c2c2' }} />
+            {moment(text).format('DD-MM-yyyy')}
+          </span>
+        ),
+      },
+      {
         title: 'Type Réparation',
         dataIndex: 'type_rep',
         render: (text) => (
