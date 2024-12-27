@@ -249,14 +249,14 @@ const SuivieMaintenantOne = () => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">LISTE DE TOUTES LES REPARATIONS ET ENTRETIENS</h2>
+                <h2 className="chauffeur_h2">LISTE DE SUIVIE</h2>
                 <Breadcrumb
                     separator=">"
                     items={[
                         { title: 'Accueil', href: '/' },
                         { title: 'Consommation', href: '/consommation_carburant' },
                         { title: 'Recherche globale', href: '/gestion' },
-                        { title: 'Carburant' },
+                        { title: 'Suivie' },
                     ]}
                     className="chauffeur_breadcrumb"
                 />
