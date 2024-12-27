@@ -44,6 +44,8 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
             message.success({ content: 'Suivie a ete ajoutée avec succès!', key: 'submit' });
 
             form.resetFields();
+            fetchData();
+            closeModal();
             
         } catch (error) {
             message.error({ content: 'Une erreur est survenue.', key: 'submit' });

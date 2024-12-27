@@ -3,6 +3,7 @@ import { PlusCircleOutlined,EyeOutlined,MoreOutlined,CarOutlined,CalendarOutline
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import maintenanceService from '../../../../services/maintenance.service';
+import SuiviMaintenance from '../SuiviMaintenance';
 
 const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -50,21 +51,6 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
     const handFilter = () => {
         setFilterVisible(!filterVisible)
       }
-
-      const menu = (record) => (
-        <>
-
-          <Menu>
-            <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />}>
-              Liste des suivi
-            </Menu.Item>
-            <Menu.Item key="edit" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record)}>
-              Faire un suivi
-            </Menu.Item>
-          </Menu>          
-        </>
-
-      );
 
     const columns = [
       { 
@@ -205,7 +191,7 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
                     className="chauffeur_btn"
                     type="primary"
                     icon={<PlusCircleOutlined />}
-                    onClick={handleAdd}
+                    onClick={handleSuivi}
                   >
                     Nouvelle suivie
                   </Button>
@@ -223,6 +209,17 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
                 scroll={scroll}
             />
         </div>
+
+        <Modal
+          title=""
+          visible={modalType === 'suivi'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1000}
+          centered
+        >
+          <SuiviMaintenance fetchData={fetchDatas} closeModal={() => setModalType(null)} idReparation={idReparation}/>
+        </Modal>
     </div>
   );
 };
