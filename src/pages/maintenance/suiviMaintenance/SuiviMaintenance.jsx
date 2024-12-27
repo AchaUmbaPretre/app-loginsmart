@@ -25,7 +25,7 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
                 setTache(suivieData);
                 setPiece(pieceData);
                 setEtat(etatData);
-                
+
             } catch (error) {
                 setError('Une erreur est survenue lors du chargement des données.');
                 console.error(error);
@@ -152,11 +152,11 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
                                             >
                                             <Select
                                                 showSearch
-                                                options={piece.map((item) => ({
-                                                        value: item.id                                          ,
-                                                        label: item.titre,
+                                                options={etat.map((item) => ({
+                                                        value: item.id_etat_maintenance                                          ,
+                                                        label: item.etat_maintenance
                                                 }))}
-                                                placeholder="Sélectionnez une piéce..."
+                                                placeholder="Sélectionnez un état..."
                                                 optionFilterProp="label"
                                             />
                                             </Form.Item>
