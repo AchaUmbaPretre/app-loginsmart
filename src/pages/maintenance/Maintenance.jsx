@@ -6,6 +6,7 @@ import maintenanceService from '../../services/maintenance.service';
 import moment from 'moment';
 import SuiviMaintenance from './suiviMaintenance/SuiviMaintenance';
 import SuivieMaintenantOne from './suiviMaintenance/suivieMaintenantOne/SuivieMaintenantOne';
+import DetailMaintenance from './detailMaintenance/DetailMaintenance';
 
 const Maintenance = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -56,6 +57,10 @@ const Maintenance = () => {
       openModal('liste_suivi', id_reparation )
     }
 
+    const handleDetail = (id_reparation) =>{
+      openModal('detail', id_reparation )
+    }
+
     const handFilter = () => {
         setFilterVisible(!filterVisible)
       }
@@ -63,7 +68,7 @@ const Maintenance = () => {
       const menu = (record) => (
         <>
           <Menu>
-            <Menu.Item key="detail" icon={<EyeOutlined style={{ color: '#1890ff' }} />} onClick={() =>handleListeSuivi(record)}>
+            <Menu.Item key="detail" icon={<EyeOutlined style={{ color: '#1890ff' }} />} onClick={() =>handleDetail(record)}>
               Voir le détail
             </Menu.Item>
             <Menu.Divider/>
@@ -351,6 +356,17 @@ const Maintenance = () => {
           centered
         >
           <SuivieMaintenantOne fetchData={fetchData} closeModal={() => setModalType(null)} idReparation={idReparation}/>
+        </Modal>
+
+        <Modal
+          title=""
+          visible={modalType === 'detail'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={800}
+          centered
+        >
+          <DetailMaintenance idReparation={idReparation}/>
         </Modal>
     </div>
   );
