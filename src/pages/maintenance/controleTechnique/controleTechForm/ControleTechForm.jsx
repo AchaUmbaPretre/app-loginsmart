@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
-import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
+import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
+import maintenanceService from '../../../../services/maintenance.service';
 const { Option } = Select;
 
-const ControleTechForm = () => {
+const ControleTechForm = ({fetchData, closeModal}) => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
 
-    const onFinish = (values) => {
-        console.log('Form Values:', values);
+    const onFinish = async(values) => {
+            try {
+                message.loading({ content: 'En cours...', key: 'submit' });
+                    await maintenanceService.postControle(values)
+                message.success({ content: 'le nouveau controle technique a été ajouté avec succès!', key: 'submit' });
+
+                form.resetFields();
+            } catch (error) {
+                message.error({ content: 'Une erreur est survenue.', key: 'submit' });
+                console.error('Erreur lors de l\'ajout du chauffeur:', error);
+            }
     };
 
     return (
