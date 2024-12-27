@@ -100,7 +100,7 @@ const ControleTechnique = () => {
         },
         {
             title: 'Description',
-            dataIndex: 'commentaire'
+            dataIndex: 'description'
         },
         {
             title: 'Type Réparation',
