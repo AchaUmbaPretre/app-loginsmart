@@ -253,7 +253,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
 
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="fournisseur"
+                                    name="id_fournisseur"
                                     label="Fournisseur"
                                     rules={[
                                         {
@@ -331,7 +331,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                                 <Col xs={24} md={7}>
                                     <Form.Item
                                     {...restField}
-                                    name={[name, 'type_reparation']}
+                                    name={[name, 'id_type_reparation']}
                                     label="Type de réparation"
                                     rules={[
                                         { required: true, message: 'Veuillez fournir une réparation...' },
@@ -346,7 +346,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                                 <Col xs={24} md={7}>
                                     <Form.Item
                                     {...restField}
-                                    name={[name, 'autres']}
+                                    name={[name, 'visite']}
                                     label="Autre visite"
                                     rules={[
                                         { required: false, message: 'Veuillez fournir l information de ce champ...' },
