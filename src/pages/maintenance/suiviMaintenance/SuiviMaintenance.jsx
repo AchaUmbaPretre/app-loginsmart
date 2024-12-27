@@ -14,6 +14,8 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
     const [error, setError] = useState(null);
     const [immat, setImmat] = useState('');
     const [marque, setMarque] = useState('');
+    const [numero, setNumero] = useState('');
+
 
     useEffect(() => {
         const fetchData = async() => {
@@ -25,9 +27,10 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
                 const etatData = await TypeService.getEtatMaintenance();
 
                 if (idReparation){
-                    const add = maintenanceService.getSuiviOneReparation(idReparation)
+                    const add = await maintenanceService.getSuiviOneReparation(idReparation)
                     setImmat(add[0].immatriculation);
                     setMarque(add[0].nom_marque);
+                    setNumero(add[0].id_suivi_reparation)
                 }
 
                 setTache(suivieData);
@@ -42,7 +45,9 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
             }
         };
         fetchData();
-    }, [])
+    }, [idReparation])
+
+    console.log(marque, immat)
 
     const onFinish = async (values) => {
         try {
@@ -65,7 +70,7 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
     <>
         <div className="Maintenance_form">
             <div className="vehicule_row_title">
-                <h2 className="title_h2">SUIVI INTERVENTION BON N° 5: VEHECULE {marque.toUpperCase()} {immat.toLowerCase()} </h2>
+                <h2 className="title_h2">SUIVI INTERVENTION N° {numero} : VEHICULE {marque.toUpperCase()} {immat.toLowerCase()} </h2>
             </div>
             <div className="maintenance_form_wrapper">
                 <Form
