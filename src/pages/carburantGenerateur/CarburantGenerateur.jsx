@@ -102,7 +102,7 @@ const CarburantGenerateur = () => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">LISTE DE TOUS LES PRELEVEMENTS</h2>
+                <h2 className="chauffeur_h2">LISTE DE TOUS LES PRÉLÈVEMENTS</h2>
                 <Breadcrumb
                 separator=">"
                 items={[
