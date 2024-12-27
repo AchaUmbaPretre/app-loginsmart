@@ -283,7 +283,6 @@ const Maintenance = () => {
                     items={[
                         { title: 'Accueil', href: '/' },
                         { title: 'Consommation', href: '/consommation_carburant' },
-                        { title: 'Recherche globale', href: '/gestion' },
                         { title: 'Carburant' },
                     ]}
                     className="chauffeur_breadcrumb"
