@@ -10,6 +10,7 @@ const ControleTechnique = () => {
     const [modalType, setModalType] = useState(null);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+    const scroll = { x: 400 };
 
     const fetchData = async () =>{
       try {
@@ -204,7 +205,7 @@ const ControleTechnique = () => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">LISTE DES CONTROLES TECHNIQUES</h2>
+                <h2 className="chauffeur_h2">LISTE DES VÉHICULES SOUMIS AUX CONTRÔLES TECHNIQUES</h2>
                 <Breadcrumb
                     separator=">"
                     items={[
@@ -240,9 +241,12 @@ const ControleTechnique = () => {
 {/*         {filterVisible && <FilterCarburant onFilter={handleFilterChange}/>}
  */}        <div className="chauffeur_bottom">
             <Table 
-                columns={columns} 
-                dataSource={data} 
-                onChange={onChange} 
+              columns={columns} 
+              dataSource={data} 
+              onChange={onChange}
+              bordered 
+              size="small"
+              scroll={scroll} 
             />
         </div>
         <Modal
