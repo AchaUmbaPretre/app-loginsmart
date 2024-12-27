@@ -373,12 +373,12 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                                 </Col>
                                 <Col xs={24} md={8}>
                                     <Form.Item
-                                    {...restField}
-                                    name={[name, 'description']}
-                                    label="Description"
-                                    rules={[
-                                        { required: false, message: 'Veuillez fournir une description...' },
-                                    ]}
+                                        {...restField}
+                                        name={[name, 'description']}
+                                        label="Description"
+                                        rules={[
+                                            { required: false, message: 'Veuillez fournir une description...' },
+                                        ]}
                                     >
                                     <Input.TextArea
                                         placeholder="Saisir la description"
