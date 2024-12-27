@@ -1,4 +1,4 @@
-import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
+import { Col,Form, Input, InputNumber, Row, Select, Skeleton, Button, message } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import TypeService from '../../../services/type.service';

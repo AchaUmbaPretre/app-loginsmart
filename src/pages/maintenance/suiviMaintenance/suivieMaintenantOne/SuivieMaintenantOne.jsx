@@ -1,11 +1,11 @@
 import { Badge, Breadcrumb, Button, Input, Modal, Tag, Space, Table, Tooltip } from 'antd';
-import { PlusCircleOutlined,FileTextOutlined ,CalendarOutlined,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined,FileTextOutlined ,CalendarOutlined,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import maintenanceService from '../../../../services/maintenance.service';
 import SuiviMaintenance from '../SuiviMaintenance';
 
-const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
+const SuivieMaintenantOne = ({ idReparation }) => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [loading, setLoading] = useState(true);
