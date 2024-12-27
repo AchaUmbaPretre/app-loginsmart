@@ -1,5 +1,5 @@
-import { Badge, Breadcrumb, Button,Menu, Input, Modal,Dropdown, Popconfirm,Tag, Space, Table, Tooltip } from 'antd';
-import { PlusCircleOutlined,EyeOutlined,MoreOutlined,CarOutlined,CalendarOutlined,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Badge, Breadcrumb, Button, Input, Modal, Tag, Space, Table, Tooltip } from 'antd';
+import { PlusCircleOutlined,FileTextOutlined ,CalendarOutlined,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import maintenanceService from '../../../../services/maintenance.service';
@@ -89,6 +89,16 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
         render: (text) => (
           <span>
             <ToolOutlined style={{ marginRight: 8, color: '#000' }} />
+            {text}
+          </span>
+        ),
+      },
+      {
+        title: 'Déscription',
+        dataIndex: 'description',
+        render: (text) => (
+          <span>
+            <FileTextOutlined style={{ marginRight: 8, color: '#000' }} />
             {text}
           </span>
         ),
