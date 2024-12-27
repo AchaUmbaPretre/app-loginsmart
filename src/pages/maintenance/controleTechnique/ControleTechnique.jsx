@@ -1,5 +1,5 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table, Popconfirm, Tooltip } from 'antd';
-import { PlusCircleOutlined, SearchOutlined, CarOutlined, ShopOutlined, CalendarOutlined, EyeOutlined,DeleteOutlined, EditOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined, SearchOutlined, CarOutlined,UserOutlined, ShopOutlined, CalendarOutlined, EyeOutlined,DeleteOutlined, EditOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import ControleTechForm from './controleTechForm/ControleTechForm';
 import maintenanceService from '../../../services/maintenance.service';
@@ -107,7 +107,13 @@ const ControleTechnique = () => {
         },
         {
             title: 'Chauffeur',
-            dataIndex: 'nom_chauffeur'
+            dataIndex: 'nom_chauffeur',
+            render: (text) => (
+              <span>
+                <UserOutlined style={{ marginRight: 4, color: '#13c2c2' }} />
+                {text}
+              </span>
+            ),
         },
         {
             title: 'Fournisseur',
