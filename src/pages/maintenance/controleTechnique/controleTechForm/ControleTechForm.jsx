@@ -284,10 +284,15 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                                     {loadingData ? (
                                         <Skeleton.Input active={true} />
                                     ) : (
-                                        <Select placeholder="Choisir un chauffeur">
-                                            <Option value="1">Chauffeur 1</Option>
-                                            <Option value="2">Chauffeur 2</Option>
-                                        </Select>
+                                        <Select
+                                            showSearch
+                                            options={chauffeur.map((item) => ({
+                                                value: item.id_chauffeur                                            ,
+                                                label: `${item.nom} - ${item.prenom}`,
+                                            }))}
+                                            placeholder="Sélectionnez un chauffeur..."
+                                            optionFilterProp="label"
+                                        />
                                     )}
                                 </Form.Item>
                             </Col>
