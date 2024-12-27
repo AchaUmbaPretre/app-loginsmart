@@ -62,7 +62,6 @@ const Maintenance = () => {
 
       const menu = (record) => (
         <>
-
           <Menu>
             <Menu.Item key="listeSuivi" icon={<ToolOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleListeSuivi(record)}>
               Liste des suivi
