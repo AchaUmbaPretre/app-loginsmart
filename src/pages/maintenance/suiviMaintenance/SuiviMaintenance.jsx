@@ -79,7 +79,7 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
                             <>
                                 {fields.map(({ key, name, ...restField }) => (
                                     <Row key={key} gutter={12} align="middle">
-                                        <Col xs={24} md={5}>
+                                        <Col xs={24} md={4}>
                                             <Form.Item
                                                 {...restField}
                                                 name={[name, 'id_tache']}
@@ -99,7 +99,8 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
                                                 />
                                             </Form.Item>
                                         </Col>
-                                        <Col xs={24} md={5}>
+
+                                        <Col xs={24} md={4}>
                                             <Form.Item
                                             {...restField}
                                             name={[name, 'id_piece']}
@@ -136,7 +137,29 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
                                             />
                                             </Form.Item>
                                         </Col>
-                                        <Col xs={24} md={8}>
+
+                                        <Col xs={24} md={4}>
+                                            <Form.Item
+                                            {...restField}
+                                            name={[name, 'id_etat']}
+                                            label="Etat"
+                                            rules={[
+                                                { required: true, message: 'Veuillez fournir un état...' },
+                                            ]}
+                                            >
+                                            <Select
+                                                showSearch
+                                                options={piece.map((item) => ({
+                                                        value: item.id                                          ,
+                                                        label: item.titre,
+                                                }))}
+                                                placeholder="Sélectionnez une piéce..."
+                                                optionFilterProp="label"
+                                            />
+                                            </Form.Item>
+                                        </Col>
+
+                                        <Col xs={24} md={6}>
                                             <Form.Item
                                             {...restField}
                                             name={[name, 'description']}
