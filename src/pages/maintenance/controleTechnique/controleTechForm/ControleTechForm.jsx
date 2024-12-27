@@ -15,20 +15,23 @@ const ControleTechForm = ({fetchData, closeModal}) => {
     const [chauffeur, setChauffeur] = useState([]);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+    const [reparation, setReparation] = useState([]);
 
 
     const fetchDatas = async () =>{
         try {
           setLoading(true);
-          const [vehiculeData, chauffeurData, typeData] = await Promise.all([
+          const [vehiculeData, chauffeurData, typeData, reparationData] = await Promise.all([
             vehiculeService.getVehicule(),
             ChauffeurService.getChauffeur(),
-            TypeService.getFournisseur()
+            TypeService.getFournisseur(),
+            TypeService.typeReparation()
           ])
   
           setVehicule(vehiculeData);
           setChauffeur(chauffeurData);
-          setFournisseur(typeData)
+          setFournisseur(typeData);
+          setReparation(reparationData)
   
         } catch (error) {
           console.log(error)
@@ -337,10 +340,15 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                                         { required: true, message: 'Veuillez fournir une réparation...' },
                                     ]}
                                     >
-                                    <Select placeholder="Choisir une réparation">
-                                        <Option value="1">Réparation 1</Option>
-                                        <Option value="2">Réparation 2</Option>
-                                    </Select>
+                                        <Select
+                                            showSearch
+                                            options={reparation.map((item) => ({
+                                                value: item.id_type_reparation,
+                                                label: `${item.type_rep}`,
+                                            }))}
+                                            placeholder="Sélectionnez un type de réparation..."
+                                            optionFilterProp="label"
+                                        />
                                     </Form.Item>
                                 </Col>
                                 <Col xs={24} md={7}>
