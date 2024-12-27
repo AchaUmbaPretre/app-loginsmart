@@ -1,5 +1,5 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table, Popconfirm, Tooltip } from 'antd';
-import { PlusCircleOutlined, SearchOutlined, CarOutlined,UserOutlined, ShopOutlined, CalendarOutlined, EyeOutlined,DeleteOutlined, EditOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined, SearchOutlined,ToolOutlined, CarOutlined,UserOutlined, ShopOutlined, CalendarOutlined, EyeOutlined,DeleteOutlined, EditOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import ControleTechForm from './controleTechForm/ControleTechForm';
 import maintenanceService from '../../../services/maintenance.service';
@@ -103,8 +103,14 @@ const ControleTechnique = () => {
             dataIndex: 'commentaire'
         },
         {
-            title: 'Categorie',
-            dataIndex: 'categorie'
+            title: 'Type Réparation',
+            dataIndex: 'type_rep',
+            render: (text) => (
+              <span>
+                <ToolOutlined style={{ marginRight: 5, color: '#d46b08' }} />
+                {text}
+              </span>
+            ),
         },
         {
             title: 'Chauffeur',
