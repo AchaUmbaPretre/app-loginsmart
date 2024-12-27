@@ -208,7 +208,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
 
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="Cout"
+                                    name="cout_device"
                                     label="Cout(devise)"
                                     rules={[
                                         {
