@@ -121,7 +121,7 @@ const Maintenance = () => {
         render: (text) => (
           <span>
             <CalendarOutlined style={{ marginRight: 8, color: '#13c2c2' }} />
-            {moment(text).format('DD-MM-yyyy')}
+            {text ? moment(text).format('DD-MM-yyyy') : 'Aucune'}
           </span>
         ),
       },
