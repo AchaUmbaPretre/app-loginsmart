@@ -71,7 +71,7 @@ const Maintenance = () => {
               Liste des suivi
             </Menu.Item>
             <Menu.Divider/>
-            <Menu.Item key="edit" icon={<FormOutlined style={{ color: '#d46b08' }} />} onClick={() =>handleSuivi(record)}>
+            <Menu.Item key="edit" icon={<FormOutlined style={{ color: 'green' }} />} onClick={() =>handleSuivi(record)}>
               Faire un suivi
             </Menu.Item>
           </Menu>          
