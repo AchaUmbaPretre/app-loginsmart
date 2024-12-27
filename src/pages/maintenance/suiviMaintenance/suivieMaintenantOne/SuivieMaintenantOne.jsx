@@ -109,6 +109,16 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
         ),
       },
       {
+        title: 'Date suivie',
+        dataIndex: 'created_at',
+        render: (text) => (
+          <span>
+            <CalendarOutlined style={{ marginRight: 8, color: '#13c2c2' }} />
+            {moment(text).format('DD-MM-yyyy')}
+          </span>
+        ),
+      },
+      {
         title: 'Pièce',
         dataIndex: 'nom_piece',
         render: (text) => (
