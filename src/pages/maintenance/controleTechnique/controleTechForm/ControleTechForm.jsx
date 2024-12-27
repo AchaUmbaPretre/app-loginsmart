@@ -4,6 +4,7 @@ import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Butto
 import maintenanceService from '../../../../services/maintenance.service';
 import vehiculeService from '../../../../services/vehicule.service';
 import ChauffeurService from '../../../../services/chauffeur.service';
+import TypeService from '../../../../services/type.service';
 const { Option } = Select;
 
 const ControleTechForm = ({fetchData, closeModal}) => {
@@ -19,13 +20,15 @@ const ControleTechForm = ({fetchData, closeModal}) => {
     const fetchDatas = async () =>{
         try {
           setLoading(true);
-          const [vehiculeData, chauffeurData] = await Promise.all([
+          const [vehiculeData, chauffeurData, typeData] = await Promise.all([
             vehiculeService.getVehicule(),
-            ChauffeurService.getChauffeur()
+            ChauffeurService.getChauffeur(),
+            TypeService.getFournisseur()
           ])
   
           setVehicule(vehiculeData);
           setChauffeur(chauffeurData);
+          setFournisseur(typeData)
   
         } catch (error) {
           console.log(error)
@@ -262,10 +265,15 @@ const ControleTechForm = ({fetchData, closeModal}) => {
                                     {loadingData ? (
                                         <Skeleton.Input active={true} />
                                     ) : (
-                                        <Select placeholder="Choisir un fournisseur">
-                                            <Option value="1">Fournisseur 1</Option>
-                                            <Option value="2">Fournisseur 2</Option>
-                                        </Select>
+                                        <Select
+                                            showSearch
+                                            options={fournisseur.map((item) => ({
+                                                value: item.id_fournisseur                                           ,
+                                                label: `${item.nom}`,
+                                            }))}
+                                            placeholder="Sélectionnez un fournisseur..."
+                                            optionFilterProp="label"
+                                        />
                                     )}
                                 </Form.Item>
                             </Col>
