@@ -150,22 +150,22 @@ const SuivieMaintenantOne = ({ fetchData, closeModal, idReparation }) => {
             </div>
             <div className="chauffeur_top_right">
                 <Space size="middle">
-                <Input
-                    placeholder="Rechercher..."
-                    prefix={<SearchOutlined />}
-                    className="chauffeur_search"
-                />
-                <Button icon={<FilterOutlined />} onClick={handFilter} className="chauffeur_filter">
-                    Filtres
-                </Button>
-                <Button
+                  <Input
+                      placeholder="Rechercher..."
+                      prefix={<SearchOutlined />}
+                      className="chauffeur_search"
+                  />
+                  <Button icon={<FilterOutlined />} onClick={handFilter} className="chauffeur_filter">
+                      Filtres
+                  </Button>
+                  <Button
                     className="chauffeur_btn"
                     type="primary"
                     icon={<PlusCircleOutlined />}
                     onClick={handleAdd}
-                >
-                    Nouvelle réparation
-                </Button>
+                  >
+                    Nouvelle suivie
+                  </Button>
                 </Space>
             </div>
         </div>
