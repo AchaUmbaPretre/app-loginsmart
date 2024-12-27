@@ -223,7 +223,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
 
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="Cout_ttc"
+                                    name="cout_ttc"
                                     label="Cout TTC"
                                     rules={[
                                         {
@@ -280,7 +280,7 @@ const ControleTechForm = ({fetchData, closeModal}) => {
 
                             <Col xs={24} md={8}>
                                 <Form.Item
-                                    name="chauffeur"
+                                    name="id_chauffeur"
                                     label="Chauffeur"
                                     rules={[
                                         {
