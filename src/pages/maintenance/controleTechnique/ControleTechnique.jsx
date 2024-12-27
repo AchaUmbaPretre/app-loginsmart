@@ -60,19 +60,19 @@ const ControleTechnique = () => {
           },
         {
           title: 'Immatriculation',
-          dataIndex: 'immatricule',
+          dataIndex: 'immatriculation',
         },
         {
           title: 'Marque',
-          dataIndex: 'marque'
+          dataIndex: 'nom_marque'
         },
         {
           title: 'Date controle',
-          dataIndex: 'date_entree'
+          dataIndex: 'date_controle'
         },
         {
           title: 'Date validité',
-          dataIndex: 'date_sortie'
+          dataIndex: 'date_validite'
         },
         {
             title: 'Description',
