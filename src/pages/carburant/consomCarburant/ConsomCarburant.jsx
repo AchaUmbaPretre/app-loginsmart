@@ -8,7 +8,6 @@ import vehiculeService from '../../../services/vehicule.service';
 const { RangePicker } = DatePicker;
 
 const ConsomCarburant = () => {
-  const [mockData, setMockData] = useState([]);
   const [targetKeys, setTargetKeys] = useState([]);
   const [selectedDates, setSelectedDates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +40,7 @@ const ConsomCarburant = () => {
   const handleTransferChange = (nextTargetKeys) => {
     setTargetKeys(nextTargetKeys);
   };
+
 
   const handleDateChange = (dates) => {
     if (dates) {
