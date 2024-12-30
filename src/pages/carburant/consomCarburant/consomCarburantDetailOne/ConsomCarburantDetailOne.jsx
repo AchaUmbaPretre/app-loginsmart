@@ -1,4 +1,11 @@
 import { Table, Tag, Tooltip } from 'antd';
+import { 
+    CarOutlined, 
+    CalendarOutlined, 
+    DashboardOutlined, 
+    NumberOutlined, 
+    UserOutlined 
+  } from "@ant-design/icons";
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import carburantService from '../../../../services/carburant.service';
@@ -27,51 +34,84 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
     fetchDatas()
   }, [selectedDates, idVehicule])
 
-    const columns = [
-        { 
-          title: '#', 
-          dataIndex: 'id', 
-          key: 'id', 
-          render: (text, record, index) => (
-            <Tooltip title={`Ligne ${index + 1}`}>
-              <Tag color="blue">{index + 1}</Tag>
-            </Tooltip>
-          ),
-          width: "4%" 
-        },
-        {
-          title: 'Chauffeur',
-          dataIndex: 'nom_chauffeur',
-        },
-        {
-          title: 'Date',
-          dataIndex: 'date_plein',
-          render: text => (
-            <div>{moment(text).format('DD-MM-yyyy')}</div>
-          ),
-        },
-        {
-            title: 'Kilometrage',
-            dataIndex: 'kilometrage'
-        },
-        {
-          title: 'T. carburant',
-          dataIndex: 'nom_type_carburant'
-        },
-        {
-          title: 'Qté',
-          dataIndex: 'qte_plein',
-          sorter: {
-              compare: (a, b) => a.qte_plein - b.qte_plein,
-              multiple: 1,
-            },
-        },
-        {
-            title: 'Numero',
-            dataIndex: 'matricule_ch'
-
-        }
-      ];
+  const columns = [
+    { 
+      title: (
+        <Tooltip title="Identifiant">
+          <NumberOutlined style={{ color: "#1890ff" }} /> {/* Bleu pour l'identifiant */}
+          <span style={{ marginLeft: 8 }}>#</span>
+        </Tooltip>
+      ),
+      dataIndex: 'id', 
+      key: 'id', 
+      render: (text, record, index) => (
+        <Tooltip title={`Ligne ${index + 1}`}>
+          <Tag color="blue">{index + 1}</Tag>
+        </Tooltip>
+      ),
+      width: "4%" 
+    },
+    {
+      title: (
+        <Tooltip title="Nom du chauffeur">
+          <UserOutlined style={{ color: "#52c41a" }} /> {/* Vert pour le chauffeur */}
+          <span style={{ marginLeft: 8 }}>Chauffeur</span>
+        </Tooltip>
+      ),
+      dataIndex: 'nom_chauffeur',
+    },
+    {
+      title: (
+        <Tooltip title="Date de plein">
+          <CalendarOutlined style={{ color: "#faad14" }} /> {/* Jaune pour la date */}
+          <span style={{ marginLeft: 8 }}>Date</span>
+        </Tooltip>
+      ),
+      dataIndex: 'date_plein',
+      render: text => (
+        <div>{moment(text).format('DD-MM-yyyy')}</div>
+      ),
+    },
+    {
+      title: (
+        <Tooltip title="Kilométrage">
+          <DashboardOutlined style={{ color: "#722ed1" }} /> {/* Violet pour le kilométrage */}
+          <span style={{ marginLeft: 8 }}>Kilométrage</span>
+        </Tooltip>
+      ),
+      dataIndex: 'kilometrage',
+    },
+    {
+      title: (
+        <Tooltip title="Type de carburant">
+          <span style={{ marginLeft: 8 }}>T. carburant</span>
+        </Tooltip>
+      ),
+      dataIndex: 'nom_type_carburant',
+    },
+    {
+      title: (
+        <Tooltip title="Quantité">
+          <CarOutlined style={{ color: "#13c2c2" }} /> {/* Cyan pour la quantité */}
+          <span style={{ marginLeft: 8 }}>Qté</span>
+        </Tooltip>
+      ),
+      dataIndex: 'qte_plein',
+      sorter: {
+        compare: (a, b) => a.qte_plein - b.qte_plein,
+        multiple: 1,
+      },
+    },
+    {
+      title: (
+        <Tooltip title="Numéro de matricule">
+          <NumberOutlined style={{ color: "#ff4d4f" }} /> {/* Rouge pour le numéro */}
+          <span style={{ marginLeft: 8 }}>Numéro</span>
+        </Tooltip>
+      ),
+      dataIndex: 'matricule_ch',
+    },
+  ];
 
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
