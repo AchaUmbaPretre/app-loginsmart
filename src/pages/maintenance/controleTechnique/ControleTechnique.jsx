@@ -11,13 +11,14 @@ const ControleTechnique = () => {
     const [modalType, setModalType] = useState(null);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+    const [filter, setFilter] = useState('');
     const scroll = { x: 400 };
 
     const fetchData = async () =>{
       try {
         setLoading(true);
         const [controleData ] = await Promise.all([
-          maintenanceService.getControle()
+          maintenanceService.getControle(filter)
               ])
 
         setData(controleData);
@@ -28,7 +29,7 @@ const ControleTechnique = () => {
 
   useEffect(()=> {
     fetchData()
-  }, [])
+  }, [filter])
 
     const closeAllModals = () => {
       setModalType(null);
@@ -244,7 +245,7 @@ const ControleTechnique = () => {
                 </Space>
             </div>
         </div>
-         {filterVisible && <FilterControleTech onFilter={handleFilterChange}/>}
+         {filterVisible && <FilterControleTech onFilter={handleFilterChange} filter={setFilter} />}
         <div className="chauffeur_bottom">
             <Table 
               columns={columns} 

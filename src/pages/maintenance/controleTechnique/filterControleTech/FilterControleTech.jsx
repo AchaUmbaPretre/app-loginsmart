@@ -3,8 +3,7 @@ import { useState } from 'react';
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const FilterControleTech = () => {
-    const [filter, setFilter] = useState('');
+const FilterControleTech = ({onFilter, filter}) => {
     
   return (
     <div className="filterCarburant">
@@ -19,6 +18,7 @@ const FilterControleTech = () => {
             showSearch
             placeholder="Choisir un lubrifiant moteur"
             style={{ width: '100%' }}
+            onChange={(value) => filter(value)}
           >
             <Option value="tous">Tous</Option>
             <Option value="encours">Encours</Option>

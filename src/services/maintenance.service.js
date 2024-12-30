@@ -71,9 +71,9 @@ const maintenanceService = {
         }
     },
 
-    getControle: async () => {
+    getControle: async (filter) => {
         try {
-            const response = await api.get('/api/maintenance/controle');
+            const response = await api.get(`/api/maintenance/controle?filtre=${filter}`);
             return response.data.data;
         } catch (error) {
             console.error('Erreur lors de la récupération de controle :', error);
