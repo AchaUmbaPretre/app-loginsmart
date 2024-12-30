@@ -3,6 +3,7 @@ import { Transfer, DatePicker, Button, notification, Breadcrumb } from 'antd';
 import { CalculatorOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import './consomCarburant.scss';
+import vehiculeService from '../../../services/vehicule.service';
 
 const { RangePicker } = DatePicker;
 
@@ -10,19 +11,32 @@ const ConsomCarburant = () => {
   const [mockData, setMockData] = useState([]);
   const [targetKeys, setTargetKeys] = useState([]);
   const [selectedDates, setSelectedDates] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [vehicule, setVehicule] = useState([]);
 
-  // Générer des données fictives pour le Transfer
+
   useEffect(() => {
-    const data = [];
-    for (let i = 0; i < 20; i++) {
-      data.push({
-        key: i.toString(),
-        title: `Item ${i + 1}`,
-        description: `Description of item ${i + 1}`,
-      });
+    const fetchData = async () => {
+        try {
+            setIsLoading(true);
+            const vehiculeData = await vehiculeService.getVehicule();
+
+            const vehiculeWithKeys = vehiculeData.map((item) => ({
+              ...item,
+              key: item.id_vehicule,
+            }));
+
+            setVehicule(vehiculeWithKeys);
+            
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsLoading(false);
+        }
     }
-    setMockData(data);
-  }, []);
+
+    fetchData();
+}, [])
 
   const handleTransferChange = (nextTargetKeys) => {
     setTargetKeys(nextTargetKeys);
@@ -82,11 +96,14 @@ const ConsomCarburant = () => {
 
           <div className="transfer-section">
             <Transfer
-              dataSource={mockData}
+              dataSource={vehicule}
               showSearch
               targetKeys={targetKeys}
               onChange={handleTransferChange}
-              render={(item) => item.title}
+              render={(item) => {
+                const modele = item.modele && item.modele !== 'NULL' ? item.modele : '';
+                return `N°/${item.id_vehicule} - ${item.immatriculation}, ${item.nom_marque}${modele ? `, ${modele}` : ''}`;
+              }}
               oneWay
               style={{ width: '100%' }}
               listStyle={{
