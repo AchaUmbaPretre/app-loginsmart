@@ -1,8 +1,11 @@
 import { Select, DatePicker, Button } from 'antd';
+import { useState } from 'react';
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 const FilterControleTech = () => {
+    const [filter, setFilter] = useState('');
+    
   return (
     <div className="filterCarburant">
       <div className="filterCarburant-wrapper">
