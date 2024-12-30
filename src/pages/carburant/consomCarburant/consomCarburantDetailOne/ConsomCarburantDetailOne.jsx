@@ -8,11 +8,15 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
     const [modalType, setModalType] = useState(null);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [immatri, setImmatri] = useState('');
+    const [marque, setMarque] = useState('')
 
     const fetchDatas = async () => {
         try {
           const res =  await carburantService.getCarburantConsommationOne(idVehicule, selectedDates);
           setData(res)
+          setImmatri(res[0].immatriculation);
+          setMarque(res[0].nom_marque)
     
         } catch (error) {
             console.error('Erreur lors:', error);
@@ -42,10 +46,6 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
         setFilterVisible(!filterVisible)
       }
 
-    const handleFilterChange = () => {
-
-    }
-
     const columns = [
         { 
           title: '#', 
@@ -57,14 +57,6 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
             </Tooltip>
           ),
           width: "4%" 
-        },
-        {
-          title: 'Immatri.',
-          dataIndex: 'immatriculation',
-        },
-        {
-          title: 'Marque',
-          dataIndex: 'nom_marque'
         },
         {
           title: 'Chauffeur',
@@ -106,9 +98,9 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
 
   return (
     <>
-                <div className="consommCarburant">
+        <div className="consommCarburant">
             <div className="consommeCarburant-top">
-                <h2 className="consommation_h2">CONSOMMATION</h2>
+                <h2 className="consommation_h2">Immatricule : {immatri} / Marque : {marque} </h2>
                 <div className="consommation_periode">
                     <h2 className="parcours_h2">Période</h2>
                     <span className='date_desc'>Du {selectedDates[0]} au {selectedDates[1]}</span>
