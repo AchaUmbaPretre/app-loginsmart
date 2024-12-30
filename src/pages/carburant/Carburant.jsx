@@ -1,5 +1,5 @@
 import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
-import { PlusCircleOutlined,EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined,AppstoreAddOutlined,IdcardOutlined,FireOutlined,AppstoreOutlined, CalendarOutlined, UserOutlined, CarOutlined, EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './carburant.scss';
 import { useEffect, useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
@@ -53,123 +53,160 @@ const Carburant = () => {
     }
 
     const columns = [
-        { 
-          title: '#', 
-          dataIndex: 'id', 
-          key: 'id', 
-          render: (text, record, index) => (
-            <Tooltip title={`Ligne ${index + 1}`}>
-              <Tag color="blue">{index + 1}</Tag>
+      { 
+        title: '#', 
+        dataIndex: 'id', 
+        key: 'id', 
+        render: (text, record, index) => (
+          <Tooltip title={`Ligne ${index + 1}`}>
+            <Tag color="blue">{index + 1}</Tag>
+          </Tooltip>
+        ),
+        width: "4%" 
+      },
+      {
+        title: 'Immatri.',
+        dataIndex: 'immatriculation',
+        render: text => (
+          <Tooltip title="Immatriculation">
+            <span ><CarOutlined style={{ color: '#1890ff' }} /> {text}</span>
+          </Tooltip>
+        )
+      },
+      {
+        title: 'Marque',
+        dataIndex: 'nom_marque',
+        render: text => (
+          <Tooltip title="Marque">
+            <span><AppstoreAddOutlined style={{ color: '#40a9ff' }} /> {text}</span>
+          </Tooltip>
+        )
+      },
+      {
+        title: 'Chauffeur',
+        dataIndex: 'nom_chauffeur',
+        render: text => (
+          <Tooltip title="Chauffeur">
+            <span><UserOutlined style={{ color: '#52c41a' }} /> {text}</span>
+          </Tooltip>
+        )
+      },
+      {
+        title: 'Date',
+        dataIndex: 'date_plein',
+        render: text => (
+          <Tooltip title="Date du plein">
+            <div><CalendarOutlined style={{ color: '#fa8c16' }} /> {moment(text).format('DD-MM-yyyy')}</div>
+          </Tooltip>
+        )
+      },
+      {
+        title: 'Kilometrage',
+        dataIndex: 'kilometrage',
+        render: text => (
+          <Tooltip title="Kilométrage">
+            <span><AppstoreOutlined style={{ color: '#52c41a' }}/> {text} km</span>
+          </Tooltip>
+        )
+      },
+      {
+        title: 'T. carburant',
+        dataIndex: 'nom_type_carburant',
+        render: text => (
+          <Tooltip title="Type de carburant">
+            <span><FireOutlined style={{ color: '#ffec3d' }} /> {text}</span>
+          </Tooltip>
+        )
+      },
+      {
+        title: 'Qté',
+        dataIndex: 'qte_plein',
+        sorter: {
+          compare: (a, b) => a.qte_plein - b.qte_plein,
+          multiple: 1,
+        },
+        render: text => (
+          <Tooltip title="Quantité">
+            <span><PlusCircleOutlined style={{ color: '#fa8c16' }} /> {text}</span>
+          </Tooltip>
+        )
+      },
+      {
+        title: 'Numero',
+        dataIndex: 'matricule_ch',
+        render: text => (
+          <Tooltip title="Numéro">
+            <span><IdcardOutlined style={{ color: '#ff4d4f' }} /> {text}</span>
+          </Tooltip>
+        )
+      },
+      {
+        title: 'Actions',
+        dataIndex: 'actions',
+        key: 'actions',
+        width: '15%',
+        render: (text, record) => (
+          <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+            <Tooltip title="Détail" placement="top">
+              <Button
+                icon={<EyeOutlined />}
+                style={{
+                  color: '#fff',
+                  backgroundColor: '#1890ff',
+                  borderColor: '#1890ff',
+                  transition: 'all 0.3s ease',
+                }}
+                aria-label="Détail"
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
+                onClick={() => {
+                  console.log('Afficher les détails pour', record);
+                }}
+              />
             </Tooltip>
-          ),
-          width: "4%" 
-        },
-        {
-          title: 'Immatri.',
-          dataIndex: 'immatriculation',
-        },
-        {
-          title: 'Marque',
-          dataIndex: 'nom_marque'
-        },
-        {
-          title: 'Chauffeur',
-          dataIndex: 'nom_chauffeur',
-        },
-        {
-          title: 'Date',
-          dataIndex: 'date_plein',
-          render: text => (
-            <div>{moment(text).format('DD-MM-yyyy')}</div>
-          ),
-        },
-        {
-            title: 'Kilometrage',
-            dataIndex: 'kilometrage'
-        },
-        {
-          title: 'T. carburant',
-          dataIndex: 'nom_type_carburant'
-        },
-        {
-          title: 'Qté',
-          dataIndex: 'qte_plein',
-          sorter: {
-              compare: (a, b) => a.qte_plein - b.qte_plein,
-              multiple: 1,
-            },
-        },
-        {
-            title: 'Numero',
-            dataIndex: 'matricule_ch'
-
-        },
-        {
-          title: 'Actions',
-          dataIndex: 'actions',
-          key: 'actions',
-          width: '15%',
-          render: (text, record) => (
-            <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
-              <Tooltip title="Détail" placement="top">
+    
+            <Tooltip title="Modifier" placement="top">
+              <Button
+                icon={<EditOutlined />}
+                style={{
+                  color: '#fff',
+                  backgroundColor: '#52c41a',
+                  borderColor: '#52c41a',
+                  transition: 'all 0.3s ease',
+                }}
+                aria-label="Modifier"
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#45b22d'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#52c41a'}
+              />
+            </Tooltip>
+    
+            <Tooltip title="Supprimer" placement="top">
+              <Popconfirm
+                title="Êtes-vous sûr de vouloir supprimer ce client ?"
+                okText="Oui"
+                cancelText="Non"
+                onConfirm={() => {}}
+              >
                 <Button
-                  icon={<EyeOutlined />}
+                  icon={<DeleteOutlined />}
                   style={{
                     color: '#fff',
-                    backgroundColor: '#1890ff',
-                    borderColor: '#1890ff',
+                    backgroundColor: '#ff4d4f',
+                    borderColor: '#ff4d4f',
                     transition: 'all 0.3s ease',
                   }}
-                  aria-label="Détail"
-                  onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
-                  onClick={() => {
-                    console.log('Afficher les détails pour', record);
-                  }}
+                  aria-label="Supprimer"
+                  onMouseEnter={(e) => e.target.style.backgroundColor = '#e10000'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = '#ff4d4f'}
                 />
-              </Tooltip>
-      
-              <Tooltip title="Modifier" placement="top">
-                <Button
-                  icon={<EditOutlined />}
-                  style={{
-                    color: '#fff',
-                    backgroundColor: '#52c41a',
-                    borderColor: '#52c41a',
-                    transition: 'all 0.3s ease',
-                  }}
-                  aria-label="Modifier"
-                  onMouseEnter={(e) => e.target.style.backgroundColor = '#45b22d'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = '#52c41a'}
-                />
-              </Tooltip>
-      
-              <Tooltip title="Supprimer" placement="top">
-                <Popconfirm
-                  title="Êtes-vous sûr de vouloir supprimer ce client ?"
-                  okText="Oui"
-                  cancelText="Non"
-                  onConfirm={() => {
-                  }}
-                >
-                  <Button
-                    icon={<DeleteOutlined />}
-                    style={{
-                      color: '#fff',
-                      backgroundColor: '#ff4d4f',
-                      borderColor: '#ff4d4f',
-                      transition: 'all 0.3s ease',
-                    }}
-                    aria-label="Supprimer"
-                    onMouseEnter={(e) => e.target.style.backgroundColor = '#e10000'}
-                    onMouseLeave={(e) => e.target.style.backgroundColor = '#ff4d4f'}
-                  />
-                </Popconfirm>
-              </Tooltip>
-            </Space>
-          ),
-        }
-      ];
+              </Popconfirm>
+            </Tooltip>
+          </Space>
+        ),
+      }
+    ];
+    
+    
 
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
