@@ -56,15 +56,40 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates}) => {
             title: 'Nbre de plein',
             dataIndex: 'Nbre_De_Plein'
 
-        }
+        },
+        {
+            title: 'Actions',
+            dataIndex: 'actions',
+            key: 'actions',
+            render: (text, record) => (
+              <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+                <Tooltip title="Détail" placement="top">
+                  <Button
+                    icon={<EyeOutlined />}
+                    style={{
+                      color: '#fff',
+                      backgroundColor: '#1890ff',
+                      borderColor: '#1890ff',
+                      transition: 'all 0.3s ease',
+                    }}
+                    aria-label="Détail"
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
+                    onClick={() => {
+                      // Logique d'affichage du détail à ajouter ici
+                      console.log('Afficher les détails pour', record);
+                    }}
+                  />
+                </Tooltip>
+              </Space>
+            ),
+          }
       ];
 
       
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
       };
-
-      console.log(selectedDates)
 
   return (
     <>
