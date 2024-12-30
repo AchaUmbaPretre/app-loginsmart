@@ -39,8 +39,7 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
     { 
       title: (
         <Tooltip title="Identifiant">
-          <NumberOutlined style={{ color: "#1890ff" }} /> {/* Bleu pour l'identifiant */}
-          <span style={{ marginLeft: 8 }}>#</span>
+          <NumberOutlined style={{ color: "#1890ff" }} />
         </Tooltip>
       ),
       dataIndex: 'id', 

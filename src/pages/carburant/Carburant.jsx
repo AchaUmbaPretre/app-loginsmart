@@ -12,6 +12,7 @@ const Carburant = () => {
     const [modalType, setModalType] = useState(null);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const scroll = { x: 400 };
 
     const fetchData = async () =>{
       try {
@@ -24,7 +25,9 @@ const Carburant = () => {
 
       } catch (error) {
         console.log(error)
-      }
+      } finally {
+        setLoading(false);
+    }
     }
 
   useEffect(()=> {
@@ -78,7 +81,7 @@ const Carburant = () => {
         dataIndex: 'nom_marque',
         render: text => (
           <Tooltip title="Marque">
-            <span><CarOutlined style={{ color: '#40a9ff' }} /> {text}</span>
+            <span><CarOutlined style={{ color: '#2db7f5' }} /> {text}</span>
           </Tooltip>
         )
       },
@@ -127,7 +130,7 @@ const Carburant = () => {
         },
         render: text => (
           <Tooltip title="Quantité">
-            <span><PlusCircleOutlined style={{ color: '#fa8c16' }} /> {text}</span>
+            <Tag color='cyan'>{text}</Tag>
           </Tooltip>
         )
       },
@@ -136,7 +139,7 @@ const Carburant = () => {
         dataIndex: 'matricule_ch',
         render: text => (
           <Tooltip title="Numéro">
-            <span><IdcardOutlined style={{ color: '#ff4d4f' }} /> {text}</span>
+            <Tag color='gold'>{text}</Tag>
           </Tooltip>
         )
       },
@@ -222,7 +225,6 @@ const Carburant = () => {
                     items={[
                         { title: 'Accueil', href: '/' },
                         { title: 'Consommation', href: '/consommation_carburant' },
-                        { title: 'Recherche globale', href: '/gestion' },
                         { title: 'Carburant' },
                     ]}
                     className="chauffeur_breadcrumb"
@@ -255,6 +257,8 @@ const Carburant = () => {
                 columns={columns} 
                 dataSource={data} 
                 onChange={onChange} 
+                loading={loading}
+                scroll={scroll}
                 bordered 
                 size="small"
             />
