@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Transfer, DatePicker, Button, notification, Breadcrumb, Modal, message } from 'antd';
+import { Transfer, DatePicker, Button, notification, Breadcrumb, Modal } from 'antd';
 import { CalculatorOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import './consomCarburant.scss';
@@ -79,29 +79,6 @@ const ConsomCarburant = () => {
     } else {
       setSelectedDates([]);
     }
-  };
-
-  // Recherche des données sélectionnées
-  const handleSearch = () => {
-    if (selectedDates.length !== 2) {
-      notification.error({
-        message: 'Erreur de recherche',
-        description: 'Veuillez sélectionner une plage de dates valide.',
-      });
-      return;
-    }
-
-    const [startDate, endDate] = selectedDates;
-    const filteredData = targetKeys.filter((key) => {
-      return true;
-    });
-
-    notification.success({
-      message: 'Recherche effectuée',
-      description: `Recherche effectuée pour les dates entre ${startDate} et ${endDate}.`,
-    });
-
-    console.log('Filtered data:', filteredData);
   };
 
   return (
