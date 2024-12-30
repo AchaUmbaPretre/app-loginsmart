@@ -11,6 +11,16 @@ const carburantService = {
         }
     },
 
+    getCarburantConsommation: async () => {
+        try {
+            const response = await api.get('/api/carburant/consommation');
+            return response.data.data;
+        } catch (error) {
+            console.error('Erreur lors de la récupération des consommation:', error);
+            throw error;
+        }
+    },
+
     getCarburantOne: async (id) => {
         try {
             const response = await api.get(`/api/carburant/one?id_vehicule=${id}`);
