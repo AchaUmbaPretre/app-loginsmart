@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { EyeOutlined } from '@ant-design/icons';
 import { Button, Space, Table, Tag, Tooltip } from 'antd';
 import './consomCarburantDetail.scss'
 
 const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
+    const [modalType, setModalType] = useState(null);
+    const [idVehicule, setVehicule] = useState('');
+
+    const closeAllModals = () => {
+        setModalType(null);
+      };
+    
+      const openModal = (type, idVehicule = '') => {
+        closeAllModals();
+        setModalType(type);
+        setVehicule(idVehicule)
+      };
+    
+      const handleDetail = (idVehicule) =>{
+        openModal('detail', idVehicule )
+      }
 
     const columns = [
         { 
@@ -74,10 +90,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
                     aria-label="Détail"
                     onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
                     onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
-                    onClick={() => {
-                      // Logique d'affichage du détail à ajouter ici
-                      console.log('Afficher les détails pour', record);
-                    }}
+                    onClick={() => {handleDetail(record.immatriculation)}}
                   />
                 </Tooltip>
               </Space>
