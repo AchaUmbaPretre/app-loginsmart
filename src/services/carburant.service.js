@@ -11,9 +11,9 @@ const carburantService = {
         }
     },
 
-    getCarburantConsommation: async () => {
+    getCarburantConsommation: async (targetKeys, selectedDates) => {
         try {
-            const response = await api.get('/api/carburant/consommation');
+            const response = await api.get(`/api/carburant/consommation?targetKeys=${targetKeys}&selectedDates=${selectedDates}`);
             return response.data.data;
         } catch (error) {
             console.error('Erreur lors de la récupération des consommation:', error);

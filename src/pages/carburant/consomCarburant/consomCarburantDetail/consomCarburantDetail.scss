@@ -1,0 +1,31 @@
+.consommCarburant{
+    .consommeCarburant-top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border: 1px solid #eaeaea;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        .consommation_h2{
+            font-size: 1.2rem;
+            color: #414141;
+        }
+        .consommation_periode{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .parcours_h2{
+                font-size: 1.2rem;
+                color: #414141;
+            }
+            .date_desc{
+                font-size: .7rem;
+                color: #414141;
+            }
+        }
+    }
+    .consomm-wrapper{
+
+    }
+}

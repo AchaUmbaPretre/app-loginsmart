@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Transfer, DatePicker, Button, notification, Breadcrumb, Modal } from 'antd';
+import { Transfer, DatePicker, Button, notification, Breadcrumb, Modal, message } from 'antd';
 import { CalculatorOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import './consomCarburant.scss';
 import vehiculeService from '../../../services/vehicule.service';
 import ConsomCarburantDetail from './consomCarburantDetail/ConsomCarburantDetail';
+import carburantService from '../../../services/carburant.service';
 
 const { RangePicker } = DatePicker;
 
@@ -14,6 +15,7 @@ const ConsomCarburant = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [vehicule, setVehicule] = useState([]);
   const [modalType, setModalType] = useState(null);
+  const [consomm, setConsomm] = useState([])
 
   const closeAllModals = () => {
     setModalType(null);
@@ -24,9 +26,23 @@ const ConsomCarburant = () => {
     setModalType(type);
   };
 
-  const handleAdd = () =>{
-    openModal('consom')
 
+    const fetchDatas = async () => {
+      try {
+        const res =  await carburantService.getCarburantConsommation(targetKeys, selectedDates);
+        setConsomm(res)
+  
+      } catch (error) {
+          console.error('Erreur lors:', error);
+      } finally {
+        setIsLoading(false);
+    }
+    }
+
+
+  const handleAdd = async() =>{
+    openModal('consom')
+    fetchDatas()
   }
 
   useEffect(() => {
@@ -140,10 +156,10 @@ const ConsomCarburant = () => {
           visible={modalType === 'consom'}
           onCancel={closeAllModals}
           footer={null}
-          width={1020}
+          width={1000}
           centered
         >
-          <ConsomCarburantDetail/>
+          <ConsomCarburantDetail dataConsomme={consomm} selectedDates={selectedDates} />
         </Modal>
     </div>
   );
