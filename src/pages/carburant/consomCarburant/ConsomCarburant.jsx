@@ -24,8 +24,9 @@ const ConsomCarburant = () => {
     setModalType(type);
   };
 
-  const handleAdd = (idVehicule) =>{
-    openModal('consom', idVehicule )
+  const handleAdd = () =>{
+    openModal('consom')
+
   }
 
   useEffect(() => {
