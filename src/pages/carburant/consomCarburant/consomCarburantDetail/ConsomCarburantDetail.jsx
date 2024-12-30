@@ -60,7 +60,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
         {
           title: (
             <Tooltip title="Marque">
-              <BarChartOutlined style={{ color: "#722ed1" }} />
+              <CarOutlined style={{ color: "#722ed1" }} />
               <span style={{ marginLeft: 8 }}>Marque</span>
             </Tooltip>
           ),
@@ -78,26 +78,26 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
           dataIndex: 'Total_Kilometrage',
           render: text => (
-            <span style={{ color: "#1890ff" }}>{text}</span>
+            <span >{text}</span>
           ),
         },
         {
           title: (
             <Tooltip title="Kilométrage Final">
               <DashboardOutlined style={{ color: "#fa8c16" }} />
-              <span style={{ marginLeft: 8 }}>Km Final</span>
+              <span >Km Final</span>
             </Tooltip>
           ),
           dataIndex: 'Total_Kilometrage',
           render: text => (
-            <span style={{ color: "#fa8c16" }}>{text}</span>
+            <span >{text}</span>
           ),
         },
         {
           title: (
             <Tooltip title="Kilomètres Parcourus">
               <BarChartOutlined style={{ color: "#f5222d" }} />
-              <span style={{ marginLeft: 8 }}>Km parcourus</span>
+              <span >Km parcourus</span>
             </Tooltip>
           ),
           dataIndex: 'Km_Parcourus',
@@ -106,7 +106,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
             multiple: 1,
           },
           render: text => (
-            <span style={{ color: "#f5222d" }}>{text}</span>
+            <span >{text}</span>
           ),
         },
         {
@@ -117,7 +117,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
           dataIndex: 'Total_Litres',
           render: text => (
-            <span style={{ color: "#eb2f96" }}>{text}</span>
+            <span >{text}</span>
           ),
         },
         {
@@ -128,7 +128,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
           dataIndex: 'Consommation_Litres_Par_100Km',
           render: text => (
-            <span style={{ color: "#faad14" }}>{text}</span>
+            <span>{text}</span>
           ),
         },
         {
@@ -140,16 +140,11 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
           dataIndex: 'Nbre_De_Plein',
           render: text => (
-            <span style={{ color: "#2f54eb" }}>{text}</span>
+            <span>{text}</span>
           ),
         },
         {
-          title: (
-            <Tooltip title="Actions">
-              <EyeOutlined style={{ color: "#1890ff" }} />
-              <span style={{ marginLeft: 8 }}>Actions</span>
-            </Tooltip>
-          ),
+          title: 'Actions',
           dataIndex: 'actions',
           key: 'actions',
           render: (text, record) => (
