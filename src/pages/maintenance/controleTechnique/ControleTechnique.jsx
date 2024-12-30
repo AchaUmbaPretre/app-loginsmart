@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Input, Modal, Space, Table, Popconfirm, Tooltip } from 'antd';
-import { PlusCircleOutlined, SearchOutlined,ToolOutlined, CarOutlined,UserOutlined, ShopOutlined, CalendarOutlined, EyeOutlined,DeleteOutlined, EditOutlined, FilterOutlined } from '@ant-design/icons';
+import { Breadcrumb, Button, Input, Modal, Space, Table, Popconfirm, Tooltip, Tag } from 'antd';
+import { PlusCircleOutlined, SearchOutlined,CheckCircleOutlined, WarningOutlined, CloseCircleOutlined, ToolOutlined, CarOutlined,UserOutlined, ShopOutlined, CalendarOutlined, EyeOutlined,DeleteOutlined, EditOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import ControleTechForm from './controleTechForm/ControleTechForm';
 import maintenanceService from '../../../services/maintenance.service';
@@ -101,8 +101,42 @@ const ControleTechnique = () => {
           ),
         },
         {
-            title: 'Description',
-            dataIndex: 'description'
+          title: 'Statut',
+          dataIndex: 'statut',
+          key: 'statut',
+          render: (statut) => {
+              let icon;
+              let color;
+              let label;
+  
+              switch (statut) {
+                  case 'En cours':
+                      icon = <CheckCircleOutlined />;
+                      color = 'green';
+                      label = 'En cours';
+                      break;
+                  case 'Expire dans 3 mois':
+                      icon = <WarningOutlined />;
+                      color = 'orange';
+                      label = 'Expire dans 3 mois';
+                      break;
+                  case 'Expiré':
+                      icon = <CloseCircleOutlined />;
+                      color = 'red';
+                      label = 'Expiré';
+                      break;
+                  default:
+                      icon = null;
+                      color = 'default';
+                      label = statut;
+              }
+  
+              return (
+                  <Tag color={color} icon={icon} style={{ fontSize: '14px' }}>
+                      {label}
+                  </Tag>
+              );
+          },
         },
         {
             title: 'Type Réparation',
