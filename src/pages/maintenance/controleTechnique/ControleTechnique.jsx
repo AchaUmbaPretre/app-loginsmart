@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import ControleTechForm from './controleTechForm/ControleTechForm';
 import maintenanceService from '../../../services/maintenance.service';
 import moment from 'moment';
+import FilterControleTech from './filterControleTech/FilterControleTech';
 
 const ControleTechnique = () => {
     const [filterVisible, setFilterVisible] = useState(false);
@@ -243,8 +244,8 @@ const ControleTechnique = () => {
                 </Space>
             </div>
         </div>
-{/*         {filterVisible && <FilterCarburant onFilter={handleFilterChange}/>}
- */}        <div className="chauffeur_bottom">
+         {filterVisible && <FilterControleTech onFilter={handleFilterChange}/>}
+        <div className="chauffeur_bottom">
             <Table 
               columns={columns} 
               dataSource={data} 
