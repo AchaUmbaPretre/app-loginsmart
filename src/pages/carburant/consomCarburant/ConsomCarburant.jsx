@@ -19,7 +19,7 @@ const ConsomCarburant = () => {
     setModalType(null);
   };
 
-  const openModal = (type, idVehicule = '') => {
+  const openModal = (type) => {
     closeAllModals();
     setModalType(type);
   };
