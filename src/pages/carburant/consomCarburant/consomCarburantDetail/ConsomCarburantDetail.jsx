@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
-import { EyeOutlined } from '@ant-design/icons';
+import { CalendarTwoTone,        
+    CarOutlined, 
+    DashboardOutlined, 
+    NumberOutlined, 
+    EyeOutlined, 
+    BarChartOutlined, 
+    OrderedListOutlined } from '@ant-design/icons';
 import { Button, Modal, Space, Table, Tag, Tooltip } from 'antd';
 import './consomCarburantDetail.scss'
 import ConsomCarburantDetailOne from '../consomCarburantDetailOne/ConsomCarburantDetailOne';
@@ -21,10 +27,15 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
       const handleDetail = (idVehicule) =>{
         openModal('detail', idVehicule )
       }
-
-    const columns = [
+      
+      const columns = [
         { 
-          title: '#', 
+          title: (
+            <Tooltip title="Identifiant">
+              <NumberOutlined style={{ color: "#1890ff" }} />
+              <span style={{ marginLeft: 8 }}>#</span>
+            </Tooltip>
+          ),
           dataIndex: 'id', 
           key: 'id', 
           render: (text, record, index) => (
@@ -35,69 +46,134 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           width: "4%" 
         },
         {
-          title: 'Immatri.',
+          title: (
+            <Tooltip title="Immatriculation">
+              <CarOutlined style={{ color: "#52c41a" }} />
+              <span style={{ marginLeft: 8 }}>Immatri.</span>
+            </Tooltip>
+          ),
           dataIndex: 'immatriculation',
+          render: text => (
+            <Tag color="green">{text}</Tag>
+          ),
         },
         {
-          title: 'Marque',
-          dataIndex: 'nom_marque'
+          title: (
+            <Tooltip title="Marque">
+              <BarChartOutlined style={{ color: "#722ed1" }} />
+              <span style={{ marginLeft: 8 }}>Marque</span>
+            </Tooltip>
+          ),
+          dataIndex: 'nom_marque',
+          render: text => (
+            <Tag color="purple">{text}</Tag>
+          ),
         },
         {
-            title: 'Km Initial',
-            dataIndex: 'Total_Kilometrage'
+          title: (
+            <Tooltip title="Kilométrage Initial">
+              <DashboardOutlined style={{ color: "#13c2c2" }} />
+              <span style={{ marginLeft: 8 }}>Km Initial</span>
+            </Tooltip>
+          ),
+          dataIndex: 'Total_Kilometrage',
+          render: text => (
+            <span style={{ color: "#1890ff" }}>{text}</span>
+          ),
         },
         {
-          title: 'Km Final',
-          dataIndex: 'Total_Kilometrage'
+          title: (
+            <Tooltip title="Kilométrage Final">
+              <DashboardOutlined style={{ color: "#fa8c16" }} />
+              <span style={{ marginLeft: 8 }}>Km Final</span>
+            </Tooltip>
+          ),
+          dataIndex: 'Total_Kilometrage',
+          render: text => (
+            <span style={{ color: "#fa8c16" }}>{text}</span>
+          ),
         },
         {
-          title: 'Km parcourus',
+          title: (
+            <Tooltip title="Kilomètres Parcourus">
+              <BarChartOutlined style={{ color: "#f5222d" }} />
+              <span style={{ marginLeft: 8 }}>Km parcourus</span>
+            </Tooltip>
+          ),
           dataIndex: 'Km_Parcourus',
           sorter: {
-              compare: (a, b) => a.Km_Parcourus - b.Km_Parcourus,
-              multiple: 1,
-            },
+            compare: (a, b) => a.Km_Parcourus - b.Km_Parcourus,
+            multiple: 1,
+          },
+          render: text => (
+            <span style={{ color: "#f5222d" }}>{text}</span>
+          ),
         },
         {
-            title: 'Total L',
-            dataIndex: 'Total_Litres'
-
+          title: (
+            <Tooltip title="Total Litres">
+              <span style={{ marginLeft: 8 }}>Total L</span>
+            </Tooltip>
+          ),
+          dataIndex: 'Total_Litres',
+          render: text => (
+            <span style={{ color: "#eb2f96" }}>{text}</span>
+          ),
         },
         {
-            title: 'C L/100 Km',
-            dataIndex: 'Consommation_Litres_Par_100Km'
-
+          title: (
+            <Tooltip title="Consommation (L/100Km)">
+              <span style={{ marginLeft: 8 }}>C L/100 Km</span>
+            </Tooltip>
+          ),
+          dataIndex: 'Consommation_Litres_Par_100Km',
+          render: text => (
+            <span style={{ color: "#faad14" }}>{text}</span>
+          ),
         },
         {
-            title: 'Nbre de plein',
-            dataIndex: 'Nbre_De_Plein'
-
+          title: (
+            <Tooltip title="Nombre de Pleins">
+              <OrderedListOutlined style={{ color: "#2f54eb" }} />
+              <span style={{ marginLeft: 8 }}>Nbre de plein</span>
+            </Tooltip>
+          ),
+          dataIndex: 'Nbre_De_Plein',
+          render: text => (
+            <span style={{ color: "#2f54eb" }}>{text}</span>
+          ),
         },
         {
-            title: 'Actions',
-            dataIndex: 'actions',
-            key: 'actions',
-            render: (text, record) => (
-              <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
-                <Tooltip title="Détail" placement="top">
-                  <Button
-                    icon={<EyeOutlined />}
-                    style={{
-                      color: '#fff',
-                      backgroundColor: '#1890ff',
-                      borderColor: '#1890ff',
-                      transition: 'all 0.3s ease',
-                    }}
-                    aria-label="Détail"
-                    onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
-                    onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
-                    onClick={() => {handleDetail(record.immatriculation)}}
-                  />
-                </Tooltip>
-              </Space>
-            ),
-          }
+          title: (
+            <Tooltip title="Actions">
+              <EyeOutlined style={{ color: "#1890ff" }} />
+              <span style={{ marginLeft: 8 }}>Actions</span>
+            </Tooltip>
+          ),
+          dataIndex: 'actions',
+          key: 'actions',
+          render: (text, record) => (
+            <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+              <Tooltip title="Détail" placement="top">
+                <Button
+                  icon={<EyeOutlined />}
+                  style={{
+                    color: '#fff',
+                    backgroundColor: '#1890ff',
+                    borderColor: '#1890ff',
+                    transition: 'all 0.3s ease',
+                  }}
+                  aria-label="Détail"
+                  onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
+                  onClick={() => { handleDetail(record.id_vehicule); }}
+                />
+              </Tooltip>
+            </Space>
+          ),
+        },
       ];
+      
 
       
       const onChange = (pagination, filters, sorter, extra) => {
@@ -111,7 +187,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
                 <h2 className="consommation_h2">CONSOMMATION</h2>
                 <div className="consommation_periode">
                     <h2 className="parcours_h2">Période</h2>
-                    <span className='date_desc'>Du {selectedDates[0]} au {selectedDates[1]}</span>
+                    <span className='date_desc'><CalendarTwoTone /> Du {selectedDates[0]} au {selectedDates[1]}</span>
                 </div>
             </div>
             <div className="consomm-wrapper">

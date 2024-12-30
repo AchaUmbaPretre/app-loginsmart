@@ -4,7 +4,8 @@ import {
     CalendarOutlined, 
     DashboardOutlined, 
     NumberOutlined, 
-    UserOutlined 
+    UserOutlined,
+    CalendarTwoTone
   } from "@ant-design/icons";
 import { useEffect, useState } from 'react';
 import moment from 'moment';
@@ -124,7 +125,7 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
                 <h2 className="consommation_h2">Immatricule : {immatri} / Marque : {marque} </h2>
                 <div className="consommation_periode">
                     <h2 className="parcours_h2">Période</h2>
-                    <span className='date_desc'>Du {selectedDates[0]} au {selectedDates[1]}</span>
+                     <span className='date_desc'><CalendarTwoTone /> Du {selectedDates[0]} au {selectedDates[1]}</span>
                 </div>
             </div>
             <div className="consomm-wrapper">
