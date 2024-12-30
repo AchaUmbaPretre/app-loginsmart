@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Transfer, DatePicker, Button, notification, Breadcrumb } from 'antd';
+import { Transfer, DatePicker, Button, notification, Breadcrumb, Modal } from 'antd';
 import { CalculatorOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import './consomCarburant.scss';
 import vehiculeService from '../../../services/vehicule.service';
+import ConsomCarburantDetail from './consomCarburantDetail/ConsomCarburantDetail';
 
 const { RangePicker } = DatePicker;
 
@@ -12,7 +13,20 @@ const ConsomCarburant = () => {
   const [selectedDates, setSelectedDates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [vehicule, setVehicule] = useState([]);
+  const [modalType, setModalType] = useState(null);
 
+  const closeAllModals = () => {
+    setModalType(null);
+  };
+
+  const openModal = (type, idVehicule = '') => {
+    closeAllModals();
+    setModalType(type);
+  };
+
+  const handleAdd = (idVehicule) =>{
+    openModal('consom', idVehicule )
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -114,12 +128,22 @@ const ConsomCarburant = () => {
           </div>
 
           <div className="search-button">
-            <Button type="primary" onClick={handleSearch} icon={<CalculatorOutlined />}>
+            <Button type="primary" onClick={handleAdd} targetKeys={targetKeys} icon={<CalculatorOutlined />}>
               Calculer conso.
             </Button>
           </div>
         </div>
       </div>
+        <Modal
+          title=""
+          visible={modalType === 'consom'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1055}
+          centered
+        >
+          <ConsomCarburantDetail/>
+        </Modal>
     </div>
   );
 };
