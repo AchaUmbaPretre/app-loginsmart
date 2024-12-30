@@ -4,10 +4,10 @@ import './carburant.scss';
 import { useEffect, useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
 import FilterCarburant from './filterCarburant/FilterCarburant';
-import carburantService from '../../services/carburant.service';
 import moment from 'moment';
+import carburantService from '../../../../services/carburant.service';
 
-const ConsomCarburantDetailOne = () => {
+const ConsomCarburantDetailOne = ({dataConsomme, selectedDates}) => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [data, setData] = useState([]);
@@ -17,7 +17,7 @@ const ConsomCarburantDetailOne = () => {
       try {
         setLoading(true);
         const [carburantData] = await Promise.all([
-          carburantService.getCarburant()
+          carburantService.getCarburantConsommationOne()
         ])
 
         setData(carburantData)

@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-import moment from 'moment';
-import { PlusCircleOutlined,EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
+import React from 'react'
+import { EyeOutlined } from '@ant-design/icons';
+import { Button, Space, Table, Tag, Tooltip } from 'antd';
 import './consomCarburantDetail.scss'
 
 const ConsomCarburantDetail = ({dataConsomme, selectedDates}) => {
