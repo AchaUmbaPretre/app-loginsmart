@@ -4,8 +4,6 @@ import moment from 'moment';
 import carburantService from '../../../../services/carburant.service';
 
 const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
-    const [filterVisible, setFilterVisible] = useState(false);
-    const [modalType, setModalType] = useState(null);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [immatri, setImmatri] = useState('');
@@ -28,23 +26,6 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
   useEffect(()=> {
     fetchDatas()
   }, [selectedDates, idVehicule])
-
-    const closeAllModals = () => {
-      setModalType(null);
-    };
-  
-    const openModal = (type) => {
-      closeAllModals();
-      setModalType(type);
-    };
-  
-    const handleAdd = (idVehicule) =>{
-      openModal('add', idVehicule )
-    }
-
-    const handFilter = () => {
-        setFilterVisible(!filterVisible)
-      }
 
     const columns = [
         { 
