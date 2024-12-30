@@ -94,7 +94,7 @@ const ConsomCarburant = () => {
       />
       <div className="consomCarburant-wrapper">
         <div className="consomCarburant-row-title">
-          <h2 className="title_h2">CALCULE CONSOMMATION</h2>
+          <h2 className="title_h2">CALCUL DE CONSOMMATION</h2>
         </div>
         <div className="consomCarburant_rows">
         
