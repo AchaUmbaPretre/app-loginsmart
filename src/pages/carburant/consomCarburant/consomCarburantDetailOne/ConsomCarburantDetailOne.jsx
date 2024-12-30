@@ -1,5 +1,4 @@
-import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
-import { PlusCircleOutlined,EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Table, Tag, Tooltip } from 'antd';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import carburantService from '../../../../services/carburant.service';
@@ -106,17 +105,26 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
       };
 
   return (
-    <div className="chauffeur">
-        <div className="chauffeur_bottom">
-            <Table 
-                columns={columns} 
-                dataSource={data} 
-                onChange={onChange} 
-                bordered 
-                size="small"
-            />
+    <>
+                <div className="consommCarburant">
+            <div className="consommeCarburant-top">
+                <h2 className="consommation_h2">CONSOMMATION</h2>
+                <div className="consommation_periode">
+                    <h2 className="parcours_h2">Période</h2>
+                    <span className='date_desc'>Du {selectedDates[0]} au {selectedDates[1]}</span>
+                </div>
+            </div>
+            <div className="consomm-wrapper">
+                <Table
+                    columns={columns} 
+                    dataSource={data} 
+                    onChange={onChange} 
+                    bordered 
+                    size="small"
+                />
+            </div>
         </div>
-    </div>
+    </>
   );
 };
 
