@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { EyeOutlined } from '@ant-design/icons';
-import { Button, Space, Table, Tag, Tooltip } from 'antd';
+import { Button, Modal, Space, Table, Tag, Tooltip } from 'antd';
 import './consomCarburantDetail.scss'
+import ConsomCarburantDetailOne from '../consomCarburantDetailOne/ConsomCarburantDetailOne';
 
 const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
     const [modalType, setModalType] = useState(null);
@@ -123,6 +124,16 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
                 />
             </div>
         </div>
+        <Modal
+          title=""
+          visible={modalType === 'detail'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1055}
+          centered
+        >
+          <ConsomCarburantDetailOne selectedDates={selectedDates} idVehicule={idVehicule}/>
+        </Modal>
     </>
   )
 }
