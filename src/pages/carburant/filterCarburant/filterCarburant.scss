@@ -26,3 +26,14 @@
         }
     }
 }
+
+.chauffeur_filter {
+    background-color: #ffffff; /* Couleur normale */
+    color: #000000; /* Couleur du texte normale */
+  }
+  
+  .chauffeur_filter.active {
+    background-color: #ff0000; /* Rouge pour le filtre actif */
+    color: #ffffff; /* Texte blanc pour contraste */
+  }
+  

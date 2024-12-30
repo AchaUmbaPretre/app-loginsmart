@@ -265,9 +265,14 @@ const ControleTechnique = () => {
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />
-                <Button icon={<FilterOutlined />} onClick={handFilter} className="chauffeur_filter">
-                    Filtres
+                <Button 
+                  icon={<FilterOutlined />} 
+                  onClick={handFilter} 
+                  className={`chauffeur_filter ${filterVisible ? 'active' : ''}`}
+                >
+                  {filterVisible ? 'Cacher les filtres' : 'Afficher les filtres'}
                 </Button>
+
                 <Button
                     className="chauffeur_btn"
                     type="primary"
