@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PlusCircleOutlined,FileTextOutlined ,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { FileTextOutlined ,ToolOutlined,SyncOutlined,CheckCircleOutlined } from '@ant-design/icons';
 import { Spin,Badge, Tooltip, Alert, Card, Descriptions, Divider, Tag, Row, Col, Table } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
 import maintenanceService from '../../../services/maintenance.service';
