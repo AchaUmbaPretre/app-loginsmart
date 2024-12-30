@@ -139,7 +139,7 @@ const ConsomCarburant = () => {
           visible={modalType === 'consom'}
           onCancel={closeAllModals}
           footer={null}
-          width={1055}
+          width={1020}
           centered
         >
           <ConsomCarburantDetail/>
