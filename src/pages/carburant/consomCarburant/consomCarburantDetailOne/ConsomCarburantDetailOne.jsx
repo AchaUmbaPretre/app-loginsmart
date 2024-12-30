@@ -7,28 +7,26 @@ import FilterCarburant from './filterCarburant/FilterCarburant';
 import moment from 'moment';
 import carburantService from '../../../../services/carburant.service';
 
-const ConsomCarburantDetailOne = ({dataConsomme, selectedDates}) => {
+const ConsomCarburantDetailOne = ({selectedDates, targetKeys}) => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const fetchData = async () =>{
-      try {
-        setLoading(true);
-        const [carburantData] = await Promise.all([
-          carburantService.getCarburantConsommationOne()
-        ])
-
-        setData(carburantData)
-
-      } catch (error) {
-        console.log(error)
+    const fetchDatas = async () => {
+        try {
+          const res =  await carburantService.getCarburantConsommation(targetKeys, selectedDates);
+          setConsomm(res)
+    
+        } catch (error) {
+            console.error('Erreur lors:', error);
+        } finally {
+          setIsLoading(false);
       }
-    }
+      }
 
   useEffect(()=> {
-    fetchData()
+    fetchDatas()
   }, [])
 
     const closeAllModals = () => {

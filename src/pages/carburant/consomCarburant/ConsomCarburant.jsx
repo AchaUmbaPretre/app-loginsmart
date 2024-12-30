@@ -136,7 +136,7 @@ const ConsomCarburant = () => {
           width={1000}
           centered
         >
-          <ConsomCarburantDetail dataConsomme={consomm} selectedDates={selectedDates} />
+          <ConsomCarburantDetail dataConsomme={consomm} selectedDates={selectedDates} targetKeys={targetKeys} />
         </Modal>
     </div>
   );

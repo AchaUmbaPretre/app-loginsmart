@@ -3,7 +3,7 @@ import { EyeOutlined } from '@ant-design/icons';
 import { Button, Space, Table, Tag, Tooltip } from 'antd';
 import './consomCarburantDetail.scss'
 
-const ConsomCarburantDetail = ({dataConsomme, selectedDates}) => {
+const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
 
     const columns = [
         { 
