@@ -13,6 +13,7 @@ import ConsomCarburantDetailOne from '../consomCarburantDetailOne/ConsomCarburan
 const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
     const [modalType, setModalType] = useState(null);
     const [idVehicule, setVehicule] = useState('');
+    const scroll = { x: 400 };
 
     const closeAllModals = () => {
         setModalType(null);
@@ -190,6 +191,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
                     columns={columns} 
                     dataSource={dataConsomme} 
                     onChange={onChange} 
+                    scroll={scroll}
                     bordered 
                     size="small"
                 />
