@@ -78,7 +78,7 @@ const Carburant = () => {
         dataIndex: 'nom_marque',
         render: text => (
           <Tooltip title="Marque">
-            <span><AppstoreAddOutlined style={{ color: '#40a9ff' }} /> {text}</span>
+            <span><CarOutlined style={{ color: '#40a9ff' }} /> {text}</span>
           </Tooltip>
         )
       },
