@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Spin, Alert, Card, Descriptions, Divider, Tag, Row, Col } from 'antd';
+import { PlusCircleOutlined,FileTextOutlined ,ToolOutlined,ShopOutlined,SyncOutlined,CheckCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Spin,Badge, Tooltip, Alert, Card, Descriptions, Divider, Tag, Row, Col, Table } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
 import maintenanceService from '../../../services/maintenance.service';
+import moment from 'moment';
 
 const DetailMaintenance = ({ idReparation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const [reparation, setReparation] = useState([]);
+  const scroll = { x: 400 };
 
   const etatMaintenanceMapping = {
     1: 'Terminé',
@@ -16,6 +19,102 @@ const DetailMaintenance = ({ idReparation }) => {
     4: 'Évaluation',
     5: 'Terminé (R)',
   };
+
+  const columns = [
+    { 
+      title: '#', 
+      dataIndex: 'id', 
+      key: 'id', 
+      render: (text, record, index) => (
+        <Tooltip title={`Ligne ${index + 1}`}>
+          <Tag color="blue">{index + 1}</Tag>
+        </Tooltip>
+      ),
+      width: "5%" 
+    },
+    {
+      title: 'Type tache',
+      dataIndex: 'type_tache',
+      render: (text) => (
+        <span>
+          <ToolOutlined style={{ marginRight: 8, color: '#d46b08' }} />
+          {text}
+        </span>
+      ),
+    },
+    {
+      title: 'Date suivie',
+      dataIndex: 'created_at',
+      render: (text) => (
+        <span>
+          <CalendarOutlined style={{ marginRight: 8, color: '#13c2c2' }} />
+          {moment(text).format('DD-MM-yyyy')}
+        </span>
+      ),
+    },
+    {
+      title: 'Pièce',
+      dataIndex: 'nom_piece',
+      render: (text) => (
+        <span>
+          <ToolOutlined style={{ marginRight: 8, color: '#000' }} />
+          {text}
+        </span>
+      ),
+    },
+    {
+      title: 'Déscription',
+      dataIndex: 'description',
+      render: (text) => (
+        <span>
+          <FileTextOutlined style={{ marginRight: 8, color: '#000' }} />
+          {text}
+        </span>
+      ),
+    },
+    {
+      title: 'Etat',
+      dataIndex: 'id_etat',
+      render: (id_etat_maintenance) => {
+        if (id_etat_maintenance === 1) {
+          return (
+            <Badge
+              color="green"
+              text={
+                <span>
+                  <CheckCircleOutlined style={{ color: 'green', marginRight: 8 }} />
+                  Terminé
+                </span>
+              }
+            />
+          );
+        }
+        if (id_etat_maintenance === 2) {
+          return (
+            <Badge
+              color="blue"
+              text={
+                <span>
+                  <SyncOutlined spin style={{ color: 'blue', marginRight: 8 }} />
+                  En cours
+                </span>
+              }
+            />
+          );
+        }
+        return null;
+      },
+    },
+    {
+      title: 'Montant',
+      dataIndex: 'cout',
+      render: (text) => (
+        <span>
+          {text} $
+        </span>
+      ),
+    }
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -117,26 +216,34 @@ const DetailMaintenance = ({ idReparation }) => {
 
           <Divider />
 
-          <Row justify="center">
-            <Col span={12}>
-              <Card
-                title="Informations Complémentaires"
-                bordered={false}
-                style={{
-                  backgroundColor: '#f7f7f7',
-                  borderRadius: '8px',
-                  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.08)',
-                }}
-              >
-                <p>Les détails ci-dessus concernent la réparation du véhicule mentionné. Vous pouvez consulter les informations supplémentaires à tout moment.</p>
-              </Card>
-            </Col>
-          </Row>
+          <div>
+          <Card
+            title="Détails des suivis"
+            bordered={false}
+            style={{
+                maxWidth: 1000,
+                margin: '20px auto',
+                borderRadius: '8px',
+                backgroundColor: '#fff',
+            }}
+            >
+                <div className="chauffeur_bottom">
+                    <Table
+                        columns={columns} 
+                        dataSource={reparation} 
+                        bordered 
+                        size="small"
+                        scroll={scroll}
+                    />
+                </div>
+            </Card>
+          </div>
         </>
       ) : (
         <Alert message="Aucune donnée disponible" type="warning" showIcon />
       )}
     </Card>
+    
   );
 };
 

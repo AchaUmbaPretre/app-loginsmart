@@ -363,7 +363,7 @@ const Maintenance = () => {
           visible={modalType === 'detail'}
           onCancel={closeAllModals}
           footer={null}
-          width={800}
+          width={900}
           centered
         >
           <DetailMaintenance idReparation={idReparation}/>
