@@ -2,11 +2,12 @@ import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined,HomeOutlined,CalendarOutlined,AppstoreAddOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import ChauffeurAffect from '../ChauffeurAffect';
+import affectationService from '../../../../services/affectation.service';
 
 const ListeChauffeurAffect = () => {
   const [modalType, setModalType] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const [data, setData] = useState([]);
 
   const closeAllModals = () => {
     setModalType(null);
@@ -16,6 +17,27 @@ const ListeChauffeurAffect = () => {
     closeAllModals();
     setModalType(type);
   };
+
+    const fetchData = async () => {
+        try {
+            setLoading(true);
+
+            const [affectationData] = await Promise.all([
+                affectationService.getAffectation()
+            ]);
+
+            setData(affectationData);
+            
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleAdd = ( idBatiment) =>{
     openModal('add', idBatiment)
@@ -64,7 +86,6 @@ const ListeChauffeurAffect = () => {
         }
         
       ];
-      const data = [];
 
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
@@ -116,6 +137,7 @@ const ListeChauffeurAffect = () => {
                 columns={columns} 
                 dataSource={data} 
                 onChange={onChange} 
+                loading={loading}
             />
         </div>
         <Modal
@@ -126,7 +148,7 @@ const ListeChauffeurAffect = () => {
           width={1023}
           centered
         >
-          <ChauffeurAffect/>
+          <ChauffeurAffect fetchData={fetchData} closeModal={()=>setModalType(null)} />
         </Modal>
     </div>
   );

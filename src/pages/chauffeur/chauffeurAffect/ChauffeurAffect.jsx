@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
+import { Col, Form, Input, Row, Select, Skeleton, Button, message } from 'antd';
 import { SendOutlined } from '@ant-design/icons';
 import TypeService from '../../../services/type.service';
 import ChauffeurService from '../../../services/chauffeur.service';
-const { Option } = Select;
+import affectationService from '../../../services/affectation.service';
 
 
-const ChauffeurAffect = ({closeModal}) => {
+const ChauffeurAffect = ({fetchData, closeModal}) => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [site, setSite] = useState([]);
@@ -38,12 +38,13 @@ const ChauffeurAffect = ({closeModal}) => {
         try {
             message.loading({ content: 'En cours...', key: 'submit' });
 
-            await ChauffeurService.postChauffeur(values);
+            await affectationService.postAffectation(values)
 
             message.success({ content: 'Affectation a été ajoutée avec succès!', key: 'submit' });
 
             form.resetFields();
-            closeModal()
+            fetchData();
+            closeModal();
         } catch (error) {
             message.error({ content: 'Une erreur est survenue.', key: 'submit' });
             console.error('Erreur lors de l\'ajout d affectation:', error);
