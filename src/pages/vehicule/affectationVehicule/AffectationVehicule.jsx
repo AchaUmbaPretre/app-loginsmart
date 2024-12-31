@@ -52,7 +52,7 @@ const AffectationVehicule = ({ onAddChauffeur }) => {
             <div className="chauffeur_top_right">
                 <Space size="middle">
                 <Input
-                    placeholder="Rechercher un personnel"
+                    placeholder="Rechercher..."
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />
