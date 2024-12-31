@@ -101,15 +101,24 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
         compare: (a, b) => a.qte_plein - b.qte_plein,
         multiple: 1,
       },
+      render: text => (
+        <Tooltip title="Quantité">
+          <Tag color='cyan'>{text}</Tag>
+        </Tooltip>
+      )
     },
     {
       title: (
         <Tooltip title="Numéro de matricule">
-          <NumberOutlined style={{ color: "#ff4d4f" }} /> {/* Rouge pour le numéro */}
           <span style={{ marginLeft: 8 }}>Numéro</span>
         </Tooltip>
       ),
       dataIndex: 'matricule_ch',
+      render: text => (
+        <Tooltip title="matricule_ch">
+          <Tag color='gold'>{text}</Tag>
+        </Tooltip>
+      )
     },
   ];
 
