@@ -4,6 +4,7 @@ import { SendOutlined } from '@ant-design/icons';
 import TypeService from '../../../services/type.service';
 import ChauffeurService from '../../../services/chauffeur.service';
 import affectationService from '../../../services/affectation.service';
+import { useSelector } from 'react-redux';
 
 
 const ChauffeurAffect = ({fetchData, closeModal}) => {
@@ -11,7 +12,7 @@ const ChauffeurAffect = ({fetchData, closeModal}) => {
     const [loadingData, setLoadingData] = useState(false);
     const [site, setSite] = useState([]);
     const [chauffeur, setChauffeur] = useState([])
-  
+    const userId = useSelector((state) => state.auth.user.id);
 
     useEffect(() => {
         const fetchData = async() => {
@@ -38,7 +39,10 @@ const ChauffeurAffect = ({fetchData, closeModal}) => {
         try {
             message.loading({ content: 'En cours...', key: 'submit' });
 
-            await affectationService.postAffectation(values)
+            await affectationService.postAffectation({
+                ...values,
+                user_cr: userId
+            })
 
             message.success({ content: 'Affectation a été ajoutée avec succès!', key: 'submit' });
 
