@@ -1,5 +1,5 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
-import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined,HomeOutlined,CalendarOutlined,AppstoreAddOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import ChauffeurAffect from '../ChauffeurAffect';
 
@@ -73,16 +73,20 @@ const ListeChauffeurAffect = () => {
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
                 <h2 className="chauffeur_h2">Liste d'affectations</h2>
-                <Breadcrumb
-                    separator=">"
-                    items={[
-                        { title: 'Accueil', href: '/' },
-                        { title: 'Affectation', href: '/affectation' },
-                        { title: 'Congé', href: '/conge' },
-                        { title: 'Chauffeurs' },
-                    ]}
-                    className="chauffeur_breadcrumb"
-                />
+                <Breadcrumb separator=">" className="chauffeur_breadcrumb">
+                  <Breadcrumb.Item href="/">
+                      <HomeOutlined style={{ marginRight: '8px' }} />
+                      Accueil
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Item href="/conge">
+                      <CalendarOutlined style={{ marginRight: '8px' }} />
+                      Congé
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Item>
+                      <AppstoreAddOutlined style={{ marginRight: '8px' }} />
+                      Affectation
+                  </Breadcrumb.Item>
+              </Breadcrumb>
             </div>
             <div className="chauffeur_top_right">
                 <Space size="middle">
