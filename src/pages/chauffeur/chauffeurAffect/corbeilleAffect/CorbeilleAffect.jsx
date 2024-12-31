@@ -1,11 +1,11 @@
 import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
-import { PlusCircleOutlined,HomeOutlined,EditOutlined,DeleteOutlined, CalendarOutlined,AppstoreAddOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { HomeOutlined,EditOutlined,DeleteOutlined, CalendarOutlined,AppstoreAddOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import ChauffeurAffect from '../ChauffeurAffect';
 import affectationService from '../../../../services/affectation.service';
 import moment from 'moment';
 
-const ListeChauffeurAffect = () => {
+const CorbeilleAffect = () => {
   const [modalType, setModalType] = useState(null);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -159,7 +159,7 @@ const ListeChauffeurAffect = () => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">Liste d'affectations</h2>
+                <h2 className="chauffeur_h2">Liste des historiques d'affectations</h2>
                 <Breadcrumb separator=">" className="chauffeur_breadcrumb">
                   <Breadcrumb.Item href="/">
                       <HomeOutlined style={{ marginRight: '8px' }} />
@@ -169,7 +169,7 @@ const ListeChauffeurAffect = () => {
                       <CalendarOutlined style={{ marginRight: '8px' }} />
                       Congé
                   </Breadcrumb.Item>
-                  <Breadcrumb.Item href='/corbeille_affectation'>
+                  <Breadcrumb.Item>
                       <DeleteOutlined style={{ marginRight: '8px' }} />
                       corbeille
                   </Breadcrumb.Item>
@@ -188,14 +188,6 @@ const ListeChauffeurAffect = () => {
                 />
                 <Button icon={<FilterOutlined />} className="chauffeur_filter">
                     Filtres
-                </Button>
-                <Button
-                    className="chauffeur_btn"
-                    type="primary"
-                    icon={<PlusCircleOutlined />}
-                    onClick={handleAdd}
-                >
-                    Nouvel affectation
                 </Button>
                 </Space>
             </div>
@@ -223,4 +215,4 @@ const ListeChauffeurAffect = () => {
   );
 };
 
-export default ListeChauffeurAffect;
+export default CorbeilleAffect;

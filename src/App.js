@@ -31,6 +31,7 @@ import ListeChauffeurAffect from './pages/chauffeur/chauffeurAffect/listeChauffe
 import Fournisseur from './pages/fournisseur/Fournisseur';
 import Localisation from './pages/localisation/Localisation';
 import Sites from './pages/sites/Sites';
+import CorbeilleAffect from './pages/chauffeur/chauffeurAffect/corbeilleAffect/CorbeilleAffect';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -112,6 +113,10 @@ function App() {
         {
           path: '/liste_affectation',
           element: <PrivateRoute element={ListeChauffeurAffect} />
+        },
+        {
+          path: '/corbeille_affectation',
+          element: <PrivateRoute element={CorbeilleAffect} />
         },
         {
           path: '/assurance',
