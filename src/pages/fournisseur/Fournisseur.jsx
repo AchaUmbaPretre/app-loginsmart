@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
-import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
+import { PlusCircleOutlined, SearchOutlined,EditOutlined,DeleteOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import FournisseurForm from './fournisseurForm/FournisseurForm';
 import TypeService from '../../services/type.service';
@@ -25,12 +25,16 @@ const Fournisseur = () => {
 
     const columns = [
         { 
-            title: '#', 
-            dataIndex: 'id', 
-            key: 'id', 
-            render: (text, record, index) => index + 1, 
-            width: "3%" 
-          },
+          title: '#', 
+          dataIndex: 'id', 
+          key: 'id', 
+          render: (text, record, index) => (
+            <Tooltip title={`Ligne ${index + 1}`}>
+              <Tag color="blue">{index + 1}</Tag>
+            </Tooltip>
+          ), 
+          width: "3%" 
+        },
         {
           title: 'Nom',
           dataIndex: 'nom',
@@ -45,15 +49,49 @@ const Fournisseur = () => {
         },
         {
           title: 'Email',
-          dataIndex: 'email'
+          dataIndex: 'mail'
         },
         {
           title: 'Telephone',
-          dataIndex: 'telephone'
+          dataIndex: 'tel'
         },
         {
           title: 'Actions',
-          dataIndex: 'actions'
+          dataIndex: 'actions',
+          key: 'actions',
+          width: '10%',
+          render: (text, record) => (
+            <Space size="middle">
+              <Tooltip title="Modifier">
+                <Button
+                  icon={<EditOutlined />}
+                  style={{
+                    color: '#fff',
+                    backgroundColor: '#52c41a',
+                    borderColor: '#52c41a',
+                  }}
+                  aria-label="Modifier"
+                />
+              </Tooltip>
+              <Tooltip title="Supprimer">
+                <Popconfirm
+                  title="Êtes-vous sûr de vouloir supprimer ce fournisseur ?"
+                  okText="Oui"
+                  cancelText="Non"
+                >
+                  <Button
+                    icon={<DeleteOutlined />}
+                    style={{
+                      color: '#fff',
+                      backgroundColor: '#ff4d4f',
+                      borderColor: '#ff4d4f',
+                    }}
+                    aria-label="Supprimer"
+                  />
+                </Popconfirm>
+              </Tooltip>
+            </Space>
+          ),
         },
       ];
 
