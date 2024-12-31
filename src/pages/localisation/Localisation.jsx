@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
-import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Breadcrumb, Button, Input, Modal, Space, Table, Tag, Tooltip } from 'antd';
+import { PlusCircleOutlined, SearchOutlined,EnvironmentOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import TypeService from '../../services/type.service';
 
@@ -45,16 +45,32 @@ const Localisation = () => {
             title: '#', 
             dataIndex: 'id', 
             key: 'id', 
-            render: (text, record, index) => index + 1, 
+            render: (text, record, index) => (
+              <Tooltip title={`Ligne ${index + 1}`}>
+                <Tag color="blue">{index + 1}</Tag>
+              </Tooltip>
+            ), 
             width: "3%" 
         },
         {
             title: 'Province',
-            dataIndex: 'province'
+            dataIndex: 'province',
+            render: (text) => (
+              <div>
+                <EnvironmentOutlined style={{ color: '#52c41a', marginRight: 4 }} />
+                {text}
+              </div>
+            ),
         },
         {
           title: 'Pays',
-          dataIndex: 'pays'
+          dataIndex: 'pays',
+          render: (text) => (
+            <div>
+              <EnvironmentOutlined style={{ color: 'red', marginRight: 4 }} />
+              {text}
+            </div>
+          ),
         }
       ];
 

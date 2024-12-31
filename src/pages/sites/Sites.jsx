@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
+import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
 import { PlusCircleOutlined,EditOutlined,HomeOutlined,TeamOutlined,EnvironmentOutlined,PhoneOutlined,  DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import TypeService from '../../services/type.service';
@@ -41,13 +41,15 @@ const Sites = () => {
 
   const columns = [
     { 
-      title: '#', 
-      dataIndex: 'id', 
-      key: 'id', 
-      render: (text, record, index) => (
-        <span style={{ fontWeight: 'bold' }}>{index + 1}</span>
-      ), 
-      width: "5%",
+        title: '#', 
+        dataIndex: 'id', 
+        key: 'id', 
+        render: (text, record, index) => (
+          <Tooltip title={`Ligne ${index + 1}`}>
+            <Tag color="blue">{index + 1}</Tag>
+          </Tooltip>
+        ), 
+        width: "3%" 
     },
     {
       title: 'Nom site',

@@ -65,7 +65,7 @@ const Carburant = () => {
             <Tag color="blue">{index + 1}</Tag>
           </Tooltip>
         ),
-        width: "4%" 
+        width: "3%" 
       },
       {
         title: 'Immatri.',
