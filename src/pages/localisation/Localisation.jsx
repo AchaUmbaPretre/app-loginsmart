@@ -1,9 +1,12 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import TypeService from '../../services/type.service';
 
 const Localisation = () => {
   const [modalType, setModalType] = useState(null);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const closeAllModals = () => {
     setModalType(null);
@@ -17,6 +20,25 @@ const Localisation = () => {
   const handleAdd = ( idBatiment) =>{
     openModal('add', idBatiment)
   }
+
+  useEffect(()=> {
+    const fetchData = async () =>{
+      try {
+        setLoading(true);
+        const [siteData] = await Promise.all([
+          TypeService.getProvince()
+        ])
+
+        setData(siteData)
+
+      } catch (error) {
+        console.log(error)
+      } finally{
+        setLoading(false)
+      }
+    }
+    fetchData()
+  }, [])
 
     const columns = [
         { 
@@ -33,11 +55,7 @@ const Localisation = () => {
         {
           title: 'Pays',
           dataIndex: 'pays'
-        },
-        {
-          title: 'Actions',
-          dataIndex: 'actions'
-        },
+        }
       ];
 
       const onChange = (pagination, filters, sorter, extra) => {
@@ -83,8 +101,9 @@ const Localisation = () => {
         <div className="chauffeur_bottom">
             <Table 
               columns={columns} 
-              dataSource={[]} 
+              dataSource={data} 
               onChange={onChange} 
+              loading={loading}
             />
         </div>
     </div>
