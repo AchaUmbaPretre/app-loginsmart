@@ -190,8 +190,8 @@ const Chauffeur = () => {
                     separator=">"
                     items={[
                         { title: 'Accueil', href: '/' },
-                        { title: 'Affectation', href: '/affectation' },
-                        { title: 'Congé', href: '/conge' },
+                        { title: 'Affectation', href: '/liste_affectation' },
+                        { title: 'Congé'},
                         { title: 'Chauffeurs' },
                     ]}
                     className="chauffeur_breadcrumb"
