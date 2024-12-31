@@ -103,14 +103,6 @@ const Localisation = () => {
                 <Button icon={<FilterOutlined />} className="chauffeur_filter">
                     Filtres
                 </Button>
-                <Button
-                    className="chauffeur_btn"
-                    type="primary"
-                    icon={<PlusCircleOutlined />}
-                    onClick={handleAdd}
-                >
-                    Nouvelle localisation
-                </Button>
                 </Space>
             </div>
         </div>
