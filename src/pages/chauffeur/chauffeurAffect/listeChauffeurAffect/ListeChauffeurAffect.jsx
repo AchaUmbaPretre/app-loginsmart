@@ -1,8 +1,9 @@
-import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
+import { Breadcrumb, Button, Input, Modal, Space, Table, Tooltip } from 'antd';
 import { PlusCircleOutlined,HomeOutlined,CalendarOutlined,AppstoreAddOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import ChauffeurAffect from '../ChauffeurAffect';
 import affectationService from '../../../../services/affectation.service';
+import moment from 'moment';
 
 const ListeChauffeurAffect = () => {
   const [modalType, setModalType] = useState(null);
@@ -44,48 +45,65 @@ const ListeChauffeurAffect = () => {
   }
 
 
-    const columns = [
-        { 
-            title: '#', 
-            dataIndex: 'id', 
-            key: 'id', 
-            render: (text, record, index) => index + 1, 
-            width: "3%" 
-          },
-        {
-          title: 'Matricule',
-          dataIndex: 'matricule',
-        },
-        {
-          title: 'Nom',
-          dataIndex: 'nom'
-        },
-        {
-          title: 'Prenom',
-          dataIndex: 'prenom'
-        },
-        {
-          title: 'Telephone',
-          dataIndex: 'telephone'
-        },
-        {
-          title: 'Fonction',
-          dataIndex: 'fonction'
-        },
-        {
-          title: 'Affectation',
-          dataIndex: 'affectation'
-        },
-        {
-          title: 'Conges',
-          dataIndex: 'Conges'
-        },
-        {
-          title: 'Actions',
-          dataIndex: 'actions'
-        }
-        
-      ];
+  const columns = [
+    { 
+      title: '#', 
+      dataIndex: 'id', 
+      key: 'id', 
+      render: (text, record, index) => (
+        <span style={{ fontWeight: 'bold' }}>{index + 1}</span>
+      ),
+      width: "5%", 
+    },
+    {
+      title: 'Chauffeur',
+      dataIndex: 'nom_chauffeur',
+      render: (text, record) => (
+        <div>
+          <span style={{ color: '#1890ff' }}>{`${record.prenom_chauffeur}`}</span> - <span style={{ fontWeight: 'bold' }}>{record.nom_chauffeur}</span>
+        </div>
+      ),
+    },
+    {
+      title: 'Nom site',
+      dataIndex: 'nom_site',
+      render: (text) => (
+        <div>
+          <span style={{ color: '#52c41a', fontStyle: 'italic' }}>{text}</span>
+        </div>
+      ),
+    },
+    {
+      title: "Date d'affectation",
+      dataIndex: 'created_at',
+      render: (text) => (
+        <Tooltip title="Date d'affectation">
+          <div>
+            <CalendarOutlined style={{ color: '#fa8c16', marginRight: 8 }} /> 
+            <span>{moment(text).format('DD-MM-yyyy')}</span>
+          </div>
+        </Tooltip>
+      ),
+    },
+    {
+      title: 'Créé par',
+      dataIndex: 'affectation',
+      render: (text, record) => (
+        <div>
+          <span style={{ color: '#722ed1' }}>{record.prenom}</span> - <span style={{ fontWeight: 'bold' }}>{record.nom}</span>
+        </div>
+      ),
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'actions',
+      key: 'actions',
+      render: (text, record) => (
+        <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+        </Space>
+      )
+    }
+  ];
 
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
