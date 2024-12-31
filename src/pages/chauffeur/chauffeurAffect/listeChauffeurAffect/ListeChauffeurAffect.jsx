@@ -87,7 +87,7 @@ const ListeChauffeurAffect = () => {
             <div className="chauffeur_top_right">
                 <Space size="middle">
                 <Input
-                    placeholder="Rechercher un chauffeur"
+                    placeholder="Rechercher..."
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />
