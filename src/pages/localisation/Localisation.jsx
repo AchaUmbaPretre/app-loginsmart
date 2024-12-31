@@ -104,6 +104,7 @@ const Localisation = () => {
               dataSource={data} 
               onChange={onChange} 
               loading={loading}
+              bordered
             />
         </div>
     </div>
