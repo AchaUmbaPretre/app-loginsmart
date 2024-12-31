@@ -74,6 +74,15 @@ const ListeChauffeurAffect = () => {
       ),
     },
     {
+      title: 'Description',
+      dataIndex: 'commentaire',
+      render: (text) => (
+        <div>
+          <span style={{ fontStyle: 'italic' }}>{text}</span>
+        </div>
+      ),
+    },
+    {
       title: "Date d'affectation",
       dataIndex: 'created_at',
       render: (text) => (
