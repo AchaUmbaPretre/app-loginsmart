@@ -121,6 +121,11 @@ const Chauffeur = () => {
       title: 'Affectation',
       dataIndex: 'nom_site',
       key: 'nom_site',
+      render: (text) => (
+        <Tooltip title={`Sexe`}>
+          <Tag color="green">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
       title: 'Congés',
