@@ -1,7 +1,7 @@
 import { Breadcrumb, Button, Input, Popconfirm, Space, Table, Tooltip } from 'antd';
-import { PlusCircleOutlined,EditOutlined,DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined,EditOutlined,HomeOutlined,TeamOutlined,EnvironmentOutlined,PhoneOutlined,  DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
-import ChauffeurService from '../../services/chauffeur.service';
+import TypeService from '../../services/type.service';
 
 const Sites = () => {
   const [modalType, setModalType] = useState(null);
@@ -25,11 +25,11 @@ const Sites = () => {
     const fetchData = async () =>{
       try {
         setLoading(true);
-        const [chauffeurData] = await Promise.all([
-          ChauffeurService.getChauffeur()
+        const [siteData] = await Promise.all([
+          TypeService.getSite()
         ])
 
-        setData(chauffeurData)
+        setData(siteData)
 
       } catch (error) {
         console.log(error)
@@ -43,54 +43,71 @@ const Sites = () => {
       title: '#', 
       dataIndex: 'id', 
       key: 'id', 
-      render: (text, record, index) => index + 1, 
+      render: (text, record, index) => (
+        <span style={{ fontWeight: 'bold' }}>{index + 1}</span>
+      ), 
       width: "5%",
     },
     {
-      title: 'Matricule',
-      dataIndex: 'matricule',
-      key: 'matricule',
-    },
-    {
-      title: 'Nom',
-      dataIndex: 'nom',
-      key: 'nom',
-    },
-    {
-      title: 'Prénom',
-      dataIndex: 'prenom',
-      key: 'prenom',
-    },
-    {
-      title: 'Téléphone',
-      dataIndex: 'telephone',
-      key: 'telephone',
+      title: 'Nom site',
+      dataIndex: 'nom_site',
+      key: 'nom_site',
+      render: (text) => (
+        <div>
+          <HomeOutlined style={{ color: '#1890ff', marginRight: 4 }} />
+          {text}
+        </div>
+      ),
     },
     {
       title: 'Adresse',
-      dataIndex: 'adresse',
+      dataIndex: 'adress',
       key: 'adresse',
+      render: (text) => (
+        <div>
+          <EnvironmentOutlined style={{ color: '#faad14', marginRight: 4 }} />
+          {text}
+        </div>
+      ),
     },
     {
-      title: 'Sexe',
-      dataIndex: 'sexe',
-      key: 'sexe',
+      title: 'Province',
+      dataIndex: 'province',
+      key: 'province',
+      render: (text) => (
+        <div>
+          <TeamOutlined style={{ color: '#722ed1', marginRight: 4 }} />
+          {text}
+        </div>
+      ),
     },
     {
-      title: 'Affectation',
-      dataIndex: 'affectation',
-      key: 'affectation',
+      title: 'Ville',
+      dataIndex: 'ville',
+      key: 'ville',
+      render: (text) => (
+        <div>
+          <EnvironmentOutlined style={{ color: '#52c41a', marginRight: 4 }} />
+          {text}
+        </div>
+      ),
     },
     {
-      title: 'Congés',
-      dataIndex: 'conges',
-      key: 'conges',
+      title: 'Téléphone',
+      dataIndex: 'tel',
+      key: 'tel',
+      render: (text) => (
+        <div>
+          <PhoneOutlined style={{ color: '#eb2f96', marginRight: 4 }} />
+          {text}
+        </div>
+      ),
     },
     {
       title: 'Actions',
       dataIndex: 'actions',
       key: 'actions',
-      width: '10%',
+      width: '15%',
       render: (text, record) => (
         <Space size="middle">
           <Tooltip title="Modifier">
@@ -108,7 +125,8 @@ const Sites = () => {
             <Popconfirm
               title="Êtes-vous sûr de vouloir supprimer ce client ?"
               okText="Oui"
-              cancelText="Non"            >
+              cancelText="Non"
+            >
               <Button
                 icon={<DeleteOutlined />}
                 style={{
@@ -124,6 +142,7 @@ const Sites = () => {
       ),
     },
   ];
+  
 
     const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
