@@ -40,7 +40,15 @@ const TypeService = {
 
     getCatPieces: () => fetchData('/api/type/cat_piece'),
 
-    getEtatMaintenance: () => fetchData('/api/type/etat_maintenance')
+    getEtatMaintenance: () => fetchData('/api/type/etat_maintenance'),
+
+    getSite: () => fetchData('/api/type/sites'),
+
+    getVille: () => fetchData('/api/type/ville'),
+
+    getZone: () => fetchData('/api/type/zone'),
+
+    getProvince: () => fetchData('/api/type/province')
 };
 
 export default TypeService;
