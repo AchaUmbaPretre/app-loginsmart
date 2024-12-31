@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Image, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
-import { PlusCircleOutlined,EditOutlined,DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Breadcrumb, Button, Image, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
+import { PlusCircleOutlined,EditOutlined,EnvironmentOutlined ,DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './chauffeur.scss';
 import { useEffect, useState } from 'react';
 import ChauffeurForm from './chauffeurForm/ChauffeurForm';
@@ -42,12 +42,16 @@ const Chauffeur = () => {
   }, [])
 
   const columns = [
-    { 
-      title: '#', 
-      dataIndex: 'id', 
-      key: 'id', 
-      render: (text, record, index) => index + 1, 
-      width: "5%",
+      { 
+        title: '#', 
+        dataIndex: 'id', 
+        key: 'id', 
+        render: (text, record, index) => (
+          <Tooltip title={`Ligne ${index + 1}`}>
+            <Tag color="blue">{index + 1}</Tag>
+          </Tooltip>
+        ), 
+        width: "3%" 
     },
     {
       title: 'Image',
@@ -71,6 +75,11 @@ const Chauffeur = () => {
       title: 'Matricule',
       dataIndex: 'matricule',
       key: 'matricule',
+      render: (text) => (
+        <Tooltip title={`Matricule`}>
+          <Tag color="blue">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
       title: 'Nom',
@@ -91,11 +100,22 @@ const Chauffeur = () => {
       title: 'Adresse',
       dataIndex: 'adresse',
       key: 'adresse',
+      render: (text) => (
+        <div>
+          <EnvironmentOutlined style={{ color: 'red', marginRight: 4 }} />
+          {text}
+        </div>
+      ),
     },
     {
       title: 'Sexe',
       dataIndex: 'sexe',
       key: 'sexe',
+      render: (text) => (
+        <Tooltip title={`Sexe`}>
+          <Tag color="blue">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
       title: 'Affectation',
@@ -106,6 +126,11 @@ const Chauffeur = () => {
       title: 'Congés',
       dataIndex: 'conges',
       key: 'conges',
+      render: (text) => (
+        <div>
+          {text?? 'Aucun'}
+        </div>
+      )
     },
     {
       title: 'Actions',
