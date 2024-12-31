@@ -107,6 +107,7 @@ const ListeChauffeurAffect = () => {
       title: 'Actions',
       dataIndex: 'actions',
       key: 'actions',
+      width: '10%',
       render: (text, record) => (
         <Space size="middle">
                       <Tooltip title="Modifier" placement="top">
