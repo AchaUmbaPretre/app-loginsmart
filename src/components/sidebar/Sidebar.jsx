@@ -119,6 +119,9 @@ const Sidebar = () => {
             <Item key="/localisation">
               <Link to="/localisation">Localisation</Link>
             </Item>
+            <Item key="/sites">
+              <Link to="/sites">Sites</Link>
+            </Item>
             <Item key="/fournisseur">
               <Link to="/fournisseur">Fournisseurs</Link>
             </Item>

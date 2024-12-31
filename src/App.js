@@ -30,6 +30,7 @@ import ListeConge from './pages/chauffeur/conge/listeConge/ListeConge';
 import ListeChauffeurAffect from './pages/chauffeur/chauffeurAffect/listeChauffeurAffect/ListeChauffeurAffect';
 import Fournisseur from './pages/fournisseur/Fournisseur';
 import Localisation from './pages/localisation/Localisation';
+import Sites from './pages/sites/Sites';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -135,6 +136,10 @@ function App() {
         {
           path: '/localisation',
           element: <PrivateRoute element={Localisation} />
+        },
+        {
+          path: '/sites',
+          element: <PrivateRoute element={Sites} />
         },
         {
           path: '/fournisseur',
