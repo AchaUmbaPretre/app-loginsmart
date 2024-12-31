@@ -1,7 +1,8 @@
-import { Breadcrumb, Button, Input, Popconfirm, Space, Table, Tooltip } from 'antd';
+import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
 import { PlusCircleOutlined,EditOutlined,HomeOutlined,TeamOutlined,EnvironmentOutlined,PhoneOutlined,  DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import TypeService from '../../services/type.service';
+import LocalisationForm from '../localisation/localisationForm/LocalisationForm';
 
 const Sites = () => {
   const [modalType, setModalType] = useState(null);
@@ -179,7 +180,7 @@ const Sites = () => {
                     icon={<PlusCircleOutlined />}
                     onClick={handleAdd}
                 >
-                    Nouveau chauffeur
+                    Nouveau site
                 </Button>
                 </Space>
             </div>
@@ -193,6 +194,17 @@ const Sites = () => {
                 size="small"
             />
         </div>
+
+        <Modal
+          title=""
+          visible={modalType === 'add'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={900}
+          centered
+        >
+          <LocalisationForm/>
+        </Modal>
     </div>
   );
 };

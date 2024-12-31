@@ -1,7 +1,6 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import LocalisationForm from './localisationForm/LocalisationForm';
 
 const Localisation = () => {
   const [modalType, setModalType] = useState(null);
@@ -26,35 +25,15 @@ const Localisation = () => {
             key: 'id', 
             render: (text, record, index) => index + 1, 
             width: "3%" 
-          },
-        {
-          title: 'Code',
-          dataIndex: 'code',
         },
         {
-            title: 'Nom site',
-            dataIndex: 'nom_site'
+            title: 'Province',
+            dataIndex: 'province'
         },
         {
-          title: 'Ville',
-          dataIndex: 'ville',
+          title: 'Pays',
+          dataIndex: 'pays'
         },
-        {
-          title: 'Province',
-          dataIndex: 'province'
-        },
-        {
-          title: 'Zone',
-          dataIndex: 'zone'
-        },
-        {
-          title: 'Adresse',
-          dataIndex: 'adresse'
-        },
-        {
-            title: 'Telephone',
-            dataIndex: 'telephone'
-          },
         {
           title: 'Actions',
           dataIndex: 'actions'
@@ -108,16 +87,6 @@ const Localisation = () => {
               onChange={onChange} 
             />
         </div>
-        <Modal
-          title=""
-          visible={modalType === 'add'}
-          onCancel={closeAllModals}
-          footer={null}
-          width={900}
-          centered
-        >
-          <LocalisationForm/>
-        </Modal>
     </div>
   );
 };
