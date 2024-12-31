@@ -20,7 +20,7 @@ const LocalisationForm = () => {
     <>
         <div className="vehiculeForm">
             <div className="vehicule_row_title">
-                <h2 className="title_h2">Formulaire de localisation</h2>
+                <h2 className="title_h2">Enregistrement d'un site</h2>
             </div>
             <div className="vehiculeForm_wrapper">
                 <Form
