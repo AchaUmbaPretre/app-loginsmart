@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Input, Modal, Space, Table, Tooltip } from 'antd';
-import { PlusCircleOutlined,HomeOutlined,CalendarOutlined,AppstoreAddOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
+import { PlusCircleOutlined,HomeOutlined,EditOutlined,DeleteOutlined, CalendarOutlined,AppstoreAddOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import ChauffeurAffect from '../ChauffeurAffect';
 import affectationService from '../../../../services/affectation.service';
@@ -99,7 +99,43 @@ const ListeChauffeurAffect = () => {
       dataIndex: 'actions',
       key: 'actions',
       render: (text, record) => (
-        <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+        <Space size="middle">
+                      <Tooltip title="Modifier" placement="top">
+              <Button
+                icon={<EditOutlined />}
+                style={{
+                  color: '#fff',
+                  backgroundColor: '#52c41a',
+                  borderColor: '#52c41a',
+                  transition: 'all 0.3s ease',
+                }}
+                aria-label="Modifier"
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#45b22d'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#52c41a'}
+              />
+            </Tooltip>
+    
+            <Tooltip title="Supprimer" placement="top">
+              <Popconfirm
+                title="Êtes-vous sûr de vouloir supprimer ce client ?"
+                okText="Oui"
+                cancelText="Non"
+                onConfirm={() => {}}
+              >
+                <Button
+                  icon={<DeleteOutlined />}
+                  style={{
+                    color: '#fff',
+                    backgroundColor: '#ff4d4f',
+                    borderColor: '#ff4d4f',
+                    transition: 'all 0.3s ease',
+                  }}
+                  aria-label="Supprimer"
+                  onMouseEnter={(e) => e.target.style.backgroundColor = '#e10000'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = '#ff4d4f'}
+                />
+              </Popconfirm>
+            </Tooltip>
         </Space>
       )
     }
@@ -156,6 +192,7 @@ const ListeChauffeurAffect = () => {
                 dataSource={data} 
                 onChange={onChange} 
                 loading={loading}
+                bordered
             />
         </div>
         <Modal
