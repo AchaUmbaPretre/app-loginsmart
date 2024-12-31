@@ -12,6 +12,17 @@ const affectationService = {
         }
     },
 
+    getAffectationHistorique: async () => {
+        try {
+            const res = await api.get('/api/affectation/affectation_historique');
+            return res.data.data
+            
+        } catch (error) {
+            console.error('Erreur lors de la récupération des chauffeurs:', error);
+            throw error;
+        }
+    },
+
     postAffectation: async(formData) => {
         try {
             const res = await api.post('/api/affectation', formData);

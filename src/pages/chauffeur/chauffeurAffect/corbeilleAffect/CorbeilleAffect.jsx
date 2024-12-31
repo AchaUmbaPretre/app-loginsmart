@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tooltip } from 'antd';
-import { HomeOutlined,EditOutlined,DeleteOutlined, CalendarOutlined,AppstoreAddOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { Breadcrumb, Button, Input, Modal, Space, Table, Tag, Tooltip } from 'antd';
+import { HomeOutlined,EditOutlined,DeleteOutlined,PlusOutlined, CalendarOutlined,AppstoreAddOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import ChauffeurAffect from '../ChauffeurAffect';
 import affectationService from '../../../../services/affectation.service';
@@ -24,7 +24,7 @@ const CorbeilleAffect = () => {
             setLoading(true);
 
             const [affectationData] = await Promise.all([
-                affectationService.getAffectation()
+                affectationService.getAffectationHistorique()
             ]);
 
             setData(affectationData);
@@ -39,11 +39,6 @@ const CorbeilleAffect = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  const handleAdd = ( idBatiment) =>{
-    openModal('add', idBatiment)
-  }
-
 
   const columns = [
     { 
@@ -83,6 +78,38 @@ const CorbeilleAffect = () => {
       ),
     },
     {
+        title: "Type d'action",
+        dataIndex: 'type_action',
+        render: (text) => {
+          let icon;
+          let color;
+    
+          switch (text) {
+            case 'ajout':
+              icon = <PlusOutlined />;
+              color = 'green';
+              break;
+            case 'modification':
+              icon = <EditOutlined />;
+              color = 'blue';
+              break;
+            case 'suppression':
+              icon = <DeleteOutlined />;
+              color = 'red';
+              break;
+            default:
+              icon = null;
+              color = 'default';
+          }
+    
+          return (
+            <Tag color={color} icon={icon}>
+              {text}
+            </Tag>
+          );
+        },
+      },
+    {
       title: "Date d'affectation",
       dataIndex: 'created_at',
       render: (text) => (
@@ -102,52 +129,6 @@ const CorbeilleAffect = () => {
           <span style={{ color: '#722ed1' }}>{record.prenom}</span> - <span style={{ fontWeight: 'bold' }}>{record.nom}</span>
         </div>
       ),
-    },
-    {
-      title: 'Actions',
-      dataIndex: 'actions',
-      key: 'actions',
-      width: '10%',
-      render: (text, record) => (
-        <Space size="middle">
-                      <Tooltip title="Modifier" placement="top">
-              <Button
-                icon={<EditOutlined />}
-                style={{
-                  color: '#fff',
-                  backgroundColor: '#52c41a',
-                  borderColor: '#52c41a',
-                  transition: 'all 0.3s ease',
-                }}
-                aria-label="Modifier"
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#45b22d'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#52c41a'}
-              />
-            </Tooltip>
-    
-            <Tooltip title="Supprimer" placement="top">
-              <Popconfirm
-                title="Êtes-vous sûr de vouloir supprimer ce client ?"
-                okText="Oui"
-                cancelText="Non"
-                onConfirm={() => {}}
-              >
-                <Button
-                  icon={<DeleteOutlined />}
-                  style={{
-                    color: '#fff',
-                    backgroundColor: '#ff4d4f',
-                    borderColor: '#ff4d4f',
-                    transition: 'all 0.3s ease',
-                  }}
-                  aria-label="Supprimer"
-                  onMouseEnter={(e) => e.target.style.backgroundColor = '#e10000'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = '#ff4d4f'}
-                />
-              </Popconfirm>
-            </Tooltip>
-        </Space>
-      )
     }
   ];
 
@@ -159,21 +140,13 @@ const CorbeilleAffect = () => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">Liste des historiques d'affectations</h2>
+                <h2 className="chauffeur_h2">Liste des historiques d'affectation</h2>
                 <Breadcrumb separator=">" className="chauffeur_breadcrumb">
                   <Breadcrumb.Item href="/">
                       <HomeOutlined style={{ marginRight: '8px' }} />
                       Accueil
                   </Breadcrumb.Item>
-                  <Breadcrumb.Item href="/conge">
-                      <CalendarOutlined style={{ marginRight: '8px' }} />
-                      Congé
-                  </Breadcrumb.Item>
-                  <Breadcrumb.Item>
-                      <DeleteOutlined style={{ marginRight: '8px' }} />
-                      corbeille
-                  </Breadcrumb.Item>
-                  <Breadcrumb.Item>
+                  <Breadcrumb.Item href='liste_affectation'>
                       <AppstoreAddOutlined style={{ marginRight: '8px' }} />
                       Affectation
                   </Breadcrumb.Item>
