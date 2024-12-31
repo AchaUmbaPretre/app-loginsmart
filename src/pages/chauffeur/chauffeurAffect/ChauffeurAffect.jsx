@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
+import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider, message } from 'antd';
 import { SendOutlined } from '@ant-design/icons';
 import TypeService from '../../../services/type.service';
 import ChauffeurService from '../../../services/chauffeur.service';
 const { Option } = Select;
 
 
-const ChauffeurAffect = () => {
+const ChauffeurAffect = ({closeModal}) => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [site, setSite] = useState([]);
@@ -24,7 +24,6 @@ const ChauffeurAffect = () => {
             setSite(siteData);
             setChauffeur(chauffeurData)
     
-    
           } catch (error) {
             console.error(error);
           } finally {
@@ -34,8 +33,21 @@ const ChauffeurAffect = () => {
         fetchData();
       }, [])
 
-    const onFinish = () => {
+    const onFinish = async(values) => {
 
+        try {
+            message.loading({ content: 'En cours...', key: 'submit' });
+
+            await ChauffeurService.postChauffeur(values);
+
+            message.success({ content: 'Affectation a été ajoutée avec succès!', key: 'submit' });
+
+            form.resetFields();
+            closeModal()
+        } catch (error) {
+            message.error({ content: 'Une erreur est survenue.', key: 'submit' });
+            console.error('Erreur lors de l\'ajout d affectation:', error);
+        }
     }
 
   return (
@@ -94,9 +106,9 @@ const ChauffeurAffect = () => {
                                 {loadingData ? <Skeleton.Input active={true} /> : 
                                 <Select
                                     showSearch
-                                    options={site.map((item) => ({
+                                    options={chauffeur.map((item) => ({
                                             value: item.id_chauffeur                                           ,
-                                            label: `${item.nom} - ${item.prenom}`,
+                                            label: `${item.prenom} - ${item.nom}`,
                                     }))}
                                     placeholder="Sélectionnez un chauffeur..."
                                     optionFilterProp="label"
