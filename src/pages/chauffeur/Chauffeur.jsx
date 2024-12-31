@@ -99,8 +99,8 @@ const Chauffeur = () => {
     },
     {
       title: 'Affectation',
-      dataIndex: 'affectation',
-      key: 'affectation',
+      dataIndex: 'nom_site',
+      key: 'nom_site',
     },
     {
       title: 'Congés',
