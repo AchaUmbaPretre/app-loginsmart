@@ -1,10 +1,13 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
 import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FournisseurForm from './fournisseurForm/FournisseurForm';
+import TypeService from '../../services/type.service';
 
 const Fournisseur = () => {
   const [modalType, setModalType] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
   const scroll = { x: 400 };
 
   const closeAllModals = () => {
@@ -54,6 +57,25 @@ const Fournisseur = () => {
         },
       ];
 
+      useEffect(()=> {
+        const fetchData = async () =>{
+          try {
+            setLoading(true);
+            const [fournisseurData] = await Promise.all([
+              TypeService.getFournisseur()
+            ])
+    
+            setData(fournisseurData)
+    
+          } catch (error) {
+            console.log(error)
+          } finally {
+            setLoading(false)
+          }
+        }
+        fetchData()
+      }, [])
+
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
       };
@@ -97,11 +119,12 @@ const Fournisseur = () => {
         <div className="chauffeur_bottom">
             <Table 
               columns={columns} 
-              dataSource={[]} 
+              dataSource={data} 
               onChange={onChange} 
               scroll={scroll}
               bordered
               size="small"
+              loading={loading}
             />
         </div>
         <Modal

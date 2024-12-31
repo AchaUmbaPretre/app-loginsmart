@@ -96,7 +96,7 @@ const Localisation = () => {
             <div className="chauffeur_top_right">
                 <Space size="middle">
                 <Input
-                    placeholder="Rechercher un véhicule..."
+                    placeholder="Rechercher ..."
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />

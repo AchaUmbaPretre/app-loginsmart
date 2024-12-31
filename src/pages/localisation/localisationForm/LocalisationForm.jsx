@@ -1,16 +1,11 @@
 import { useState } from 'react';
-import { Button, Form, Upload, Input, Row, Col, Select, DatePicker, Skeleton, Divider, InputNumber, Radio, Space } from 'antd';
+import { Button, Form, Input, Row, Col, Select, Skeleton, Space } from 'antd';
 const { Option } = Select;
 
 const LocalisationForm = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-
-
-    const handleYearChange = (date, dateString) => {
-        console.log("Selected year:", dateString);
-      };
 
     const onFinish = () => {
 
