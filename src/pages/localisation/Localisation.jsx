@@ -69,13 +69,13 @@ const Localisation = () => {
     <div className="chauffeur">
         <div className="chauffeur_top">
             <div className="chauffeur_top_left">
-                <h2 className="chauffeur_h2">Liste des localisations</h2>
+                <h2 className="chauffeur_h2">Liste des provinces</h2>
                 <Breadcrumb
                 separator=">"
                 items={[
                     { title: 'Accueil', href: '/' },
                     { title: 'Gestion', href: '/gestion' },
-                    { title: 'Localisation' },
+                    { title: 'Province' },
                 ]}
                 className="chauffeur_breadcrumb"
                 />
