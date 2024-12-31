@@ -107,7 +107,7 @@ const Sites = () => {
       title: 'Actions',
       dataIndex: 'actions',
       key: 'actions',
-      width: '15%',
+      width: '10%',
       render: (text, record) => (
         <Space size="middle">
           <Tooltip title="Modifier">
