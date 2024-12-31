@@ -1,12 +1,38 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
 import { SendOutlined } from '@ant-design/icons';
+import TypeService from '../../../services/type.service';
+import ChauffeurService from '../../../services/chauffeur.service';
 const { Option } = Select;
 
 
 const ChauffeurAffect = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
+    const [site, setSite] = useState([]);
+    const [chauffeur, setChauffeur] = useState([])
+  
+
+    useEffect(() => {
+        const fetchData = async() => {
+          try {
+            setLoadingData(true);
+    
+            const siteData = await TypeService.getSite();
+            const chauffeurData = await ChauffeurService.getChauffeur()
+    
+            setSite(siteData);
+            setChauffeur(chauffeurData)
+    
+    
+          } catch (error) {
+            console.error(error);
+          } finally {
+            setLoadingData(false);
+        }
+        }
+        fetchData();
+      }, [])
 
     const onFinish = () => {
 
@@ -36,15 +62,20 @@ const ChauffeurAffect = () => {
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Veuillez fournir un commentaire...',
+                                        message: 'Veuillez fournir un site...',
                                     }
                                 ]}
                             >
                                 {loadingData ? <Skeleton.Input active={true} /> : 
-                                <Select placeholder="Sélectionnez un site">
-                                    <Option value="1">Site 1</Option>
-                                    <Option value="2">Site 2</Option>
-                                </Select>
+                                <Select
+                                    showSearch
+                                    options={site.map((item) => ({
+                                            value: item.id_site                                           ,
+                                            label: item.nom_site,
+                                    }))}
+                                    placeholder="Sélectionnez un site..."
+                                    optionFilterProp="label"
+                                />
                                 }
                             </Form.Item>
                         </Col>
@@ -61,10 +92,16 @@ const ChauffeurAffect = () => {
                                 ]}
                             >
                                 {loadingData ? <Skeleton.Input active={true} /> : 
-                                <Select placeholder="Choisir un chauffeur">
-                                    <Option value="1">Chauffeur 1</Option>
-                                    <Option value="2">Chauffeur 2</Option>
-                                </Select> }
+                                <Select
+                                    showSearch
+                                    options={site.map((item) => ({
+                                            value: item.id_chauffeur                                           ,
+                                            label: `${item.nom} - ${item.prenom}`,
+                                    }))}
+                                    placeholder="Sélectionnez un chauffeur..."
+                                    optionFilterProp="label"
+                                />
+                                }
                             </Form.Item>
                         </Col>
 
