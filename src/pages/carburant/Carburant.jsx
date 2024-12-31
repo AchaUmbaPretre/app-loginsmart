@@ -1,5 +1,5 @@
 import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
-import { PlusCircleOutlined,AppstoreAddOutlined,IdcardOutlined,FireOutlined,AppstoreOutlined, CalendarOutlined, UserOutlined, CarOutlined, EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined,HomeOutlined,FireOutlined,AppstoreOutlined, CalendarOutlined, UserOutlined, CarOutlined, EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './carburant.scss';
 import { useEffect, useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
@@ -223,9 +223,9 @@ const Carburant = () => {
                 <Breadcrumb
                     separator=">"
                     items={[
-                        { title: 'Accueil', href: '/' },
-                        { title: 'Consommation', href: '/consommation_carburant' },
-                        { title: 'Carburant' },
+                        { title: <><HomeOutlined /> Accueil</>, href: '/' },
+                        { title: <><FireOutlined /> Consommation</>, href: '/consommation_carburant' },
+                        { title: <>Carburant</> },
                     ]}
                     className="chauffeur_breadcrumb"
                 />
