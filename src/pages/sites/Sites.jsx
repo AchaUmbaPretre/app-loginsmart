@@ -76,7 +76,7 @@ const Sites = () => {
       key: 'province',
       render: (text) => (
         <div>
-          <TeamOutlined style={{ color: '#722ed1', marginRight: 4 }} />
+          <EnvironmentOutlined style={{ color: 'red', marginRight: 4 }} />
           {text}
         </div>
       ),
