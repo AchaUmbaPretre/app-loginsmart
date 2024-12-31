@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './carburantTabInfo.scss'
-import { Divider, Table } from 'antd';
+import { Divider, Table, Tag, Tooltip } from 'antd';
 
 
 const CarburantTabInfo = () => {
@@ -15,13 +15,21 @@ const CarburantTabInfo = () => {
       title: '#', 
       dataIndex: 'id', 
       key: 'id', 
-      render: (text, record, index) => index + 1, 
+      render: (text, record, index) => (
+        <Tooltip title={`Ligne ${index + 1}`}>
+          <Tag color="blue">{index + 1}</Tag>
+        </Tooltip>
+      ),
       width: "3%" 
     },
     {
       title: 'Mes véhicules',
       dataIndex: 'vehicules',
-      className: 'vehicule-column',
+      render: (text) => (
+        <Tooltip title={`vehicule`}>
+          <Tag color="green">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
       title: 'Plein',
@@ -105,7 +113,11 @@ const CarburantTabInfo = () => {
       title: '#', 
       dataIndex: 'id', 
       key: 'id', 
-      render: (text, record, index) => index + 1, 
+      render: (text, record, index) => (
+        <Tooltip title={`Ligne ${index + 1}`}>
+          <Tag color="blue">{index + 1}</Tag>
+        </Tooltip>
+      ),
       width: "3%" 
     },
     {
