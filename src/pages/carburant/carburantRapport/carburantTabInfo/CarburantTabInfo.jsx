@@ -133,7 +133,7 @@ const CarburantTabInfo = () => {
     {
       title: (
         <>
-          <FireOutlined style={{ color: '#ffec3d' }} /> Type de carburant
+          <FireOutlined style={{ color: '#ffec3d' }} /> Carburant
         </>
       ),
       dataIndex: 'nom_type_carburant',
@@ -209,7 +209,7 @@ const CarburantTabInfo = () => {
     {
       title: (
         <>
-          <FireOutlined style={{ color: '#ffec3d' }} /> Type de carburant
+          <FireOutlined style={{ color: '#ffec3d' }} />Carburant
         </>
       ),
       dataIndex: 'nom_type_carburant',
