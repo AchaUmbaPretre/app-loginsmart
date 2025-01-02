@@ -52,47 +52,41 @@ const CarburantTabDetailSites = () => {
       width: "4%",
     },
     {
-      title: 'Immatriculation',
-      dataIndex: 'immatriculation',
-      key: 'immatriculation',
+      title: 'Nom site',
+      dataIndex: 'nom_site',
+      key: 'nom_site',
       render: (text) => (
         <div>
-          <CarOutlined style={{ color: "#1890ff", marginRight: "8px" }} />
           {text}
         </div>
       ),
-      ...getColumnSearchProps('immatriculation'),
+      ...getColumnSearchProps('nom_site'),
 
     },
     {
-      title: 'Marque',
-      dataIndex: 'nom_marque',
-      key: 'nom_marque',
+      title: 'Province',
+      dataIndex: 'province',
+      key: 'province',
       render: (text) => (
         <div>
-          <DashboardOutlined style={{ color: "#faad14", marginRight: "8px" }} />
           {text}
         </div>
-      ),
-      ...getColumnSearchProps('immatriculation'),
+      )
     },
     {
-      title: 'Modele',
-      dataIndex: 'modele',
-      key: 'modele',
+      title: 'Zone',
+      dataIndex: 'zone',
+      key: 'zone',
       render: (text) => (
         <div>
-          <CheckCircleOutlined
-            style={{ color: text ? "#52c41a" : "#f5222d", marginRight: "8px" }}
-          />
           {text || "Aucune"}
         </div>
       ),
     },
     {
-      title: 'Carburant',
-      dataIndex: 'nom_type_carburant',
-      key: 'nom_type_carburant',
+      title: 'Vehicules',
+      dataIndex: 'vehicules',
+      key: 'vehicules',
       render: (text) => (
         <div>
           <FireOutlined style={{ color: "#ff4d4f", marginRight: "8px" }} />
@@ -157,7 +151,7 @@ const CarburantTabDetailSites = () => {
           <Button className='btn' type='primary' icon={<SendOutlined />}>Compare la conso.</Button>
         </div>
         <div className="CarburantTabDetail-wrapper">
-          <Divider>Détails pour chaque véhicule</Divider>
+          <Divider>Détails pour chaque site</Divider>
           <Table 
             dataSource={data} 
             columns={columns} 
