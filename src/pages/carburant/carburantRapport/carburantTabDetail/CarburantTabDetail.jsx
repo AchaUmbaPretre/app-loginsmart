@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Divider, Space, Table, Tag } from 'antd';
+import { Button, Divider, Table } from 'antd';
 import './carburantTabDetail.scss'
 import { SendOutlined } from '@ant-design/icons';
 import carburantService from '../../../../services/carburant.service';
