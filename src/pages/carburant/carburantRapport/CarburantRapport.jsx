@@ -10,7 +10,7 @@ import {RadioControle} from '../../../utils/radioControle';
 const CarburantRapport = () => {
 
   const [filters, setFilters] = useState({
-    spectre: 1,
+    spectre: 'siege_kin',
     par: 1,
     jours: '360jours',
     statut: 1,
@@ -37,8 +37,8 @@ const CarburantRapport = () => {
                         label="Spectre"
                         value={filters.spectre}
                         options={[
-                            { value: 1, label: 'Mes sites' },
-                            { value: 2, label: 'Siège Kin' },
+                            { value: 'sites', label: 'Mes sites' },
+                            { value: 'siege_kin', label: 'Siège Kin' },
                             ]}
                         onChange={(e) => handleFilterChange('spectre', e.target.value)}
                     />  
