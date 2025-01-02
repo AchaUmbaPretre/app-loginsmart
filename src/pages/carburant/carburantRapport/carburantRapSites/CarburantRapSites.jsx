@@ -112,7 +112,11 @@ const CarburantRapSites = () => {
       ),
     },
     {
-      title: 'Km',
+      title: (
+        <>
+          <DashboardOutlined style={{ color: "#eb2f96" }} /> Km
+        </>
+      ),
       dataIndex: 'total_kilometrage',
       key: 'total_kilometrage',
       render: (text) => (
