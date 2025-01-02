@@ -65,15 +65,7 @@ const CarburantTabInfo = () => {
       vehicule: 15,
       litre: 45,
       km: 500,
-    },
-    {
-      key: '3',
-      vehicules: 'Voiture 3',
-      plein: 60,
-      vehicule: 30,
-      litre: 50,
-      km: 800,
-    },
+    }
   ];
 
   const columns2 = [
