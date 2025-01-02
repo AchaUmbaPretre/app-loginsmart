@@ -97,15 +97,26 @@ const Carburant = () => {
       {
         title: 'Date',
         dataIndex: 'date_plein',
+        sorter: {
+          compare: (a, b) => new Date(a.date_plein) - new Date(b.date_plein),  // Comparaison de dates via la conversion en Date
+          multiple: 1,
+        },
         render: text => (
           <Tooltip title="Date du plein">
-            <div><CalendarOutlined style={{ color: '#fa8c16' }} /> {moment(text).format('DD-MM-yyyy')}</div>
+            <div>
+              <CalendarOutlined style={{ color: '#fa8c16' }} />
+              {moment(text).format('DD-MM-YYYY')}  {/* Correction du format de l'année avec 'YYYY' */}
+            </div>
           </Tooltip>
         )
-      },
+      },      
       {
         title: 'Kilometrage',
         dataIndex: 'kilometrage',
+        sorter: {
+          compare: (a, b) => a.kilometrage - b.kilometrage,
+          multiple: 1,
+        },
         render: text => (
           <Tooltip title="Kilométrage">
             <span><AppstoreOutlined style={{ color: '#52c41a' }}/> {text} km</span>
