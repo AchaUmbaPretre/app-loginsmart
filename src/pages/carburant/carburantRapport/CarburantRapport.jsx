@@ -1,36 +1,28 @@
 import { useState } from 'react';
 import './carburantRapport.scss'
-import { Radio } from 'antd';
 import CarburantTabInfo from './carburantTabInfo/CarburantTabInfo';
 import CarburantTabDetail from './carburantTabDetail/CarburantTabDetail';
 import { Divider } from 'antd';
 import RapportLineMensuel from '../../../components/rapportLineMensuel/RapportLineMensuel';
 import RapportPieMensuel from '../../../components/rapportPieMensuel/RapportPieMensuel';
+import {RadioControle} from '../../../utils/radioControle';
 
 const CarburantRapport = () => {
-    const [value, setValue] = useState('360jours');
-    const [spectre, setSpectre] = useState(1)
-    const [par, setPar] = useState(1)
-    const [statut, setStatut] = useState(1)
 
+  const [filters, setFilters] = useState({
+    spectre: 1,
+    par: 1,
+    jours: '360jours',
+    statut: 1,
+  });
 
+  const handleFilterChange = (key, value) => {
+    setFilters((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
 
-    const onChange = (e) => {
-        console.log('radio checked', e.target.value);
-        setValue(e.target.value);
-    };
-
-    const onChangeSpectre = (e) => {
-        console.log(e.target.value)
-    }
-
-    const onChangePar = (e) => {
-        console.log(e.target.value)
-    }
-
-    const onChangeStatut = (e) => {
-        console.log(e.target.value)
-    }
 
   return (
     <>
@@ -41,41 +33,49 @@ const CarburantRapport = () => {
                 </div>
                 <div className="carburantRapport_top">
 
-                    <div className="carburant_control">
-                        <label htmlFor="" className="carburant_label">Spectre</label>
-                        <Radio.Group size="small" onChange={onChangeSpectre} className='carburant_radio' >
-                            <Radio value={1} className='carburant_radio_txt'>Mes sites</Radio>
-                            <Radio value={2} className='carburant_radio_txt'>Siege kin</Radio>
-                        </Radio.Group>
-                    </div>
+                    <RadioControle
+                        label="Spectre"
+                        value={filters.spectre}
+                        options={[
+                            { value: 1, label: 'Mes sites' },
+                            { value: 2, label: 'Siège Kin' },
+                            ]}
+                        onChange={(e) => handleFilterChange('spectre', e.target.value)}
+                    />  
 
-                    <div className="carburant_control">
-                        <label htmlFor="" className="carburant_label">Par</label>
-                        <Radio.Group onChange={onChangePar} className='carburant_radio'>
-                            <Radio value={1} className='carburant_radio_txt'>Sites</Radio>
-                            <Radio value={2} className='carburant_radio_txt'>Vehicule</Radio>
-                        </Radio.Group>
-                    </div>
+                    <RadioControle
+                        label="Par"
+                        value={filters.par}
+                        options={[
+                        { value: 1, label: 'Sites' },
+                        { value: 2, label: 'Véhicule' },
+                        ]}
+                        onChange={(e) => handleFilterChange('par', e.target.value)}
+                    />
 
-                    <div className="carburant_control">
-                        <label htmlFor="" className="carburant_label">Nombre du jours</label>
-                        <Radio.Group onChange={onChange} className='carburant_radio'>
-                            <Radio value={'7jours'} className='carburant_radio_txt'>7 jours</Radio>
-                            <Radio value={'30jours'} className='carburant_radio_txt'>30 jours</Radio>
-                            <Radio value={'90jours'} className='carburant_radio_txt'>90 jours</Radio>
-                            <Radio value={'180jours'} className='carburant_radio_txt'>180 jours</Radio>
-                            <Radio value={'360jours'} className='carburant_radio_txt'>360 jours</Radio>
-                        </Radio.Group>
-                    </div>
+                    <RadioControle
+                        label="Nombre de jours"
+                        value={filters.jours}
+                        options={[
+                        { value: '7jours', label: '7 jours' },
+                        { value: '30jours', label: '30 jours' },
+                        { value: '90jours', label: '90 jours' },
+                        { value: '180jours', label: '180 jours' },
+                        { value: '360jours', label: '360 jours' },
+                        ]}
+                        onChange={(e) => handleFilterChange('jours', e.target.value)}
+                    />
 
-                    <div className="carburant_control">
-                        <label htmlFor="" className="carburant_label">Selection status</label>
-                        <Radio.Group onChange={onChangeStatut} className='carburant_radio'>
-                            <Radio value={1} className='carburant_radio_txt'>Litres</Radio>
-                            <Radio value={2} className='carburant_radio_txt'>Option</Radio>
-                            <Radio value={3} className='carburant_radio_txt'>Vehicules</Radio>
-                        </Radio.Group>
-                    </div>
+                    <RadioControle
+                        label="Sélection statut"
+                        value={filters.statut}
+                        options={[
+                        { value: 1, label: 'Litres' },
+                        { value: 2, label: 'Option' },
+                        { value: 3, label: 'Véhicules' },
+                        ]}
+                        onChange={(e) => handleFilterChange('statut', e.target.value)}
+                    />
 
                 </div>
                 <div className="carburantRapport_center">
