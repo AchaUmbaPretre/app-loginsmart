@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './carburantTabInfo.scss'
-import { EnvironmentOutlined,CarOutlined,ArrowRightOutline,DashboardOutlined,ArrowRightOutlined   } from '@ant-design/icons';
+import { EnvironmentOutlined,CarOutlined,FireOutlined,DashboardOutlined,ArrowRightOutlined   } from '@ant-design/icons';
 import { Divider, Table, Tag, Tooltip } from 'antd';
 import carburantService from '../../../../services/carburant.service';
 
@@ -133,7 +133,7 @@ const CarburantTabInfo = () => {
     {
       title: (
         <>
-          <EnvironmentOutlined style={{ color: "#52c41a" }} /> SIEGE KIN
+          <FireOutlined style={{ color: '#ffec3d' }} /> Type de carburant
         </>
       ),
       dataIndex: 'nom_type_carburant',
@@ -195,33 +195,64 @@ const CarburantTabInfo = () => {
 
 
   const columns3 = [
-    { 
-      title: '#', 
-      dataIndex: 'id', 
-      key: 'id', 
+    {
+      title: '#',
+      dataIndex: 'id',
+      key: 'id',
       render: (text, record, index) => (
         <Tooltip title={`Ligne ${index + 1}`}>
           <Tag color="blue">{index + 1}</Tag>
         </Tooltip>
       ),
-      width: "3%" 
+      width: "3%"
     },
     {
-      title: 'Mes Vehicules',
-      dataIndex: 'name',
-      className: 'vehicule-column'
+      title: (
+        <>
+          <FireOutlined style={{ color: '#ffec3d' }} /> Type de carburant
+        </>
+      ),
+      dataIndex: 'nom_type_carburant',
+      render: (text) => (
+        <Tooltip title="Nom du site">
+          <Tag color="green">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
       title: 'Plein',
-      dataIndex: 'plein',
+      dataIndex: 'total_pleins',
+      render: (text) => (
+        <Tooltip title="Nombre total de pleins">
+          <Tag color="gold">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
-      title: 'Vehicules',
-      dataIndex: 'vehicules',
+      title: (
+        <>
+          <CarOutlined style={{ color: "#1890ff" }} /> Véhicule
+        </>
+      ),
+      dataIndex: 'nbre_vehicule',
+      render: (text) => (
+        <Tooltip title="Nombre total de pleins">
+          <Tag color="gold">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
-      title: 'Litre',
-      dataIndex: 'vehicules',
+      title: (
+        <>
+          <ArrowRightOutlined style={{ color: "#722ed1" }} /> Litres
+        </>
+      ),
+      dataIndex: 'total_litres',
+      render: (text) => (
+        <Tooltip title="Quantité totale en litres">
+          <Tag color="purple">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
       title: (
@@ -229,7 +260,12 @@ const CarburantTabInfo = () => {
           <DashboardOutlined style={{ color: "#eb2f96" }} /> Km
         </>
       ),
-      dataIndex: 'km',
+      dataIndex: 'total_kilometrage',
+      render: (text) => (
+        <Tooltip title="Kilométrage total">
+          <Tag color="magenta">{text}</Tag>
+        </Tooltip>
+      )
     }
   ];
   
@@ -297,9 +333,11 @@ const CarburantTabInfo = () => {
 
                 </div>
                 <div className="carburantTabInfo-center">
+                  <Divider>SIEGE KIN</Divider>
                   <Table columns={columns2} dataSource={typeSiegeKin} size="small" rowClassName={rowClassName} />
                 </div>
                 <div className="carburantTabInfo-bottom">
+                <Divider>Autres sites</Divider>
                   <Table columns={columns3} dataSource={typeAutres} size="small" rowClassName={rowClassName} />
                 </div>
             </div>
