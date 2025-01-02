@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Checkbox, Divider, Table, Tag, Tooltip } from 'antd';
-import './carburantTabDetail.scss'
-import { CarOutlined,SendOutlined,DashboardOutlined, FireOutlined, OilOutlined, CheckCircleOutlined } from "@ant-design/icons";
+import { SendOutlined,DashboardOutlined, FireOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import carburantService from '../../../../services/carburant.service';
 import { useSearchTableau } from '../../../../hook/getColumnSearchProps';
 

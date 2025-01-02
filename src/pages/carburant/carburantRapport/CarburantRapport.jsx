@@ -6,6 +6,7 @@ import { Divider } from 'antd';
 import RapportLineMensuel from '../../../components/rapportLineMensuel/RapportLineMensuel';
 import RapportPieMensuel from '../../../components/rapportPieMensuel/RapportPieMensuel';
 import {RadioControle} from '../../../utils/radioControle';
+import CarburantTabDetailSites from './carburantTabDetailSites/CarburantTabDetailSites';
 
 const CarburantRapport = () => {
 
@@ -83,7 +84,12 @@ const CarburantRapport = () => {
                         <CarburantTabInfo/>
                     </div>
                     <div className="carburantRapport_right">
+                    { filters.spectre ==='siege_kin' 
+                        ? 
                         <CarburantTabDetail/>
+                        :
+                        <CarburantTabDetailSites/>
+                    }
                     </div>
                     .
                 </div>
