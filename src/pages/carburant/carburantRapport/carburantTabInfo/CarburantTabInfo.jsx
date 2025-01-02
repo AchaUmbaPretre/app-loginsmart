@@ -123,7 +123,11 @@ const CarburantTabInfo = () => {
       width: "3%" ,
     },
     {
-      title: 'SIEGE KIN',
+      title: (
+        <>
+          <EnvironmentOutlined style={{ color: "#52c41a" }} /> SIEGE KIN
+        </>
+      ),
       dataIndex: 'vehicules',
       className: 'vehicule-column'
     },
@@ -132,15 +136,27 @@ const CarburantTabInfo = () => {
       dataIndex: 'plein',
     },
     {
-      title: 'Vehicules',
+      title: (
+        <>
+          <CarOutlined style={{ color: "#1890ff" }} /> Véhicule
+        </>
+      ),
       dataIndex: 'vehicules',
     },
     {
-      title: 'Litre',
+      title: (
+        <>
+          <ArrowRightOutlined style={{ color: "#722ed1" }} /> Litres
+        </>
+      ),
       dataIndex: 'vehicules',
     },
     {
-      title: 'Km',
+      title: (
+        <>
+          <DashboardOutlined style={{ color: "#eb2f96" }} /> Km
+        </>
+      ),
       dataIndex: 'km',
     }
   ];
