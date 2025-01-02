@@ -102,6 +102,26 @@ const carburantService = {
             throw error;
         }
     },
+
+    getCarburantTypeCarburantSiegeKin: async () => {
+        try {
+            const response = await api.get('/api/carburant/rapport_carburant_siege_kin');
+            return response.data.data;
+        } catch (error) {
+            console.error('Erreur lors de la récupération des carburants:', error);
+            throw error;
+        }
+    },
+
+    getCarburantTypeCarburantSiegeAutres: async () => {
+        try {
+            const response = await api.get('/api/carburant/rapport_carburant_siege_Autres');
+            return response.data.data;
+        } catch (error) {
+            console.error('Erreur lors de la récupération des carburants:', error);
+            throw error;
+        }
+    },
 };
 
 export default carburantService;
