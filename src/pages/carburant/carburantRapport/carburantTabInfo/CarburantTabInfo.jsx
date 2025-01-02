@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './carburantTabInfo.scss'
+import { EnvironmentOutlined,CarOutlined,ArrowRightOutline,DashboardOutlined,ArrowRightOutlined   } from '@ant-design/icons';
 import { Divider, Table, Tag, Tooltip } from 'antd';
 import carburantService from '../../../../services/carburant.service';
 
@@ -35,41 +36,81 @@ const CarburantTabInfo = () => {
 
 
   const columns = [
-    { 
-      title: '#', 
-      dataIndex: 'id', 
-      key: 'id', 
+    {
+      title: '#',
+      dataIndex: 'id',
+      key: 'id',
       render: (text, record, index) => (
         <Tooltip title={`Ligne ${index + 1}`}>
           <Tag color="blue">{index + 1}</Tag>
         </Tooltip>
       ),
-      width: "3%" 
+      width: "3%"
     },
     {
-      title: 'Mes véhicules',
-      dataIndex: 'vehicules',
+      title: (
+        <>
+          <EnvironmentOutlined style={{ color: "#52c41a" }} /> Mes Sites
+        </>
+      ),
+      dataIndex: 'nom_site',
       render: (text) => (
-        <Tooltip title={`vehicule`}>
+        <Tooltip title="Nom du site">
           <Tag color="green">{text}</Tag>
         </Tooltip>
       )
     },
     {
-      title: 'Plein',
-      dataIndex: 'plein',
+      title: (
+        <>
+           Plein
+        </>
+      ),
+      dataIndex: 'total_pleins',
+      render: (text) => (
+        <Tooltip title="Nombre total de pleins">
+          <Tag color="gold">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
-      title: 'Vehicule',
-      dataIndex: 'vehicule',
+      title: (
+        <>
+          <CarOutlined style={{ color: "#1890ff" }} /> Véhicule
+        </>
+      ),
+      dataIndex: 'nbre_vehicule',
+      render: (text) => (
+        <Tooltip title="Nombre de véhicules">
+          <Tag color="blue">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
-      title: 'Litre',
-      dataIndex: 'litre',
+      title: (
+        <>
+          <ArrowRightOutlined style={{ color: "#722ed1" }} /> Litres
+        </>
+      ),
+      dataIndex: 'total_litres',
+      render: (text) => (
+        <Tooltip title="Quantité totale en litres">
+          <Tag color="purple">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
-      title: 'Km',
-      dataIndex: 'km',
+      title: (
+        <>
+          <DashboardOutlined style={{ color: "#eb2f96" }} /> Km
+        </>
+      ),
+      dataIndex: 'total_kilometrage',
+      render: (text) => (
+        <Tooltip title="Kilométrage total">
+          <Tag color="magenta">{text}</Tag>
+        </Tooltip>
+      )
     },
   ];
 
@@ -166,11 +207,11 @@ const CarburantTabInfo = () => {
                       let totalLitre = 0;
                       let totalKm = 0
 
-                      pageData.forEach(({ plein, vehicule, litre, km }) => {
-                        totalPlein += plein;
-                        totalVehicule += vehicule;
-                        totalLitre += litre;
-                        totalKm += km;
+                      pageData.forEach(({ total_pleins, nbre_vehicule, total_litres, total_kilometrage }) => {
+                        totalPlein += total_pleins;
+                        totalVehicule += nbre_vehicule;
+                        totalLitre += total_litres;
+                        totalKm += total_kilometrage;
                       });
 
                       const moyennePlein = pageData.length > 0 ? (totalPlein / pageData.length).toFixed(2) : 0;
