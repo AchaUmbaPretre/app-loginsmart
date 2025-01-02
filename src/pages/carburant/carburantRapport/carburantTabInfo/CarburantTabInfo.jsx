@@ -310,16 +310,16 @@ const CarburantTabInfo = () => {
                       return (
                         <>
                           <Table.Summary.Row>
-                            <Table.Summary.Cell index={0}></Table.Summary.Cell>
-                            <Table.Summary.Cell index={1}>Total</Table.Summary.Cell>
+                            <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
+                            <Table.Summary.Cell index={1}></Table.Summary.Cell>
                             <Table.Summary.Cell index={2}>{totalPlein}</Table.Summary.Cell>
                             <Table.Summary.Cell index={3}>{totalVehicule}</Table.Summary.Cell>
                             <Table.Summary.Cell index={4}>{totalLitre}</Table.Summary.Cell>
                             <Table.Summary.Cell index={5}>{totalKm}</Table.Summary.Cell>
                           </Table.Summary.Row>
                           <Table.Summary.Row>
-                            <Table.Summary.Cell index={0}></Table.Summary.Cell>
-                            <Table.Summary.Cell index={1}>Moyenne</Table.Summary.Cell>
+                            <Table.Summary.Cell index={0}>Moyenne</Table.Summary.Cell>
+                            <Table.Summary.Cell index={1}></Table.Summary.Cell>
                             <Table.Summary.Cell index={2}>{moyennePlein}</Table.Summary.Cell>
                             <Table.Summary.Cell index={3}>{moyenneVehicule}</Table.Summary.Cell>
                             <Table.Summary.Cell index={4}>{moyenneLitre}</Table.Summary.Cell>
