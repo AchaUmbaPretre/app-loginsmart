@@ -7,7 +7,6 @@ import { Divider } from 'antd';
 import RapportLineMensuel from '../../../components/rapportLineMensuel/RapportLineMensuel';
 import RapportPieMensuel from '../../../components/rapportPieMensuel/RapportPieMensuel';
 
-
 const CarburantRapport = () => {
     const [value, setValue] = useState(1);
 
