@@ -1,11 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Divider, Space, Table, Tag } from 'antd';
 import './carburantTabDetail.scss'
 import { SendOutlined } from '@ant-design/icons';
+import carburantService from '../../../../services/carburant.service';
 
 
 const CarburantTabDetail = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+
+  const fetchData = async () =>{
+    try {
+      setLoading(true);
+      const [carburantData] = await Promise.all([
+        carburantService.getCarburantRapportDetailVehicule()
+      ])
+
+      setData(carburantData)
+
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(()=> {
+    fetchData()
+  }, [])
+
 
   const columns = [
     { 
@@ -51,6 +75,8 @@ const CarburantTabDetail = () => {
       key: 'km',
     },
   ];
+
+
   return (
     <>
       <div className="carburantTabDetail">

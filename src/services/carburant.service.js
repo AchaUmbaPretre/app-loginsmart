@@ -60,6 +60,18 @@ const carburantService = {
             throw error;
         }
     },
+
+    //Rapport detail carburant vehicule
+    
+    getCarburantRapportDetailVehicule: async () => {
+        try {
+            const response = await api.get('/api/carburant/getCarburantRapportDetailVehicule');
+            return response.data.data;
+        } catch (error) {
+            console.error('Erreur lors de la récupération des carburants:', error);
+            throw error;
+        }
+    },
 };
 
 export default carburantService;
