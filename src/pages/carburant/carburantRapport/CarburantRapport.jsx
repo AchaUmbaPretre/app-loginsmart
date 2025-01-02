@@ -11,6 +11,8 @@ const CarburantRapport = () => {
     const [value, setValue] = useState(1);
     const [spectre, setSpectre] = useState(1)
     const [par, setPar] = useState(1)
+    const [statut, setStatut] = useState(1)
+
 
 
     const onChange = (e) => {
@@ -23,6 +25,10 @@ const CarburantRapport = () => {
     }
 
     const onChangePar = (e) => {
+        console.log(e.target.value)
+    }
+
+    const onChangeStatut = (e) => {
         console.log(e.target.value)
     }
 
@@ -64,7 +70,7 @@ const CarburantRapport = () => {
 
                     <div className="carburant_control">
                         <label htmlFor="" className="carburant_label">Selection status</label>
-                        <Radio.Group onChange={onChange} className='carburant_radio'>
+                        <Radio.Group onChange={onChangeStatut} className='carburant_radio'>
                             <Radio value={1} className='carburant_radio_txt'>Litres</Radio>
                             <Radio value={2} className='carburant_radio_txt'>Option</Radio>
                             <Radio value={3} className='carburant_radio_txt'>Vehicules</Radio>
