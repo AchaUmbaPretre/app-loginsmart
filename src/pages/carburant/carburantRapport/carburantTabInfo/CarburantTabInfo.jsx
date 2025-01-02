@@ -176,7 +176,11 @@ const CarburantTabInfo = () => {
       dataIndex: 'vehicules',
     },
     {
-      title: 'Km',
+      title: (
+        <>
+          <DashboardOutlined style={{ color: "#eb2f96" }} /> Km
+        </>
+      ),
       dataIndex: 'km',
     }
   ];
