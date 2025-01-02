@@ -8,7 +8,14 @@ import carburantService from '../../../../services/carburant.service';
 const CarburantTabDetail = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedVehicles, setSelectedVehicles] = useState([]);
 
+
+  const handleCheckboxChange = (id, checked) => {
+    setSelectedVehicles((prev) =>
+      checked ? [...prev, id] : prev.filter((vehiculeId) => vehiculeId !== id)
+    );
+  };
 
   const fetchData = async () =>{
     try {
