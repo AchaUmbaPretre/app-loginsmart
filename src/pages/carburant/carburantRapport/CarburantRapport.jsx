@@ -7,6 +7,7 @@ import RapportLineMensuel from '../../../components/rapportLineMensuel/RapportLi
 import RapportPieMensuel from '../../../components/rapportPieMensuel/RapportPieMensuel';
 import {RadioControle} from '../../../utils/radioControle';
 import CarburantTabDetailSites from './carburantTabDetailSites/CarburantTabDetailSites';
+import CarburantRapSites from './carburantRapSites/CarburantRapSites';
 
 const CarburantRapport = () => {
 
@@ -84,14 +85,23 @@ const CarburantRapport = () => {
                         <CarburantTabInfo/>
                     </div>
                     <div className="carburantRapport_right">
-                    { filters.spectre !=='siege_kin' 
-                        ? 
-                        <CarburantTabDetail/>
-                        :
-                        <CarburantTabDetailSites/>
-                    }
+                        {filters.spectre !== 'siege_kin' ? (
+                            filters.par === 'site' ? (
+                            <CarburantRapSites />
+                            ) : (
+                            <CarburantTabDetail />
+                            )
+                        ) : (
+                            filters.par ==='site' ? (
+                                <CarburantRapSites />
+                            ) : (
+                                <CarburantTabDetailSites />
+                            )
+                        )}
                     </div>
-                    .
+
+
+                    
                 </div>
                 <div className="carburantRapport_bottom">
                     <div className="carburantRapport_bottom-left">
