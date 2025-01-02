@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Checkbox, Divider, Table, Tag, Tooltip } from 'antd';
 import './carburantTabDetail.scss'
-import { CarOutlined,SendOutlined,DashboardOutlined, FireOutlined, OilOutlined, CheckCircleOutlined } from "@ant-design/icons";
+import { CarOutlined,SendOutlined,LoadingOutlined,DashboardOutlined, FireOutlined, OilOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import carburantService from '../../../../services/carburant.service';
 import { useSearchTableau } from '../../../../hook/getColumnSearchProps';
 
@@ -108,6 +108,7 @@ const CarburantTabDetail = () => {
       key: 'total_litres',
       render: (text) => (
         <div>
+          <LoadingOutlined style={{ color: "#722ed1", marginRight: "8px" }} />
           {text}
         </div>
       ),

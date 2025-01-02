@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Checkbox, Divider, Table, Tag, Tooltip } from 'antd';
-import { CarOutlined,SendOutlined,DashboardOutlined, FireOutlined, OilOutlined, CheckCircleOutlined } from "@ant-design/icons";
+import { EnvironmentOutlined,ContainerOutlined,LoadingOutlined,SendOutlined,DashboardOutlined, FireOutlined, OilOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import carburantService from '../../../../services/carburant.service';
 import { useSearchTableau } from '../../../../hook/getColumnSearchProps';
 
@@ -53,16 +53,16 @@ const CarburantRapSites = () => {
       width: "4%",
     },
     {
-      title: 'Nom site',
+      title: 'Nom Site',
       dataIndex: 'nom_site',
       key: 'nom_site',
       render: (text) => (
         <div>
+          <EnvironmentOutlined style={{ color: "#fa8c16", marginRight: "8px" }} />
           {text}
         </div>
       ),
       ...getColumnSearchProps('nom_site'),
-
     },
     {
       title: 'Province',
@@ -70,6 +70,7 @@ const CarburantRapSites = () => {
       key: 'province',
       render: (text) => (
         <div>
+          <ContainerOutlined style={{ color: "#1890ff", marginRight: "8px" }} />
           {text}
         </div>
       ),
@@ -81,18 +82,8 @@ const CarburantRapSites = () => {
       key: 'zone',
       render: (text) => (
         <div>
+          <DashboardOutlined style={{ color: "#faad14", marginRight: "8px" }} />
           {text || "Aucune"}
-        </div>
-      ),
-    },
-    {
-      title: 'Vehicules',
-      dataIndex: 'immatriculation',
-      key: 'vehic',
-      render: (text) => (
-        <div>
-          <CarOutlined style={{ color: "#1890ff", marginRight: "8px" }} />
-          {text}
         </div>
       ),
     },
@@ -102,6 +93,7 @@ const CarburantRapSites = () => {
       key: 'total_litres',
       render: (text) => (
         <div>
+          <LoadingOutlined style={{ color: "#722ed1", marginRight: "8px" }} />
           {text}
         </div>
       ),
