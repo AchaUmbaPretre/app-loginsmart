@@ -12,8 +12,6 @@ const CarburantTabDetailSites = () => {
   const [selectedVehicles, setSelectedVehicles] = useState([]);
   const { getColumnSearchProps } = useSearchTableau();
 
-
-
   const handleCheckboxChange = (id, checked) => {
     setSelectedVehicles((prev) =>
       checked ? [...prev, id] : prev.filter((vehiculeId) => vehiculeId !== id)
