@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Checkbox, Divider, Table, Tag, Tooltip } from 'antd';
-import { SendOutlined,DashboardOutlined, FireOutlined, CheckCircleOutlined } from "@ant-design/icons";
+import { SendOutlined,DashboardOutlined,CarOutlined, FireOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import carburantService from '../../../../services/carburant.service';
 import { useSearchTableau } from '../../../../hook/getColumnSearchProps';
 
@@ -21,7 +21,7 @@ const CarburantTabDetailSites = () => {
     try {
       setLoading(true);
       const [carburantData] = await Promise.all([
-        carburantService.getCarburantRapportDetailVehicule()
+        carburantService.getCarburantRapportDetailSite()
       ])
 
       setData(carburantData)
@@ -51,41 +51,47 @@ const CarburantTabDetailSites = () => {
       width: "4%",
     },
     {
-      title: 'Nom site',
-      dataIndex: 'nom_site',
-      key: 'nom_site',
+      title: 'Immatriculation',
+      dataIndex: 'immatriculation',
+      key: 'immatriculation',
       render: (text) => (
         <div>
+          <CarOutlined style={{ color: "#1890ff", marginRight: "8px" }} />
           {text}
         </div>
       ),
-      ...getColumnSearchProps('nom_site'),
+      ...getColumnSearchProps('immatriculation'),
 
     },
     {
-      title: 'Province',
-      dataIndex: 'province',
-      key: 'province',
+      title: 'Marque',
+      dataIndex: 'nom_marque',
+      key: 'nom_marque',
       render: (text) => (
         <div>
+          <DashboardOutlined style={{ color: "#faad14", marginRight: "8px" }} />
           {text}
         </div>
-      )
+      ),
+      ...getColumnSearchProps('immatriculation'),
     },
     {
-      title: 'Zone',
-      dataIndex: 'zone',
-      key: 'zone',
+      title: 'Modele',
+      dataIndex: 'modele',
+      key: 'modele',
       render: (text) => (
         <div>
+          <CheckCircleOutlined
+            style={{ color: text ? "#52c41a" : "#f5222d", marginRight: "8px" }}
+          />
           {text || "Aucune"}
         </div>
       ),
     },
     {
-      title: 'Vehicules',
-      dataIndex: 'vehicules',
-      key: 'vehicules',
+      title: 'Carburant',
+      dataIndex: 'nom_type_carburant',
+      key: 'nom_type_carburant',
       render: (text) => (
         <div>
           <FireOutlined style={{ color: "#ff4d4f", marginRight: "8px" }} />
@@ -150,7 +156,7 @@ const CarburantTabDetailSites = () => {
           <Button className='btn' type='primary' icon={<SendOutlined />}>Compare la conso.</Button>
         </div>
         <div className="CarburantTabDetail-wrapper">
-          <Divider>Détails pour chaque site</Divider>
+          <Divider>Détails pour chaque vehicule du site SIEGE KIN</Divider>
           <Table 
             dataSource={data} 
             columns={columns} 

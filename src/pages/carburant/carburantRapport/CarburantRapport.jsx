@@ -12,7 +12,7 @@ const CarburantRapport = () => {
 
   const [filters, setFilters] = useState({
     spectre: 'siege_kin',
-    par: 1,
+    par: 'vehicule',
     jours: '360jours',
     statut: 1,
   });
@@ -48,8 +48,8 @@ const CarburantRapport = () => {
                         label="Par"
                         value={filters.par}
                         options={[
-                        { value: 1, label: 'Sites' },
-                        { value: 2, label: 'Véhicule' },
+                        { value: 'site', label: 'Sites' },
+                        { value: 'vehicule', label: 'Véhicule' },
                         ]}
                         onChange={(e) => handleFilterChange('par', e.target.value)}
                     />
@@ -84,7 +84,7 @@ const CarburantRapport = () => {
                         <CarburantTabInfo/>
                     </div>
                     <div className="carburantRapport_right">
-                    { filters.spectre ==='siege_kin' 
+                    { filters.spectre !=='siege_kin' 
                         ? 
                         <CarburantTabDetail/>
                         :
