@@ -6,7 +6,7 @@ import carburantService from '../../../../services/carburant.service';
 import { useSearchTableau } from '../../../../hook/getColumnSearchProps';
 
 
-const CarburantTabDetail = () => {
+const CarburantTabDetailSites = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedVehicles, setSelectedVehicles] = useState([]);
@@ -172,4 +172,4 @@ const CarburantTabDetail = () => {
   )
 }
 
-export default CarburantTabDetail
+export default CarburantTabDetailSites;
