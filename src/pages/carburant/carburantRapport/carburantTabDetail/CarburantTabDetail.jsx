@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Divider, Table, Tag, Tooltip } from 'antd';
+import { Button, Checkbox, Divider, Table, Tag, Tooltip } from 'antd';
 import './carburantTabDetail.scss'
-import { SendOutlined } from '@ant-design/icons';
+import { CarOutlined,SendOutlined,DashboardOutlined, FireOutlined, OilOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import carburantService from '../../../../services/carburant.service';
+import Highlighter from 'react-highlight-words';
+import { useSearchTableau } from '../../../../hook/getColumnSearchProps';
 
 
 const CarburantTabDetail = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedVehicles, setSelectedVehicles] = useState([]);
+  const { getColumnSearchProps } = useSearchTableau();
+
 
 
   const handleCheckboxChange = (id, checked) => {
@@ -39,58 +43,114 @@ const CarburantTabDetail = () => {
 
 
   const columns = [
-    { 
-      title: '#', 
-      dataIndex: 'id', 
-      key: 'id', 
+    {
+      title: '#',
+      dataIndex: 'id',
+      key: 'id',
       render: (text, record, index) => (
         <Tooltip title={`Ligne ${index + 1}`}>
           <Tag color="blue">{index + 1}</Tag>
         </Tooltip>
       ),
-      width: "4%" 
+      width: "4%",
     },
     {
       title: 'Immatriculation',
       dataIndex: 'immatriculation',
       key: 'immatriculation',
+      render: (text) => (
+        <div>
+          <CarOutlined style={{ color: "#1890ff", marginRight: "8px" }} />
+          {text}
+        </div>
+      ),
+      ...getColumnSearchProps('immatriculation'),
+
     },
     {
       title: 'Marque',
       dataIndex: 'nom_marque',
       key: 'nom_marque',
+      render: (text) => (
+        <div>
+          <DashboardOutlined style={{ color: "#faad14", marginRight: "8px" }} />
+          {text}
+        </div>
+      ),
+      ...getColumnSearchProps('immatriculation'),
     },
     {
       title: 'Modele',
       dataIndex: 'modele',
       key: 'modele',
-      render : (text) => (
+      render: (text) => (
         <div>
-          { text ? text : 'Aucune'}
+          <CheckCircleOutlined
+            style={{ color: text ? "#52c41a" : "#f5222d", marginRight: "8px" }}
+          />
+          {text || "Aucune"}
         </div>
-      )
+      ),
     },
     {
       title: 'Carburant',
       dataIndex: 'nom_type_carburant',
       key: 'nom_type_carburant',
+      render: (text) => (
+        <div>
+          <FireOutlined style={{ color: "#ff4d4f", marginRight: "8px" }} />
+          {text}
+        </div>
+      ),
     },
     {
       title: 'Litre',
       dataIndex: 'total_litres',
       key: 'total_litres',
+      render: (text) => (
+        <div>
+          {text}
+        </div>
+      ),
     },
     {
       title: 'Plein',
       dataIndex: 'total_pleins',
       key: 'total_pleins',
+      render: (text) => (
+        <div>
+          <CheckCircleOutlined
+            style={{ color: "#52c41a", marginRight: "8px" }}
+          />
+          {text}
+        </div>
+      ),
     },
     {
       title: 'Km',
       dataIndex: 'total_kilometrage',
       key: 'total_kilometrage',
+      render: (text) => (
+        <div>
+          <DashboardOutlined style={{ color: "#1890ff", marginRight: "8px" }} />
+          {text}
+        </div>
+      ),
+    },
+    {
+      title: 'Sélection',
+      dataIndex: 'id',
+      key: 'checkbox',
+      render: (id, record) => (
+        <Checkbox
+          onChange={(e) => handleCheckboxChange(record.id_vehicule, e.target.checked)}
+          checked={selectedVehicles.includes(record.id_vehicule)}
+        />
+      ),
+      width: "5%",
     },
   ];
+
 
 
   return (
