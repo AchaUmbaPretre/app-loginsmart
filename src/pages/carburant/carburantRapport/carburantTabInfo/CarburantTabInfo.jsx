@@ -1,13 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './carburantTabInfo.scss'
 import { Divider, Table, Tag, Tooltip } from 'antd';
+import carburantService from '../../../../services/carburant.service';
 
 
 const CarburantTabInfo = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const scroll = { x: 400 };
 
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
+
+  const fetchData = async () =>{
+    try {
+      setLoading(true);
+      const [carburantData] = await Promise.all([
+        carburantService.getCarburantRapporInfoGen()
+      ])
+
+      setData(carburantData)
+
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(()=> {
+    fetchData()
+  }, [])
 
 
   const columns = [
@@ -47,25 +71,6 @@ const CarburantTabInfo = () => {
       title: 'Km',
       dataIndex: 'km',
     },
-  ];
-
-  const data = [
-    {
-      key: '1',
-      vehicules: 'Voiture 1',
-      plein: 50,
-      vehicule: 40,
-      litre: 30,
-      km: 1000,
-    },
-    {
-      key: '2',
-      vehicules: 'Voiture 2',
-      plein: 70,
-      vehicule: 15,
-      litre: 45,
-      km: 500,
-    }
   ];
 
   const columns2 = [
@@ -151,6 +156,8 @@ const CarburantTabInfo = () => {
                     columns={columns}
                     dataSource={data}
                     size="small" 
+                    loading={loading}
+                    scroll={scroll}
                     pagination={false}
                     rowClassName={rowClassName}
                     summary={(pageData) => {
