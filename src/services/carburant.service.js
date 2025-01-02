@@ -65,7 +65,7 @@ const carburantService = {
     
     getCarburantRapportDetailVehicule: async () => {
         try {
-            const response = await api.get('/api/carburant/getCarburantRapportDetailVehicule');
+            const response = await api.get('/api/carburant/rapport_detail_vehicule');
             return response.data.data;
         } catch (error) {
             console.error('Erreur lors de la récupération des carburants:', error);

@@ -46,8 +46,8 @@ const CarburantTabDetail = () => {
     },
     {
       title: 'Marque',
-      dataIndex: 'marque',
-      key: 'marque',
+      dataIndex: 'nom_marque',
+      key: 'nom_marque',
     },
     {
       title: 'Modele',
