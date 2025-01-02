@@ -8,7 +8,7 @@ import RapportLineMensuel from '../../../components/rapportLineMensuel/RapportLi
 import RapportPieMensuel from '../../../components/rapportPieMensuel/RapportPieMensuel';
 
 const CarburantRapport = () => {
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState('360jours');
     const [spectre, setSpectre] = useState(1)
     const [par, setPar] = useState(1)
     const [statut, setStatut] = useState(1)
