@@ -57,26 +57,25 @@ const CarburantTabDetail = () => {
       title: 'Immatriculation',
       dataIndex: 'immatriculation',
       key: 'immatriculation',
+      ...getColumnSearchProps('immatriculation'),
       render: (text) => (
         <div>
           <CarOutlined style={{ color: "#1890ff", marginRight: "8px" }} />
           {text}
         </div>
       ),
-      ...getColumnSearchProps('immatriculation'),
-
     },
     {
       title: 'Marque',
       dataIndex: 'nom_marque',
       key: 'nom_marque',
+      ...getColumnSearchProps('immatriculation'),
       render: (text) => (
         <div>
           <DashboardOutlined style={{ color: "#faad14", marginRight: "8px" }} />
           {text}
         </div>
       ),
-      ...getColumnSearchProps('immatriculation'),
     },
     {
       title: 'Modele',
