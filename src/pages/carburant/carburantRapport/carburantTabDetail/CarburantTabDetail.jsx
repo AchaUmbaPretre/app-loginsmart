@@ -53,6 +53,11 @@ const CarburantTabDetail = () => {
       title: 'Modele',
       dataIndex: 'modele',
       key: 'modele',
+      render : (text) => (
+        <div>
+          { text ? text : 'Aucune'}
+        </div>
+      )
     },
     {
       title: 'Carburant',
@@ -85,7 +90,12 @@ const CarburantTabDetail = () => {
         </div>
         <div className="CarburantTabDetail-wrapper">
           <Divider>Détails pour chaque véhicule</Divider>
-          <Table dataSource={data} columns={columns} size="middle"  />
+          <Table 
+            dataSource={data} 
+            columns={columns} 
+            size="middle"  
+            bordered
+          />
         </div>
       </div>
     </>
