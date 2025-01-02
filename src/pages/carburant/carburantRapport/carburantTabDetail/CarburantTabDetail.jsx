@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Divider, Table } from 'antd';
+import { Button, Divider, Table, Tag, Tooltip } from 'antd';
 import './carburantTabDetail.scss'
 import { SendOutlined } from '@ant-design/icons';
 import carburantService from '../../../../services/carburant.service';
@@ -36,8 +36,12 @@ const CarburantTabDetail = () => {
       title: '#', 
       dataIndex: 'id', 
       key: 'id', 
-      render: (text, record, index) => index + 1, 
-      width: "3%" ,
+      render: (text, record, index) => (
+        <Tooltip title={`Ligne ${index + 1}`}>
+          <Tag color="blue">{index + 1}</Tag>
+        </Tooltip>
+      ),
+      width: "4%" 
     },
     {
       title: 'Immatriculation',
@@ -61,23 +65,23 @@ const CarburantTabDetail = () => {
     },
     {
       title: 'Carburant',
-      dataIndex: 'carburant',
-      key: 'carburant',
+      dataIndex: 'nom_type_carburant',
+      key: 'nom_type_carburant',
     },
     {
       title: 'Litre',
-      dataIndex: 'litres',
-      key: 'litres',
+      dataIndex: 'total_litres',
+      key: 'total_litres',
     },
     {
       title: 'Plein',
-      dataIndex: 'plein',
-      key: 'plein',
+      dataIndex: 'total_pleins',
+      key: 'total_pleins',
     },
     {
       title: 'Km',
-      dataIndex: 'km',
-      key: 'km',
+      dataIndex: 'total_kilometrage',
+      key: 'total_kilometrage',
     },
   ];
 
