@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Checkbox, Divider, Table, Tag, Tooltip } from 'antd';
-import { EnvironmentOutlined,ContainerOutlined,LoadingOutlined,SendOutlined,DashboardOutlined, FireOutlined, OilOutlined, CheckCircleOutlined } from "@ant-design/icons";
+import { EnvironmentOutlined, BankOutlined, ContainerOutlined,LoadingOutlined,SendOutlined,DashboardOutlined, FireOutlined, OilOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import carburantService from '../../../../services/carburant.service';
 import { useSearchTableau } from '../../../../hook/getColumnSearchProps';
 
@@ -56,25 +56,25 @@ const CarburantRapSites = () => {
       title: 'Nom Site',
       dataIndex: 'nom_site',
       key: 'nom_site',
+      ...getColumnSearchProps('nom_site'),
       render: (text) => (
         <div>
-          <EnvironmentOutlined style={{ color: "#fa8c16", marginRight: "8px" }} />
-          {text}
+          <BankOutlined style={{ color: "#1890ff", marginRight: "4px" }} />
+          {text || "Aucune"}
         </div>
-      ),
-      ...getColumnSearchProps('nom_site'),
+      )
     },
     {
       title: 'Province',
       dataIndex: 'province',
       key: 'province',
+      ...getColumnSearchProps('province'),
       render: (text) => (
         <div>
-          <ContainerOutlined style={{ color: "#1890ff", marginRight: "8px" }} />
+          <EnvironmentOutlined style={{ color: "red", marginRight: "8px" }} />
           {text}
         </div>
-      ),
-      ...getColumnSearchProps('province'),
+      )
     },
     {
       title: 'Zone',
@@ -82,7 +82,7 @@ const CarburantRapSites = () => {
       key: 'zone',
       render: (text) => (
         <div>
-          <DashboardOutlined style={{ color: "#faad14", marginRight: "8px" }} />
+          <EnvironmentOutlined style={{ color: "#faad14", marginRight: "8px" }} />
           {text || "Aucune"}
         </div>
       ),
