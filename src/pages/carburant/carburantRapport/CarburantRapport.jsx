@@ -43,11 +43,11 @@ const CarburantRapport = () => {
                     <div className="carburant_control">
                         <label htmlFor="" className="carburant_label">Nombre du jours</label>
                         <Radio.Group onChange={onChange} className='carburant_radio'>
-                            <Radio value={1} className='carburant_radio_txt'>7 jours</Radio>
-                            <Radio value={2} className='carburant_radio_txt'>30 jours</Radio>
-                            <Radio value={3} className='carburant_radio_txt'>90 jours</Radio>
-                            <Radio value={4} className='carburant_radio_txt'>180 jours</Radio>
-                            <Radio value={5} className='carburant_radio_txt'>360 jours</Radio>
+                            <Radio value={'7jours'} className='carburant_radio_txt'>7 jours</Radio>
+                            <Radio value={'30jours'} className='carburant_radio_txt'>30 jours</Radio>
+                            <Radio value={'90jours'} className='carburant_radio_txt'>90 jours</Radio>
+                            <Radio value={'180jours'} className='carburant_radio_txt'>180 jours</Radio>
+                            <Radio value={'360jours'} className='carburant_radio_txt'>360 jours</Radio>
                         </Radio.Group>
                     </div>
 
