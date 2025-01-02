@@ -11,19 +11,21 @@ const CarburantTabInfo = () => {
   const scroll = { x: 400 };
 
   const [typeSiegeKin, setTypeSiegeKin] = useState([]);
-  const [type, setType] = useState([]);
-  const [data3, setData3] = useState([]);
+  const [typeAutres, setTypeAutres] = useState([]);
 
   const fetchData = async () =>{
     try {
       setLoading(true);
-      const [carburantData, typeSiegeKinData] = await Promise.all([
+      const [carburantData, typeSiegeKinData, typeAutres] = await Promise.all([
         carburantService.getCarburantRapporInfoGen(),
-        carburantService.getCarburantTypeCarburantSiegeKin()
+        carburantService.getCarburantTypeCarburantSiegeKin(),
+        carburantService.getCarburantTypeCarburantSiegeAutres()
+
       ])
 
-      setData(carburantData)
-      setTypeSiegeKin(typeSiegeKinData)
+      setData(carburantData);
+      setTypeSiegeKin(typeSiegeKinData);
+      setTypeAutres(typeAutres)
 
     } catch (error) {
       console.log(error)
@@ -298,7 +300,7 @@ const CarburantTabInfo = () => {
                   <Table columns={columns2} dataSource={typeSiegeKin} size="small" rowClassName={rowClassName} />
                 </div>
                 <div className="carburantTabInfo-bottom">
-                  <Table columns={columns3} dataSource={data3} size="small" rowClassName={rowClassName} />
+                  <Table columns={columns3} dataSource={typeAutres} size="small" rowClassName={rowClassName} />
                 </div>
             </div>
         </div>
