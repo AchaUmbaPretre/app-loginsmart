@@ -9,11 +9,22 @@ import RapportPieMensuel from '../../../components/rapportPieMensuel/RapportPieM
 
 const CarburantRapport = () => {
     const [value, setValue] = useState(1);
+    const [spectre, setSpectre] = useState(1)
+    const [par, setPar] = useState(1)
+
 
     const onChange = (e) => {
         console.log('radio checked', e.target.value);
         setValue(e.target.value);
     };
+
+    const onChangeSpectre = (e) => {
+        console.log(e.target.value)
+    }
+
+    const onChangePar = (e) => {
+        console.log(e.target.value)
+    }
 
   return (
     <>
@@ -26,7 +37,7 @@ const CarburantRapport = () => {
 
                     <div className="carburant_control">
                         <label htmlFor="" className="carburant_label">Spectre</label>
-                        <Radio.Group size="small" onChange={onChange} className='carburant_radio' >
+                        <Radio.Group size="small" onChange={onChangeSpectre} className='carburant_radio' >
                             <Radio value={1} className='carburant_radio_txt'>Mes sites</Radio>
                             <Radio value={2} className='carburant_radio_txt'>Siege kin</Radio>
                         </Radio.Group>
@@ -34,7 +45,7 @@ const CarburantRapport = () => {
 
                     <div className="carburant_control">
                         <label htmlFor="" className="carburant_label">Par</label>
-                        <Radio.Group onChange={onChange} className='carburant_radio'>
+                        <Radio.Group onChange={onChangePar} className='carburant_radio'>
                             <Radio value={1} className='carburant_radio_txt'>Sites</Radio>
                             <Radio value={2} className='carburant_radio_txt'>Vehicule</Radio>
                         </Radio.Group>
