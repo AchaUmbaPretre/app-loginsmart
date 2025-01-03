@@ -60,9 +60,9 @@ const options = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-        title: {
+/*         title: {
             display: true,
-            text: "Stacked Bar & Line Chart",
+             text: "Stacked Bar & Line Chart",
             color: "#333333",
             font: {
                 size: 20,
@@ -72,7 +72,7 @@ const options = {
                 top: 10,
                 bottom: 30,
             },
-        },
+        }, */
         legend: {
             position: "top",
             labels: {
