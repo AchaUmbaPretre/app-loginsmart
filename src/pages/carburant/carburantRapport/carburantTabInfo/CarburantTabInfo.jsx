@@ -334,11 +334,25 @@ const CarburantTabInfo = () => {
                 </div>
                 <div className="carburantTabInfo-center">
                   <Divider>SIEGE KIN</Divider>
-                  <Table columns={columns2} dataSource={typeSiegeKin} size="small" rowClassName={rowClassName} />
+                  <Table 
+                    columns={columns2} 
+                    dataSource={typeSiegeKin} 
+                    size="small" 
+                    rowClassName={rowClassName} 
+                    scroll={scroll}
+                    loading={loading}
+                  />
                 </div>
                 <div className="carburantTabInfo-bottom">
                 <Divider>Autres sites</Divider>
-                  <Table columns={columns3} dataSource={typeAutres} size="small" rowClassName={rowClassName} />
+                  <Table 
+                    columns={columns3} 
+                    dataSource={typeAutres} 
+                    size="small" 
+                    rowClassName={rowClassName} 
+                    scroll={scroll}
+                    loading={loading}
+                  />
                 </div>
             </div>
         </div>
