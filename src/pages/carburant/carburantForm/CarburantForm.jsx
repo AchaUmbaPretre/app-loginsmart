@@ -6,6 +6,7 @@ import vehiculeService from '../../../services/vehicule.service';
 import ChauffeurService from '../../../services/chauffeur.service';
 import carburantService from '../../../services/carburant.service';
 import { useSelector } from 'react-redux';
+import TypeService from '../../../services/type.service';
 const { Option } = Select;
 
 
@@ -18,6 +19,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
     const [iDVehicule, setIdVehicule] = useState('');
     const [loadingData, setLoadingData] = useState(false);
     const userId = useSelector((state) => state.auth.user.id);
+    const [typeCarburant, setTypeCarburant] = useState([]);
     
     useEffect(() => {
         const fetchData = async () => {
@@ -25,6 +27,8 @@ const CarburantForm = ({closeModal, fetchData}) => {
                 setIsLoading(true);
                 const vehiculeData = await vehiculeService.getVehicule();
                 const chauffeurData = await ChauffeurService.getChauffeur();
+                const typeCarburantData = await TypeService.typeCarburant();
+
 
                 if(iDVehicule) {
                     const vehiculeOne = await carburantService.getCarburantOne(iDVehicule);
@@ -32,6 +36,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
 
                 setVehicule(vehiculeData);
                 setChauffeur(chauffeurData);
+                setTypeCarburant(typeCarburantData)
                 
             } catch (error) {
                 console.error(error);
@@ -200,7 +205,17 @@ const CarburantForm = ({closeModal, fetchData}) => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> : <Input placeholder="Saisir le carburant" />}
+                                {loadingData ? <Skeleton.Input active={true} /> : 
+                                    <Select
+                                        showSearch
+                                        options={typeCarburant.map((item) => ({
+                                                value: item.id_type_carburant                                          ,
+                                                label: item.nom_type_carburant,
+                                        }))}
+                                        placeholder="Sélectionnez un type de carburant..."
+                                        optionFilterProp="label"
+                                    />
+                                }
                             </Form.Item>
                         </Col>
 

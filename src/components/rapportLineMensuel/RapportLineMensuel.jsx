@@ -1,31 +1,70 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import './rapportLineMensuel.scss'
+import carburantService from '../../services/carburant.service';
+
 // Enregistrer les composants nécessaires pour Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const RapportLineMensuel = () => {
+  const [datas, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // Mois de l'année
-    datasets: [
-      {
-        label: 'Diesel',
-        data: [50, 70, 60, 90, 100, 120, 110, 130, 125, 140, 150, 160], // Données pour le diesel
-        backgroundColor: '#1a73e8', // Couleur des barres pour le diesel
-        borderColor: '#1a73e8',
-        borderWidth: 1,
-      },
-      {
-        label: 'Essence',
-        data: [40, 60, 55, 80, 95, 100, 105, 115, 120, 135, 145, 150], // Données pour l'essence
-        backgroundColor: 'rgb(255, 99, 132)', // Couleur des barres pour l'essence
-        borderColor: '#fbbc04',
-        borderWidth: 1,
-      },
-    ],
+  const fetchData = async () => {
+    try {
+        setLoading(true);
+        const consommationData = await carburantService.getConsommattionCarburantLine()
+        setData(consommationData);
+    } catch (error) {
+        console.error(error);
+    } finally {
+        setLoading(false);
+    }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // Organiser les données récupérées pour les afficher sur le graphique
+  const prepareChartData = () => {
+    const moisData = Array(12).fill(0); // Initialiser un tableau pour les mois (janvier à décembre)
+    const dieselData = Array(12).fill(0); // Initialiser un tableau pour Diesel
+    const essenceData = Array(12).fill(0); // Initialiser un tableau pour Essence
+
+    // Remplir les données par type de carburant et par mois
+    datas.forEach(({ annee, mois, total_conso, nom_type_carburant }) => {
+      const moisIndex = mois - 1; // Pour avoir un index de 0 à 11 (janvier = index 0, décembre = index 11)
+      if (nom_type_carburant === 'Diesel') {
+        dieselData[moisIndex] += total_conso;
+      } else if (nom_type_carburant === 'Essence') {
+        essenceData[moisIndex] += total_conso;
+      }
+    });
+
+    return {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // Mois de l'année
+      datasets: [
+        {
+          label: 'Diesel',
+          data: dieselData,
+          backgroundColor: '#1a73e8',
+          borderColor: '#1a73e8',
+          borderWidth: 1,
+        },
+        {
+          label: 'Essence',
+          data: essenceData,
+          backgroundColor: 'rgb(255, 99, 132)', // Couleur des barres pour l'essence
+          borderColor: '#fbbc04',
+          borderWidth: 1,
+        },
+      ],
+    };
+  };
+
+  const data = prepareChartData();
 
   // Options du diagramme
   const options = {
