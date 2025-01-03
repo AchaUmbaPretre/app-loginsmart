@@ -105,7 +105,7 @@ const carburantService = {
 
     getCarburantTypeCarburantSiegeKin: async (filter) => {
         try {
-            const response = await api.get('/api/carburant/rapport_carburant_siege_kin');
+            const response = await api.get(`/api/carburant/rapport_carburant_siege_kin?filter=${filter}`);
             return response.data.data;
         } catch (error) {
             console.error('Erreur lors de la récupération des carburants:', error);
@@ -115,7 +115,7 @@ const carburantService = {
 
     getCarburantTypeCarburantSiegeAutres: async (filter) => {
         try {
-            const response = await api.get('/api/carburant/rapport_carburant_siege_Autres');
+            const response = await api.get(`/api/carburant/rapport_carburant_siege_Autres?filter=${filter}`);
             return response.data.data;
         } catch (error) {
             console.error('Erreur lors de la récupération des carburants:', error);

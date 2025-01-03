@@ -281,6 +281,7 @@ const CarburantTabInfo = ({filters}) => {
 
             <div className="carburantTabInfo_wrapper">
                 <div className="carburantTabInfo-left">
+                  <Divider>Mes sites</Divider>
                   <Table
                     columns={columns}
                     dataSource={data}
