@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import './rapportPieMensuel.scss'
+import carburantService from '../../services/carburant.service';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const RapportPieMensuel = () => {
+  const [datas, setDatas] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+
+  const fetchData = async () => {
+    try {
+        setLoading(true);
+        const reparationData = await carburantService.getReparationConsommation()
+        setDatas(reparationData);
+    } catch (error) {
+        console.error(error);
+    } finally {
+        setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const data = {
     labels: ['Diesel', 'Essence'],
     datasets: [

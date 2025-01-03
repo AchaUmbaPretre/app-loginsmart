@@ -29,7 +29,6 @@ const RapportLineMensuel = () => {
 
   // Organiser les données récupérées pour les afficher sur le graphique
   const prepareChartData = () => {
-    const moisData = Array(12).fill(0); // Initialiser un tableau pour les mois (janvier à décembre)
     const dieselData = Array(12).fill(0); // Initialiser un tableau pour Diesel
     const essenceData = Array(12).fill(0); // Initialiser un tableau pour Essence
 
