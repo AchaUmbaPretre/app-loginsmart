@@ -61,7 +61,7 @@ const CarburantTabDetail = () => {
       render: (text) => (
         <div>
           <CarOutlined style={{ color: "#1890ff", marginRight: "8px" }} />
-          {text}
+          <Tag color="blue">{text}</Tag>
         </div>
       ),
     },
