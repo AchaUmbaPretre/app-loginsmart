@@ -6,7 +6,7 @@ import './rapportLineMensuel.scss'
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const RapportLineMensuel = () => {
-  // Données du diagramme
+
   const data = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // Mois de l'année
     datasets: [
