@@ -82,7 +82,7 @@ const CarburantRapport = () => {
                 </div>
                 <div className="carburantRapport_center">
                     <div className="carburantRapport_left">
-                        <CarburantTabInfo/>
+                        <CarburantTabInfo filters={filters}/>
                     </div>
                     <div className="carburantRapport_right">
                         {filters.spectre !== 'siege_kin' ? (

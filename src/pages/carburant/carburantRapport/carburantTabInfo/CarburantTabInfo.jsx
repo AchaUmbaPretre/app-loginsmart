@@ -5,7 +5,7 @@ import { Divider, Table, Tag, Tooltip } from 'antd';
 import carburantService from '../../../../services/carburant.service';
 
 
-const CarburantTabInfo = () => {
+const CarburantTabInfo = ({filters}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const scroll = { x: 400 };
@@ -17,9 +17,9 @@ const CarburantTabInfo = () => {
     try {
       setLoading(true);
       const [carburantData, typeSiegeKinData, typeAutres] = await Promise.all([
-        carburantService.getCarburantRapporInfoGen(),
-        carburantService.getCarburantTypeCarburantSiegeKin(),
-        carburantService.getCarburantTypeCarburantSiegeAutres()
+        carburantService.getCarburantRapporInfoGen(filters.jours),
+        carburantService.getCarburantTypeCarburantSiegeKin(filters.jours),
+        carburantService.getCarburantTypeCarburantSiegeAutres(filters.jours)
 
       ])
 
