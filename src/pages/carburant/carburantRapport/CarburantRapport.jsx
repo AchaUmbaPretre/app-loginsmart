@@ -25,7 +25,6 @@ const CarburantRapport = () => {
     }));
   };
 
-
   return (
     <>
         <div className="carburantRapport">
@@ -59,11 +58,11 @@ const CarburantRapport = () => {
                         label="Nombre de jours"
                         value={filters.jours}
                         options={[
-                        { value: '7jours', label: '7 jours' },
-                        { value: '30jours', label: '30 jours' },
-                        { value: '90jours', label: '90 jours' },
-                        { value: '180jours', label: '180 jours' },
-                        { value: '360jours', label: '360 jours' },
+                        { value: '7jours', label: '7jours' },
+                        { value: '30jours', label: '30jours' },
+                        { value: '90jours', label: '90jours' },
+                        { value: '180jours', label: '180jours' },
+                        { value: '360jours', label: '360jours' },
                         ]}
                         onChange={(e) => handleFilterChange('jours', e.target.value)}
                     />

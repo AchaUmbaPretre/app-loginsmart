@@ -36,7 +36,7 @@ const CarburantTabInfo = ({filters}) => {
 
   useEffect(()=> {
     fetchData()
-  }, [])
+  }, [filters])
 
 
   const columns = [
