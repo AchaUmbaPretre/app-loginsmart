@@ -344,7 +344,7 @@ const CarburantTabInfo = () => {
                   />
                 </div>
                 <div className="carburantTabInfo-bottom">
-                <Divider>Autres sites</Divider>
+                  <Divider>Autres sites</Divider>
                   <Table 
                     columns={columns3} 
                     dataSource={typeAutres} 
