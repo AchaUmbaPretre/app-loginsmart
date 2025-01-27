@@ -50,7 +50,6 @@ const Maintenance = () => {
       openModal('add', id_reparation )
     }
 
-
     const handleSuivi = (id_reparation) =>{
       openModal('suivi', id_reparation )
     }
