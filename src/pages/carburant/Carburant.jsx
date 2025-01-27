@@ -235,7 +235,7 @@ const Carburant = () => {
                     items={[
                         { title: <><HomeOutlined /> Accueil</>, href: '/' },
                         { title: <><FireOutlined /> Consommation</>, href: '/consommation_carburant' },
-                        { title: <><CarOutlined /> Véhicule</>, href: '/new_vehicule' },
+                        { title: <><CarOutlined /> Véhicule</>, href: '/vehicule' },
                         { title: <>Carburant</> },
                     ]}
                     className="chauffeur_breadcrumb"

@@ -7,6 +7,7 @@ import ChauffeurService from '../../../services/chauffeur.service';
 import carburantService from '../../../services/carburant.service';
 import { useSelector } from 'react-redux';
 import TypeService from '../../../services/type.service';
+import { useNavigate } from 'react-router-dom';
 const { Option } = Select;
 
 
@@ -20,6 +21,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
     const [loadingData, setLoadingData] = useState(true);
     const userId = useSelector((state) => state.auth.user.id);
     const [typeCarburant, setTypeCarburant] = useState([]);
+    const navigate = useNavigate();
     
     useEffect(() => {
         const fetchData = async () => {
@@ -67,7 +69,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
             message.error({ content: 'Une erreur est survenue.', key: 'submit' });
             console.error('Erreur lors de l\'ajout du carburant:', error);
         } finally{
-            setLoadingData(false)
+            setIsLoading(false)
         }
     }
 

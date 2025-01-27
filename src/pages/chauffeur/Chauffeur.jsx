@@ -24,7 +24,6 @@ const Chauffeur = () => {
     openModal('add', idBatiment)
   }
 
-  useEffect(()=> {
     const fetchData = async () =>{
       try {
         setLoading(true);
@@ -40,6 +39,7 @@ const Chauffeur = () => {
         setLoading(false);
       }
     }
+  useEffect(()=> {
     fetchData()
   }, [])
 
@@ -238,7 +238,7 @@ const Chauffeur = () => {
           width={1023}
           centered
         >
-          <ChauffeurForm closeModal={() => setModalType(null)}/>
+          <ChauffeurForm fetchData={fetchData} closeModal={() => setModalType(null)}/>
         </Modal>
     </div>
   );

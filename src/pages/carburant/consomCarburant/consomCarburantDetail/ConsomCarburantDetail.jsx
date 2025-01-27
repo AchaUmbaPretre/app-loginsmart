@@ -144,7 +144,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
             <span>{text}</span>
           ),
         },
-        {
+/*         {
           title: 'Actions',
           dataIndex: 'actions',
           key: 'actions',
@@ -167,7 +167,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
               </Tooltip>
             </Space>
           ),
-        },
+        }, */
       ];
       
 
