@@ -30,7 +30,6 @@ const Login = () => {
       </div>
       <div className="login-card">
         <h1>Connexion</h1>
-        <p className="description">Reprenez là où vous vous êtes arrêté</p>
         <Form
           form={form}
           layout="vertical"

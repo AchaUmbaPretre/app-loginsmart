@@ -104,11 +104,11 @@ const Sidebar = () => {
               <Link to="/sinistres_inspection">Sinistres & Inspection</Link>
             </Item>
           </SubMenu>
-          <SubMenu key="sub4" icon={<ThunderboltOutlined style={{ fontSize: '18px'}} />} title="Générateur">
+{/*           <SubMenu key="sub4" icon={<ThunderboltOutlined style={{ fontSize: '18px'}} />} title="Générateur">
             <Item key="/generateur">
-              <Link to="/">Liste des générateurs</Link>
+              <Link to="/generateur">Liste des générateurs</Link>
             </Item>
-          </SubMenu>
+          </SubMenu> */}
           <SubMenu key="sub5" icon={<TeamOutlined style={{ fontSize: '18px'}} />} title="Personnel">
             <Item key="/chauffeur">
               <Link to="/chauffeur">Liste des chauffeurs</Link>

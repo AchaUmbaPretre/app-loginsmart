@@ -51,7 +51,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Layout />,
+      element: < Layout />,
       children: [
         { path: '/', element: <PrivateRoute element={RightBars} /> },
         {
