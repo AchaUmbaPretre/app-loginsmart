@@ -104,7 +104,6 @@ useEffect(()=> {
         }
       ];
 
-
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
       };
@@ -117,7 +116,6 @@ useEffect(()=> {
                     <h2 className="carburantBord-h2">Tableau de bord</h2>
                     <Table columns={columns} bordered size="small" dataSource={data} onChange={onChange} />
                 </div>
-
                 <Divider className='title_row'></Divider>
 
                 {
