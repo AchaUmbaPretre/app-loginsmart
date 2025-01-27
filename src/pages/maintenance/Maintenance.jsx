@@ -27,6 +27,8 @@ const Maintenance = () => {
   
         } catch (error) {
           console.log(error)
+        } finally {
+          setLoading(false)
         }
       }
 
@@ -323,6 +325,7 @@ const Maintenance = () => {
                 bordered 
                 size="small"
                 scroll={scroll}
+                loading={loading}
             />
         </div>
         <Modal

@@ -10,7 +10,7 @@ const CarburantRapSites = () => {
   const [loading, setLoading] = useState(false);
   const [selectedVehicles, setSelectedVehicles] = useState([]);
   const { getColumnSearchProps } = useSearchTableau();
-
+  const scroll = { x: 400 };
 
   const handleCheckboxChange = (id, checked) => {
     setSelectedVehicles((prev) =>
@@ -152,8 +152,10 @@ const CarburantRapSites = () => {
           <Table 
             dataSource={data} 
             columns={columns} 
-            size="middle"  
+            size="small"  
             bordered
+            loading={loading}
+            scroll={scroll}
           />
         </div>
       </div>

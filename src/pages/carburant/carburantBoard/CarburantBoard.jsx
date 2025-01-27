@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const CarburantBoard = ({vehiculeData}) => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const scroll = { x: 400 };
 
   const fetchData = async () =>{
@@ -20,6 +20,8 @@ const CarburantBoard = ({vehiculeData}) => {
 
     } catch (error) {
       console.log(error)
+    } finally{
+      setLoading(false)
     }
   }
 
@@ -128,6 +130,7 @@ useEffect(()=> {
                       size="small" 
                       dataSource={vehiculeData} 
                       scroll={scroll}
+                      loading={loading}
                     />
                 </div>
                 }

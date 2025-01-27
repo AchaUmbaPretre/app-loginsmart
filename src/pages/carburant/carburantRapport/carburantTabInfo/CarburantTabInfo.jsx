@@ -7,7 +7,7 @@ import carburantService from '../../../../services/carburant.service';
 
 const CarburantTabInfo = ({filters}) => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const scroll = { x: 400 };
 
   const [typeSiegeKin, setTypeSiegeKin] = useState([]);

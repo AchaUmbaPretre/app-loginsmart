@@ -24,6 +24,8 @@ const ControleTechnique = () => {
         setData(controleData);
       } catch (error) {
         console.log(error)
+      } finally{
+        setLoading(false)
       }
     }
 
@@ -293,6 +295,7 @@ const ControleTechnique = () => {
               bordered 
               size="small"
               scroll={scroll} 
+              loading={loading}
             />
         </div>
         <Modal

@@ -47,8 +47,6 @@ const SuiviMaintenance = ({fetchData, closeModal, idReparation}) => {
         fetchData();
     }, [idReparation])
 
-    console.log(marque, immat)
-
     const onFinish = async (values) => {
         try {
             

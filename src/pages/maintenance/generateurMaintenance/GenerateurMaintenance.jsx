@@ -7,7 +7,9 @@ const GenerateurMaintenance = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [idVehicule, setIdVehicule] = useState('');
-
+    const [loading, setLoading] = useState(false);
+    const scroll = { x: 400 };
+    
     const closeAllModals = () => {
       setModalType(null);
     };
@@ -121,6 +123,9 @@ const GenerateurMaintenance = () => {
                 columns={columns} 
                 dataSource={data} 
                 onChange={onChange} 
+                loading={loading}
+                size="small" 
+                scroll={scroll}
             />
         </div>
         <Modal

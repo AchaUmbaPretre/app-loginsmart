@@ -8,10 +8,10 @@ import { useSearchTableau } from '../../../../hook/getColumnSearchProps';
 
 const CarburantTabDetail = () => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [selectedVehicles, setSelectedVehicles] = useState([]);
   const { getColumnSearchProps } = useSearchTableau();
-
+  const scroll = { x: 400 };
 
 
   const handleCheckboxChange = (id, checked) => {
@@ -165,6 +165,8 @@ const CarburantTabDetail = () => {
             columns={columns} 
             size="middle"  
             bordered
+            loading={loading}
+            scroll={scroll}
           />
         </div>
       </div>
