@@ -63,7 +63,10 @@ const Login = () => {
           </Form.Item>
         </Form>
         <p className="forgot-password">
-          <a href="#forgot">Mot de passe oublié ?</a>
+          <a href="">Créer un compte ?</a>
+        </p>
+        <p className="forgot-password">
+           <a href="/register">Inscrivez-vous ici</a>
         </p>
       </div>
     </div>
