@@ -116,9 +116,9 @@ const Sidebar = () => {
             <Item key="/personnel">
               <Link to="/personnel">Liste des Personnels</Link>
             </Item>
-            <Item key="/liste_conge">
+{/*             <Item key="/liste_conge">
               <Link>Liste de congé</Link>
-            </Item>
+            </Item> */}
             <Item key="/liste_affectation">
               <Link to="/liste_affectation">Liste d'affectations</Link>
             </Item>

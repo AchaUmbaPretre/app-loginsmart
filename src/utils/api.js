@@ -3,7 +3,7 @@ import { store} from '../redux/store';
 import { logout, refreshAccessToken, updateRefreshToken } from '../redux/authSlice';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'https://apilog.loginsmart-cd.com',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -41,8 +41,14 @@ api.interceptors.response.use(
         }
 
         // Envoyer une requête pour rafraîchir le token avec le refreshToken
-        const response = await axios.post(
+/*         const response = await axios.post(
           'http://localhost:8080/api/auth/refresh',
+          { refreshToken },
+          { withCredentials: true } // On envoie le refreshToken dans la requête
+        ); */
+
+        const response = await axios.post(
+          'https://apilog.loginsmart-cd.com/api/auth/refresh',
           { refreshToken },
           { withCredentials: true } // On envoie le refreshToken dans la requête
         );

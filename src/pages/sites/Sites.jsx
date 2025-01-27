@@ -7,7 +7,8 @@ import LocalisationForm from '../localisation/localisationForm/LocalisationForm'
 const Sites = () => {
   const [modalType, setModalType] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const scroll = { x: 400 };
 
   const closeAllModals = () => {
     setModalType(null);
@@ -34,6 +35,8 @@ const Sites = () => {
 
       } catch (error) {
         console.log(error)
+      } finally{
+        setLoading(false)
       }
     }
     fetchData()
@@ -194,6 +197,8 @@ const Sites = () => {
                 onChange={onChange}
                 bordered 
                 size="small"
+                loading={loading}
+                scroll={scroll}
             />
         </div>
 

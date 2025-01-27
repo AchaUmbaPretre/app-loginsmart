@@ -17,14 +17,14 @@ const CarburantForm = ({closeModal, fetchData}) => {
     const [chauffeur, setChauffeur] = useState([]);
     const [carburantOne, setCarburantOne] = useState([]);
     const [iDVehicule, setIdVehicule] = useState('');
-    const [loadingData, setLoadingData] = useState(false);
+    const [loadingData, setLoadingData] = useState(true);
     const userId = useSelector((state) => state.auth.user.id);
     const [typeCarburant, setTypeCarburant] = useState([]);
     
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setIsLoading(true);
+                setLoadingData(true);
                 const vehiculeData = await vehiculeService.getVehicule();
                 const chauffeurData = await ChauffeurService.getChauffeur();
                 const typeCarburantData = await TypeService.typeCarburant();
@@ -41,7 +41,8 @@ const CarburantForm = ({closeModal, fetchData}) => {
             } catch (error) {
                 console.error(error);
             } finally {
-                setIsLoading(false);
+                setLoadingData(false);
+
             }
         }
 
@@ -50,6 +51,7 @@ const CarburantForm = ({closeModal, fetchData}) => {
 
     const onFinish = async (values) => {
 
+        setIsLoading(true)
         try {
             if(userId){
                 values.id_user = userId
@@ -64,6 +66,8 @@ const CarburantForm = ({closeModal, fetchData}) => {
         } catch (error) {
             message.error({ content: 'Une erreur est survenue.', key: 'submit' });
             console.error('Erreur lors de l\'ajout du carburant:', error);
+        } finally{
+            setLoadingData(false)
         }
     }
 
