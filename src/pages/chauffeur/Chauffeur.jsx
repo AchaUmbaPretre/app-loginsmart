@@ -36,6 +36,8 @@ const Chauffeur = () => {
 
       } catch (error) {
         console.log(error)
+      } finally {
+        setLoading(false);
       }
     }
     fetchData()
@@ -223,6 +225,7 @@ const Chauffeur = () => {
                 columns={columns} 
                 dataSource={data} 
                 onChange={onChange}
+                loading={loading}
                 bordered 
                 size="small"
             />

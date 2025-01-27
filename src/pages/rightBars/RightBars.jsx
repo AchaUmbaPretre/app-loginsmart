@@ -4,6 +4,7 @@ import Statistique from '../../components/statistique/Statistique';
 import ListeVehicule from '../listeVehicule/ListeVehicule';
 import './rightBars.scss';
 import StatistiqueItems from '../../components/statistiqueItems/StatistiqueItems';
+import Vehicule from '../vehicule/Vehicule';
 
 const RightBars = () => {
   return (
@@ -13,11 +14,11 @@ const RightBars = () => {
       </div>
       <div className="bottom-wrapper">
         <div className="liste-vehicule">
-          <ListeVehicule />
+          <Vehicule />
         </div>
-        <div className="pia-chart">
+{/*         <div className="pia-chart">
           <StatistiqueItems />
-        </div>
+        </div> */}
       </div>
     </div>
   );

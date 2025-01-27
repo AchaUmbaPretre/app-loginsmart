@@ -11,23 +11,22 @@ const Carburant = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const scroll = { x: 400 };
 
     const fetchData = async () =>{
       try {
-        setLoading(true);
         const [carburantData] = await Promise.all([
           carburantService.getCarburant()
         ])
-
+        setLoading(true);
         setData(carburantData)
 
       } catch (error) {
         console.log(error)
       } finally {
         setLoading(false);
-    }
+      }
     }
 
   useEffect(()=> {

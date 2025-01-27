@@ -5,17 +5,21 @@
     gap: 25px;
   
     .bottom-wrapper {
+      width: 100%;
       display: flex;
       gap: 20px;
   
       .liste-vehicule {
+        position: relative;
         flex: 5;
         background: #fff;
+        width: 100%;
       }
   
       .pia-chart {
         flex: 3;
         background: #fff;
+        width: 100%;
       }
     }
   }

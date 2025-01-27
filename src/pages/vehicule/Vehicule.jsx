@@ -36,6 +36,8 @@ const Vehicule = () => {
 
       } catch (error) {
         console.log(error)
+      } finally{
+        setLoading(false)
       }
     }
 
@@ -237,6 +239,7 @@ const Vehicule = () => {
               bordered
               size="small"
               scroll={scroll}
+              loading={loading}
             />
         </div>
         <Modal
