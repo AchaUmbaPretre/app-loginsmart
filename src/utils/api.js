@@ -55,7 +55,7 @@ api.interceptors.response.use(
         originalRequest.headers.Authorization = `Bearer ${accessToken}`;
         return api(originalRequest);
       } catch (err) {
-        store.dispatch(logout()); // Déconnexion en cas d'échec du renouvellement du token
+        store.dispatch(logout()); 
         return Promise.reject(err);
       }
     }

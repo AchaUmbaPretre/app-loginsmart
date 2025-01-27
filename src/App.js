@@ -53,7 +53,7 @@ function App() {
       path: '/',
       element: <Layout />,
       children: [
-        { path: '/', element: <RightBars /> },
+        { path: '/', element: <PrivateRoute element={RightBars} /> },
         {
           path: '/carburant',
           element: <PrivateRoute element={Carburant} />

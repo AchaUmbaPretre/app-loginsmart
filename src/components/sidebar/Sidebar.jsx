@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, message } from 'antd';
 import './sidebar.scss';
 import {
   HomeOutlined,
@@ -13,6 +13,7 @@ import {
 } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import AuthService from '../../services/auth.service';
 
 const { Sider } = Layout;
 const { SubMenu, Item } = Menu;
@@ -27,6 +28,18 @@ const Sidebar = () => {
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find(key => !openKeys.includes(key));
     setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+  };
+
+  const Logout = async () => {
+    try {
+      await AuthService.logout();
+      localStorage.removeItem('persist:root');
+      message.success('Déconnexion réussie !');
+      navigate('/login');
+      window.location.reload();
+    } catch (error) {
+      message.error('Erreur lors de la déconnexion.');
+    }
   };
 
   return (
@@ -126,7 +139,7 @@ const Sidebar = () => {
               <Link to="/fournisseur">Fournisseurs</Link>
             </Item>
           </SubMenu>
-          <Item key="logout" icon={<LogoutOutlined style={{ fontSize: '18px' }} />} className="logout-item">
+          <Item key="logout" icon={<LogoutOutlined style={{ fontSize: '18px' }} />} onClick={Logout} className="logout-item">
             <Link>Déconnexion</Link>
           </Item>
         </Menu>

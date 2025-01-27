@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 
 const Topbar = () => {
-  const userName = useSelector((state) => state.auth.user.nom);
+  const userName = useSelector((state) => state.auth.user?.nom);
 
   const menu = (
     <Menu
@@ -44,7 +44,7 @@ const Topbar = () => {
         <Dropdown overlay={menu} trigger={['click']} placement="bottomRight">
           <div className="user-info">
             <Avatar size="small" style={{ backgroundColor: '#6c63ff' }}>
-              {userName[0]}
+              { userName && userName[0]}
             </Avatar>
             <div className="user-details">
               <span className="user-name">{userName}</span>
