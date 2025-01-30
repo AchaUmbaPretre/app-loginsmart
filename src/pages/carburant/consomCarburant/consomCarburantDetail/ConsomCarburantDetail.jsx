@@ -4,10 +4,12 @@ import { CalendarTwoTone,
     DashboardOutlined, 
     NumberOutlined, 
     BarChartOutlined, 
+    CalendarOutlined,
     OrderedListOutlined } from '@ant-design/icons';
-import { Modal, Table, Tag, Tooltip } from 'antd';
+import { Modal, Space, Table, Tag, Tooltip } from 'antd';
 import './consomCarburantDetail.scss'
 import ConsomCarburantDetailOne from '../consomCarburantDetailOne/ConsomCarburantDetailOne';
+import moment from 'moment';
 
 const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
     const [modalType, setModalType] = useState(null);
@@ -83,7 +85,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
               <span style={{ marginLeft: 8 }}>Km Initial</span>
             </Tooltip>
           ),
-          dataIndex: 'Total_Kilometrage',
+          dataIndex: 'Km_Initial',
           render: text => (
             <span >{text?.toLocaleString("fr-FR")}</span>
           ),
@@ -113,7 +115,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
             multiple: 1,
           },
           render: text => (
-            <span >{text?.toLocaleString()}</span>
+            <span >{text?.toLocaleString("fr-FR")}</span>
           ),
         },
         {
@@ -152,6 +154,49 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
         },
       ];
 
+      const columnsDetails = [
+        { title: "Date", 
+          dataIndex: "date_plein",
+          key: "date_plein", 
+          render: (text, record) => (
+            <Space>
+              <Tag icon={<CalendarOutlined />} color="blue">
+                {moment(text).format('DD-MM-yyyy')}
+              </Tag>
+            </Space>
+          )
+        },
+        { title: "Kilométrage", 
+          dataIndex: "kilometrage", 
+          key: "kilometrage" ,
+          render: (text, record) => (
+            <Space>
+              {text?.toLocaleString("fr-FR")}
+            </Space>
+          )
+        },
+        { title: "Quantité (L)", 
+          dataIndex: "qte_plein", 
+          key: "qte_plein" ,
+          render: (text, record) => (
+            <Space>
+              {text?.toLocaleString("fr-FR")}
+            </Space>
+          )
+        },
+        { title: "Type carburant", 
+          dataIndex: "nom_type_carburant", 
+          key: "nom_type_carburant",
+          render: (text, record) => (
+            <Space>
+              <Tag color='orange'>
+                {text?.toLocaleString("fr-FR")}
+              </Tag>
+            </Space>
+          )
+        },
+    ];
+
       const formatDate = (dateString) => {
         return new Date(dateString).toLocaleDateString('fr-FR', {
             day: '2-digit',
@@ -183,6 +228,17 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
                     bordered 
                     size="small"
                     loading={loading}
+                    rowKey="id_vehicule"
+                    expandable={{
+                        expandedRowRender: (record) => (
+                            <Table
+                                columns={columnsDetails}
+                                dataSource={record.details}
+                                pagination={false}
+                                rowKey="date_plein"
+                            />
+                        ),
+                    }}
                 />
             </div>
         </div>
