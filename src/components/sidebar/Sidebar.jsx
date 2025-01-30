@@ -9,7 +9,6 @@ import {
   SettingOutlined,
   LogoutOutlined,
   BankOutlined,
-  ThunderboltOutlined
 } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';

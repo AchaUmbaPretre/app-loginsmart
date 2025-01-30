@@ -204,7 +204,7 @@ const Vehicule = () => {
                 separator=">"
                 items={[
                     { title: 'Accueil', href: '/' },
-                    { title: 'Gestion', href: '/gestion' },
+                    { title: 'Véhicule', href: '/carburant' },
                     { title: 'Chauffeurs' },
                 ]}
                 className="chauffeur_breadcrumb"

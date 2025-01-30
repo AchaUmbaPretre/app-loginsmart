@@ -1,5 +1,5 @@
 import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
-import { PlusCircleOutlined,HomeOutlined,FireOutlined,AppstoreOutlined, CalendarOutlined, UserOutlined, CarOutlined, EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined,HomeOutlined,CloseOutlined,FireOutlined,AppstoreOutlined, CalendarOutlined, UserOutlined, CarOutlined, EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './carburant.scss';
 import { useEffect, useState } from 'react';
 import CarburantForm from './carburantForm/CarburantForm';
@@ -47,8 +47,8 @@ const Carburant = () => {
     }
 
     const handFilter = () => {
-        setFilterVisible(!filterVisible)
-      }
+      setFilterVisible(!filterVisible)
+    }
 
     const handleFilterChange = () => {
 
@@ -220,10 +220,9 @@ const Carburant = () => {
     ];
     
     
-
-      const onChange = (pagination, filters, sorter, extra) => {
-        console.log('params', pagination, filters, sorter, extra);
-      };
+    const onChange = (pagination, filters, sorter, extra) => {
+      console.log('params', pagination, filters, sorter, extra);
+    };
 
   return (
     <div className="chauffeur">
@@ -233,12 +232,12 @@ const Carburant = () => {
                 <Breadcrumb
                     separator=">"
                     items={[
-                        { title: <><HomeOutlined /> Accueil</>, href: '/' },
-                        { title: <><FireOutlined /> Consommation</>, href: '/consommation_carburant' },
-                        { title: <><CarOutlined /> Véhicule</>, href: '/vehicule' },
+                        { title: <><HomeOutlined /> Accueil</>, href: "/" },
+                        { title: <><FireOutlined /> Consommation</>, href: "/consommation_carburant" },
+                        { title: <><CarOutlined /> Véhicule</>, href: "/vehicule" },
                         { title: <>Carburant</> },
                     ]}
-                    className="chauffeur_breadcrumb"
+                    className="custom-breadcrumb"
                 />
             </div>
             <div className="chauffeur_top_right">
@@ -248,8 +247,13 @@ const Carburant = () => {
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
                 />
-                <Button icon={<FilterOutlined />} onClick={handFilter} className="chauffeur_filter">
-                    Filtres
+                <Button
+                    icon={filterVisible ? <CloseOutlined /> : <FilterOutlined />}
+                    onClick={handFilter}
+                    className={`chauffeur_filter ${filterVisible ? "active" : ""}`}
+                    style={{ backgroundColor: filterVisible ? "#ff4d4f" : "", color: filterVisible ? "#fff" : "" }}
+                >
+                  Filtres
                 </Button>
                 <Button
                     className="chauffeur_btn"
