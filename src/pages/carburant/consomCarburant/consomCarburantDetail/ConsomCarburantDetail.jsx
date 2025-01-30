@@ -184,7 +184,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
             </Space>
           )
         },
-        { title: "Type carburant", 
+        { title: "Type de carburant", 
           dataIndex: "nom_type_carburant", 
           key: "nom_type_carburant",
           render: (text, record) => (
