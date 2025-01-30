@@ -317,6 +317,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
+                                { loadingData ? <Skeleton.Input active={true} /> : 
                                 <Select
                                     showSearch
                                     options={catVehicule.map((item) => ({
@@ -325,7 +326,8 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     }))}
                                     placeholder="Sélectionnez une categorie..."
                                     optionFilterProp="label"
-                                />
+                                />                                
+                                }
                             </Form.Item>
                         </Col>
 
@@ -402,15 +404,19 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
-                                <Select
-                                    showSearch
-                                    options={couleur.map((item) => ({
-                                            value: item.id_couleur                                          ,
-                                            label: item.nom_couleur,
-                                    }))}
-                                    placeholder="Sélectionnez une couleur..."
-                                    optionFilterProp="label"
-                                />
+                                {
+                                    loadingData ? <Skeleton.Input active={true} /> :
+                                    <Select
+                                        showSearch
+                                        options={couleur.map((item) => ({
+                                                value: item.id_couleur                                          ,
+                                                label: item.nom_couleur,
+                                        }))}
+                                        placeholder="Sélectionnez une couleur..."
+                                        optionFilterProp="label"
+                                    />
+                                }
+
                             </Form.Item>
                         </Col>
 
@@ -560,15 +566,17 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
-                                <Select
-                                    showSearch
-                                    options={disposition.map((item) => ({
-                                            value: item.id_disposition_cylindre                                          ,
-                                            label: item.nom_disposition,
-                                    }))}
-                                    placeholder="Sélectionnez une disposition..."
-                                    optionFilterProp="label"
-                                />
+                                { loadingData ? <Skeleton.Input active={true} /> : 
+                                    <Select
+                                        showSearch
+                                        options={disposition.map((item) => ({
+                                                value: item.id_disposition_cylindre                                          ,
+                                                label: item.nom_disposition,
+                                        }))}
+                                        placeholder="Sélectionnez une disposition..."
+                                        optionFilterProp="label"
+                                    />
+                                }
                             </Form.Item>
                         </Col>
 
@@ -583,6 +591,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
+                                { loadingData ? <Skeleton.Input active={true} /> : 
                                 <Select
                                     showSearch
                                     options={typeCarburant.map((item) => ({
@@ -592,6 +601,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     placeholder="Sélectionnez un type de carburant..."
                                     optionFilterProp="label"
                                 />
+                                }
                             </Form.Item>
                         </Col>
 
@@ -686,10 +696,12 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
+                                {loadingData ? <Skeleton.Input active={true} /> : 
                                 <Select placeholder="Choisir une Transmission">
                                     <Option value="1">Transmission 1</Option>
                                     <Option value="2">Transmission 2</Option>
                                 </Select>
+                                }
                             </Form.Item>
                         </Col>
 
