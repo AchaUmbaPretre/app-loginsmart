@@ -122,6 +122,13 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
     },
   ];
 
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('fr-FR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+  }
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
       };
@@ -133,7 +140,7 @@ const ConsomCarburantDetailOne = ({selectedDates, idVehicule}) => {
                 <h2 className="consommation_h2">Immatricule : {immatri} / Marque : {marque} </h2>
                 <div className="consommation_periode">
                     <h2 className="parcours_h2">Période</h2>
-                     <span className='date_desc'><CalendarTwoTone /> Du {selectedDates[0]} au {selectedDates[1]}</span>
+                    <CalendarTwoTone /> Du {formatDate(selectedDates[0])} au {formatDate(selectedDates[1])}
                 </div>
             </div>
             <div className="consomm-wrapper">

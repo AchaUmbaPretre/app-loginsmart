@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CalendarTwoTone,        
     CarOutlined, 
     DashboardOutlined, 
@@ -12,7 +12,15 @@ import ConsomCarburantDetailOne from '../consomCarburantDetailOne/ConsomCarburan
 const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
     const [modalType, setModalType] = useState(null);
     const [idVehicule, setVehicule] = useState('');
+    const [loading, setLoading] = useState(true)
+
     const scroll = { x: 400 };
+
+    useEffect(() => {
+      if (dataConsomme.length > 0) {
+          setLoading(false);
+      }
+  }, [dataConsomme]);
 
     const closeAllModals = () => {
         setModalType(null);
@@ -169,6 +177,14 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
         }, */
       ];
 
+      const formatDate = (dateString) => {
+        return new Date(dateString).toLocaleDateString('fr-FR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    };
+
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
       };
@@ -180,7 +196,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
                 <h2 className="consommation_h2">CONSOMMATION</h2>
                 <div className="consommation_periode">
                     <h2 className="parcours_h2">Période</h2>
-                    <span className='date_desc'><CalendarTwoTone /> Du {selectedDates[0]} au {selectedDates[1]}</span>
+                    <span className='date_desc'><CalendarTwoTone /> Du {formatDate(selectedDates[0])} au {formatDate(selectedDates[1])}</span>
                 </div>
             </div>
             <div className="consomm-wrapper">
@@ -191,6 +207,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
                     scroll={scroll}
                     bordered 
                     size="small"
+                    loading={loading}
                 />
             </div>
         </div>
