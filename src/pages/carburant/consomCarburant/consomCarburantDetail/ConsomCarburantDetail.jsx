@@ -3,10 +3,9 @@ import { CalendarTwoTone,
     CarOutlined, 
     DashboardOutlined, 
     NumberOutlined, 
-    EyeOutlined, 
     BarChartOutlined, 
     OrderedListOutlined } from '@ant-design/icons';
-import { Button, Modal, Space, Table, Tag, Tooltip } from 'antd';
+import { Modal, Table, Tag, Tooltip } from 'antd';
 import './consomCarburantDetail.scss'
 import ConsomCarburantDetailOne from '../consomCarburantDetailOne/ConsomCarburantDetailOne';
 
@@ -169,7 +168,6 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
         }, */
       ];
-      
 
       const onChange = (pagination, filters, sorter, extra) => {
         console.log('params', pagination, filters, sorter, extra);
