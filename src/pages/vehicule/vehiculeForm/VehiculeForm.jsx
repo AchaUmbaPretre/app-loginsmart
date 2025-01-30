@@ -789,15 +789,15 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                 </Form>
 
                 <Modal
-                        visible={cropping}
-                        title="Rogner l'image"
-                        onCancel={() => setCropping(false)}
-                        onOk={handleCrop}
-                        okText="Rogner"
-                        cancelText="Annuler"
-                        width={800}
-                    >
-                        <div style={{ position: 'relative', height: 400 }}>
+                    visible={cropping}
+                    title="Rogner l'image"
+                    onCancel={() => setCropping(false)}
+                    onOk={handleCrop}
+                    okText="Rogner"
+                    cancelText="Annuler"
+                    width={800}
+                >
+                    <div style={{ position: 'relative', height: 400 }}>
                         <Cropper
                             image={previewImage}
                             crop={crop}
@@ -807,8 +807,8 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                             onZoomChange={setZoom}
                             onCropComplete={onCropComplete}
                         />
-                        </div>
-                    </Modal>
+                    </div>
+                </Modal>
             </div>
         </div>
     </>
