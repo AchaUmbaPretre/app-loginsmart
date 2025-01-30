@@ -86,7 +86,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
           dataIndex: 'Total_Kilometrage',
           render: text => (
-            <span >{text}</span>
+            <span >{text?.toLocaleString("fr-FR")}</span>
           ),
         },
         {
@@ -98,7 +98,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
           dataIndex: 'Total_Kilometrage',
           render: text => (
-            <span >{text}</span>
+            <span >{text?.toLocaleString("fr-FR")}</span>
           ),
         },
         {
@@ -114,7 +114,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
             multiple: 1,
           },
           render: text => (
-            <span >{text}</span>
+            <span >{text?.toLocaleString()}</span>
           ),
         },
         {
@@ -125,7 +125,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
           dataIndex: 'Total_Litres',
           render: text => (
-            <span >{text}</span>
+            <span >{text?.toLocaleString("fr-FR")}</span>
           ),
         },
         {
@@ -136,7 +136,7 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
           dataIndex: 'Consommation_Litres_Par_100Km',
           render: text => (
-            <span>{text}</span>
+            <span>{text?.toLocaleString("fr-FR")}</span>
           ),
         },
         {
@@ -148,33 +148,9 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
           ),
           dataIndex: 'Nbre_De_Plein',
           render: text => (
-            <span>{text}</span>
+            <span>{text?.toLocaleString("fr-FR")}</span>
           ),
         },
-/*         {
-          title: 'Actions',
-          dataIndex: 'actions',
-          key: 'actions',
-          render: (text, record) => (
-            <Space size="middle" style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
-              <Tooltip title="Détail" placement="top">
-                <Button
-                  icon={<EyeOutlined />}
-                  style={{
-                    color: '#fff',
-                    backgroundColor: '#1890ff',
-                    borderColor: '#1890ff',
-                    transition: 'all 0.3s ease',
-                  }}
-                  aria-label="Détail"
-                  onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
-                  onClick={() => { handleDetail(record.id_vehicule); }}
-                />
-              </Tooltip>
-            </Space>
-          ),
-        }, */
       ];
 
       const formatDate = (dateString) => {
