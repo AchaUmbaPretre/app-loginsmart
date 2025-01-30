@@ -716,10 +716,12 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
+                                { loadingData ? <Skeleton.Input active={true} /> : 
                                 <Select placeholder="Choisir une climatisation">
                                     <Option value="1">Climatisation 1</Option>
                                     <Option value="2">Climatisation 2</Option>
                                 </Select>
+                                }
                             </Form.Item>
                         </Col>
 
@@ -733,11 +735,14 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                         message: 'Veuillez fournir un pneu...',
                                     },
                                 ]}
-                            >
-                                <Select placeholder="Choisir un pneu">
-                                    <Option value="1">Pneu 1</Option>
-                                    <Option value="2">Pneu 2</Option>
-                                </Select>
+                            >   
+                                {
+                                    loadingData ? <Skeleton.Input active={true} /> : 
+                                    <Select placeholder="Choisir un pneu">
+                                        <Option value="1">Pneu 1</Option>
+                                        <Option value="2">Pneu 2</Option>
+                                    </Select>
+                                }
                             </Form.Item>
                         </Col>
 
@@ -767,10 +772,13 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
-                                <Select placeholder="Choisir un lubrifiant moteur">
-                                    <Option value="1">Lubrifiant 1</Option>
-                                    <Option value="2">Lubrifiant 2</Option>
-                                </Select>
+                                {
+                                    loadingData ? <Skeleton.Input active={true} /> : 
+                                    <Select placeholder="Choisir un lubrifiant moteur">
+                                        <Option value="1">Lubrifiant 1</Option>
+                                        <Option value="2">Lubrifiant 2</Option>
+                                    </Select>
+                                }
                             </Form.Item>
                         </Col>
                         <Col xs={24}>
