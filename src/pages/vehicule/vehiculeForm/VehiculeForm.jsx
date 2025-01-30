@@ -192,6 +192,8 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
+                            {
+                                loadingData ? <Skeleton.Input active={true} /> : 
                                 <Select
                                     showSearch
                                     options={marque.map((item) => ({
@@ -202,6 +204,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     optionFilterProp="label"
                                     onChange={(value)=> setIdMarque(value)}
                                 />
+                            }
                             </Form.Item>
                         </Col> 
                         { iDmarque && 
@@ -216,15 +219,19 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
-                                <Select
-                                    showSearch
-                                    options={modele.map((item) => ({
-                                            value: item.id_modele                                           ,
-                                            label: item.modele,
-                                    }))}
-                                    placeholder="Sélectionnez une modèle..."
-                                    optionFilterProp="label"
-                                />
+                                {
+                                    loadingData ? <Skeleton.Input active={true} /> :
+                                    <Select
+                                        showSearch
+                                        options={modele.map((item) => ({
+                                                value: item.id_modele                                           ,
+                                                label: item.modele,
+                                        }))}
+                                        placeholder="Sélectionnez une modèle..."
+                                        optionFilterProp="label"
+                                    />
+                                }
+
                             </Form.Item>
                         </Col> }
 
@@ -269,11 +276,13 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> :    <DatePicker 
-                                                                                        picker="year" 
-                                                                                        style={{width:'100%'}}
-                                                                                        placeholder="Sélectionnez une année" 
-                                                                                        />}
+                                {loadingData ? <Skeleton.Input active={true} /> :  
+                                    <DatePicker 
+                                        picker="year" 
+                                        style={{width:'100%'}}
+                                        placeholder="Sélectionnez une année" 
+                                    />
+                                }
                             </Form.Item>
                         </Col>
 
@@ -288,11 +297,12 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                                     },
                                 ]}
                             >
-                                {loadingData ? <Skeleton.Input active={true} /> :    <DatePicker 
-                                                                                            picker="year" 
-                                                                                            placeholder="Sélectionnez une année" 
-                                                                                            style={{width:'100%'}}
-                                                                                        />}
+                                {loadingData ? <Skeleton.Input active={true} /> : 
+                                <DatePicker 
+                                    picker="year" 
+                                    placeholder="Sélectionnez une année" 
+                                    style={{width:'100%'}}
+                                />}
                             </Form.Item>
                         </Col>
 
