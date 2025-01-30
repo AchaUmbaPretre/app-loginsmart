@@ -10,7 +10,6 @@ import TypeService from '../../../services/type.service';
 import { useNavigate } from 'react-router-dom';
 const { Option } = Select;
 
-
 const CarburantForm = ({closeModal, fetchData}) => {
     const [form] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false);
