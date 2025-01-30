@@ -3,7 +3,7 @@ import { store} from '../redux/store';
 import { logout, refreshAccessToken, updateRefreshToken } from '../redux/authSlice';
 
 const api = axios.create({
-  baseURL: 'https://apilog.loginsmart-cd.com',
+  baseURL: 'http://localhost:8080',
   headers: {
     'Content-Type': 'application/json',
   },

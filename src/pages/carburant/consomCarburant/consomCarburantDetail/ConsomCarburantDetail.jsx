@@ -13,7 +13,6 @@ const ConsomCarburantDetail = ({dataConsomme, selectedDates, targetKeys}) => {
     const [modalType, setModalType] = useState(null);
     const [idVehicule, setVehicule] = useState('');
     const [loading, setLoading] = useState(true)
-
     const scroll = { x: 400 };
 
     useEffect(() => {
