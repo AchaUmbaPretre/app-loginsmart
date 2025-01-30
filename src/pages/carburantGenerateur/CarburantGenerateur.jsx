@@ -1,5 +1,5 @@
 import { Breadcrumb, Button, Input, Modal, Space, Table } from 'antd';
-import { PlusCircleOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined, SearchOutlined,HomeOutlined,CarOutlined, FilterOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import CarburantGenerateurForm from './carburantGenerateurForm/CarburantGenerateurForm';
 
@@ -104,13 +104,13 @@ const CarburantGenerateur = () => {
             <div className="chauffeur_top_left">
                 <h2 className="chauffeur_h2">LISTE DE TOUS LES PRÉLÈVEMENTS</h2>
                 <Breadcrumb
-                separator=">"
-                items={[
-                    { title: 'Accueil', href: '/' },
-                    { title: 'Gestion', href: '/gestion' },
-                    { title: 'Generateur' },
-                ]}
-                className="chauffeur_breadcrumb"
+                    separator=">"
+                    items={[
+                        { title: <><HomeOutlined /> Accueil</>, href: "/" },
+                        { title: <><CarOutlined /> Véhicule</>, href: "/vehicule" },
+                        { title: <>Générateur</> },
+                    ]}
+                    className="custom-breadcrumb"
                 />
             </div>
             <div className="chauffeur_top_right">
