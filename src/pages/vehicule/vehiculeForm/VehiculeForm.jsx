@@ -11,12 +11,11 @@ const { Option } = Select;
 
 const VehiculeForm = ({fetchData, closeModal}) => {
     const [form] = Form.useForm();
-    const [loadingData, setLoadingData] = useState(false);
+    const [loadingData, setLoadingData] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
     const [modele, setModele] = useState([]);
     const [iDmarque, setIdMarque] = useState('');
     const [marque, setMarque] = useState([]);
-    const [error, setError] = useState(null);
     const [couleur, setCouleur] = useState([]);
     const [disposition, setDisposition] = useState([]);
     const [typeCarburant, setTypeCarburant] = useState([]);
@@ -32,7 +31,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
     useEffect(() => {
         const fetchDatas = async () => {
             try {
-                setIsLoading(true);
+                setLoadingData(true);
     
                 const marqueData = await TypeService.typeMarque();
                 const couleurData = await TypeService.typeCouleur();
@@ -51,10 +50,9 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                     setModele(data);
                 }
             } catch (error) {
-                setError('Une erreur est survenue lors du chargement des données.');
                 console.error(error);
             } finally {
-                setIsLoading(false);
+                setLoadingData(false);
             }
         };
     
@@ -67,6 +65,7 @@ const VehiculeForm = ({fetchData, closeModal}) => {
 
     const onFinish = async (values) => {
 
+        setIsLoading(true)
         try {
             if(values.date_service) {
                 values.date_service =  values.date_service ? moment(values.date_service).format('YYYY-MM-DD') : null;
@@ -92,6 +91,8 @@ const VehiculeForm = ({fetchData, closeModal}) => {
         } catch (error) {
             message.error({ content: 'Une erreur est survenue.', key: 'submit' });
             console.error('Erreur lors de l\'ajout du chauffeur:', error);
+        } finally {
+            setIsLoading(false);
         }
     }
 
