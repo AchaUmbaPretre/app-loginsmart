@@ -226,7 +226,7 @@ const Chauffeur = () => {
                 dataSource={data} 
                 onChange={onChange}
                 loading={loading}
-                bordered 
+                bordered
                 size="small"
                 rowClassName={(record, index) => (index % 2 === 0 ? 'odd-row' : 'even-row')}
             />
