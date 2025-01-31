@@ -33,10 +33,10 @@ const carburantService = {
 
     getCarburantOne: async (id) => {
         try {
-            const response = await api.get(`/api/carburant/one?id_vehicule=${id}`);
+            const response = await api.get(`/api/carburant/one?id_plein=${id}`);
             return response.data.data;
         } catch (error) {
-            console.error('Erreur lors de la récupération des chauffeurs:', error);
+            console.error('Erreur lors de la récupération des pleins:', error);
             throw error;
         }
     },

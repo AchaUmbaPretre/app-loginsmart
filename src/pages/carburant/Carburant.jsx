@@ -6,11 +6,13 @@ import CarburantForm from './carburantForm/CarburantForm';
 import FilterCarburant from './filterCarburant/FilterCarburant';
 import carburantService from '../../services/carburant.service';
 import moment from 'moment';
+import CarburantOne from './carburantOne/CarburantOne';
 
 const Carburant = () => {
     const [filterVisible, setFilterVisible] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [data, setData] = useState([]);
+    const [idPlein, setIdPlein] = useState('');
     const [loading, setLoading] = useState(true);
     const scroll = { x: 400 };
 
@@ -37,13 +39,18 @@ const Carburant = () => {
       setModalType(null);
     };
   
-    const openModal = (type, idVehicule = '') => {
+    const openModal = (type, idPlein = '') => {
       closeAllModals();
       setModalType(type);
+      setIdPlein(idPlein)
     };
   
-    const handleAdd = (idVehicule) =>{
-      openModal('add', idVehicule )
+    const handleAdd = (idPlein) =>{
+      openModal('add', idPlein)
+    }
+
+    const handleDetail = (idPlein) =>{
+      openModal('detail', idPlein)
     }
 
     const handFilter = () => {
@@ -172,9 +179,7 @@ const Carburant = () => {
                 aria-label="Détail"
                 onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
-                onClick={() => {
-                  console.log('Afficher les détails pour', record);
-                }}
+                onClick={() => handleDetail(record.id_plein)}
               />
             </Tooltip>
     
@@ -288,6 +293,17 @@ const Carburant = () => {
           centered
         >
           <CarburantForm closeModal={() => setModalType(null)} fetchData={fetchData}/>
+        </Modal>
+
+        <Modal
+          title=""
+          visible={modalType === 'detail'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1025}
+          centered
+        >
+          <CarburantOne idPlein={idPlein}/>
         </Modal>
     </div>
   );
