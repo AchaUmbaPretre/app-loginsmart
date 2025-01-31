@@ -7,8 +7,6 @@ const CarburantOne = ({ idPlein }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log(data)
-
   const fetchData = async () => {
     try {
       setLoading(true);
