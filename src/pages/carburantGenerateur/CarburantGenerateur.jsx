@@ -144,6 +144,7 @@ const CarburantGenerateur = () => {
               onChange={onChange} 
               scroll={scroll}
               loading={loading}
+              rowClassName={(record, index) => (index % 2 === 0 ? 'odd-row' : 'even-row')}
             />
         </div>
         <Modal

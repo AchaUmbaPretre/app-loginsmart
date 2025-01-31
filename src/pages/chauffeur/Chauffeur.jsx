@@ -228,6 +228,7 @@ const Chauffeur = () => {
                 loading={loading}
                 bordered 
                 size="small"
+                rowClassName={(record, index) => (index % 2 === 0 ? 'odd-row' : 'even-row')}
             />
         </div>
         <Modal

@@ -3,7 +3,9 @@ import { useState } from 'react';
 
 const CarburantGenerateurBord = () => {
     const [data, setData] = useState([]);
-  
+    const [loading, setLoading] = useState(true);
+    const scroll = { x: 400 };
+
 
     const columns = [
         { title: '#', dataIndex: 'id', key: 'id', render: (_, __, index) => index + 1, width: "5%" },
