@@ -53,6 +53,10 @@ const Carburant = () => {
       openModal('detail', idPlein)
     }
 
+    const handleEdit = (idPlein) =>{
+      openModal('edit', idPlein)
+    }
+
     const handFilter = () => {
       setFilterVisible(!filterVisible)
     }
@@ -195,6 +199,7 @@ const Carburant = () => {
                 aria-label="Modifier"
                 onMouseEnter={(e) => e.target.style.backgroundColor = '#45b22d'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#52c41a'}
+                onClick={() => handleEdit(record.id_plein)}
               />
             </Tooltip>
     
