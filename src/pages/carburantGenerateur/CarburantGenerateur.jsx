@@ -6,7 +6,7 @@ import CarburantGenerateurForm from './carburantGenerateurForm/CarburantGenerate
 const CarburantGenerateur = () => {
   const [modalType, setModalType] = useState(null);
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const scroll = { x: 400 };
 
 

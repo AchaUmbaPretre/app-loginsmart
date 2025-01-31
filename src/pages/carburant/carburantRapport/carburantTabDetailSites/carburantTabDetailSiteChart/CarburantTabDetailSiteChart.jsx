@@ -5,13 +5,13 @@ import { ResponsiveBar } from '@nivo/bar';
 const CarburantTabDetailSiteChart = ({ selectedVehicles }) => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+    const [vehicleKeyss, setVehicleKeyss] = useState([]);
 
     const fetchData = async () => {
         try {
             setLoading(true);
             const carburantData = await carburantService.getCarburantRapportDetailSiteSelect(selectedVehicles);
-            
-            // Transforming the data to ensure each vehicle's data is properly separated
+    
             const transformedData = carburantData.reduce((acc, item) => {
                 const moisKey = `${item.mois}-${item.annee}`;
                 let monthData = acc.find(data => data.mois === moisKey);
@@ -20,19 +20,31 @@ const CarburantTabDetailSiteChart = ({ selectedVehicles }) => {
                     acc.push(monthData);
                 }
     
-                const vehicleKey = `${item.immatriculation} (${item.nom_marque})`;
-                monthData[vehicleKey] = item.total_litres;
+                const vehicleKey = `${item.immatriculation}`;
+                if (!monthData[vehicleKey]) {
+                    monthData[vehicleKey] = item.total_litres;
+                } else {
+                    monthData[vehicleKey] += item.total_litres;  
+                }
     
                 return acc;
             }, []);
-            
+    
             setData(transformedData);
+    
+            // Extraire les clés des véhicules (en excluant 'mois')
+            const vehicleKeys = transformedData.flatMap(item => Object.keys(item).filter(key => key !== 'mois'));
+    
+            setVehicleKeyss(vehicleKeys)
+
+            // Afficher les clés des véhicules dans la console pour déboguer
         } catch (error) {
             console.log(error);
         } finally {
             setLoading(false);
         }
     };
+    
     
     useEffect(() => {
         fetchData();
@@ -42,7 +54,6 @@ const CarburantTabDetailSiteChart = ({ selectedVehicles }) => {
         return <div>Loading...</div>;
     }
 
-    // Create a color map for vehicle matricules to ensure each vehicle has a distinct color
     const vehicleColors = data.length
         ? Object.keys(data[0]).filter(key => key !== 'mois').reduce((acc, key, index) => {
             acc[key] = `hsl(${(index * 50) % 360}, 70%, 50%)`; // Example color generation
@@ -50,29 +61,16 @@ const CarburantTabDetailSiteChart = ({ selectedVehicles }) => {
         }, {})
         : {};
 
-    // Titles for the vehicles with corresponding colors
-    const vehicleTitles = data.length
-        ? Object.keys(data[0]).filter(key => key !== 'mois').map(key => {
-            return (
-                <div key={key} style={{ display: 'inline-block', margin: '5px', color: vehicleColors[key] }}>
-                    {key}
-                </div>
-            );
-        })
-        : [];
 
     return (
         <div style={{ height: 400 }}>
-            <div style={{ marginBottom: '20px', display: 'flex', flexWrap: 'wrap' }}>
-                {vehicleTitles} {/* Display matricules with their colors above the chart */}
-            </div>
             <ResponsiveBar
                 data={data}
-                keys={data.length ? Object.keys(data[0]).filter(key => key !== 'mois') : []}  // Toutes les clés sauf "mois"
+                keys={data.length ? vehicleKeyss : []}  // Utilisation de vehicleKeys définis précédemment
                 indexBy="mois"
                 margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
                 padding={0.3}
-                colors={({ id }) => vehicleColors[id]} // Use the color map for each vehicle
+                colors={({ id }) => vehicleColors[id]}  // Mapping des couleurs par véhicule
                 borderColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
                 axisTop={{
                     tickSize: 5,
@@ -108,7 +106,35 @@ const CarburantTabDetailSiteChart = ({ selectedVehicles }) => {
                         },
                     },
                 }}
+                legends={[{
+                    dataFrom: 'keys',
+                    anchor: 'top',
+                    direction: 'row',
+                    justify: false,
+                    translateY: -40,
+                    itemsSpacing: 0,
+                    itemWidth: 150,
+                    itemHeight: 15,
+                    itemDirection: 'left-to-right',
+                    symbolShape: 'circle',
+                    symbolBorderColor: 'rgba(0, 0, 0, .5)',
+                    effects: [
+                        {
+                            on: 'hover',
+                            style: {
+                                itemOpacity: 1,
+                            },
+                        },
+                    ],
+                    labels: {
+                        color: "#4B5563",
+                        font: {
+                            size: 14,
+                        },
+                    },
+                }]}
             />
+
         </div>
     );
 };
