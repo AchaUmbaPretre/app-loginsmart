@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
+import { Breadcrumb, Button, Input, message, Modal, notification, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
 import { PlusCircleOutlined,HomeOutlined,CloseOutlined,FireOutlined,AppstoreOutlined, CalendarOutlined, UserOutlined, CarOutlined, EyeOutlined,DeleteOutlined,EditOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import './carburant.scss';
 import { useEffect, useState } from 'react';
@@ -34,6 +34,19 @@ const Carburant = () => {
   useEffect(()=> {
     fetchData()
   }, [])
+
+  const handleDelete = async (id) => {
+    try {
+       await carburantService.deleteCarburant(id);
+      setData(data.filter((item) => item.id_plein !== id));
+      message.success('Plein a ete supprimé avec succès');
+    } catch (error) {
+      notification.error({
+        message: 'Erreur de suppression',
+        description: 'Une erreur est survenue lors de la suppression du plein.',
+      });
+    }
+  };
 
     const closeAllModals = () => {
       setModalType(null);
@@ -205,10 +218,10 @@ const Carburant = () => {
     
             <Tooltip title="Supprimer" placement="top">
               <Popconfirm
-                title="Êtes-vous sûr de vouloir supprimer ce client ?"
+                title="Êtes-vous sûr de vouloir supprimer ?"
                 okText="Oui"
                 cancelText="Non"
-                onConfirm={() => {}}
+                onConfirm={() => handleDelete(record.id_plein)}
               >
                 <Button
                   icon={<DeleteOutlined />}

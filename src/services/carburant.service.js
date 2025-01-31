@@ -81,6 +81,16 @@ const carburantService = {
         }
     },
 
+    deleteCarburant: async (id) => {
+        try {
+            const response = await api.put(`/api/carburant/delete_carburant?id_plein=${id}`);
+            return response.data;
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout du carburant:', error);
+            throw error;
+        }
+    },
+
     //Rapport detail carburant vehicule
     getCarburantRapportDetailVehicule: async () => {
         try {
