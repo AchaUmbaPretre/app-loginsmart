@@ -8,9 +8,10 @@ import carburantService from '../../../services/carburant.service';
 import { useSelector } from 'react-redux';
 import TypeService from '../../../services/type.service';
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 const { Option } = Select;
 
-const CarburantForm = ({closeModal, fetchData}) => {
+const CarburantForm = ({closeModal, fetchData, idPlein}) => {
     const [form] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [vehicule, setVehicule] = useState([]);
@@ -20,7 +21,6 @@ const CarburantForm = ({closeModal, fetchData}) => {
     const [loadingData, setLoadingData] = useState(true);
     const userId = useSelector((state) => state.auth.user.id);
     const [typeCarburant, setTypeCarburant] = useState([]);
-    const navigate = useNavigate();
     
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +33,18 @@ const CarburantForm = ({closeModal, fetchData}) => {
 
                 if(iDVehicule) {
                     const vehiculeOne = await carburantService.getCarburantOne(iDVehicule);
-                    setCarburantOne(vehiculeOne)                }
+                    setCarburantOne(vehiculeOne)                
+                }
+
+                if (idPlein) {
+                    const data = await carburantService.getCarburantOneV(idPlein);
+                    if (data && data[0]) {
+                        form.setFieldsValue({
+                            ...data[0],
+                            date_plein : moment(data[0].date_plein, 'YYYY-MM-DD')
+                        });
+                    }
+                }
 
                 setVehicule(vehiculeData);
                 setChauffeur(chauffeurData);
@@ -51,26 +62,35 @@ const CarburantForm = ({closeModal, fetchData}) => {
     }, [iDVehicule])
 
     const onFinish = async (values) => {
-
-        setIsLoading(true)
+        setIsLoading(true);
+        
         try {
-            if(userId){
-                values.id_user = userId
-            }
-
             message.loading({ content: 'En cours...', key: 'submit' });
-            await carburantService.postCarburant(values)
+    
+            const payload = { 
+                ...values, 
+                id_user: userId || undefined
+            };
+    
+            if (idPlein) {
+                await carburantService.putCarburant({ ...payload, id_plein: idPlein });
+            } else {
+                await carburantService.postCarburant(payload);
+            }
+    
             message.success({ content: 'Carburant ajouté avec succès!', key: 'submit' });
-             form.resetFields();
-             fetchData();
-             closeModal();
+    
+            form.resetFields();
+            fetchData();
+            closeModal();
         } catch (error) {
             message.error({ content: 'Une erreur est survenue.', key: 'submit' });
             console.error('Erreur lors de l\'ajout du carburant:', error);
-        } finally{
-            setIsLoading(false)
+        } finally {
+            setIsLoading(false);
         }
-    }
+    };
+    
 
   return (
     <>

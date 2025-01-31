@@ -302,6 +302,17 @@ const Carburant = () => {
 
         <Modal
           title=""
+          visible={modalType === 'edit'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1025}
+          centered
+        >
+          <CarburantForm closeModal={() => setModalType(null)} fetchData={fetchData} idPlein={idPlein}/>
+        </Modal>
+
+        <Modal
+          title=""
           visible={modalType === 'detail'}
           onCancel={closeAllModals}
           footer={null}

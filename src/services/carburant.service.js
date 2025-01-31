@@ -41,6 +41,16 @@ const carburantService = {
         }
     },
 
+    getCarburantOneV: async (id) => {
+        try {
+            const response = await api.get(`/api/carburant/one_v?id_plein=${id}`);
+            return response.data.data;
+        } catch (error) {
+            console.error('Erreur lors de la récupération des pleins:', error);
+            throw error;
+        }
+    },
+
     getCarburantCinq: async () => {
         try {
             const response = await api.get('/api/carburant/cinq_derniers');
@@ -57,6 +67,16 @@ const carburantService = {
             return response.data;
         } catch (error) {
             console.error('Erreur lors de l\'ajout du chauffeur:', error);
+            throw error;
+        }
+    },
+
+    putCarburant: async (formData) => {
+        try {
+            const response = await api.put('/api/carburant', formData);
+            return response.data;
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout du carburant:', error);
             throw error;
         }
     },
