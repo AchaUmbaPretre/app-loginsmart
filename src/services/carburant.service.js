@@ -62,7 +62,6 @@ const carburantService = {
     },
 
     //Rapport detail carburant vehicule
-    
     getCarburantRapportDetailVehicule: async () => {
         try {
             const response = await api.get('/api/carburant/rapport_detail_vehicule');
