@@ -29,7 +29,6 @@ const CarburantForm = ({closeModal, fetchData, idPlein}) => {
                 const chauffeurData = await ChauffeurService.getChauffeur();
                 const typeCarburantData = await TypeService.typeCarburant();
 
-
                 if(iDVehicule) {
                     const vehiculeOne = await carburantService.getCarburantOne(iDVehicule);
                     setCarburantOne(vehiculeOne)                
