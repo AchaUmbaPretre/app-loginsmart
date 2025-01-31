@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Checkbox, Divider, Table, Tag, Tooltip } from 'antd';
+import { Button, Checkbox, Divider, Modal, Table, Tag, Tooltip } from 'antd';
 import { SendOutlined,DashboardOutlined,CarOutlined, FireOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import carburantService from '../../../../services/carburant.service';
 import { useSearchTableau } from '../../../../hook/getColumnSearchProps';
-
+import CarburantTabDetailSiteChart from './carburantTabDetailSiteChart/CarburantTabDetailSiteChart';
 
 const CarburantTabDetailSites = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedVehicles, setSelectedVehicles] = useState([]);
   const { getColumnSearchProps } = useSearchTableau();
+  const [modalType, setModalType] = useState(null);
   const scroll = { x: 400 };
+
+  const closeAllModals = () => {
+    setModalType(null);
+  };
+
+  const openModal = (type) => {
+    closeAllModals();
+    setModalType(type);
+  };
+
+  const handleAdd = () =>{
+    openModal('add')
+  }
 
   const handleCheckboxChange = (id, checked) => {
     setSelectedVehicles((prev) =>
@@ -148,25 +162,34 @@ const CarburantTabDetailSites = () => {
   ];
 
 
-
   return (
     <>
       <div className="carburantTabDetail">
         <div className="carburant-rows-btn">
-          <Button className='btn' type='primary' icon={<SendOutlined />}>Compare la conso.</Button>
+          <Button className='btn' type='primary' icon={<SendOutlined />} onClick={handleAdd}>Compare la conso.</Button>
         </div>
         <div className="CarburantTabDetail-wrapper">
           <Divider>Détails pour chaque vehicule du site SIEGE KIN</Divider>
           <Table 
             dataSource={data} 
             columns={columns} 
-            size="middle"  
+            size="small"  
             bordered
             scroll={scroll}
             loading={loading}
           />
         </div>
       </div>
+        <Modal
+          title=""
+          visible={modalType === 'add'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1023}
+          centered
+        >
+          <CarburantTabDetailSiteChart selectedVehicles={selectedVehicles}/>
+        </Modal>
     </>
   )
 }
