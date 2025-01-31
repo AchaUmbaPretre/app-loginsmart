@@ -58,3 +58,11 @@ img {
   background: #fafafa;
   overflow-y: auto; /* Pour permettre le défilement du contenu principal */
 }
+
+.even-row {
+  background-color: #f9f9f9 !important;
+}
+
+.odd-row {
+  background-color: #ffffff !important;
+}
