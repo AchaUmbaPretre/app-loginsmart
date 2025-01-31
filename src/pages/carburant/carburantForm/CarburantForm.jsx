@@ -7,7 +7,6 @@ import ChauffeurService from '../../../services/chauffeur.service';
 import carburantService from '../../../services/carburant.service';
 import { useSelector } from 'react-redux';
 import TypeService from '../../../services/type.service';
-import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 const { Option } = Select;
 
@@ -54,12 +53,11 @@ const CarburantForm = ({closeModal, fetchData, idPlein}) => {
                 console.error(error);
             } finally {
                 setLoadingData(false);
-
             }
         }
 
         fetchData();
-    }, [iDVehicule])
+    }, [iDVehicule, idPlein])
 
     const onFinish = async (values) => {
         setIsLoading(true);
@@ -263,7 +261,7 @@ const CarburantForm = ({closeModal, fetchData, idPlein}) => {
                             <Form.Item>
                                 <Space className="button-group">
                                     <Button type="primary" htmlType="submit" loading={isLoading} disabled={isLoading}>
-                                        {'Ajouter'}
+                                        { idPlein ? 'Modifier' : 'Ajouter' }
                                     </Button>
                                     <Button htmlType="reset">
                                         Réinitialiser
