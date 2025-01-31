@@ -6,6 +6,9 @@ import CarburantGenerateurForm from './carburantGenerateurForm/CarburantGenerate
 const CarburantGenerateur = () => {
   const [modalType, setModalType] = useState(null);
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const scroll = { x: 400 };
+
 
   const closeAllModals = () => {
     setModalType(null);
@@ -136,9 +139,11 @@ const CarburantGenerateur = () => {
         </div>
         <div className="chauffeur_bottom">
             <Table 
-                columns={columns} 
-                dataSource={data} 
-                onChange={onChange} 
+              columns={columns} 
+              dataSource={data} 
+              onChange={onChange} 
+              scroll={scroll}
+              loading={loading}
             />
         </div>
         <Modal
