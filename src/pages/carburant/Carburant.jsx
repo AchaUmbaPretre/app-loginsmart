@@ -14,6 +14,7 @@ const Carburant = () => {
     const [data, setData] = useState([]);
     const [idPlein, setIdPlein] = useState('');
     const [loading, setLoading] = useState(true);
+    const [searchValue, setSearchValue] = useState('');
     const scroll = { x: 400 };
 
     const fetchData = async () =>{
@@ -247,6 +248,12 @@ const Carburant = () => {
       console.log('params', pagination, filters, sorter, extra);
     };
 
+    const filteredData = data.filter(item =>
+      item.immatriculation?.toLowerCase().includes(searchValue.toLowerCase()) ||
+      item.nom_marque?.toLowerCase().includes(searchValue.toLowerCase()) || 
+      item.nom_chauffeur?.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
   return (
     <div className="chauffeur">
         <div className="chauffeur_top">
@@ -269,6 +276,7 @@ const Carburant = () => {
                     placeholder="Rechercher..."
                     prefix={<SearchOutlined />}
                     className="chauffeur_search"
+                    onChange={(e) => setSearchValue(e.target.value)}
                 />
                 <Button
                     icon={filterVisible ? <CloseOutlined /> : <FilterOutlined />}
@@ -293,7 +301,7 @@ const Carburant = () => {
         <div className="chauffeur_bottom">
             <Table 
                 columns={columns} 
-                dataSource={data} 
+                dataSource={filteredData} 
                 onChange={onChange} 
                 loading={loading}
                 scroll={scroll}
