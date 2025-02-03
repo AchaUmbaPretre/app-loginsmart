@@ -1,6 +1,7 @@
 import { Divider, Table, Tag, Tooltip } from 'antd'
 import './carburantBoard.scss'
 import { useEffect, useState } from 'react';
+import { UserOutlined } from '@ant-design/icons';
 import carburantService from '../../../services/carburant.service';
 import moment from 'moment';
 
@@ -150,7 +151,7 @@ useEffect(()=> {
           key: 'nom',
           render: (text) => (
             <Tooltip title={`Nom`}>
-              <Tag color="blue">{text}</Tag>
+              <Tag icon={UserOutlined} color="blue">{text}</Tag>
             </Tooltip>
           )
         }
