@@ -109,7 +109,7 @@ const Chauffeur = () => {
       key: 'adresse',
       render: (text) => (
         <Tooltip title={`Telephone`}>
-          <Tag icon={EnvironmentOutlined} color="blue">{text}</Tag>
+          <Tag icon={<EnvironmentOutlined/>} color="orange">{text}</Tag>
         </Tooltip>
       ),
     },
