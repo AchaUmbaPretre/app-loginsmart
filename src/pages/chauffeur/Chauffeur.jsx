@@ -97,16 +97,20 @@ const Chauffeur = () => {
       title: 'Téléphone',
       dataIndex: 'telephone',
       key: 'telephone',
+      render: (text) => (
+        <Tooltip title={`Telephone`}>
+          <Tag color="blue">{text}</Tag>
+        </Tooltip>
+      )
     },
     {
       title: 'Adresse',
       dataIndex: 'adresse',
       key: 'adresse',
       render: (text) => (
-        <div>
-          <EnvironmentOutlined style={{ color: 'red', marginRight: 4 }} />
-          {text}
-        </div>
+        <Tooltip title={`Telephone`}>
+          <Tag icon={EnvironmentOutlined} color="blue">{text}</Tag>
+        </Tooltip>
       ),
     },
     {
