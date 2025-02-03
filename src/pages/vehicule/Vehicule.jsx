@@ -125,7 +125,7 @@ const Vehicule = () => {
         <Tooltip title="Annee fabrication">
           <div>
             <CalendarOutlined style={{ color: '#fa8c16', marginRight:'5px' }} />
-              {moment(text).format('DD-MM-YYYY')}
+              {moment(text).format('YYYY')}
           </div>
         </Tooltip>
       )
@@ -134,10 +134,10 @@ const Vehicule = () => {
       title: 'Année circulation',
       dataIndex: 'annee_circulation',
       render: text => (
-        <Tooltip title="Annee fabrication">
+        <Tooltip title="annee circulation'">
           <div>
             <CalendarOutlined style={{ color: '#fa8c16', marginRight:'5px' }} />
-              {moment(text).format('DD-MM-YYYY')}
+              {moment(text).format('YYYY')}
           </div>
         </Tooltip>
       )

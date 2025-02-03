@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import carburantService from "../../../../../services/carburant.service";
 import { ResponsiveBar } from "@nivo/bar";
+import './carburantTabDetailSiteChart.scss'
 
 const CarburantTabDetailSiteChart = ({ selectedVehicles }) => {
     const [loading, setLoading] = useState(false);
@@ -70,6 +71,7 @@ const CarburantTabDetailSiteChart = ({ selectedVehicles }) => {
     return (
         <>
             <div className="carburantTabDetailSite">
+                <h2 className="carburant-h2">Evolution de la consommation par mois</h2>
                 <div style={{ height: 450 }}>
                     <ResponsiveBar
                         data={chartData}
