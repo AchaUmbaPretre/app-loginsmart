@@ -1,9 +1,10 @@
 import { Breadcrumb, Button, Image, Input, Modal, Popconfirm, Space, Table, Tag, Tooltip } from 'antd';
-import { PlusCircleOutlined,EditOutlined,EyeOutlined,DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined,EditOutlined,CalendarOutlined,EyeOutlined,DeleteOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import VehiculeForm from './vehiculeForm/VehiculeForm';
 import { useEffect, useState } from 'react';
 import api from './../../utils/api'
 import vehiculeService from '../../services/vehicule.service';
+import moment from 'moment';
 
 const Vehicule = () => {
   const [modalType, setModalType] = useState(null);
@@ -119,11 +120,27 @@ const Vehicule = () => {
     },
     {
       title: 'Année de fab',
-      dataIndex: 'annee_fabrication'
+      dataIndex: 'annee_fabrication',
+      render: text => (
+        <Tooltip title="Annee fabrication">
+          <div>
+            <CalendarOutlined style={{ color: '#fa8c16', marginRight:'5px' }} />
+              {moment(text).format('DD-MM-YYYY')}
+          </div>
+        </Tooltip>
+      )
     },
     {
       title: 'Année circulation',
-      dataIndex: 'annee_circulation'
+      dataIndex: 'annee_circulation',
+      render: text => (
+        <Tooltip title="Annee fabrication">
+          <div>
+            <CalendarOutlined style={{ color: '#fa8c16', marginRight:'5px' }} />
+              {moment(text).format('DD-MM-YYYY')}
+          </div>
+        </Tooltip>
+      )
     },
     {
       title: 'Categorie',
@@ -261,6 +278,7 @@ const Vehicule = () => {
               size="small"
               scroll={scroll}
               loading={loading}
+              rowClassName={(record, index) => (index % 2 === 0 ? 'odd-row' : 'even-row')}
             />
         </div>
         <Modal
