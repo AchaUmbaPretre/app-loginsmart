@@ -9,7 +9,7 @@ import Cropper from 'react-easy-crop';
 import moment from 'moment';
 const { Option } = Select;
 
-const VehiculeForm = ({fetchData, closeModal}) => {
+const VehiculeForm = ({fetchData, closeModal, idVehicule}) => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
@@ -49,6 +49,19 @@ const VehiculeForm = ({fetchData, closeModal}) => {
                     const  data  = await TypeService.typeModele(iDmarque);
                     setModele(data);
                 }
+
+                if (idVehicule) {
+                    const data = await vehiculeService.getVehiculeOne(idVehicule);
+                    if (data && data[0]) {
+                        form.setFieldsValue({
+                            ...data[0],
+                            annee_fabrication : moment(data[0].annee_fabrication, 'YYYY-MM-DD'),
+                            annee_circulation : moment(data[0].annee_circulation, 'YYYY-MM-DD'),
+                            date_service : moment(data[0].date_service, 'YYYY-MM-DD')
+                            });
+                        }
+
+                }
             } catch (error) {
                 console.error(error);
             } finally {
@@ -67,6 +80,8 @@ const VehiculeForm = ({fetchData, closeModal}) => {
 
         setIsLoading(true)
         try {
+            message.loading({ content: 'En cours...', key: 'submit' });
+
             if(values.date_service) {
                 values.date_service =  values.date_service ? moment(values.date_service).format('YYYY-MM-DD') : null;
 
@@ -80,8 +95,16 @@ const VehiculeForm = ({fetchData, closeModal}) => {
             if (values.annee_fabrication) {
                 values.annee_fabrication = values.annee_fabrication.format("YYYY");
             }
-            message.loading({ content: 'En cours...', key: 'submit' });
-            await vehiculeService.postVehicule(values)
+
+            if (idVehicule) {
+                await vehiculeService.putVehicule({
+                    ...values,
+                    id_vehicule : idVehicule
+                })
+            } else {
+                await vehiculeService.postVehicule(values)
+            }
+
             message.success({ content: 'Véhicule ajouté avec succès!', key: 'submit' });
 
             form.resetFields();

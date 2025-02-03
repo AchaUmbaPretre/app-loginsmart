@@ -4,73 +4,81 @@ import { ResponsiveBar } from '@nivo/bar';
 
 const CarburantTabDetailSiteChart = ({ selectedVehicles }) => {
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([]);
-    const [vehicleKeyss, setVehicleKeyss] = useState([]);
+    const [chartData, setChartData] = useState([]);
+    const [vehicleKeys, setVehicleKeys] = useState([]);
 
-    const fetchData = async () => {
+    // Fonction pour transformer les données de carburant
+    const transformCarburantData = (carburantData) => {
+        return carburantData.reduce((acc, item) => {
+            const monthKey = `${item.mois}-${item.annee}`;
+            let monthData = acc.find(data => data.mois === monthKey);
+            
+            if (!monthData) {
+                monthData = { mois: monthKey };
+                acc.push(monthData);
+            }
+
+            const vehicleKey = `${item.immatriculation}`;
+            monthData[vehicleKey] = monthData[vehicleKey] 
+                ? monthData[vehicleKey] + item.total_litres 
+                : item.total_litres;
+
+            return acc;
+        }, []);
+    };
+
+    // Fonction pour récupérer et transformer les données
+    const fetchCarburantData = async () => {
+        setLoading(true);
         try {
-            setLoading(true);
             const carburantData = await carburantService.getCarburantRapportDetailSiteSelect(selectedVehicles);
-    
-            const transformedData = carburantData.reduce((acc, item) => {
-                const moisKey = `${item.mois}-${item.annee}`;
-                let monthData = acc.find(data => data.mois === moisKey);
-                if (!monthData) {
-                    monthData = { mois: moisKey };
-                    acc.push(monthData);
-                }
-    
-                const vehicleKey = `${item.immatriculation}`;
-                if (!monthData[vehicleKey]) {
-                    monthData[vehicleKey] = item.total_litres;
-                } else {
-                    monthData[vehicleKey] += item.total_litres;  
-                }
-    
-                return acc;
-            }, []);
-    
-            setData(transformedData);
-    
-            // Extraire les clés des véhicules (en excluant 'mois')
-            const vehicleKeys = transformedData.flatMap(item => Object.keys(item).filter(key => key !== 'mois'));
-    
-            setVehicleKeyss(vehicleKeys)
+            const transformedData = transformCarburantData(carburantData);
+            setChartData(transformedData);
 
-            // Afficher les clés des véhicules dans la console pour déboguer
+            // Extraction des clés des véhicules (en excluant 'mois')
+            const extractedVehicleKeys = transformedData.flatMap(item =>
+                Object.keys(item).filter(key => key !== 'mois')
+            );
+            setVehicleKeys(extractedVehicleKeys);
         } catch (error) {
-            console.log(error);
+            console.error('Erreur lors de la récupération des données :', error);
         } finally {
             setLoading(false);
         }
     };
-    
-    
+
+    // Utiliser useEffect pour charger les données au changement de selectedVehicles
     useEffect(() => {
-        fetchData();
+        if (selectedVehicles && selectedVehicles.length > 0) {
+            fetchCarburantData();
+        }
     }, [selectedVehicles]);
 
+    // Si les données sont en cours de chargement
     if (loading) {
-        return <div>Loading...</div>;
+        return <div>Chargement des données...</div>;
     }
 
-    const vehicleColors = data.length
-        ? Object.keys(data[0]).filter(key => key !== 'mois').reduce((acc, key, index) => {
-            acc[key] = `hsl(${(index * 50) % 360}, 70%, 50%)`; // Example color generation
-            return acc;
-        }, {})
-        : {};
+    // Définir les couleurs des véhicules dynamiquement
+    const getVehicleColors = () => {
+        return chartData.length
+            ? Object.keys(chartData[0]).filter(key => key !== 'mois').reduce((acc, key, index) => {
+                acc[key] = `hsl(${(index * 50) % 360}, 70%, 50%)`;
+                return acc;
+            }, {})
+            : {};
+    };
 
-
+    // Configuration du graphique avec Nivo ResponsiveBar
     return (
         <div style={{ height: 400 }}>
             <ResponsiveBar
-                data={data}
-                keys={data.length ? vehicleKeyss : []}  // Utilisation de vehicleKeys définis précédemment
+                data={chartData}
+                keys={vehicleKeys}
                 indexBy="mois"
                 margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
                 padding={0.3}
-                colors={({ id }) => vehicleColors[id]}  // Mapping des couleurs par véhicule
+                colors={({ id }) => getVehicleColors()[id]} // Utilisation des couleurs dynamiques
                 borderColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
                 axisTop={{
                     tickSize: 5,
@@ -106,35 +114,36 @@ const CarburantTabDetailSiteChart = ({ selectedVehicles }) => {
                         },
                     },
                 }}
-                legends={[{
-                    dataFrom: 'keys',
-                    anchor: 'top',
-                    direction: 'row',
-                    justify: false,
-                    translateY: -40,
-                    itemsSpacing: 0,
-                    itemWidth: 150,
-                    itemHeight: 15,
-                    itemDirection: 'left-to-right',
-                    symbolShape: 'circle',
-                    symbolBorderColor: 'rgba(0, 0, 0, .5)',
-                    effects: [
-                        {
-                            on: 'hover',
-                            style: {
-                                itemOpacity: 1,
+                legends={[
+                    {
+                        dataFrom: 'keys',
+                        anchor: 'top',
+                        direction: 'row',
+                        justify: false,
+                        translateY: -40,
+                        itemsSpacing: 0,
+                        itemWidth: 150,
+                        itemHeight: 15,
+                        itemDirection: 'left-to-right',
+                        symbolShape: 'circle',
+                        symbolBorderColor: 'rgba(0, 0, 0, .5)',
+                        effects: [
+                            {
+                                on: 'hover',
+                                style: {
+                                    itemOpacity: 1,
+                                },
+                            },
+                        ],
+                        labels: {
+                            color: "#4B5563",
+                            font: {
+                                size: 14,
                             },
                         },
-                    ],
-                    labels: {
-                        color: "#4B5563",
-                        font: {
-                            size: 14,
-                        },
                     },
-                }]}
+                ]}
             />
-
         </div>
     );
 };

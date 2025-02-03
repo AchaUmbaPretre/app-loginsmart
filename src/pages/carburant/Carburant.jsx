@@ -128,8 +128,8 @@ const Carburant = () => {
         render: text => (
           <Tooltip title="Date du plein">
             <div>
-              <CalendarOutlined style={{ color: '#fa8c16' }} />
-              {moment(text).format('DD-MM-YYYY')}  {/* Correction du format de l'année avec 'YYYY' */}
+              <CalendarOutlined style={{ color: '#fa8c16', marginRight:'5px' }} />
+                {moment(text).format('DD-MM-YYYY')}
             </div>
           </Tooltip>
         )

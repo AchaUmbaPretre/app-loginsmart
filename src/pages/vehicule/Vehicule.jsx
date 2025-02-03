@@ -9,19 +9,39 @@ const Vehicule = () => {
   const [modalType, setModalType] = useState(null);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [idVehicule, setIdVehicule] = useState('');
   const scroll = { x: 400 };
+
+
+/*   const handleDelete = async (id) => {
+    try {
+       await carburantService.deleteCarburant(id);
+      setData(data.filter((item) => item.id_plein !== id));
+      message.success('Plein a ete supprimé avec succès');
+    } catch (error) {
+      notification.error({
+        message: 'Erreur de suppression',
+        description: 'Une erreur est survenue lors de la suppression du plein.',
+      });
+    }
+  }; */
 
   const closeAllModals = () => {
     setModalType(null);
   };
 
-  const openModal = (type, idBatiment = '') => {
+  const openModal = (type, idVehicule = '') => {
     closeAllModals();
     setModalType(type);
+    setIdVehicule(idVehicule)
   };
 
-  const handleAdd = ( idBatiment) =>{
-    openModal('add', idBatiment)
+  const handleAdd = ( idVehicule) =>{
+    openModal('add', idVehicule)
+  }
+
+  const handleEdit = ( idVehicule ) =>{
+    openModal('edit', idVehicule)
   }
 
 
@@ -157,6 +177,7 @@ const Vehicule = () => {
               aria-label="Modifier"
               onMouseEnter={(e) => e.target.style.backgroundColor = '#45b22d'}
               onMouseLeave={(e) => e.target.style.backgroundColor = '#52c41a'}
+              onClick={() => handleEdit(record.id_vehicule) }
             />
           </Tooltip>
   
@@ -252,6 +273,18 @@ const Vehicule = () => {
 
         >
           <VehiculeForm fetchData={fetchData} closeModal={()=>setModalType(null)}/>
+        </Modal>
+
+        <Modal
+          title=""
+          visible={modalType === 'edit'}
+          onCancel={closeAllModals}
+          footer={null}
+          width={1023}
+          centered
+
+        >
+          <VehiculeForm fetchData={fetchData} closeModal={()=>setModalType(null)} idVehicule={idVehicule} />
         </Modal>
     </div>
   );
