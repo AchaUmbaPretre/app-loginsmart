@@ -1,11 +1,30 @@
 import React, { useState } from 'react';
 import { MinusCircleOutlined, SendOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { Col, DatePicker, Form, Input, InputNumber, Row, Select, Skeleton, Button, Divider } from 'antd';
+import TypeService from '../../../../services/type.service';
+import { useEffect } from 'react';
 const { Option } = Select;
 
 const GenerateurMaintenanceForm = () => {
     const [form] = Form.useForm();
     const [loadingData, setLoadingData] = useState(false);
+    const [fournisseur, setFournisseur] = useState([]);
+    
+    useEffect(()=> {
+        const fetchData = async () => {
+          try {
+            setLoadingData(true);
+            const fournisseurData = await TypeService.getFournisseur();
+            setFournisseur(fournisseurData);
+            
+          } catch (error) {
+            console.error(error);
+          } finally {
+            setLoadingData(false);
+          }
+        }
+        fetchData()
+    }, [])
 
     const onFinish = (values) => {
         console.log('Form Values:', values);
@@ -142,10 +161,15 @@ const GenerateurMaintenanceForm = () => {
                                     ]}
                                 >
                                     {loadingData ? <Skeleton.Input active={true} /> : 
-                                    <Select placeholder="Choisir un fournisseur">
-                                        <Option value="1">Fournisseur 1</Option>
-                                        <Option value="2">Fournisseur 2</Option>
-                                    </Select> }
+                                    <Select
+                                        showSearch
+                                        options={fournisseur.map((item) => ({
+                                            value: item.id_fournisseur                                           ,
+                                            label: `${item.nom}`,
+                                        }))}
+                                        placeholder="Sélectionnez un fournisseur..."
+                                        optionFilterProp="label"
+                                    /> }
                                 </Form.Item>
                             </Col>
 

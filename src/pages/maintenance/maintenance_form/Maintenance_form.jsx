@@ -191,7 +191,7 @@ const Maintenance_form = ({fetchData, closeModal}) => {
                                                 value: item.id_fournisseur                                           ,
                                                 label: `${item.nom}`,
                                             }))}
-                                            placeholder="Sélectionnez un vehicule..."
+                                            placeholder="Sélectionnez un fournisseur..."
                                             optionFilterProp="label"
                                         /> }
                                 </Form.Item>
