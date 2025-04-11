@@ -16,7 +16,6 @@ const ControleTechForm = ({fetchData, closeModal}) => {
     const [loading, setLoading] = useState(false);
     const [reparation, setReparation] = useState([]);
 
-
     const fetchDatas = async () =>{
         try {
             setLoadingData(true);

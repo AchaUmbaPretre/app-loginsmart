@@ -72,9 +72,6 @@ const VehiculeForm = ({fetchData, closeModal, idVehicule}) => {
         fetchDatas();
     }, [iDmarque]);
     
-    const handleYearChange = (date, dateString) => {
-        console.log("Selected year:", dateString);
-      };
 
     const onFinish = async (values) => {
 
