@@ -98,8 +98,6 @@ const CarburantRapport = () => {
                             )
                         )}
                     </div>
-
-
                     
                 </div>
                 <div className="carburantRapport_bottom">

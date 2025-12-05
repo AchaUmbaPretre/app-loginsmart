@@ -5,10 +5,10 @@ const currentUser = user && JSON.parse(user).currentUser;
 const TOKEN = currentUser?.accessToken;
 
 export default {
-  REACT_APP_SERVER_DOMAIN : 'https://apilog.loginsmart-cd.com'
+  REACT_APP_SERVER_DOMAIN : 'http://localhost:5050'
 };
 
 export const userRequest = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'http://localhost:5050',
   headers: { Authorization: `Bearer ${TOKEN}` },
 });
